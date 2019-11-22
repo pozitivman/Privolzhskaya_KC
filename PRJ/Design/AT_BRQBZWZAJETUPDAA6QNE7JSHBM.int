@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="DRV_PLC_SHKU17_A6_A7" Kind="DRIVER.SONET.MODBUS" Args="" Comment="" UUID="6CE8489C473359F160A03096B45F8DB6">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="DB5D6C6D4354C88CFB961F95154BB6D4" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="0C48DB8641B316B8BFB51BA10089219B" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="4A645BB44042A2B0FD248D9932112AE8" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="6AF8E6B44589318646035FB83C4FEBF2" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="BDB14F9847A490E1E304E9840F4DB225" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="7D83AC764EB410BB2E2DEAA8E99CD7A3" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="52B3DD3F4369469BAC55C3B0CD35157A" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="9BA3C1D345AD3DA6F6EC5C9EAAD48C25" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="8EFA112C4238268A8CE5089BADA37450" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="F98F22C84EA3111159782FAD3A0E1426" Type="STRING" Usage="output" />
+        <Signal Name="SHKU17_DO_A6_3_1" UUID="0E83B5EC4CE21C3F00464FA1BA2B2DC2" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1398.13.0 (СП1-3) открыть" />
+        <Signal Name="SHKU17_DO_A6_3_2" UUID="94412F474BA25267AB2344A70AEA2FDB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1398.13.0 (СП1-3) закрыть" />
+        <Signal Name="SHKU17_DO_A6_3_3" UUID="00317ED04093B538692973B8C16BAACB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 101 открыть" />
+        <Signal Name="SHKU17_DO_A6_3_4" UUID="9AA0F42A4AF481AC75F61FB512379698" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 101 закрыть" />
+        <Signal Name="SHKU17_DO_A6_3_5" UUID="FEB11F704C7ABD53C16678BCA1F00E6D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 102 открыть" />
+        <Signal Name="SHKU17_DO_A6_3_6" UUID="6F7939864C5DA96A3586EA98B0ABFB99" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 102 закрыть" />
+        <Signal Name="SHKU17_DO_A6_3_7" UUID="D6206F724A1D3C0B45B88881A73CBE59" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль):БРТПГ. Кран 114 открыть" />
+        <Signal Name="SHKU17_DO_A6_3_8" UUID="68853B45437AA0B8EE9308A1BEAA201E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 114 закрыть" />
+        <Signal Name="SHKU17_DO_A6_3_9" UUID="F83CA4654B8EB37CD20CA1A42B534A16" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 103 открыть" />
+        <Signal Name="SHKU17_DO_A6_3_10" UUID="3712C2EE4AA47E6BB517DCB5E7E6B432" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 103 закрыть" />
+        <Signal Name="SHKU17_DO_A6_3_11" UUID="6FB6A3C644813FE35427DB800E1C9B43" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 104 открыть" />
+        <Signal Name="SHKU17_DO_A6_3_12" UUID="E7D7DB724F0C6B8817D0388136F2828E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 104 закрыть" />
+        <Signal Name="SHKU17_DO_A6_3_13" UUID="04538372489456CAE04AAF875ECBB637" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): БРТПГ. Кран 117 открыть" />
+        <Signal Name="SHKU17_DO_A6_3_14" UUID="869EF5F24E92FEFF786BB180EDB39097" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль):БРТПГ. Кран 117 закрыть" />
+        <Signal Name="SHKU17_DO_A6_3_15" UUID="487A56B544F59F43C9266A83C69F1119" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 1. Кран 1-105 открыть" />
+        <Signal Name="SHKU17_DO_A6_3_16" UUID="5F0827FB4237186E876F73ACB5D41293" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 1. Кран 1-105 закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_1" UUID="14903C5C414ABC9B8C6A608C18EF6715" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 2. Кран 1-106 открыть" />
+        <Signal Name="SHKU17_DO_A6_4_2" UUID="25261D4D4FF1F5EF78EFAB80F9922C78" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 2. Кран 1-106 закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_3" UUID="7EB0645F444B3975F81ABB9AA6E9BCBC" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 1. Кран 2-105 открыть" />
+        <Signal Name="SHKU17_DO_A6_4_4" UUID="C13329414A8A5F382A9C428079F9B036" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 1. Кран 2-105 закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_5" UUID="C6D9566D437486333C1D22AEC1F2D275" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 2. Кран 2-106 открыть" />
+        <Signal Name="SHKU17_DO_A6_4_6" UUID="C82CF58C4222CCCBF9208CBCA7D6E0EB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): ПГА № 2. Кран 2-106 закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_7" UUID="7920084A4DD4FF5170881E8BA52CB880" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.1 (A1) открыть" />
+        <Signal Name="SHKU17_DO_A6_4_8" UUID="7321010845BA1900F90CBAB01F7B8355" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.1 (A1) закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_9" UUID="282265AC47B8609792339BBF63009E24" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.2 (A2) открыть" />
+        <Signal Name="SHKU17_DO_A6_4_10" UUID="CCBF56FA4A9296FB6A5F7990F79C21CD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.2 (A2) закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_11" UUID="73F0FE32472A19AC5B0543AB3B444D33" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.3 (A3) открыть" />
+        <Signal Name="SHKU17_DO_A6_4_12" UUID="326ECFC345099AD0CC83F1BFE0515A89" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.3 (A3) закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_13" UUID="25456E534BB0CEA5622D33BB6B1CD59E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1399.1 (Б1) открыть" />
+        <Signal Name="SHKU17_DO_A6_4_14" UUID="7DA3429844F0EF623F6914850B5C3539" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1399.1 (Б1) закрыть" />
+        <Signal Name="SHKU17_DO_A6_4_15" UUID="84624CE24EF08C9FC506F1943EFE12F4" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1398.24.9 (Б2, СП2-4) открыть" />
+        <Signal Name="SHKU17_DO_A6_4_16" UUID="2F468EE847DFA358B4B7F28380BE6CBD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1398.24.9 (Б2, СП2-4) закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_1" UUID="6C9A024445F5E08C93AC86946665E796" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1399.3 (Б3) открыть" />
+        <Signal Name="SHKU17_DO_A6_5_2" UUID="C3366DBC4D9444D224FA1693BE8E47CB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1399.3 (Б3) закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_3" UUID="D1EA306E4B2D6E87ECA555AD7A2692A6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1398.14.9 (Б4) открыть" />
+        <Signal Name="SHKU17_DO_A6_5_4" UUID="DAEFFE884FA1B03A903D469712D2F0EB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 1398.14.9 (Б4) закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_5" UUID="F1DACD44459E02A902E631A455B86FCA" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.13.9 (ЮП1-2) открыть" />
+        <Signal Name="SHKU17_DO_A6_5_6" UUID="294902C4455A056DA6FBDF89AEEDE152" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.13.9  (ЮП1-2) закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_7" UUID="0EB594FE4949A1B18893DF8A00D33748" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 17 открыть" />
+        <Signal Name="SHKU17_DO_A6_5_8" UUID="47AF49184073FE96D35DD6AEE8B5469F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 17 закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_9" UUID="F86B5D7540BED90C0831AF873E20CA83" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 18 открыть" />
+        <Signal Name="SHKU17_DO_A6_5_10" UUID="450C3B2841C22BB8A83DCAB96413FBAD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 18 закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_11" UUID="D1A4AEB5401331E0653EAAAA672BED71" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.23.9 (ЮП2-3) открыть" />
+        <Signal Name="SHKU17_DO_A6_5_12" UUID="E8E6DBC2432254152FAE85B32BC06961" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 1397.23.9 (ЮП2-3) закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_13" UUID="487395E44A0E7CBD5A122BA7DF2B6ADA" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 30 открыть" />
+        <Signal Name="SHKU17_DO_A6_5_14" UUID="2EC51045455FCE6EEF1AAB8BA6893478" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 30 закрыть" />
+        <Signal Name="SHKU17_DO_A6_5_15" UUID="4416BC94419449DDC07B3AA1009F3686" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 30&apos; открыть" />
+        <Signal Name="SHKU17_DO_A6_5_16" UUID="D8658D1D4A8C292ABD837D98987350C9" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 30&apos; закрыть" />
+        <Signal Name="SHKU17_DO_A6_6_1" UUID="89F7EB8348EE59672F7CE78BD048488E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 6 открыть" />
+        <Signal Name="SHKU17_DO_A6_6_2" UUID="CF3D7FFA4CC8690D9937EDA531BB39AF" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 6 закрыть" />
+        <Signal Name="SHKU17_DO_A6_6_3" UUID="F0D654C24F2A155ED04D38A9EB42A6B5" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 6р открыть" />
+        <Signal Name="SHKU17_DO_A6_6_4" UUID="9DD6CCA541BF336F36AEB48BEE19FF89" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 6р закрыть" />
+        <Signal Name="SHKU17_DO_A6_6_5" UUID="60A4F0604C542ABF39A24B8D7664C090" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 7 открыть" />
+        <Signal Name="SHKU17_DO_A6_6_6" UUID="FAEADA164CDFF0EFAE96B18E6135B550" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 7 закрыть" />
+        <Signal Name="SHKU17_DO_A6_6_7" UUID="826CFEE84EC49A345C73B8AE5A178D66" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 8 открыть" />
+        <Signal Name="SHKU17_DO_A6_6_8" UUID="B3F07E7648F3C3E1F36BFD997622C25D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 8 закрыть" />
+        <Signal Name="SHKU17_DO_A6_6_9" UUID="9CF3E5A644185E73E751508255FCD4F9" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 8&apos; открыть" />
+        <Signal Name="SHKU17_DO_A6_6_10" UUID="043099554EC80718D28381BAD1EF6A47" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-1 Кран 8&apos; закрыть" />
+        <Signal Name="SHKU17_DO_A6_6_11" UUID="0240A04E49FD0684F4376C9509F77C0A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран П1-2 открыть" />
+        <Signal Name="SHKU17_DO_A6_6_12" UUID="8E9D2A5A40F2739D693808817A363323" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран П1-2 закрыть" />
+        <Signal Name="SHKU17_DO_A6_6_13" UUID="1CD93F6E4D1BA8564642AB8CAB8213F9" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_6_14" UUID="D20DE141452B5FCC64ABAF963885FD4C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_6_15" UUID="8D8930514C1E0F5CFD2546968560D48E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв " />
+        <Signal Name="SHKU17_DO_A6_6_16" UUID="1499D65B4752EE11119FAB955FD1D7D6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв " />
+        <Signal Name="SHKU17_DO_A6_7_1" UUID="E5BD9682481714E6A6ADC9BA935B1398" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 17 открыть" />
+        <Signal Name="SHKU17_DO_A6_7_2" UUID="AD9E266440CCD812522A07A90985B7F4" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 17 закрыть" />
+        <Signal Name="SHKU17_DO_A6_7_3" UUID="339486B24763368D00AE0E8C7499121D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 18 открыть" />
+        <Signal Name="SHKU17_DO_A6_7_4" UUID="F0422E704D950E78569063A53D3DA2C8" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 18 закрыть" />
+        <Signal Name="SHKU17_DO_A6_7_5" UUID="BB2E97914DA7934551D69DB9EA091FD1" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 30 открыть" />
+        <Signal Name="SHKU17_DO_A6_7_6" UUID="03E4A66E4E2C62243224419060914BD7" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 30 закрыть" />
+        <Signal Name="SHKU17_DO_A6_7_7" UUID="7278D18D4D05D226652F3DAF4E4448DB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 30&apos; открыть" />
+        <Signal Name="SHKU17_DO_A6_7_8" UUID="BE0DC75F468BAA2B1A11B18F77A5E2F8" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 30&apos; закрыть" />
+        <Signal Name="SHKU17_DO_A6_7_9" UUID="D70BB8074C2827B2AC097090DE2C7C85" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 6 открыть" />
+        <Signal Name="SHKU17_DO_A6_7_10" UUID="9249B8174091008219F1F0B9B40F72CE" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 6 закрыть" />
+        <Signal Name="SHKU17_DO_A6_7_11" UUID="1A6AA59D432B05C6B272D8AE3200778E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 6р открыть" />
+        <Signal Name="SHKU17_DO_A6_7_12" UUID="C2D19B0A48BFD1684EB2BF88C9A063FC" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 6р закрыть" />
+        <Signal Name="SHKU17_DO_A6_7_13" UUID="901FE4B944FC652D180E3A810A50BF4C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 7 открыть" />
+        <Signal Name="SHKU17_DO_A6_7_14" UUID="57AE54764DD257819E4BC7997366FB07" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 7 закрыть" />
+        <Signal Name="SHKU17_DO_A6_7_15" UUID="4C3B1EAA4593BD191140BEB0997FA23F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 8 открыть" />
+        <Signal Name="SHKU17_DO_A6_7_16" UUID="AF51CEDB4E02686FD1A1BEA17056CFE8" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 8 закрыть" />
+        <Signal Name="SHKU17_DO_A6_8_1" UUID="6CF8212543273A2380996AB22962E341" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 8&apos; открыть" />
+        <Signal Name="SHKU17_DO_A6_8_2" UUID="48E5A8DD4D02088C25068E9192F51C93" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ-2 Кран 8&apos; закрыть" />
+        <Signal Name="SHKU17_DO_A6_9_1" UUID="F7B761F2453E3ED9D802A998220586FB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_9_2" UUID="691EB4DB4F0B4BC1B4C2A0A71A4B0642" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_9_3" UUID="7F5A49964E73D75F7396AA92A42424DB" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_9_4" UUID="C9DC38BF40AEF91E1CC600967CB00B3A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_9_5" UUID="E9FCED2E430BEA3D53CA89805894F06F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Насос перекачки масла №1 включить" />
+        <Signal Name="SHKU17_DO_A6_9_6" UUID="D83CA57B4BC4B7A71432F88AC9E1C0E1" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Насос перекачки масла №1 выключить" />
+        <Signal Name="SHKU17_DO_A6_9_7" UUID="FE59256E4AB07C245918CD9A51D6B196" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Насос перекачки масла №2 включить" />
+        <Signal Name="SHKU17_DO_A6_9_8" UUID="9608A718481D9EAA1781DEB3733C4A5C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Насос перекачки масла №2 выключить" />
+        <Signal Name="SHKU17_DO_A6_9_9" UUID="6EA4CE86436B53C17B8C3E987F07AECD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Пожарный насос №1 включить" />
+        <Signal Name="SHKU17_DO_A6_9_10" UUID="BD09FA5B485739434881C59AB1DB647A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Пожарный насос №1 выключить" />
+        <Signal Name="SHKU17_DO_A6_9_11" UUID="1B00FBE94E9733F3CBA012B9D626FE38" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Пожарный насос №2 включить" />
+        <Signal Name="SHKU17_DO_A6_9_12" UUID="1498109849435E9E63FA04B109905319" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Пожарный насос №2 выключить" />
+        <Signal Name="SHKU17_DO_A6_9_13" UUID="53017DDC4253CAF5880FEE8FE323C95D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Хоз-питьевой насос №1 включить" />
+        <Signal Name="SHKU17_DO_A6_9_14" UUID="7F07AD76455E4915A1B022927A64B80B" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Хоз-питьевой насос №1 выключить" />
+        <Signal Name="SHKU17_DO_A6_9_15" UUID="881E1E6F4AFF8B4C33E5609AD0B39FC7" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Хоз-питьевой насос №2 включить" />
+        <Signal Name="SHKU17_DO_A6_9_16" UUID="6A0FC63849DCA62F05F56F966ED0D728" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Хоз-питьевой насос №2 выключить" />
+        <Signal Name="SHKU17_DO_A6_10_1" UUID="0BC2EEBD45F586E7332A9B8BB7E3AE77" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Насос 2-го подъема включить/отключить" />
+        <Signal Name="SHKU17_DO_A6_10_2" UUID="A3ECD7CB4361A2623C2CE4AC41C8C71B" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): АВВ БРТПГ включить" />
+        <Signal Name="SHKU17_DO_A6_10_3" UUID="AECE5E774F14E84464F4A98B33BD2C63" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): АВВ БРТПГ выключить" />
+        <Signal Name="SHKU17_DO_A6_10_4" UUID="6EED2C5B47E87155FB5F59B27C8786F9" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_10_5" UUID="57AEBCC84BF7127846B2CB96FA1568D3" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A6_10_6" UUID="1A40050A49A6A467F0EBCBA29D6838C9" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Приточный вентилятор/кондиционер №1 включить" />
+        <Signal Name="SHKU17_DO_A6_10_7" UUID="DF0C058B4E399ED8DA8D0996A7305769" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Приточный вентилятор/кондиционер №1 выключить" />
+        <Signal Name="SHKU17_DO_A6_10_8" UUID="825CC82C4F194BC3DA0A5689F5989B2E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Приточный вентилятор/кондиционер №1 пожар" />
+        <Signal Name="SHKU17_DO_A6_10_9" UUID="E95BE6B04274B6A1E9744DA388A170B2" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Приточный вентилятор/кондиционер №2 включить" />
+        <Signal Name="SHKU17_DO_A6_10_10" UUID="CD8C83CD4B07FC3048C158999B11DF3D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Приточный вентилятор/кондиционер №2 выключить" />
+        <Signal Name="SHKU17_DO_A6_10_11" UUID="F9488F8D46C35FE7D890F4A5F269C8AE" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Приточный вентилятор/кондиционер №2 пожар" />
+        <Signal Name="SHKU17_DO_A6_10_12" UUID="5B30E3EC41514D0F12E9E183A3EA6DD6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №1 включить" />
+        <Signal Name="SHKU17_DO_A6_10_13" UUID="6BA1E8B2428481F5341E4B842160A227" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №1 выключить" />
+        <Signal Name="SHKU17_DO_A6_10_14" UUID="1E34F1C2446CEF6CD0DCB3A6CE19CC76" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №2 включить" />
+        <Signal Name="SHKU17_DO_A6_10_15" UUID="BD80546C43C4E886AAEB58BA5B0A14F5" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1.Маш. зал.  Вытяжной вентилятор №2 выключить" />
+        <Signal Name="SHKU17_DO_A6_10_16" UUID="AE45638745FCA9F470AE74981FE8DC11" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №3 включить" />
+        <Signal Name="SHKU17_DO_A7_3_1" UUID="BE8BEE88468D751E38CF6B95844A5CCD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №3 выключить" />
+        <Signal Name="SHKU17_DO_A7_3_2" UUID="3C6E975F431B2DEB917514B496A1AA36" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №4 включить" />
+        <Signal Name="SHKU17_DO_A7_3_3" UUID="75B4645F449A6D5180FE878DE00A3824" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №4 выключить" />
+        <Signal Name="SHKU17_DO_A7_3_4" UUID="7733C8584DB8833A52C21E83BF1D8E34" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №5 включить" />
+        <Signal Name="SHKU17_DO_A7_3_5" UUID="75FEA94D40F4344C6116B9872B79F896" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №5 выключить" />
+        <Signal Name="SHKU17_DO_A7_3_6" UUID="B8063656494ECEB483691E8BDAAF21A5" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №6 включить" />
+        <Signal Name="SHKU17_DO_A7_3_7" UUID="0B335328425F75B4C8617A84EC854E0F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Маш. зал. Вытяжной вентилятор №6 выключить" />
+        <Signal Name="SHKU17_DO_A7_3_8" UUID="0ED2AF1342502F2AE81D7586BC6F5CC6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №1 включить" />
+        <Signal Name="SHKU17_DO_A7_3_9" UUID="77BF86D94C420DCF45BFFD83688D8C0A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_3_10" UUID="D80278A346EAF09C4B7583807D242F53" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №1 пожар" />
+        <Signal Name="SHKU17_DO_A7_3_11" UUID="FFF1A5AF478D243732053A9896EA18BD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №2 включить" />
+        <Signal Name="SHKU17_DO_A7_3_12" UUID="FE6363604D162215E9BF779871849875" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_3_13" UUID="CE2A36D24E45262EAB58D3BEE294F956" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №2 пожар" />
+        <Signal Name="SHKU17_DO_A7_3_14" UUID="2A579A1D49A5495A0E83DFBC494E3365" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №3 включить" />
+        <Signal Name="SHKU17_DO_A7_3_15" UUID="9F96340C47C26223993473A61525B25E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №3 выключить" />
+        <Signal Name="SHKU17_DO_A7_3_16" UUID="87C7ED414E644574DFFEFF94E7E4B248" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №3 пожар" />
+        <Signal Name="SHKU17_DO_A7_4_1" UUID="EFDE3E234D96A81B9507C181EE46B2AC" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №4 включить" />
+        <Signal Name="SHKU17_DO_A7_4_2" UUID="C4FA9ED84C8980623E8993B2DB960C8A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор/кондиционер №4 выключить" />
+        <Signal Name="SHKU17_DO_A7_4_3" UUID="A0B51F80414923619AF1D6886ECDDABD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1.Галерея нагнетателей.  Приточный вентилятор/кондиционер №4 пожар" />
+        <Signal Name="SHKU17_DO_A7_4_4" UUID="7B59111D4B8E4D395CBB13ACE1363CBD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №1 включить" />
+        <Signal Name="SHKU17_DO_A7_4_5" UUID="88771B444D31A608D589C0B856EC1937" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_4_6" UUID="5EE39B90455918395E34999B229CC4B0" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №2 включить" />
+        <Signal Name="SHKU17_DO_A7_4_7" UUID="4EEB77CB4C132B064DE367936CD652F0" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_4_8" UUID="FA275098462EE9CC96B77180CEE71C4D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №3 включить" />
+        <Signal Name="SHKU17_DO_A7_4_9" UUID="FEF61ABF4E65E89D9CDB769680A3B1A6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №3 выключить" />
+        <Signal Name="SHKU17_DO_A7_4_10" UUID="5AB721C24C789BA7A05E47AB12F048B4" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №4 включить" />
+        <Signal Name="SHKU17_DO_A7_4_11" UUID="A9F43E634BF3015A5BDCD4A38C962048" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Вытяжной вентилятор №4 выключить" />
+        <Signal Name="SHKU17_DO_A7_4_12" UUID="0A85B9B94E8D5257ECE7CFB5673C45EE" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор №1 включить" />
+        <Signal Name="SHKU17_DO_A7_4_13" UUID="31B33A304513DC5889FFDC8C66D55D0C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_4_14" UUID="A91ABEF943DCD770F36EFAAE5CCC074E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор №2 включить" />
+        <Signal Name="SHKU17_DO_A7_4_15" UUID="3C73E89F45B671F8D23192B475ACEC16" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_4_16" UUID="50E20AB043344AAE7BF0928FB6D4DB6D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор №3 включить" />
+        <Signal Name="SHKU17_DO_A7_5_1" UUID="57E6491D4082BACB68F0D39E8DAAE557" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ1. Галерея нагнетателей. Приточный вентилятор №3 выключить" />
+        <Signal Name="SHKU17_DO_A7_5_2" UUID="04DE52574F345939E15547A0844B82F4" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Машзал. Приточный вентилятор/кондиционер №1 включить" />
+        <Signal Name="SHKU17_DO_A7_5_3" UUID="CD7CEC1641C7FE9C8334EC8062FC27C8" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Приточный вентилятор/кондиционер №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_5_4" UUID="70C7AE7C4F1C494021E242AC6419884E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Приточный вентилятор/кондиционер №1 пожар" />
+        <Signal Name="SHKU17_DO_A7_5_5" UUID="3BBAFF3F4E5F7C13D678718C4399321F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Приточный вентилятор/кондиционер №2 включить" />
+        <Signal Name="SHKU17_DO_A7_5_6" UUID="3A64D0764E5F4CE017C225A81C216AED" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Приточный вентилятор/кондиционер №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_5_7" UUID="D307D4C64E9CD09FBC4422BC84318F1D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Приточный вентилятор/кондиционер №2 пожар" />
+        <Signal Name="SHKU17_DO_A7_5_8" UUID="B824127540C68E971A5708A70231C5E5" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №1 включить" />
+        <Signal Name="SHKU17_DO_A7_5_9" UUID="2B5077BE4E0A8446F6761EACBBC41FC8" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_5_10" UUID="4DE4A3E54BD6F117E04C25AC287A580C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №2 включить" />
+        <Signal Name="SHKU17_DO_A7_5_11" UUID="4BA2B1F94EFF8B6573834E808294DBA2" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_5_12" UUID="1B26AB7B40B8E089C94C0594C7D65BED" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №3 включить" />
+        <Signal Name="SHKU17_DO_A7_5_13" UUID="79F6898446AEC03F3F07C3AD4BB4DC00" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №3 выключить" />
+        <Signal Name="SHKU17_DO_A7_5_14" UUID="BC65BE8C45D6688EA5A2E496D35D3D7A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №4 включить" />
+        <Signal Name="SHKU17_DO_A7_5_15" UUID="9E9F102A4131F1ED04BF4C9A9CF73A69" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №4 выключить" />
+        <Signal Name="SHKU17_DO_A7_5_16" UUID="0ADDD8E741F7F810BE2AF999F22A6A5D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №5 включить" />
+        <Signal Name="SHKU17_DO_A7_6_1" UUID="2FB8B31F4459F5D9A40C94976D862E61" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №5 выключить" />
+        <Signal Name="SHKU17_DO_A7_6_2" UUID="9F951CC542DF22668F7E6A976F65F012" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №6 включить" />
+        <Signal Name="SHKU17_DO_A7_6_3" UUID="A62E46FD4CCBEE9CB20587B04C6535C6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Маш. зал. Вытяжной вентилятор №6 выключить" />
+        <Signal Name="SHKU17_DO_A7_6_4" UUID="60BD258744DF43DBF0CE618CBAD4AC30" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №1 включить" />
+        <Signal Name="SHKU17_DO_A7_6_5" UUID="75E336CD4C6B7E7835E5358B54CEE7A0" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_6_6" UUID="C014DA3140AF853EB8629DAF3F5DF2E2" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №1 пожар" />
+        <Signal Name="SHKU17_DO_A7_6_7" UUID="A5F327614A7E0C9730F9728E0B882F1A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №2 включить" />
+        <Signal Name="SHKU17_DO_A7_6_8" UUID="4F7B8D544E2D6CCE14BCADAD2713AC0D" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_6_9" UUID="160C4F4245767BB8D073F9B5A50DBB47" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №2 пожар" />
+        <Signal Name="SHKU17_DO_A7_6_10" UUID="A0CD3D1D4D787A556D744487072679D6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №3 включить (резерв)" />
+        <Signal Name="SHKU17_DO_A7_6_11" UUID="4F45EF794DE87A61ACB0918BC0D28B82" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №3 выключить (резерв)" />
+        <Signal Name="SHKU17_DO_A7_6_12" UUID="F889A5344801A6F269924EA0FC5097DF" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №3 пожар (резерв)" />
+        <Signal Name="SHKU17_DO_A7_6_13" UUID="116C88F349E36435FB6B8EA5618FEE4F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №4 включить (резерв)" />
+        <Signal Name="SHKU17_DO_A7_6_14" UUID="116E569B45DB9AF3CF92019AA83D8923" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №4 выключить (резерв)" />
+        <Signal Name="SHKU17_DO_A7_6_15" UUID="7D75D7D242364360DEC07A9E044FC2B1" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор/кондиционер №4 пожар (резерв)" />
+        <Signal Name="SHKU17_DO_A7_6_16" UUID="210F05644D4C3D8F4D7C19929546BC7C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №1 включить" />
+        <Signal Name="SHKU17_DO_A7_7_1" UUID="41B137A5473B1F56699733944A18D5C1" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_7_2" UUID="26C368A14E1FB85B9504DFAF3C90786C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №2 включить" />
+        <Signal Name="SHKU17_DO_A7_7_3" UUID="57F66D524571288A85B6E0922C4AAF50" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_7_4" UUID="A3C33CB94C09CDAE9EECB9A10B7C6DAD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №3 включить" />
+        <Signal Name="SHKU17_DO_A7_7_5" UUID="734935C3401801F8B3481A86E539F97A" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №3 выключить" />
+        <Signal Name="SHKU17_DO_A7_7_6" UUID="F3432C914552FC43FA97099FBB82E3C0" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №4 включить (резерв)" />
+        <Signal Name="SHKU17_DO_A7_7_7" UUID="C133FF4F4FA337A54D5A1C8A06AE7806" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Вытяжной вентилятор №4 выключить (резерв)" />
+        <Signal Name="SHKU17_DO_A7_7_8" UUID="426DDA964A5078FF5C68DDB1A81A4D4F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор №1 включить" />
+        <Signal Name="SHKU17_DO_A7_7_9" UUID="D78D2690425ADF5BD6467FAF4C282095" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор №1 выключить" />
+        <Signal Name="SHKU17_DO_A7_7_10" UUID="B60D534C4CA40AD3CA5599A4383131C4" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор №2 включить" />
+        <Signal Name="SHKU17_DO_A7_7_11" UUID="3FC375FE406C3A70B851F388E3330BF6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор №2 выключить" />
+        <Signal Name="SHKU17_DO_A7_7_12" UUID="BE284CD3478B1356E73E7B88A0C94889" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор №3 включить" />
+        <Signal Name="SHKU17_DO_A7_7_13" UUID="82080E0D45C2B363206DEBAA60B89461" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): КЦ2. Галерея нагнетателей. Приточный вентилятор №3 выключить" />
+        <Signal Name="SHKU17_DO_A7_7_14" UUID="8A12D3F8485ECB5846402CABBEF72B62" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A7_7_15" UUID="68464AE046319EA3D625D29508FDCBAC" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A7_7_16" UUID="A0FFFB62449DBC7DA4D8F0BC02A067AD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A7_8_1" UUID="E33E855141973A5D44AAF99328AAFA76" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): &quot;АО&quot; ГПА №1" />
+        <Signal Name="SHKU17_DO_A7_8_2" UUID="96B88B55445E736354BFCFA93C351CF6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): &quot;АО&quot; ГПА №2" />
+        <Signal Name="SHKU17_DO_A7_8_3" UUID="B041B00A4BCC940EB152C9AC51C23827" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): &quot;АО&quot; ГПА №3" />
+        <Signal Name="SHKU17_DO_A7_8_4" UUID="581E4B074D73D45CB0420FAFC0C94E5F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): &quot;АО&quot; ГПА №4" />
+        <Signal Name="SHKU17_DO_A7_8_5" UUID="49A16CC945C37D2A14F13CB8739E908C" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): &quot;АО&quot; ГПА №5" />
+        <Signal Name="SHKU17_DO_A7_8_6" UUID="59F8921D4B5F67C00875D19ABA968984" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): &quot;АО&quot; ГПА №6" />
+        <Signal Name="SHKU17_DO_A7_8_7" UUID="359D1936413DAB60DE87E090FFB496F9" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Останов ГПА №1 в группе" />
+        <Signal Name="SHKU17_DO_A7_8_8" UUID="5EBF8EE3481C5C981BB72D87562E99F6" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Останов ГПА №2 в группе " />
+        <Signal Name="SHKU17_DO_A7_8_9" UUID="0ACA759144DBB01000A6908D0431A2DD" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Останов ГПА №3 в группе " />
+        <Signal Name="SHKU17_DO_A7_8_10" UUID="5F40612E40CDDAC297B652AC170597C3" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Останов ГПА №4 в группе " />
+        <Signal Name="SHKU17_DO_A7_8_11" UUID="3442EB9A406040C7ADE8F2B5109F7B5E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Останов ГПА №5 в группе " />
+        <Signal Name="SHKU17_DO_A7_8_12" UUID="797D8B3447B1FF0DE98C58B3233CB086" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Останов ГПА №6 в группе " />
+        <Signal Name="SHKU17_DO_A7_8_13" UUID="E51888014C0F387EA9C639824C10B06E" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A7_8_14" UUID="7BC515AD440439EB7DA8AFBB302B9B73" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A7_8_15" UUID="EC6BC59C4BE56F6C0C0DB795C6E75BA7" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A7_8_16" UUID="3028094D44EB4A63CB089A8CAF8BD29F" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Резерв" />
+        <Signal Name="SHKU17_DO_A7_9_1" UUID="F0A1CD3345613C51CD4D63925407ED94" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Предупредительная сигнализация" />
+        <Signal Name="SHKU17_DO_A7_9_2" UUID="F14EE7D74CCBF3189735018F80048234" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Аварийная сигнализация" />
+        <Signal Name="SHKU17_DO_A7_9_3" UUID="17119F5E41B969EA3F5740B2FDB7B970" Type="BOOL" Global="TRUE" Comment="Дискретный выход (модуль): Неисправность контроллера" />
+        <Signal Name="SHKU17_A6_3_flt" UUID="116C521443A1E72B1DB09ABDEDB2CE8E" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.3" />
+        <Signal Name="SHKU17_A6_4_flt" UUID="C7635C134190DA2D8DBD219006026164" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.4" />
+        <Signal Name="SHKU17_A6_5_flt" UUID="4354D6E948A95E048C419C806132E792" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.5" />
+        <Signal Name="SHKU17_A6_6_flt" UUID="26DA688242F1015796066098E65EE84C" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.6" />
+        <Signal Name="SHKU17_A6_7_flt" UUID="681153F14026E043423D448B37C3F01F" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.7" />
+        <Signal Name="SHKU17_A6_8_flt" UUID="039536AC4193F47E0EC4E3BDE7C4F4F9" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.8" />
+        <Signal Name="SHKU17_A6_9_flt" UUID="C32C1F1F4849F995CA23518E9E20E076" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.9" />
+        <Signal Name="SHKU17_A6_10_flt" UUID="9EBF18AC45E436D12B44DE82FEB3D174" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A6.10" />
+        <Signal Name="SHKU17_A7_3_flt" UUID="9A9F5775460B0CB35C4215B3B411CDF3" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A7.3" />
+        <Signal Name="SHKU17_A7_4_flt" UUID="89336D184C6C25E4DF55BDBA2EC0E865" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A7.4" />
+        <Signal Name="SHKU17_A7_5_flt" UUID="2F975E7146E346B0148F79B69C6826BA" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A7.5" />
+        <Signal Name="SHKU17_A7_6_flt" UUID="2A401F164770C3339AA096A9262EF7EB" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A7.6" />
+        <Signal Name="SHKU17_A7_7_flt" UUID="4CC71AE54DE0490E462B75A297B4B5B1" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A7.7" />
+        <Signal Name="SHKU17_A7_8_flt" UUID="BB5F4D4F4C11922897C1E681705B868F" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A7.8" />
+        <Signal Name="SHKU17_A7_9_flt" UUID="21503FF740FF14F2A2BC1696B6505352" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A7.9" />
+    </InterfaceList>
+</SubAppType>

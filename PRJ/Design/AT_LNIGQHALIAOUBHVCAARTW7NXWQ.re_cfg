@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ReportEngine >
+<Configuration>
+    <ReportList>
+        <Report Equation="BTN.Print_PPZ=TRUE" Printer="lp" Template="KC_Report_PPZ.htm" Print="FALSE" ShowPreview="TRUE" Archive="" FileNameTemplate="Report_%Y%m%d_%H%M%S.htm" Comment="Протокол проверки защит" Landscape="TRUE" MarginTop="10" MarginLeft="10" MarginRight="10" MarginBottom="10" PageSize="A4" FullPage="TRUE" />
+    </ReportList>
+</Configuration>

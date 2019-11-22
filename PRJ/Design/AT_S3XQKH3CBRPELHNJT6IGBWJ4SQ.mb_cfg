@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.MODBUS v. 1.3 >
+<Configuration Slave="FALSE" TCP="TRUE">
+    <Devices CommConfig="">
+        <Device Address="10.1.1.112:502,1" RetryCount="3" RetryDelay="5000" SymbolTimeout="10000" ResponseTimeout="50000" InterpacketDelay="5000" MaxStatus="32" MaxRegs="32" DisconnectInReserve="FALSE">
+            <Group Name="Group_1" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
+        </Device>
+        <Device Address="10.1.1.102:502,1" RetryCount="3" RetryDelay="5000" SymbolTimeout="10000" ResponseTimeout="50000" InterpacketDelay="5000" MaxStatus="32" MaxRegs="32" DisconnectInReserve="FALSE">
+            <Group Name="Group_1" Function="READ_INPUT_REGISTERS" UpdatePeriod="1000000" />
+        </Device>
+    </Devices>
+    <Crossconnect>
+        <Connection ItemName="Status_GPA_2" Device="10.1.1.112:502,1.status" Channel="" UUID="7688768D4DAC4C39C96A4D9A2153C2FA" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_TE_2_T_sg_Status_PV_user" Device="10.1.1.112:502,1" Channel="269:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.EB5F827D465D4A2551FF2BA791A658AD" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_TE_3_T_sg_Status_PV_user" Device="10.1.1.112:502,1" Channel="271:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.EC9ECA0F4B35BE81A6BC31A9743CCF32" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_PE_1_T_sg_Status_PV_user" Device="10.1.1.112:502,1" Channel="273:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.D7CD8333476FA9EA95AAC0B439F76038" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_PE_2_T_sg_Status_PV_user" Device="10.1.1.112:502,1" Channel="275:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.867C596649E7C02327254A9D1011F854" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_dP_1_T_sg_Status_PV_user" Device="10.1.1.112:502,1" Channel="277:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.2BF053DF489F06A809D55DB7A40061C6" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T" Device="10.1.1.112:502,1" Channel="307:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.D6EA2B1241CAC11550A4F7A5A8EDAB85" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_AS1_W_Unit_CL_dev_T" Device="10.1.1.112:502,1" Channel="313:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.AC23FB3E4699271F6C947DA745CC5F6F" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_AS1_W_Unit_SL_dev_T" Device="10.1.1.112:502,1" Channel="328:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.1F2A689F4B91CEC40A3A178732F856E0" />
+        <Connection ItemName="GPA2_KR3bis.open" Device="10.1.1.112:502,1" Channel="706.5:BIT" Group="Group_1" UUID="AC0906EE462D64DCAB09559BA56795BB.2A57148F4D4DB9E015F4708F6DF3F21B" />
+        <Connection ItemName="GPA2_KR3bis.close" Device="10.1.1.112:502,1" Channel="706.6:BIT" Group="Group_1" UUID="AC0906EE462D64DCAB09559BA56795BB.01F2971445F83001455760A979533F3A" />
+        <Connection ItemName="GPA2_KR3bis.opened" Device="10.1.1.112:502,1" Channel="706.7:BIT" Group="Group_1" UUID="AC0906EE462D64DCAB09559BA56795BB.B05C57E34375347C4EE4AABC95DBAA3C" />
+        <Connection ItemName="GPA2_KR3bis.closed" Device="10.1.1.112:502,1" Channel="706.8:BIT" Group="Group_1" UUID="AC0906EE462D64DCAB09559BA56795BB.05ADBCDF4A35BE0365FDAE8C310C71A0" />
+        <Connection ItemName="GPA2_KR3.open" Device="10.1.1.112:502,1" Channel="707.9:BIT" Group="Group_1" UUID="94EAC3614D72792D454E7E9D615A3AEB.2A57148F4D4DB9E015F4708F6DF3F21B" />
+        <Connection ItemName="GPA2_KR3.close" Device="10.1.1.112:502,1" Channel="707.10:BIT" Group="Group_1" UUID="94EAC3614D72792D454E7E9D615A3AEB.01F2971445F83001455760A979533F3A" />
+        <Connection ItemName="GPA2_KR3.opened" Device="10.1.1.112:502,1" Channel="707.11:BIT" Group="Group_1" UUID="94EAC3614D72792D454E7E9D615A3AEB.B05C57E34375347C4EE4AABC95DBAA3C" />
+        <Connection ItemName="GPA2_KR3.closed" Device="10.1.1.112:502,1" Channel="707.13:BIT" Group="Group_1" UUID="94EAC3614D72792D454E7E9D615A3AEB.05ADBCDF4A35BE0365FDAE8C310C71A0" />
+        <Connection ItemName="Status_GPA_2_2" Device="10.1.1.102:502,1.status" Channel="" UUID="C010119249B504C7AE7DC281A5D11161" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_FE_1_TM" Device="10.1.1.102:502,1" Channel="327:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.8B96E84D462932410EB79CB916F25D06" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_1_FE_2_TM" Device="10.1.1.102:502,1" Channel="335:FLOAT_DCBA" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.5E3F1B694C18F3AFD69DB58BBFA42291" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_0_SQ_1_FLH_A8_A_Status_Active_0" Device="10.1.1.102:502,1" Channel="836.9:BIT" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.C17E28B544612A7A22299897E729EC51" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_12_ALG_GTU_CR144_Z" Device="10.1.1.102:502,1" Channel="909.6:BIT" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.E33B33BA4868EFD88DC5AABF948A5E5C" />
+        <Connection ItemName="GPA_2.MDB_W_0_N_12_ALG_GTU_CR145_Z" Device="10.1.1.102:502,1" Channel="909.8:BIT" Group="Group_1" UUID="CAA0F55B4144D0F1BE803BB9403E1498.72F0283F46AC579D41AA0DBB5975F77A" />
+    </Crossconnect>
+</Configuration>

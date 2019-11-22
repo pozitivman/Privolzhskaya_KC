@@ -1,0 +1,2319 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Program >
+<Program UUID="1F531EFB43A51DE91905AC8AD1AE8890" Name="perf" Period="500">
+    <Variables>
+        <Variable UUID="2725850C48514EFC355480BED0E8181B" Name="tmpREALtime" Type="LREAL" TypeUUID="65F1DDD44EDA9C0776BB16BBDFE36B1F" Usage="internal" />
+        <Variable UUID="77ED341E4AF2C02886BECAAF0DEA7858" Name="tmpREALtime_prev" Type="LREAL" TypeUUID="65F1DDD44EDA9C0776BB16BBDFE36B1F" Usage="internal" />
+        <Variable UUID="4A0448C84462AFE7A34855BDBF78A434" Name="call_perf" Type="perf_main" TypeUUID="7544C3AA45585206BEDBBC88CFA03158" Usage="internal" />
+    </Variables>
+    <ST><![CDATA[//	Eout_conf := ;
+//	Ein_conf := ;
+//	EoutEin_conf := ;
+//	Q_conf := ;
+//	gt_Mstruct := ;
+//	gpa := ;
+//	shop := ;
+
+
+// определение времени цикла
+tmpREALtime := CLOCK();
+del_T := LREAL_TO_REAL(tmpREALtime - tmpREALtime_prev);
+tmpREALtime_prev := tmpREALtime;
+
+
+call_perf(//del_T := del_T,
+		//	Eout_conf := Eout_conf,
+		//	Ein_conf := Ein_conf,
+		//	EoutEin_conf := EoutEin_conf,
+		//	Q_conf := Q_conf,
+		//	gt_Mstruct := gt_Mstruct,
+		//	gpa := gpa,
+		//	shop := shop,
+		//	glob_conf_change := glob_conf_change,
+		//	test_array := test_array
+);
+
+//	 := Eout_conf;
+//	 := Ein_conf;
+//	 := EoutEin_conf;
+//	 := Q_conf;
+//	 := gt_Mstruct;
+//	 := gpa;
+//	 := shop;
+]]></ST>
+    <DataTypes>
+        <Struct UUID="9E7E46034D5436ABB1F4438FAA926441" Name="dPID">
+            <Field UUID="4EEB935141A9C1F265F7B79FD4B90C00" Name="loop_type" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="EC415A094FFE071A0810F89F85CCBF41" Name="loop_num" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="5630D5584862B4AED3998DB1372B3474" Name="loop_priority" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="448ADD734DF2076B996996B78E932C4F" Name="loop_enable" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="F45E9E6C49733062FD03D89B6D0BF8DC" Name="loop_valid" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="8E65D47B40D5AA643940F5B3FB5DAE85" Name="rem_loc" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="FE99B4EE418CB285AC1ED3BEB1096CDD" Name="auto_man" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="46B96040492030150406E287D5089A4F" Name="loop_direct" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="7982EB7F4482A52074495BA089514A05" Name="delt_t" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="A7E6593D45C341CC5E29E9B6C22A6DFB" Name="SP_ramp_rate" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="916CD52F498BB70B33FFE6BF6D8E3499" Name="DB" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="973C2426478F93D1DA1B8784F639C1AD" Name="SP_gain" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="D96DA5484DE6E583D43C18AA5B8DC9ED" Name="SP_bias" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="D43D64004B82E5D93BF884B56BCA7593" Name="PV_gain" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="04E00A2E4864F2B52BE1EF8931F3A9A4" Name="PV_bias" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="98B3FF03476C93AEF5FA9F9DAB543ECF" Name="SP_LowClamp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="E9737BCF4D54BD2B414325B7B97A1C8C" Name="SP_HighClamp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="5AB0B88C4F9742611A2B92BD9BB8CDD7" Name="KP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="D8B7578F4D83166E0D446494EF4AF0AE" Name="KI" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="D2E51B8A4C746B1AE9349884A8FA7EEC" Name="non_conv_D_part_enable" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="1B74747C439876AE6AE6FE9D03AD3489" Name="D_part_clamp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="BA0CF8D24DA4CEA7C13BADB8F3080A3A" Name="dMax_value" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="AF5843DF40E129334F556F9646DFC2C5" Name="dMin_value" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="7924A85342D96FA172099AABA8878418" Name="Reset_D_max_value" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="0C8FFD7B4FB6E64770963B841EF68D11" Name="KD" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="D7D710324E0F7A804687CB9D0AA0DA5C" Name="PV_failure" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="AF90C86745E79E11A576A08608C86AC9" Name="SwitchFlag" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="61A42002494E6D1EB807F5BC3536DE36" Name="PV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="DE8E922C4FC491DB460C49B102AB05E2" Name="real_PV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="439D196547B241109F509AB948766604" Name="real_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="ED29B467492AD23A7D8C19AA4E9E94C6" Name="local_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="983499AA4C1D326C5C539E8DC9B0A70B" Name="remote_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="327083CB4CCB5100DCAF5993CAC9B166" Name="limit_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="85900D124A25FFF395545BABD8409C9E" Name="act_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="048B639744BB73202FCB439F91103A8E" Name="active" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="81A092434BA8496FCCE8D68E4687B4C1" Name="cur_act" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="700E092D4A6BF47186D092A43728C509" Name="goal_dir" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="EDF7554849226CB28BA773A888F292E6" Name="limit_goal" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="037336734E26E47B9A8BCCBC6BE1F27E" Name="err" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="4F97094640DE482E485BE49C7134890E" Name="P_part" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="160EF5854B05BB62C89B31B8CF909836" Name="dI_part" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="3D24FE88467E35C253D68585B65DC9C8" Name="D_part" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="85534D9E444B23CE8E608897D0DBFB58" Name="PplusD_part" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="30334BB941858C0629A86B8D9C27C58F" Name="m_mGOV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="93140BA348636CC3D852C095C2F10F56" Name="derivative_threshold" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="DA918C3342BE285BB067E798373B961D" Name="d_PV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+        </Struct>
+        <Struct UUID="B28313A64FD9A74190156F8EE22B9C45" Name="dSEL">
+            <Field UUID="D5F1C9854B1D39A878BFED8A7FAD6F37" Name="pid_struct" Type="dPID" TypeUUID="9E7E46034D5436ABB1F4438FAA926441" Size="10" Array="TRUE" />
+            <Field UUID="65CFE9F3443BABE048FC4484BA55A176" Name="local_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="59FC3CE44723E2A40A069BBDDA4FBF85" Name="remote_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="2BEA246A42ED467CBEC156B6664A8905" Name="act_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="CA10DEB64D97084AD8942EA0EE461FCF" Name="manual_target" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="61BE9EED46FC1146C78F948C5B83EF43" Name="PplusD_selected" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="77880A774B5377FB73F78DA5214ACED7" Name="dI_selected" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="2A0EF4514587C172F66969ADA04405FE" Name="goal_dir_selected" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="A7F6617448061C7E396A20B2925E36D7" Name="priority_selected" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="64F7342146C99AA9CAAF4F8BA5624159" Name="main_loop" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="94A344F340CFE5FD3E4D0FAD141F6EF9" Name="state" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="3D42C4814A0BE25662193EB392A5C8E4" Name="act_control_mode" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="0F87EF6246A1698F4BF911BEA7B97757" Name="N_loops" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="E7C736964BFBC23147C2C990C8A9E1D0" Name="tune_mode" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="7C55B20F4FD68DBACCA1208559C77ADE" Name="auto_man" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="2451FABB494D3A50DE9BF5873F1E6A8E" Name="manual_enable" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="3E27220E483C8E76ADF6C0B6DB52DF2B" Name="rem_loc" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="F53959624274516A554431AA80CE438B" Name="lim_in_man_enable" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="2960CEF94A2823E9FA16AAB26F114DF0" Name="lim_in_man_type" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="400CCFE44FE5EC8CF0D976BB24902755" Name="rem_SP_filt_const" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="314D5FCF4BE90151F17883B7C82EA2C8" Name="manual_r_rate_s" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="8B63EFE141F83651971912B824FD0442" Name="manual_r_rate_f" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="425B8FD5435348FB98811781C649A330" Name="loop_selected" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="A3CE714E454354BDF9002D97E124B888" Name="LimitCondition" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="A85860664CD6722EC7B197A71942CB6F" Name="force_out_of_limit" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="66CF6F6C43E4F108A202B5BC527E95BE" Name="last_goal_dir" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="E1ADC5E2429A8FA1B387A6AAB19AEC9F" Name="limit_goal" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="1EEDDD16414988E435CB2F834BC1009F" Name="oppos_limits" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="EDC8E7364BA3529AE366DFA0875B7D37" Name="high_clamp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="D77CD34644E710876FDF18A78F12CDEA" Name="low_clamp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="DD4D5548444346366A5F82A144715E09" Name="clamp" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="6075470947B188AC58B2019924750576" Name="vel_high_limit" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="3DC7B0D74C0B8873E1DB4780FA2C977A" Name="vel_low_limit" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="C46FE3B742531C25289931B090500654" Name="vel_limit_ind" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="51B4B8294ABD19D451093C8097D90B11" Name="hyst" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="359F1DFD49505376E65525BE93415DE9" Name="FCV_reverse" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="A470B242463B1CB07A466697A0EB6311" Name="CV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="6244EFDA4D8D16DBFAE5A5B3ACDCE484" Name="FCV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="8D4378DA415760FDF5F863957465AB25" Name="d_out_min" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="090159294D002C66E81B0EB40E03C005" Name="d_out_max" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="7987241846F0C7978B75E39982F6BD24" Name="delta_time" Type="DINT" TypeUUID="AF9665534C6D5BDEF9AE77B026938B65" />
+            <Field UUID="982555C94B3EE4C1748414A19505E542" Name="had_ESD" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="D024CDCF4DB89057910980AA79C4470B" Name="had_SD" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+        </Struct>
+        <Struct UUID="3492A7F048AE8ACA61C6B5B8ECF66566" Name="ext_var">
+            <Field UUID="7C80A767487DA40608ED8C9F7ADFF238" Name="PV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="9AA90B2D440A875074116596285A8261" Name="real_PV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="8F0507784751135BAAD1C5A6F3CDD318" Name="Tf" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="6E98F2EC468C22555740D39196A295B6" Name="selection_method" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="3F51F9614A45DED73F2F34A01C0B07B6" Name="trans_enable" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Size="25" Array="TRUE" />
+            <Field UUID="F86D51614FB73ACFB6AE0297DB4EF50B" Name="failure" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" />
+            <Field UUID="8F9D8BD04042511D50BFC8BEC7BB54A4" Name="PV_gain" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="30027E594EE970D7034F9A890E98CF0F" Name="PV_bias" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="C55B40D343F836492CC480BABDA084DE" Name="RX_gain" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="1AB8707144FEB56E7089098720003562" Name="RX_bias" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="5EB6359841A32B6F06862C970B16E325" Name="AlarmHigh" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="77D95CBF4D6B5F8D6EFB80995F180CCA" Name="AlarmLow" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="07C2226B41C49251C7FDB6AFE195C0F9" Name="CharType" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="815D7AEC4B86717E30765280AE016DE9" Name="TransmitterHigh" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+            <Field UUID="465333E84DE00BA7BB5DCA874F461467" Name="TransmitterLow" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" />
+        </Struct>
+        <Struct UUID="7F7AF02547F6E48AC0F7C2A681D04434" Name="outp_funct">
+            <Field UUID="4F4BCCAB44850C15512C818DE89AB48F" Name="Nel" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" />
+            <Field UUID="B5562C514299B6DA100791B496660120" Name="Fx" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Size="22" Array="TRUE" />
+            <Field UUID="4CD493F744F5DD958E94F593F6EDB244" Name="x" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Size="22" Array="TRUE" />
+        </Struct>
+    </DataTypes>
+    <FBLibrary>
+        <FunctionBlock UUID="BD8A727F4BBE54362B4DFF9293407AEE" Name="AbortSeq_1_1">
+            <Variables>
+                <Variable UUID="9EF1501845EEC8542E4CBBB6EB19D530" Name="SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="88F0507F41B9154ECE234AA5FA6DD7CA" Name="cond" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="output" />
+                <Variable UUID="6074CEE8427C7B69952AE09C6FCF015C" Name="HighLimit" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="output" />
+                <Variable UUID="813FF9A6407B5F3437B834A5AABF7B82" Name="LowLimit" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="output" />
+                <Variable UUID="C304B1E94BDE5C834FC043903E39D179" Name="SP_previous" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="59C8068C4923A811346F0190FD219AE5" Name="loop_selected" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[	cond:= FALSE;
+	HighLimit := FALSE;
+	LowLimit := FALSE;
+	IF gt_Mstruct.LimitCondition THEN
+		loop_selected :=gt_Mstruct.loop_selected;
+		IF loop_selected = 0 THEN RETURN; END_IF;
+		IF (loop_selected<>gt_Mstruct.main_loop) THEN
+		 IF( gt_Mstruct.pid_struct[loop_selected].loop_type = 1) THEN
+		 		HighLimit := TRUE;		        (*High limit *)
+		 	IF  (SP > SP_previous) THEN 
+				cond := TRUE;                      (* Sequence Up *)   
+            END_IF;
+	     ELSIF (gt_Mstruct.pid_struct[loop_selected].loop_type = -1) THEN   (*Low Limit *)
+		 		LowLimit := TRUE;
+			 IF (SP < SP_previous) THEN							 (* Sequence Down *)
+         		cond := TRUE;
+             END_IF;
+		 ELSIF (gt_Mstruct.clamp = -1) OR (gt_Mstruct.clamp = 1) THEN
+		 	cond := TRUE;
+		 END_IF; 
+	    END_IF;
+	END_IF;
+	SP_previous := SP;]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="88FBCBA54BFC73E3C32A9D8FAB6731B8" Name="GetGroup">
+            <Variables>
+                <Variable UUID="EFD0B6A248261D82046A2197ACD9EC0E" Name="i" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="AF47D99B4EE1DF619C94C3B1BD01D3D7" Name="GROUP_1" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="5E4C65C041F1DF5C56AB80A6A3BD1BEC" Name="GROUP_2" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="9F23A26A4F3785BDA2905C81663308E1" Name="GROUP_3" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="AAE086AE421D237CA98638856568CCB5" Name="GROUP_4" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="3D27C7A7446474F85CC1F1ADC932DB75" Name="j" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[
+shop.ErrorInGroups :=  false;
+for i := 0 to 4 do
+	shop.group[i].NumGPAs := 0;
+	shop.group[i].Leader := 0;
+	shop.group[i].Folower := 0;
+end_for;
+for i := 0 to 6 do
+	gpa[i].InGroup := 0;
+	gpa[i].IsLeader := false;
+	gpa[i].MyLeaderIs := 0;
+end_for;
+GROUP_1 := uint_to_int(GROUPE_1);
+GROUP_2 := uint_to_int(GROUPE_2);
+GROUP_3 := uint_to_int(GROUPE_3);
+GROUP_4 := uint_to_int(GROUPE_4);
+
+// разбор элемента GROUP_1
+if GROUP_1 >= 32 then
+	GROUP_1 := GROUP_1 - 32;
+	if gpa[6].InGroup = 0 then
+		gpa[6].InGroup := 1;
+		shop.group[1].NumGPAs := shop.group[1].NumGPAs + 1;
+	else
+		shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_1 >= 16 then
+	GROUP_1 := GROUP_1 - 16;
+	if gpa[5].InGroup = 0 then
+		gpa[5].InGroup := 1;
+		shop.group[1].NumGPAs := shop.group[1].NumGPAs + 1;
+	else
+		shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_1 >= 8 then
+	GROUP_1 := GROUP_1 - 8;
+	if gpa[4].InGroup = 0 then
+		gpa[4].InGroup := 1;
+		shop.group[1].NumGPAs := shop.group[1].NumGPAs + 1;
+	else
+		shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_1 >= 4 then
+	GROUP_1 := GROUP_1 - 4;
+	if gpa[3].InGroup = 0 then
+		gpa[3].InGroup := 1;
+		shop.group[1].NumGPAs := shop.group[1].NumGPAs + 1;
+	else
+		shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_1 >= 2 then
+	GROUP_1 := GROUP_1 - 2;
+	if gpa[2].InGroup = 0 then
+		gpa[2].InGroup := 1;
+		shop.group[1].NumGPAs := shop.group[1].NumGPAs + 1;
+	else
+		shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_1 >= 1 then
+	GROUP_1 := GROUP_1 - 1;
+	if gpa[1].InGroup = 0 then
+		gpa[1].InGroup := 1;
+		 shop.group[1].NumGPAs := shop.group[1].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+
+// разбор элемента GROUP_2
+if GROUP_2 >= 32 then
+	GROUP_1 := GROUP_2 - 32;
+	if gpa[6].InGroup = 0 then
+		gpa[6].InGroup := 2;
+		 shop.group[2].NumGPAs := shop.group[2].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_2 >= 16 then
+	GROUP_2 := GROUP_2 - 16;
+	if gpa[5].InGroup = 0 then
+		gpa[5].InGroup := 2;
+		 shop.group[2].NumGPAs := shop.group[2].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_2 >= 8 then
+	GROUP_2 := GROUP_2 - 8;
+	if gpa[4].InGroup = 0 then
+		gpa[4].InGroup := 2;
+		shop.group[2].NumGPAs := shop.group[2].NumGPAs + 1;
+	else
+		shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_2 >= 4 then
+	GROUP_2 := GROUP_2 - 4;
+	if gpa[3].InGroup = 0 then
+		gpa[3].InGroup := 2;
+		 shop.group[2].NumGPAs := shop.group[2].NumGPAs + 1;
+	else
+		shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_2 >= 2 then
+	GROUP_2 := GROUP_2 - 2;
+	if gpa[2].InGroup = 0 then
+		gpa[2].InGroup := 2;
+		 shop.group[2].NumGPAs := shop.group[2].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_2 >= 1 then
+	GROUP_2 := GROUP_2 - 1;
+	if gpa[1].InGroup = 0 then
+		gpa[1].InGroup := 2;
+		 shop.group[2].NumGPAs := shop.group[2].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+
+// разбор элемента GROUP_3
+if GROUP_3 >= 32 then
+	GROUP_3 := GROUP_3 - 32;
+	if gpa[6].InGroup = 0 then
+		gpa[6].InGroup := 3;
+		 shop.group[3].NumGPAs := shop.group[3].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_3 >= 16 then
+	GROUP_3 := GROUP_3 - 16;
+	if gpa[5].InGroup = 0 then
+		gpa[5].InGroup := 3;
+		 shop.group[3].NumGPAs := shop.group[3].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_3 >= 8 then
+	GROUP_3 := GROUP_3 - 8;
+	if gpa[4].InGroup = 0 then
+		gpa[4].InGroup := 3;
+		 shop.group[3].NumGPAs := shop.group[3].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_3 >= 4 then
+	GROUP_3 := GROUP_3 - 4;
+	if gpa[3].InGroup = 0 then
+		gpa[3].InGroup := 3;
+		 shop.group[3].NumGPAs := shop.group[3].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_3 >= 2 then
+	GROUP_3 := GROUP_3 - 2;
+	if gpa[2].InGroup = 0 then
+		gpa[2].InGroup := 3;
+		 shop.group[3].NumGPAs := shop.group[3].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_3 >= 1 then
+	GROUP_3 := GROUP_3 - 1;
+	if gpa[1].InGroup = 0 then
+		gpa[1].InGroup := 3;
+		 shop.group[3].NumGPAs := shop.group[3].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+
+// разбор элемента GROUP_4
+if GROUP_4 >= 32 then
+	GROUP_4 := GROUP_4 - 32;
+	if gpa[6].InGroup = 0 then
+		gpa[6].InGroup := 4;
+		 shop.group[4].NumGPAs := shop.group[4].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_4 >= 16 then
+	GROUP_4 := GROUP_4 - 16;
+	if gpa[5].InGroup = 0 then
+		gpa[5].InGroup := 4;
+		 shop.group[4].NumGPAs := shop.group[4].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_4 >= 8 then
+	GROUP_4 := GROUP_4 - 8;
+	if gpa[4].InGroup = 0 then
+		gpa[4].InGroup := 4;
+		 shop.group[4].NumGPAs := shop.group[4].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_4 >= 4 then
+	GROUP_4 := GROUP_4 - 4;
+	if gpa[3].InGroup = 0 then
+		gpa[3].InGroup := 4;
+		 shop.group[4].NumGPAs := shop.group[4].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_4 >= 2 then
+	GROUP_4 := GROUP_4 - 2;
+	if gpa[2].InGroup = 0 then
+		gpa[2].InGroup := 4;
+		 shop.group[4].NumGPAs := shop.group[4].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+if GROUP_4 >= 1 then
+	GROUP_4 := GROUP_4 - 1;
+	if gpa[1].InGroup = 0 then
+		gpa[1].InGroup := 4;
+		 shop.group[4].NumGPAs := shop.group[4].NumGPAs + 1;
+	else
+		 shop.ErrorInGroups := true;
+	end_if;
+end_if;
+
+// определение, кто лидер, а кто нет
+// так же для ведомых определяем лидеров
+
+
+if gpa[6].InGroup <> 0 then
+	gpa[6].IsLeader := true; 
+else
+	gpa[6].IsLeader := false; 
+end_if;
+for i := 5 to 1 by -1 do 
+	if gpa[i].InGroup <> 0 then
+		gpa[i].IsLeader := true;  					// сначала назначаем всех лидерами
+		shop.group[gpa[i].InGroup].Leader := i	;
+		for j := i - 1 to 1 by -1 do
+			if gpa[j].InGroup = gpa[i].InGroup then // если есть ГПА с меньшим индексом в этой группе
+				gpa[i].IsLeader := false;			// снимаем лидерство
+				gpa[i].MyLeaderIs := j;
+				shop.group[gpa[i].InGroup].Folower := i;
+				shop.group[gpa[i].InGroup].Leader := j	;				
+			end_if;
+		end_for;
+	else
+		gpa[i].IsLeader := false;
+		gpa[i].MyLeaderIs := 0;
+	end_if;
+end_for;
+
+
+
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="C641661242A323E20B0BA3B84915788B" Name="IterNum_1">
+            <Variables>
+                <Variable UUID="6E7ACE844D9E4FAE0F98B882457FBE61" Name="n_el" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="input" />
+                <Variable UUID="514DF832467B5447D1C6FAA0FD5BECAC" Name="ItNum" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="output" />
+            </Variables>
+            <ST><![CDATA[ CASE  n_el OF
+   1..3  :  ItNum := 1;
+   4,5   :  ItNum := 2;
+   6..9  :  ItNum := 3;
+   10..17   :  ItNum := 4;
+   18..21   :  ItNum := 5 ;
+  ELSE
+           ItNum := 0;
+            
+             
+ END_CASE;  ]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="4AAD22214DECAA814A2916B80A80CE70" Name="OUTGT_4">
+            <Variables>
+                <Variable UUID="AE25B6FF4907A0F6A7071DBB8DB5FE8E" Name="d_out_max" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="9677D1CF482808B3076FD0A3C4F1195A" Name="d_out_min" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="A23452A94490B2FE3D92FE9E2638F996" Name="clamp" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="output" />
+                <Variable UUID="03FA8438494762D710B5F4878D297D30" Name="d_out" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="9B4D0C60454FE191EB417F86C2015C69" Name="decouple" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="8F2D70474D3BEFD85B8F24BDE4FBCF55" Name="open_seq" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="4F5D37DE455758173AEE6B89F585EAC9" Name="rate_lim_1" Type="rate_lim_2" TypeUUID="E0A17D684158FAAC59FF7AA738C1913B" Usage="internal" />
+                <Variable UUID="8E3272D04913AD03AA344C98D4ECCA34" Name="accel_clamp_alarm" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="EED87B8445917879A062FFB69239179D" Name="decel_clamp_alarm" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="0B3BD14548A8AE553469C0A6DE66934D" Name="dOl" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="45A2419A4FFC19A55C77019B930769E4" Name="cond_switch" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="EA9390A740C7051EF9823B91882F4D65" Name="d_FCV" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="3BE3D01C4C1B1530D7C3158736FDF8AC" Name="out_inter" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[
+ decouple := 0.0;
+ open_seq := FALSE;
+
+
+  rate_lim_1(s_sel := gt_Mstruct, decouple := decouple, switch := cond_switch, open_seq := open_seq);  
+  
+  	d_out := rate_lim_1.d_out;
+  	d_FCV := rate_lim_1.d_out;	
+//	t_d_fcv := d_FCV;
+    out_inter :=   d_out  ; (* positional signal *)
+
+  	(* ------------------------------------------------------------------------------------------*)
+    accel_clamp_alarm := FALSE;
+    decel_clamp_alarm := FALSE; 
+  	IF gt_Mstruct.auto_man AND NOT open_seq THEN
+  		(* ------------------------Anti-wind protection -----------------------*)
+    	IF ( out_inter >= gt_Mstruct.high_clamp) THEN
+    		clamp := 1;
+      		out_inter := gt_Mstruct.high_clamp;
+      		accel_clamp_alarm := TRUE;
+   		ELSIF (out_inter <= gt_Mstruct.low_clamp) THEN
+      		clamp := -1;
+      		out_inter := gt_Mstruct.low_clamp;      
+      		decel_clamp_alarm := TRUE;
+    	ELSE
+      		clamp := 0;          
+    	END_IF;        
+  	END_IF;  
+  	
+  	gt_Mstruct.CV := gt_Mstruct.CV + out_inter;
+d_FCV := gt_Mstruct.CV;
+//  	rt := gt_Mstruct.cv;
+  	gt_Mstruct.clamp := clamp;]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="E742805B4905C757907F82B9CCB450B8" Name="Read_CNF_4">
+            <Variables>
+                <Variable UUID="07D8CFD249A498DBCBAD78BF81FF1855" Name="ext_var_3" Type="ext_var" TypeUUID="3492A7F048AE8ACA61C6B5B8ECF66566" Usage="internal" />
+                <Variable UUID="5EE204E94DDE4008D8C3F6B6A27E26A5" Name="ext_var_4" Type="ext_var" TypeUUID="3492A7F048AE8ACA61C6B5B8ECF66566" Usage="internal" />
+                <Variable UUID="3C89A3A74C89EFCE0E5BE9BD1544FE7C" Name="switch_command_byte" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="2838E3A547743776847DCB9328EF52BB" Name="conf_PID_Q" Type="c_conf_PID_fx_3_exe" TypeUUID="8B73200946FCD0BBD2D423924EF914D6" Usage="internal" />
+                <Variable UUID="55DF46AF478E0DE423C876BDE13AA17E" Name="conf_PID_Ein" Type="c_conf_PID_fx_3_exe" TypeUUID="8B73200946FCD0BBD2D423924EF914D6" Usage="internal" />
+                <Variable UUID="4E2EED7B40B963B8BC15A9BF767F2D40" Name="conf_PID_Eout" Type="c_conf_PID_fx_3_exe" TypeUUID="8B73200946FCD0BBD2D423924EF914D6" Usage="internal" />
+                <Variable UUID="E496571A4252138AD44F009A505ADD2D" Name="conf_PID_EoutEin" Type="c_conf_PID_fx_3_exe" TypeUUID="8B73200946FCD0BBD2D423924EF914D6" Usage="internal" />
+                <Variable UUID="52FE2D0E46AA645B5EE216A3B5617510" Name="ReaL1" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="9A11B91A4FE0E0B906143ABFD867C82C" Name="glob_conf_change" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="553E4C9E4E38451FAB5BB1B8BCBF8839" Name="test_array" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Size="20" Array="TRUE" Usage="input" />
+            </Variables>
+            <ST><![CDATA[
+
+conf_PID_Q(switch_command := switch_command_byte,
+			loop_cnf := Eout_conf,
+			in_add_arg_1 := ReaL1,
+			in_add_arg_2 := ReaL1,
+			in_add_arg_3 := ReaL1,
+			s_sel := gt_Mstruct,
+			ext_PV_1 := ext_var_3,
+			ext_PV_2 := ext_var_3,
+			ext_PV_3 := ext_var_3,
+			ext_PV_4 := ext_var_3,
+			ext_PV_5 := ext_var_3,
+			glog_conf_change := glob_conf_change,
+			test_array := test_array);		
+
+
+conf_PID_Ein(switch_command := switch_command_byte,
+			loop_cnf := Ein_conf,
+			in_add_arg_1 := ReaL1,
+			in_add_arg_2 := ReaL1,
+			in_add_arg_3 := ReaL1,
+			s_sel := gt_Mstruct,
+			ext_PV_1 := ext_var_3,
+			ext_PV_2 := ext_var_3,
+			ext_PV_3 := ext_var_3,
+			ext_PV_4 := ext_var_3,
+			ext_PV_5 := ext_var_3,
+			glog_conf_change := glob_conf_change,
+			test_array := test_array);
+			
+
+conf_PID_Eout(switch_command := switch_command_byte,
+			loop_cnf := Q_conf,
+			in_add_arg_1 := ReaL1,
+			in_add_arg_2 := ReaL1,
+			in_add_arg_3 := ReaL1,
+			s_sel := gt_Mstruct,
+			ext_PV_1 := ext_var_3,
+			ext_PV_2 := ext_var_3,
+			ext_PV_3 := ext_var_3,
+			ext_PV_4 := ext_var_3,
+			ext_PV_5 := ext_var_3,
+			glog_conf_change := glob_conf_change,
+			test_array := test_array);
+			
+conf_PID_EoutEin(switch_command := switch_command_byte,
+			loop_cnf := EoutEin_conf,
+			in_add_arg_1 := ReaL1,
+			in_add_arg_2 := ReaL1,
+			in_add_arg_3 := ReaL1,
+			s_sel := gt_Mstruct,
+			ext_PV_1 := ext_var_3,
+			ext_PV_2 := ext_var_3,
+			ext_PV_3 := ext_var_3,
+			ext_PV_4 := ext_var_3,
+			ext_PV_5 := ext_var_3,
+			glog_conf_change := glob_conf_change,
+			test_array := test_array);
+			
+			
+
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="0A74559A428AAFE9EDCCE08113B6DBA6" Name="Read_Com_2">
+            <Variables>
+                <Variable UUID="70B7AFC74483853D2DB4FF948B865EC6" Name="AbortSeq1" Type="AbortSeq_1_1" TypeUUID="BD8A727F4BBE54362B4DFF9293407AEE" Usage="internal" />
+                <Variable UUID="7102997A443B949AB172AABBB1D73A2A" Name="ic" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="66D069BF4032365A650FA18790B2E288" Name="loop_selected" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="B5324EFD41D75F66CDDC028E338030C4" Name="new_main" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="D7F00BB64B2521912BBC63817D1A0C55" Name="SP_HighClamp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="5FAB276549D2BF610B35BD9F36E2280B" Name="SP_LowClamp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="56EC4243416CC774E1564AB49B7EDEAB" Name="local_SP_prev" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="4A0207A146104CF4E5BF669DECFAAFEB" Name="wish_loop" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="BB9C658F4F3B4C5914B497A71C2C7B9E" Name="main_loop" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="7A4CA94444F2077206D66AA7F27899AB" Name="i" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="19A9B0084B65E52233D1BA8F8AC6D0BD" Name="used_gpa" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[used_gpa := 0;
+FOR i := 1 TO 7 DO 
+	if (gpa[i].online  and gpa[i].run  and gpa[i].remote  ) then
+				
+				used_gpa := used_gpa + 1;
+				
+	end_if;
+end_for;
+shop.num_rem_gpa := INT_TO_REAL(used_gpa);
+
+if gt_Mstruct.main_loop < 1 or gt_Mstruct.main_loop > 5 then
+	gt_Mstruct.main_loop := 1;
+	Wish_main_loop := 1;
+end_if;
+ if used_gpa = 0 then
+ 	local_SP := gt_Mstruct.pid_struct[gt_Mstruct.main_loop].real_PV;
+ end_if;
+
+
+   FOR ic:=1 TO  gt_Mstruct.N_loops DO
+   gt_Mstruct.pid_struct[ic].delt_t := del_T;
+   END_FOR;
+   loop_selected := gt_Mstruct.loop_selected;
+   IF loop_selected=0 THEN loop_selected:=1; END_IF;
+
+(* ----------New loop ------------- *)
+wish_loop := Wish_main_loop;   // Wish_main_loop - переменная для назначения контура регулирования цеха
+
+IF ((gt_Mstruct.main_loop <> wish_loop) AND (gt_Mstruct.pid_struct[wish_loop].PV_failure = FALSE))   THEN 
+   main_loop := Wish_main_loop;
+       IF main_loop=0 THEN 
+	   		main_loop:=1; 
+	   END_IF;
+   IF gt_Mstruct.pid_struct[main_loop].loop_enable AND gt_Mstruct.pid_struct[main_loop].loop_valid THEN
+	   new_main := TRUE;
+   	   gt_Mstruct.main_loop := Wish_main_loop;  
+	ELSE
+		new_main := FALSE;
+		main_loop := gt_Mstruct.main_loop;
+		Wish_main_loop := main_loop;
+	END_IF;	
+ELSE
+   new_main := FALSE;
+END_IF;  
+IF   gt_Mstruct.main_loop=0 THEN 
+	gt_Mstruct.main_loop := 1;
+	Wish_main_loop := 1;
+END_IF;	 
+
+
+ 
+
+(*------------------------------------------------*)
+(* --- Auto /  Manual----- *)
+  
+ 
+(* Distribution Manual/Auto mode to main  PID's *) 
+   gt_Mstruct.pid_struct[main_loop].auto_man := gt_Mstruct.auto_man;  
+   
+
+
+(*** Setpoints treatment ***) 
+
+IF gt_Mstruct.auto_man THEN
+   IF gt_Mstruct.rem_loc THEN    (* Remote SP - in use, incoming signal in  [0...1] ????? Dave_H: 0...100 *)
+       
+    ;   
+    ELSE                         (* Local  SP - in use  *)      
+    //  t_tmp55 := t_tmp55 + 1;     
+(* Verification of limit conditions for stopping SP ramp *)
+	  AbortSeq1(//Mstruct:=gt_Mstruct,
+		SP := gt_Mstruct.act_SP);
+	//'  gt_Mstruct := AbortSeq1.Mstruct;
+	co_no_SP_ramp := FALSE;
+	
+	  IF local_SP<>local_SP_prev THEN
+	    IF ((AbortSeq1.HighLimit AND (local_SP < gt_Mstruct.pid_struct[main_loop].real_PV)) OR
+			(AbortSeq1.LowLimit  AND (local_SP > gt_Mstruct.pid_struct[main_loop].real_PV))) THEN
+			co_no_SP_ramp := TRUE;
+		END_IF;
+	  END_IF;
+
+	
+(*-------------------------------------------------------------------------------*)
+	  		SP_HighClamp := gt_Mstruct.pid_struct[main_loop].SP_HighClamp *  gt_Mstruct.pid_struct[main_loop].PV_gain + gt_Mstruct.pid_struct[main_loop].PV_bias;
+	  		SP_LowClamp := gt_Mstruct.pid_struct[main_loop].SP_LowClamp *  gt_Mstruct.pid_struct[main_loop].PV_gain + gt_Mstruct.pid_struct[main_loop].PV_bias;
+		IF	local_SP > SP_HighClamp THEN
+			local_SP := SP_HighClamp;
+	//		t_tmp56 := t_tmp56 + 1;
+		END_IF;
+	  	
+			IF local_SP<SP_LowClamp THEN
+			  local_SP:=SP_LowClamp;
+		//	  t_tmp57 := t_tmp57 + 1;
+			END_IF;
+		
+		IF co_no_SP_ramp THEN
+			gt_Mstruct.pid_struct[main_loop].local_SP := gt_Mstruct.pid_struct[main_loop].PV;
+		ELSE
+      		gt_Mstruct.pid_struct[main_loop].local_SP :=gt_Mstruct.pid_struct[main_loop].SP_gain*local_SP + gt_Mstruct.pid_struct[main_loop].SP_bias;
+		//	t_tmp80 := local_SP;
+		//	t_tmp81 := gt_Mstruct.pid_struct[main_loop].local_SP;
+		END_IF;
+    
+   		(*   gt_Commands.remote_SP := (gt_Mstruct.pid_struct[main_loop].PV-gt_Mstruct.pid_struct[main_loop].SP_LowClamp)/gt_Mstruct.pid_struct[main_loop].m_mGOV * 100.0; *)
+
+         IF new_main THEN  (* recalculation local_SP for new main loop *)
+            local_SP :=  gt_Mstruct.pid_struct[main_loop].real_PV;
+        //    t_tmp58 := t_tmp58 + 1;
+         END_IF;
+   END_IF; 
+      (* Remote SP filtering *)
+      
+END_IF;  
+ (* Preparation  for display current active SP in outside world  *)
+  gt_Mstruct.act_SP := gt_Mstruct.pid_struct[main_loop].real_SP;
+
+	
+		local_SP_prev := local_SP;
+ 	]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="BFBD19BB43E0E79D71ECE3B415C0CDC1" Name="Read_IO_2">
+            <Variables>
+                <Variable UUID="84808B9C4B2C2442BB911AB9C8763305" Name="iCount" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[
+
+gt_Mstruct.pid_struct[1].PV := shop.Q;
+gt_Mstruct.pid_struct[1].real_PV := shop.Q;
+//gt_Mstruct.pid_struct[1].PV_failure := Q_from_RIUS_Error;
+
+gt_Mstruct.pid_struct[2].PV := shop.Ein;
+gt_Mstruct.pid_struct[2].real_PV := shop.Ein;
+//gt_Mstruct.pid_struct[2].PV_failure := Ein_from_RIUS_Error;
+
+gt_Mstruct.pid_struct[3].PV := shop.Eout;
+gt_Mstruct.pid_struct[3].real_PV := shop.Eout;
+//gt_Mstruct.pid_struct[3].PV_failure := Eout_from_RIUS_Error;
+
+gt_Mstruct.pid_struct[4].PV := shop.EoutEin;
+gt_Mstruct.pid_struct[4].real_PV := shop.EoutEin;
+//gt_Mstruct.pid_struct[4].PV_failure := EoutEin_from_RIUS_Error;
+
+
+FOR iCount := 1 TO gt_Mstruct.N_loops DO
+	IF gt_Mstruct.pid_struct[iCount].PV_failure THEN 
+ 		gt_Mstruct.pid_struct[iCount].loop_valid := FALSE;
+	ELSE 
+ 		gt_Mstruct.pid_struct[iCount].loop_valid := TRUE;
+ 	END_IF;
+END_FOR; 
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="B81EAAC5409192EA9CC596B395D3CEB4" Name="SPPID_2">
+            <Variables>
+                <Variable UUID="2DE806D04F78FAEFEA3E01A9A03D0F15" Name="pid" Type="dPID" TypeUUID="9E7E46034D5436ABB1F4438FAA926441" Usage="inout" />
+                <Variable UUID="4135EDC443C2B2E8C26266A0FDCD2D9D" Name="no_SP_ramp" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="9D24774A440E5AC0483AB2A11E2666C3" Name="main_loop" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="input" />
+                <Variable UUID="AFB93FFF4D97BC1C374AAE9BF709EF95" Name="deriv1" Type="deriv_1" TypeUUID="41901AB042E4E2978D1F2BB12CCF0AD8" Usage="internal" />
+                <Variable UUID="A41B9C1D4213F479ECA01CB1785D48C1" Name="target" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="E48DAB75434464D76DAA8EB29AA8ACE3" Name="prev_SP" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="389814224EF1B8629D1821BAF7F46613" Name="prev_loop_type" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="06E2F4B24B81BCE735F8B9ABDE320E65" Name="r_rate" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="1FB8708E4E7176768F38A68769C5B998" Name="prev_man_auto" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="C349B8A449AD5B174CF4B5B9C4ADCD04" Name="main_loop_previos" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="38D9FF00434DA6DEEFE1F3AC397007B0" Name="prev_enable_disable" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="548094034A0407835D8583A335B3BAAD" Name="prev_PV_failure" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="476AA8E0449F54A87620F8B0191060F5" Name="D_part" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="A941C53A4E5A264FC1A9E291CD47154E" Name="SP_depression" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="5199E52749BF66F6E25B0784280960E9" Name="der" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="E4DC4FD04F41F4E27AFDF2BD431C55F7" Name="internal_flag_no_ramp" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="8F275BCA4223313DEF11F0A2A51B4470" Name="v1" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="DCD15D0640DAC958A739AC83BF867C39" Name="v2" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="ABC1BC394991A73E3C9E45A9BA17648E" Name="v3" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="26850FC749A9CB3512EFDE97447C8A3B" Name="v4" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="055FE08B4C635D0CD579C584360456ED" Name="v5" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="B73C8EB2426A2AE9371CD89EA69AFD37" Name="ramp1" Type="ramp_1" TypeUUID="34D4FBD544AA86869DDA068719DEB96A" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[internal_flag_no_ramp:= FALSE;
+IF pid.loop_enable AND pid.loop_valid THEN
+ IF (prev_loop_type <> pid.loop_type) THEN (* scan when loop_type of the loop changed *)     
+  CASE prev_loop_type OF
+  -1,1 :           (*  previosly was Limit *)
+       IF pid.loop_type=0 THEN    			(* transition  Limit -> Main Loop  *)
+         pid.local_SP := pid.PV;                 
+         prev_SP := pid.PV ;      
+       ELSE   		(* transition  Low Limit -> High Limit OR High Limit -> Low Limit  *) 
+         target  := pid.limit_SP ;
+         prev_SP := pid.PV ;
+       END_IF;
+
+   0 :           (* previosly was Main Loop *)
+         prev_SP := pid.PV ;(* transition  Main Loop -> LOW OR HIGH Limit  *)
+         target := pid.limit_SP ;
+  END_CASE;
+ 
+         prev_loop_type := pid.loop_type ;     
+ END_IF; (*--------------- End of changing loop_type ----------------*) 
+     
+(*--------------------------Main Loop---------------------------------------------*)
+ IF pid.loop_num = main_loop THEN          (* Treatment for main loop  *)
+  IF pid.rem_loc THEN          (* Remote   *) 
+    target := pid.remote_SP * pid.m_mGOV/100.0 + pid.SP_LowClamp; (*remote SP in %  *)
+    pid.local_SP := pid.PV ;
+  ELSE                         (* Local *)
+    target := pid.local_SP ;
+    if pid.m_mGOV <> 0.0 then 
+		pid.remote_SP := (pid.PV - pid.SP_LowClamp)/pid.m_mGOV * 100.0;
+	end_if;
+    (* Verification for Limits SP's for the main loop  *)
+    IF (((pid.loop_type=1 AND target>pid.limit_SP) OR (pid.loop_type=-1 AND target<pid.limit_SP)) AND pid.limit_SP <>0.0) THEN
+      target := pid.limit_SP;
+    END_IF;   
+  END_IF;  
+ ELSIF pid.loop_type=0 AND main_loop<>pid.loop_num THEN
+  internal_flag_no_ramp := TRUE;
+  target:=pid.PV;
+  prev_SP := pid.PV ;      
+ ELSE 
+  target := pid.limit_SP ;   
+ END_IF;
+
+(*--------------- D-part in the SP (non-conventional D-part)---------------------------------------- *)
+(* derivative calculation *)
+  derInit := derInit OR pid.SwitchFlag OR pid.PV_failure;
+ (* der := *)deriv1(input := pid.PV, n_samples := 24, Tc := del_T);
+  der := deriv1.derivative;
+  pid.d_PV := der;
+ (* derInit:=deriv.init;
+  Peak_storage_max(Reset:=pid.Reset_D_max_value, Max_or_Min:=TRUE,current:=der);
+  pid.dMax_value:=Peak_storage_max.Peak_value;
+  Peak_storage_min(Reset:=pid.Reset_D_max_value, Max_or_Min:=FALSE,current:=der);
+  pid.dMin_value:=Peak_storage_min.Peak_value;*)
+  IF pid.KD > 0.0001  THEN 
+   IF der <= pid.derivative_threshold and der >= - pid.derivative_threshold THEN
+     der := 0.0;
+   ELSIF der > 0.0 THEN
+     der := der - pid.derivative_threshold;
+   ELSE
+     der := der + pid.derivative_threshold ;
+   END_IF ;
+     
+        D_part := pid.KD * der ;
+        pid.D_part := D_part;
+         
+
+	IF pid.non_conv_D_part_enable THEN (* SP depression calculation *)
+		IF D_part>pid.D_part_clamp THEN  (*               .             *)
+			D_part := pid.D_part_clamp;
+		ELSIF D_part<-pid.D_part_clamp THEN
+			D_part := -pid.D_part_clamp;
+		END_IF;
+	  CASE pid.loop_type OF
+	   -1: (* Low limit case *)
+	      IF ((der < 0.0) AND (D_part < SP_depression)) THEN    (* PV decreasing *)
+	        SP_depression := D_part;
+	        internal_flag_no_ramp := TRUE;
+	      ELSE
+	        IF SP_depression < 0.0 THEN
+	          SP_depression := SP_depression + del_T * pid.SP_ramp_rate; (*resetting depressed value *) 
+	          internal_flag_no_ramp := TRUE;
+	        ELSE 
+	          SP_depression := 0.0;
+	        END_IF;
+	      END_IF;
+	   1:(* High limit case *)           
+	     IF ((der > 0.0) AND (D_part > SP_depression))   THEN    (* PV decreasing *)
+	       SP_depression := D_part;
+	       internal_flag_no_ramp := TRUE;
+	     ELSE
+	       IF SP_depression > 0.0 THEN
+	         SP_depression := SP_depression - del_T * pid.SP_ramp_rate; (*resetting depressed value *) 
+	         internal_flag_no_ramp := TRUE;
+	       ELSE 
+	         SP_depression := 0.0;
+	       END_IF;
+	     END_IF;
+	  END_CASE;   
+	  target:= target - SP_depression;
+	ELSE 
+	  D_part := 0.0 ;
+	END_IF ; (* END of SP depression *)       
+ ELSE 
+ pid.D_part := 0.0;
+ END_IF; (* END of derivative calculation *)
+    
+(*-------------------------------------------------------------------*)     
+(* main loop change *)
+ IF main_loop <> main_loop_previos AND (pid.loop_num = main_loop OR pid.loop_num = main_loop_previos )   THEN     (* Main Loop Changed on the current scan *)
+  internal_flag_no_ramp := TRUE;
+  target := pid.PV;
+  main_loop_previos := main_loop;  
+ END_IF;
+(* end of changing main loop *)
+
+(*------------------------ Switch from manual to auto OR  local remote ---------------------------------*)     
+ IF (pid.auto_man <> prev_man_auto) THEN
+  internal_flag_no_ramp := TRUE;
+  target := pid.PV;
+  pid.local_SP := target;
+ END_IF;
+(*  End of switching from manual to auto *)
+
+(*  Manual mode  *)
+ IF NOT pid.auto_man AND pid.loop_num = main_loop THEN 
+  internal_flag_no_ramp := TRUE;
+  target := pid.PV;   (* Tracking SP for main loop *)
+ END_IF;       
+ IF no_SP_ramp OR (prev_PV_failure <> pid.PV_failure)OR internal_flag_no_ramp THEN
+  r_rate := 0.0; 
+ ELSE
+  r_rate := pid.SP_ramp_rate;
+ END_IF;
+  (*-------------------------------------- Loop switch on/off ------------------------ *)         
+ELSE
+  internal_flag_no_ramp := TRUE;
+  IF pid.loop_type = 0 THEN
+		  target:=pid.PV;
+		  prev_SP := pid.PV ;
+   ELSE
+     target:=pid.limit_SP;
+     prev_SP := pid.limit_SP ;
+   END_IF;
+END_IF;
+  	
+IF prev_enable_disable <> (pid.loop_enable AND pid.loop_valid)  THEN
+  internal_flag_no_ramp := TRUE;
+  target:=pid.PV;
+  prev_SP := pid.PV ;
+END_IF; 
+(*___pid.act_SP :=__________________________SP ramping _____________________________________________*)
+
+(*ramp01(enable1 := TRUE,ramp_rate:=r_rate,y_target := target, y_current := prev_SP,delt_T := pid.delt_t );*)
+v1 := TRUE;
+v2 := r_rate;
+//if pid.loop_num = 2 then
+//	t_v2 := r_rate;
+//	t_no_ramp := no_SP_ramp OR (prev_PV_failure <> pid.PV_failure)OR internal_flag_no_ramp;
+//end_if;
+v3 := target; 
+v4 := prev_SP;
+v5 := pid.delt_t;
+ramp1(enable1 := v1,ramp_rate:=v2,y_target := v3, y_current :=v4);
+
+pid.act_SP := ramp1.ramp;
+
+prev_man_auto := pid.auto_man;
+prev_PV_failure := pid.PV_failure;
+
+IF pid.act_SP > pid.SP_HighClamp THEN
+  pid.act_SP := pid.SP_HighClamp;
+ELSIF pid.act_SP < pid.SP_LowClamp THEN
+  pid.act_SP := pid.SP_LowClamp;
+END_IF;
+prev_SP := pid.act_SP ;       
+prev_enable_disable := pid.loop_enable AND pid.loop_valid;  ]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="3C608AE74495AB76CE7EB291F88AF7B6" Name="SP_treat_3">
+            <Variables>
+                <Variable UUID="E11345A744B494A2F3A75B94E5FB5B5E" Name="co_no_SP_ramp" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="4ED0D018497E08E293914C85C259A8B4" Name="spPID_Q" Type="SPPID_2" TypeUUID="B81EAAC5409192EA9CC596B395D3CEB4" Usage="internal" />
+                <Variable UUID="0E2003684012E21DE76DFEBB48842DF2" Name="spPID_Ein" Type="SPPID_2" TypeUUID="B81EAAC5409192EA9CC596B395D3CEB4" Usage="internal" />
+                <Variable UUID="A841D70447D38E73A947E4BDC45CA582" Name="spPID_Eout" Type="SPPID_2" TypeUUID="B81EAAC5409192EA9CC596B395D3CEB4" Usage="internal" />
+                <Variable UUID="FE118076485FCD599B344B8019E217D4" Name="spPID_EoutEin" Type="SPPID_2" TypeUUID="B81EAAC5409192EA9CC596B395D3CEB4" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[spPID_Q(pid:=gt_Mstruct.pid_struct[1],no_SP_ramp := co_no_SP_ramp, main_loop:=gt_Mstruct.main_loop);
+
+ 
+spPID_Ein(pid:=gt_Mstruct.pid_struct[2],no_SP_ramp := co_no_SP_ramp, main_loop:=gt_Mstruct.main_loop); 
+
+ 
+spPID_Eout(pid:=gt_Mstruct.pid_struct[3], no_SP_ramp := co_no_SP_ramp, main_loop:=gt_Mstruct.main_loop);
+
+
+spPID_EoutEin(pid:=gt_Mstruct.pid_struct[4], no_SP_ramp := co_no_SP_ramp, main_loop:=gt_Mstruct.main_loop);
+
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="F368D49445739836E86124A3E49698EA" Name="alarms">
+            <Variables />
+            <ST><![CDATA[perf_alarms[0] := (gt_Mstruct.main_loop = 1); // Регулирование по расходу
+perf_alarms[1] := (gt_Mstruct.main_loop = 3); // Регулирование по выходному давлению
+perf_alarms[2] := (gt_Mstruct.main_loop = 4); // Регулирование по степени сжатия
+perf_alarms[3] := (gt_Mstruct.main_loop = 5); // Регулирование оборотов нагнетателей
+perf_alarms[4] := (shop.ls_type = 1); // 
+perf_alarms[5] := (shop.ls_type = 3); // 
+perf_alarms[6] := (shop.ls_type = 4); // 
+perf_alarms[7] := (shop.ls_type = 5); // 
+perf_alarms[8] := gpa[5].remote;// 
+perf_alarms[9] := gpa[5].run; // 
+(*perf_alarms[10] := ; // 
+perf_alarms[11] := ; // 
+perf_alarms[12] := ; // 
+perf_alarms[13] := ; // 
+perf_alarms[14] := ; // 
+perf_alarms[15] := ; // *)
+
+//ГПА1
+perf_alarms[10] := gpa[1].remote;// 
+perf_alarms[11] := gpa[1].run; // 
+
+//ГПА2
+perf_alarms[12] := gpa[2].remote;// 
+perf_alarms[13] := gpa[2].run; // 
+
+//ГПА3
+perf_alarms[14] := gpa[3].remote;// 
+perf_alarms[15] := gpa[3].run; // 
+
+//ГПА4
+perf_alarms[16] := gpa[4].remote;// 
+perf_alarms[17] := gpa[4].run; // 
+
+//ГПА7
+perf_alarms[18] := gpa[7].remote;// 
+perf_alarms[19] := gpa[7].run; // ]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="3CE9BA7346F52BE3FD62109BADBA18F5" Name="data_from_gpa1">
+            <Variables>
+                <Variable UUID="EEDAD62242A038129C238F8EADB0528B" Name="i" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[(*
+gpa[01].online := 		;	// связь с ГПА1 исправна
+gpa[01].run := 			; 	// режим ГПА1 магистраль
+gpa[01].remote :=  		; 	// ГПА1 переведен в режим управления от САР
+gpa[01].Q :=  			;	// приведенный расход переводим в реальный
+gpa[01].Ein := 			; 	// давление газа на входе ГПА1
+gpa[01].Eout := 		; 	// давление газа на выходе ГПА1
+gpa[01].EoutEin := 		;	// степень сжатия через ГПА1
+gpa[01].S := 			; 	// запас по помпажу ГПА1
+gpa[01].Nst := 			; 	// обороты СТ ГПА1
+gpa[01].Nvd_r := 		; 	// обороты приведенные ВД ГПА1
+gpa[01].SP_Nst := 		; 	// задание по оборотам СТ ГПА1
+*)
+//Fastwell
+gpa[1].online	:= not Status_GPA_1 and not Status_GPA_1_2;								// связь с ГПА1 исправна
+gpa[1].run		:= SHKU17_DI_GPA1_MAG;													// режим ГПА1 магистраль
+gpa[1].remote	:= GPA_1.MDB_W_0_N_1_GT_R_Operator_Local_A_1_Status_Active_0;			// ГПА1 переведен в режим управления от САР
+gpa[1].Q		:= GPA_1.MDB_W_0_N_1_GT_W_Valves_CV_T;									// приведенный расход переводим в реальный
+gpa[1].Ein		:= GPA_1.MDB_W_0_N_1_PE_1_T_sg_Status_PV_user;							// давление газа на входе ГПА1
+gpa[1].Eout		:= GPA_1.MDB_W_0_N_1_PE_2_T_sg_Status_PV_user;							// давление газа на выходе ГПА1
+gpa[1].EoutEin	:= GPA_1.MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T;							// степень сжатия через ГПА1
+gpa[1].S		:= GPA_1.MDB_W_0_N_1_AS1_W_Unit_CL_dev_T;								// запас по помпажу ГПА1
+gpa[1].Nst		:= GPA_1.MDB_W_0_N_1_FE_2_TM;											// обороты СТ ГПА1
+gpa[1].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[1].SP_Nst	:= GPA_1.MDB_W_0_N_1_GT_R_Operator_SP_target_T;							// задание по оборотам СТ ГПА1
+
+gpa[2].online	:= not Status_GPA_2 and not Status_GPA_2_2;								// связь с ГПА1 исправна
+gpa[2].run		:= SHKU17_DI_GPA2_MAG;													// режим ГПА1 магистраль
+gpa[2].remote	:= GPA_2.MDB_W_0_N_1_GT_R_Operator_Local_A_1_Status_Active_0;			// ГПА1 переведен в режим управления от САР
+gpa[2].Q		:= GPA_2.MDB_W_0_N_1_GT_W_Valves_CV_T;									// приведенный расход переводим в реальный
+gpa[2].Ein		:= GPA_2.MDB_W_0_N_1_PE_1_T_sg_Status_PV_user;							// давление газа на входе ГПА1
+gpa[2].Eout		:= GPA_2.MDB_W_0_N_1_PE_2_T_sg_Status_PV_user;							// давление газа на выходе ГПА1
+gpa[2].EoutEin	:= GPA_2.MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T;							// степень сжатия через ГПА1
+gpa[2].S		:= GPA_2.MDB_W_0_N_1_AS1_W_Unit_CL_dev_T;								// запас по помпажу ГПА1
+gpa[2].Nst		:= GPA_2.MDB_W_0_N_1_FE_2_TM;											// обороты СТ ГПА1
+gpa[2].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[2].SP_Nst	:= GPA_2.MDB_W_0_N_1_GT_R_Operator_SP_target_T;							// задание по оборотам СТ ГПА1
+
+//AB
+gpa[3].online	:= not Status_GPA_3;													// связь с ГПА1 исправна
+gpa[3].run		:= SHKU17_DI_GPA3_MAG;													// режим ГПА1 магистраль
+gpa[3].remote	:= true;																// ГПА1 переведен в режим управления от САР
+gpa[3].Q		:= 0.0;																	// приведенный расход переводим в реальный
+gpa[3].Ein		:= GPA_3.AS1_InOut_Ps;													// давление газа на входе ГПА1
+gpa[3].Eout		:= GPA_3.AS1_InOut_Pd;													// давление газа на выходе ГПА1
+gpa[3].EoutEin	:= GPA_3.AS1_Unit_calc_vars_status_Rc;									// степень сжатия через ГПА1
+gpa[3].S		:= GPA_3.AS1_Unit_CL_status_dev;										// запас по помпажу ГПА1
+gpa[3].Nst		:= GPA_3.GT_InOut_NPT_Status_PV_calc_eu;								// обороты СТ ГПА1
+gpa[3].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[3].SP_Nst	:= GPA_3.GT_NPT_SP_target;												// задание по оборотам СТ ГПА1
+
+gpa[5].online	:= not Status_GPA_5;													// связь с ГПА1 исправна
+gpa[5].run		:= SHKU17_DI_GPA5_MAG;													// режим ГПА1 магистраль
+gpa[5].remote	:= true;																// ГПА1 переведен в режим управления от САР
+gpa[5].Q		:= 0.0;																	// приведенный расход переводим в реальный
+gpa[5].Ein		:= GPA_5.AS1_InOut_Ps;													// давление газа на входе ГПА1
+gpa[5].Eout		:= GPA_5.AS1_InOut_Pd;													// давление газа на выходе ГПА1
+gpa[5].EoutEin	:= GPA_5.AS1_Unit_calc_vars_status_Rc;									// степень сжатия через ГПА1
+gpa[5].S		:= GPA_5.AS1_Unit_CL_status_dev;										// запас по помпажу ГПА1
+gpa[5].Nst		:= GPA_5.GT_InOut_NPT_Status_PV_calc_eu;								// обороты СТ ГПА1
+gpa[5].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[5].SP_Nst	:= GPA_5.GT_NPT_SP_target;												// задание по оборотам СТ ГПА1
+
+//Sonet
+gpa[4].online	:= not Status_GPA_4;													// связь с ГПА1 исправна
+gpa[4].run		:= SHKU17_DI_GPA4_MAG;													// режим ГПА1 магистраль
+gpa[4].remote	:= GTD_4.local_remote; 													// ГПА1 переведен в режим управления от САР
+gpa[4].Q		:= GTD_4.Q;																// приведенный расход переводим в реальный
+gpa[4].Ein		:= GTD_4.Ps;															// давление газа на входе ГПА1
+gpa[4].Eout		:= GTD_4.Pd;															// давление газа на выходе ГПА1
+gpa[4].EoutEin	:= GTD_4.Rc;															// степень сжатия через ГПА1
+gpa[4].S		:= GTD_4.dev;															// запас по помпажу ГПА1
+gpa[4].Nst		:= GTD_4.Nst;															// обороты СТ ГПА1
+gpa[4].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[4].SP_Nst	:= 0.0;																	// задание по оборотам СТ ГПА1
+
+gpa[6].online	:= not Status_GPA_6;													// связь с ГПА1 исправна
+gpa[6].run		:= SHKU17_DI_GPA6_MAG;													// режим ГПА1 магистраль
+gpa[6].remote	:= GTD_6.local_remote; 													// ГПА1 переведен в режим управления от САР
+gpa[6].Q		:= GTD_6.Q;																// приведенный расход переводим в реальный
+gpa[6].Ein		:= GTD_6.Ps;															// давление газа на входе ГПА1
+gpa[6].Eout		:= GTD_6.Pd;															// давление газа на выходе ГПА1
+gpa[6].EoutEin	:= GTD_6.Rc;															// степень сжатия через ГПА1
+gpa[6].S		:= GTD_6.dev;															// запас по помпажу ГПА1
+gpa[6].Nst		:= GTD_6.Nst;															// обороты СТ ГПА1
+gpa[6].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[6].SP_Nst	:= 0.0;																	// задание по оборотам СТ ГПА1
+
+
+shop.Q := 0.0;
+shop.Ein := 0.0;
+shop.Eout := 0.0;
+shop.EoutEin := 0.0;
+
+
+FOR i := 1 TO 6 DO
+	if(gpa[i].online  AND gpa[i].run ) then
+		shop.Q := shop.Q + gpa[i].Q;
+(*	
+		if(gpa[i].EoutEin > shop.EoutEin)then
+			shop.EoutEin := gpa[i].EoutEin;
+		end_if;
+		if(gpa[i].Eout > shop.Eout)then
+			shop.Eout := gpa[i].Eout;
+		end_if;		
+		if ((shop.Ein = 0.0 OR gpa[i].Ein < shop.Ein) AND gpa[i].Ein > 0.0) then
+			shop.Ein := gpa[i].Ein;
+		end_if;	
+*)
+	end_if;
+	
+END_FOR;
+
+
+// 1 кгс/см2 = 101.325 кПа
+shop.Ein := SHKU17_AI_Pg1KC1;	// давление на входе цеха
+shop.Eout := SHKU17_AI_Pg2KC1;	// давление на выходе цеха
+
+if (shop.Ein <> 0.101325) then 
+	shop.EoutEin := (shop.Eout - 0.101325) / (shop.Ein - 0.101325);
+end_if;
+
+
+
+(*
+   // Здесь при наличии цеховых датчиков давления на входе и выходе с исправными показаниями
+	 //	должнно быть присвоение от них
+		shop.Ein :=  	;		// давление на входе цеха
+		shop.Eout :=	;		// давление на выходе цеха
+		shop.EoutEin := ;		// степень сжатия через цех
+		shop.Q := 		;		// расход газа через цех
+ 
+		
+
+if shop.EoutEin < 1.0 then shop.EoutEin := 1.0; end_if;
+*)]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="D7B0A62441F676A7ED3D96BF3A719301" Name="data_to_GPAs_1">
+            <Variables />
+            <ST><![CDATA[//  := gpa[1].SP_cv;  // задание по оборотам СТ от САР в ГПА1
+
+GPA_1.MDB_R_0_N_1_GT_R_Operator_SP_target_T := gpa[1].SP_cv;  // задание по оборотам СТ от САР в ГПА1
+GPA_2.MDB_R_0_N_1_GT_R_Operator_SP_target_T := gpa[2].SP_cv;  // задание по оборотам СТ от САР в ГПА2
+
+GPA_3.gtLocal_Remote_SP						:= gpa[3].SP_cv;  // задание по оборотам СТ от САР в ГПА3
+GPA_5.gtLocal_Remote_SP						:= gpa[3].SP_cv;  // задание по оборотам СТ от САР в ГПА5
+
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="975FE7A140736FDD21AA5FB0DEF0465C" Name="deriv1">
+            <Variables>
+                <Variable UUID="C022C20142DF9A78DDDF58B2EFC54CC7" Name="init" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="inout" />
+                <Variable UUID="AC94DAF04FBFD9CC7D1E2CB4B27EB198" Name="input" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="inout" />
+                <Variable UUID="EEB96AE94E6978CB4DC141AF2F1AF6DB" Name="N_samples" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="01CD542845860EB9F251B1A83D871561" Name="derivative" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="A841AB8E42E6A3215989448844C456FA" Name="wrong_der" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="output" />
+                <Variable UUID="006FE995421946056C317196F37972B8" Name="Sample_Array" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Size="25" Array="TRUE" Usage="internal" />
+                <Variable UUID="C07F399749ADC4466318B882DA416C19" Name="index" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="6B0A7080496B197CBB1308BFBE7A05E0" Name="n_real" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="69A56B5C47C499B8B44668AFDCECBE09" Name="mid_term" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="04EA4115425B12A5F3A09BB811CBF024" Name="last_term" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="482927A74C422CEE1C0EA7B0277DC81A" Name="sumtemp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="BBF933B2447ED9DF66961EA069439986" Name="index_1" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="5BB41C254B744AB84A3821B589A6838E" Name="n_samples_previous" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="92370CFC4573D974386E94BC91CD9962" Name="flag_change" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="0D625D2543AFF23C414EF7B0F04EA3A3" Name="n_samples_used" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[N_samples := 24;
+//IF N_samples = 0 THEN N_samples := 2; END_IF;
+
+IF init THEN
+	init := FALSE;
+	flag_change:=0;
+    n_samples_previous := 0;
+END_IF;
+IF del_T = 0.0 THEN RETURN; END_IF;
+
+IF N_samples<>n_samples_previous  THEN
+
+   IF ((N_samples MOD 2)<>0) THEN
+         n_samples_used := N_samples+1;
+      ELSE  
+         n_samples_used := N_samples;
+   END_IF;
+   	IF n_samples_used < 2 THEN  n_samples_used :=  2;  END_IF;(* Minimal number of scans =2 *)
+	IF n_samples_used >24 THEN  n_samples_used := 24;  END_IF;(* Max number of scans =24  *)   
+
+   IF (flag_change<(n_samples_used-n_samples_previous))  THEN
+      wrong_der := TRUE;
+      flag_change := flag_change + 1;
+   ELSE
+      wrong_der := FALSE;
+      n_samples_previous := N_samples; 
+      flag_change := 0;
+   END_IF;      
+END_IF;
+(* End of verification *)
+
+mid_term  := n_samples_used / 2 + 1;
+last_term := n_samples_used; 
+
+sumtemp := input;
+
+index := last_term;
+WHILE index >= mid_term DO
+   index_1 := index - 1;
+   Sample_Array[index] := Sample_Array[index_1]; 
+   sumtemp := sumtemp - Sample_Array[index];
+   index := index_1;
+END_WHILE; 
+
+WHILE index >= 2 DO
+   index_1 := index - 1;
+   Sample_Array[index] := Sample_Array[index_1]; 
+   sumtemp := sumtemp + Sample_Array[index];
+   index := index_1;
+END_WHILE; 
+
+Sample_Array[1] := input;
+
+//INT_TO_REAL(
+n_real := INT_TO_REAL(n_samples_used);
+
+IF  NOT wrong_der THEN
+   derivative := sumtemp * 4.0 / (n_real * n_real * del_T);
+END_IF;
+
+
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="41901AB042E4E2978D1F2BB12CCF0AD8" Name="deriv_1">
+            <Variables>
+                <Variable UUID="880DC22743001A408ACA45B03C01600F" Name="n_samples" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="input" />
+                <Variable UUID="B8B1DD94417085B83252A3B1FDDD6241" Name="input" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="C038183F4295D50C2D145B93C25B4329" Name="Tc" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="6888731342607E71194F69B8EE12308A" Name="derivative" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="13C0D09D4E445317695B24A69338AB40" Name="flag_change" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="893C8A0445973EC65BFB4DA70DE3E1D1" Name="n_samples_previous" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="91E1FD0640BA4E1743DD22B510D7B5AE" Name="n_samples_used" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="2A7B2ADE44AF795DD9C562A8BD9C3E25" Name="wrong_der" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="8925F0F54EBEEFEDD102EDB277B4749C" Name="mid_term" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="15181A094BFF95509CD174A4628878F1" Name="last_term" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="90EB5A38466C02FE5602FB9FAC186A08" Name="sumtemp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="03C89FD74E2A9AE4A932A2B03E1D8A94" Name="index" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="5C765CBE4A4BD69BD90681AED3B29F09" Name="index_1" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="A0E238BF44206B4D997A5587EB546EAF" Name="Sample_Array" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Size="24" Array="TRUE" Usage="internal" />
+                <Variable UUID="37415D2D4E2751C5F7A822A6A829BEEB" Name="n_real" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="059AC95D4D24673A85DEFEAB18262740" Name="n_samples_used_" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="D04CDF8746E216B8421021A426D07B82" Name="n_samples_previous_" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="2416F3AD4EAD1A3A489132A7C04058C3" Name="last_term_" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="BB4F378B49BFF9B66F1E4CA3B3C5E488" Name="mid_term_" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="C33FAFC8402EFF44DA4A36BB30281800" Name="wrong_der_" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[(* Verification of changing parameters *)
+n_samples_used_ := n_samples;
+IF n_samples_used_ = 0 THEN n_samples_used_ := 2; END_IF;
+
+IF derInit THEN
+	derInit := FALSE;
+	flag_change:=0;
+    n_samples_previous_ := 0;
+END_IF;
+IF Tc=0.0 THEN RETURN; END_IF;
+
+IF n_samples_used_<>n_samples_previous_  THEN
+
+   IF ((n_samples_used_ MOD 2 )<>0) THEN
+         n_samples_used_ := n_samples+1;
+      ELSE  
+         n_samples_used_ := n_samples;
+   END_IF;
+   	IF n_samples_used_ < 2 THEN  n_samples_used_ :=  2;  END_IF;(* Minimal number of scans =2 *)
+	IF n_samples_used_ >24 THEN  n_samples_used_ := 24;  END_IF;(* Max number of scans =24  *)   
+
+   IF (flag_change < (n_samples_used_-n_samples_previous_))  THEN
+      wrong_der := TRUE;
+      flag_change := flag_change + 1;
+   ELSE
+      wrong_der := FALSE;
+      n_samples_previous_ := n_samples; 
+      flag_change := 0;
+   END_IF;      
+END_IF;
+(* End of verification *)
+
+mid_term_  := n_samples_used_ / 2 + 1;
+last_term_ := n_samples_used_; 
+
+sumtemp := input;
+
+index := last_term_;
+WHILE index >= mid_term_ DO
+   index_1 := index - 1;
+   Sample_Array[index] := Sample_Array[index_1]; 
+   sumtemp := sumtemp - Sample_Array[index];
+   index := index_1;
+END_WHILE; 
+
+WHILE index >= 2 DO
+   index_1 := index - 1;
+   Sample_Array[index] := Sample_Array[index_1]; 
+   sumtemp := sumtemp + Sample_Array[index];
+   index := index_1;
+END_WHILE; 
+
+Sample_Array[1] := input;
+
+n_real := INT_TO_REAL(n_samples_used_);
+
+IF  NOT wrong_der AND n_real <> 0.0 and Tc <> 0.0 THEN
+   derivative := sumtemp * 4.0 / (n_real * n_real * Tc);
+END_IF;
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="70BBC1ED499066642C4017B64AECF520" Name="ls_and_SP">
+            <Variables>
+                <Variable UUID="D9830B90491B65CF55A58D851C8491DE" Name="i" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="B5F9717A4F843E600FDEDEBE47842BD0" Name="used_gpa" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="0087183541149E4D711B98816691FD75" Name="deriv1_" Type="deriv1" TypeUUID="975FE7A140736FDD21AA5FB0DEF0465C" Usage="internal" />
+                <Variable UUID="6C4AF99D4806E9C5DF3A36A5A14D4C40" Name="deriv2" Type="deriv1" TypeUUID="975FE7A140736FDD21AA5FB0DEF0465C" Usage="internal" />
+                <Variable UUID="19BE98FC45C5CFFF94A64A80C1CB3FE2" Name="deriv3" Type="deriv1" TypeUUID="975FE7A140736FDD21AA5FB0DEF0465C" Usage="internal" />
+                <Variable UUID="A796B0F94AEFDC6B478FD1BA1424BFD7" Name="deriv4" Type="deriv1" TypeUUID="975FE7A140736FDD21AA5FB0DEF0465C" Usage="internal" />
+                <Variable UUID="08BC53494466C8114EE4949501F64908" Name="deriv5" Type="deriv1" TypeUUID="975FE7A140736FDD21AA5FB0DEF0465C" Usage="internal" />
+                <Variable UUID="5E0719374F83965767D4DBA1D7F474F2" Name="deriv6" Type="deriv1" TypeUUID="975FE7A140736FDD21AA5FB0DEF0465C" Usage="internal" />
+                <Variable UUID="6F37093D4E4FB03D9498258BAA0ADC35" Name="ls_derInit" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="AF03EFEA43BA3562C475299DDD7B7D7F" Name="der" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="3D2F5E25448C8845355428A9D7B57BA3" Name="v1" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+                <Variable UUID="E6EB670843E862C4270D61B19BFB4A32" Name="ramp1" Type="ramp_1" TypeUUID="34D4FBD544AA86869DDA068719DEB96A" Usage="internal" />
+                <Variable UUID="BAD3FE8A418C99EF13E588A35CF304F3" Name="Wish_main_loop_prev" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="FAF2C41A4112F8641342FBBA212647BE" Name="deriv7" Type="deriv1" TypeUUID="975FE7A140736FDD21AA5FB0DEF0465C" Usage="internal" />
+                <Variable UUID="02B0A89E4F34E0B7A06BE59F1F88824F" Name="used_gpa_prev" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="086866DF47A0C16841379CA068D5E633" Name="clamp" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Size="8" Array="TRUE" Usage="internal" />
+                <Variable UUID="203B9238407CCF90CBE537977C274A91" Name="gt_Mstruct_cv_prev" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="DD00F3DD4B607071A3453C88C0AE73A3" Name="v2" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="479F87D04AA8FE3DBD9DEEB829260E00" Name="ReadIO" Type="Read_IO_2" TypeUUID="BFBD19BB43E0E79D71ECE3B415C0CDC1" Usage="internal" />
+                <Variable UUID="D3959F9C4332C6D3262FA9AFFB2E26D1" Name="time_count1_7" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="DB66710246FD9B07CDE819BB8628D7B6" Name="func_SP_Nst" Type="out_funcCall_3" TypeUUID="48742EA54FF05A062D0BF48CB909061A" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[FOR i := 1 TO 6 DO
+	if ((gpa[i].Q_max - gpa[i].Q_min) <> 0.0) then
+		gpa[i].Q_perc := (gpa[i].Q - gpa[i].Q_min)/ (gpa[i].Q_max - gpa[i].Q_min) * 100.0;
+	end_if;
+	if ((gpa[i].Nst_max - gpa[i].Nst_min) <> 0.0) then
+		gpa[i].Nst_perc := (gpa[i].Nst - gpa[i].Nst_min)/ (gpa[i].Nst_max - gpa[i].Nst_min) * 100.0;
+	end_if;
+
+ 	if ((gpa[i].Nvd_max - gpa[i].Nvd_min) <> 0.0) then
+ 		gpa[i].Nvd_perc := (gpa[i].Nvd_r - gpa[i].Nvd_min)/ (gpa[i].Nvd_max - gpa[i].Nvd_min) * 100.0;
+	end_if;	
+
+
+END_FOR;
+
+shop.chosen_Q := 0.0;
+shop.chosen_Eout:= 0.0;
+shop.chosen_Nst := 0.0;
+shop.chosen_Nvd_r := 0.0;
+shop.chosen_S := 0.0;
+used_gpa := 0.0;
+FOR i := 1 TO 6 DO
+  			if (gpa[i].online  and gpa[i].run  and gpa[i].remote  and gpa[i].Nst <> 0.0 (*and gpa[i].InGroup > 0*) and gpa[i].IsLeader) then
+				shop.chosen_Nst := shop.chosen_Nst + gpa[i].Nst;
+				used_gpa := used_gpa + 1.0;
+			end_if;
+END_FOR;
+if used_gpa <> 0.0 then
+				shop.chosen_Nst := shop.chosen_Nst / used_gpa;				
+end_if;
+if Wish_main_loop = 5 AND (Wish_main_loop <> Wish_main_loop_prev OR used_gpa_prev = 0.0)then
+  	local_SP := shop.chosen_Nst ;  	
+  end_if;
+used_gpa_prev := used_gpa;
+used_gpa := 0.0;
+shop.chosen_Nst := 0.0;
+
+FOR i := 1 TO 6 DO
+    clamp[i] := 0;
+	if(shop.ls_type = 1) then  // выравнивание по Q
+		 // average
+			if (gpa[i].online  and gpa[i].run  and gpa[i].remote  and gpa[i].Q_perc <> 0.0 and gpa[i].IsLeader) then
+				shop.chosen_Q := shop.chosen_Q + gpa[i].Q_perc;				
+				used_gpa := used_gpa + 1.0;
+			end_if;
+
+			if i = 7 and used_gpa <> 0.0 then				
+				shop.chosen_Q := shop.chosen_Q / used_gpa;
+			end_if;			
+	end_if;  // выравнивание по Q
+	if(shop.ls_type = 2) then  // выравнивание по Eout
+		// average
+			if (gpa[i].online and gpa[i].run  and gpa[i].remote  and gpa[i].Eout <> 0.0 and gpa[i].IsLeader) then
+				shop.chosen_Eout := shop.chosen_Eout + gpa[i].Eout;
+				used_gpa := used_gpa + 1.0;
+			end_if;
+			if i = 7 and used_gpa <> 0.0 then
+				shop.chosen_Eout := shop.chosen_Eout / used_gpa;
+			end_if;			
+	end_if;  // выравнивание по Eout
+	if(shop.ls_type = 3) then  // выравнивание по Nst
+		// average
+			if (gpa[i].online  and gpa[i].run  and gpa[i].remote  and gpa[i].Nst_perc <> 0.0 and gpa[i].IsLeader) then
+				shop.chosen_Nst := shop.chosen_Nst + gpa[i].Nst_perc;
+				used_gpa := used_gpa + 1.0;
+			end_if;
+			if i = 7 and used_gpa <> 0.0 then
+				shop.chosen_Nst := shop.chosen_Nst / used_gpa;
+			end_if;			
+	end_if;  // выравнивание по Nst
+	if(shop.ls_type = 4) then  // выравнивание по Nvd_r
+		 // average
+			if (gpa[i].online  and gpa[i].run  and gpa[i].remote  and gpa[i].Nvd_perc <> 0.0 and gpa[i].IsLeader) then
+				shop.chosen_Nvd_r := shop.chosen_Nvd_r + gpa[i].Nvd_perc;
+				used_gpa := used_gpa + 1.0;
+			end_if;
+			if i = 7 and used_gpa <> 0.0 then
+				shop.chosen_Nvd_r := shop.chosen_Nvd_r / used_gpa;
+			end_if;		
+	end_if;  // выравнивание по Nvd_r
+	if(shop.ls_type = 5) then  // выравнивание по S
+		// average
+			if (gpa[i].online  and gpa[i].run  and gpa[i].remote  and gpa[i].S <> 0.0 and gpa[i].IsLeader) then
+				shop.chosen_S := shop.chosen_S + (gpa[i].S - gpa[i].Line_Reg);
+				used_gpa := used_gpa + 1.0;
+			end_if;
+			if i = 7 and used_gpa <> 0.0 then
+				shop.chosen_S := shop.chosen_S / used_gpa;
+			end_if;		
+	end_if;  // выравнивание по S	
+END_FOR;   // здесь было вычисление параметра, покоторому будет выравнивание нагрузки.
+
+	
+FOR i := 1 TO 6 DO  //  
+	gpa[i].ls_error := 0.0;
+	if  gpa[i].IsLeader then
+		if(gpa[i].online  and gpa[i].run  and gpa[i].remote  and shop.ls_type = 1) then  //                 Q
+			if 	gpa[i].ls_Q_gain = 0.0 then gpa[i].ls_Q_gain := 1.0; end_if;
+			gpa[i].ls_error := (shop.chosen_Q - gpa[i].Q_perc)/ gpa[i].ls_Q_gain;
+		end_if;
+		if(gpa[i].online  and gpa[i].run  and gpa[i].remote  and shop.ls_type = 2) then  //                 Eout
+			if 	gpa[i].ls_Eout_gain = 0.0 then gpa[i].ls_Eout_gain := 1.0; end_if;
+			gpa[i].ls_error := (shop.chosen_Eout - gpa[i].Eout)/gpa[i].ls_Eout_gain;
+		end_if;
+		if(gpa[i].online  and gpa[i].run  and gpa[i].remote  and shop.ls_type = 3) then  //                 Nst
+			if 	gpa[i].ls_Nst_gain = 0.0 then gpa[i].ls_Nst_gain := 1.0; end_if;
+			gpa[i].ls_error := (shop.chosen_Nst - gpa[i].Nst_perc)/gpa[i].ls_Nst_gain;
+		end_if;
+		if(gpa[i].online  and gpa[i].run  and gpa[i].remote  and shop.ls_type = 4) then  //                 Nvd_r
+			if 	gpa[i].ls_Nvdr_gain = 0.0 then gpa[i].ls_Nvdr_gain := 1.0; end_if;
+			gpa[i].ls_error := (shop.chosen_Nvd_r - gpa[i].Nvd_perc)/gpa[i].ls_Nvdr_gain;
+		end_if;
+		if(gpa[i].online  and gpa[i].run  and gpa[i].remote  and shop.ls_type = 5) then  //                 S
+			if 	gpa[i].ls_S_gain = 0.0 then gpa[i].ls_S_gain := 1.0; end_if;
+			gpa[i].ls_error := (shop.chosen_S - (gpa[i].S - gpa[i].Line_Reg))/gpa[i].ls_S_gain;
+		end_if;
+	
+		if (gpa[i].ls_error <=  gpa[i].ls_DB AND gpa[i].ls_error >=  -gpa[i].ls_DB) then
+			gpa[i].ls_error := 0.0;
+		ELSIF gpa[i].ls_error > 0.0 THEN
+		 	gpa[i].ls_error := gpa[i].ls_error - gpa[i].ls_DB ;
+        ELSE 
+		 	gpa[i].ls_error := gpa[i].ls_error + gpa[i].ls_DB ;	
+		end_if;
+		gpa[i].ls_KI := gpa[i].ls_Kr * gpa[i].ls_KP / 60.0;	
+		gpa[i].ls_P_part := gpa[i].ls_KP * gpa[i].ls_error;
+		gpa[i].ls_dI_part := gpa[i].ls_KI * gpa[i].ls_error * del_T;
+	
+		// derivative calculation 
+  		ls_derInit := FALSE;//ls_derInit OR pid.SwitchFlag OR pid.PV_failure;
+  		der := 0.0;
+		deriv1_(init := derInit, input:=gpa[1].ls_error);
+		// пока не работает case с функциями....
+ 		if i = 1 then 
+   			deriv1_(init := derInit, input:=gpa[1].ls_error);//, N_samples := 24);
+  	 		der := deriv1_.derivative;
+ 		end_if;  	 
+	
+  		if i = 2 then 
+			deriv2(init:= derInit,input:=gpa[i].ls_error);
+  			der := deriv2.derivative;  	 	
+		end_if; 
+  		if i = 3 then 
+			deriv3(init:= derInit,input:=gpa[i].ls_error);
+    		der := deriv3.derivative;  	 		
+		end_if; 
+		if i = 4 then 
+			deriv4(init:= derInit,input:=gpa[i].ls_error);
+    	 	der := deriv4.derivative;
+  	 	end_if; 
+  		if i = 5 then 
+			deriv5(init:= derInit,input:=gpa[i].ls_error);
+     		der := deriv5.derivative;
+		end_if; 
+  		if i = 6 then 
+			deriv6(init:= derInit,input:=gpa[i].ls_error);
+     		der := deriv6.derivative;  	 	
+		end_if; 
+
+  		IF gpa[i].ls_KD > 0.001  THEN 
+       		gpa[i].ls_D_part := gpa[i].ls_KD * der ;
+  		END_IF;    
+  
+  		gpa[i].ls_P_D_part := gpa[i].ls_P_part + gpa[i].ls_D_part;
+  
+  		if (shop.ls_type <> shop.ls_type_prev) then
+  			gpa[i].ls_P_D_part_prev := gpa[i].ls_P_D_part;
+ 		end_if; 
+    
+  		gpa[i].ls_cv := gpa[i].ls_P_D_part - gpa[i].ls_P_D_part_prev + gpa[i].ls_dI_part;
+  		gpa[i].ls_P_D_part_prev := gpa[i].ls_P_D_part;
+
+  		if(shop.num_rem_gpa <> 0.0) then
+  			gpa[i].cv := gpa[i].cv_prev + gpa[i].ls_cv + (gt_Mstruct.CV - gt_Mstruct_cv_prev) / shop.num_rem_gpa; 
+   		end_if;
+  	
+  		if Wish_main_loop = 5 AND ((gpa[i].TransmitterHigh - gpa[i].TransmitterLow) <> 0.0) then
+  	  	 	gpa[i].cv := (local_SP -  gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow);
+  		end_if;
+ 
+  		v1 := TRUE;
+  		if (gpa[i].TransmitterHigh - gpa[i].TransmitterLow) <> 0.0 then 
+  			v2 := gpa[i].cv_Ramp_rate / (gpa[i].TransmitterHigh - gpa[i].TransmitterLow);
+  		end_if;
+  		ramp1(enable1 := v1,ramp_rate:=v2, y_target := gpa[i].cv, y_current := gpa[i].cv_prev);
+  		gpa[i].cv := ramp1.ramp;
+  
+  		//-------------------------------------------------------------------------------
+  		if ((gpa[i].TransmitterHigh - gpa[i].TransmitterLow) <> 0.0) then
+  			if(gpa[i].cv > (gpa[i].SP_HighLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow)) then
+  				gpa[i].cv := (gpa[i].SP_HighLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow);
+  				clamp[i] := 1;
+  			end_if;
+  			if (gpa[i].cv < (gpa[i].SP_LowLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow)) then
+  				gpa[i].cv := (gpa[i].SP_LowLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow); 
+  				clamp[i] := -1;
+ 			end_if;
+  		end_if;  //
+ 
+		if( NOT gpa[i].online OR
+			gpa[01].FreezeAll OR gpa[02].FreezeAll OR gpa[03].FreezeAll OR gpa[04].FreezeAll OR gpa[05].FreezeAll OR gpa[06].FreezeAll OR gpa[07].FreezeAll) then
+			gpa[i].cv := gpa[i].cv_prev;
+		end_if;
+
+  		//--------------второй раз проверяем на диапазон, так надо----------------
+  		if ((gpa[i].TransmitterHigh - gpa[i].TransmitterLow) <> 0.0) then
+  			if(gpa[i].cv > (gpa[i].SP_HighLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow)) then
+  				gpa[i].cv := (gpa[i].SP_HighLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow);
+  				clamp[i] := 1;
+  			end_if;
+  			if (gpa[i].cv < (gpa[i].SP_LowLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow)) then
+  				gpa[i].cv := (gpa[i].SP_LowLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow); 
+  				clamp[i] := -1;
+ 			end_if;
+  		end_if;
+ 
+  		if (clamp[i] = 1  AND gt_Mstruct.CV > gt_Mstruct_cv_prev) OR (clamp[i] = -1 AND gt_Mstruct.CV < gt_Mstruct_cv_prev) then
+   			gpa[i].cv := gpa[i].cv_prev;
+		end_if;
+	 	gpa[i].SP_cv := gpa[i].TransmitterLow + (gpa[i].TransmitterHigh - gpa[i].TransmitterLow) * gpa[i].cv;
+  		
+		if(gpa[i].remote = FALSE) then 
+  			gpa[i].SP_cv := gpa[i].SP_Nst;
+  			if (gpa[i].TransmitterHigh - gpa[i].TransmitterLow <> 0.0) then
+  				gpa[i].cv := (gpa[i].SP_cv - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow);
+  			end_if;
+  		end_if;
+
+		gpa[i].cv_prev := gpa[i].cv;
+ 
+	end_if;
+END_FOR;
+// для серпухова, где чужие агрегаты
+if time_count1_7 > 101 then time_count1_7 := 0; end_if;
+time_count1_7 := time_count1_7 + 1;
+
+
+shop.ls_type_prev := shop.ls_type;
+gt_Mstruct.CV := 0.0;
+gt_Mstruct_cv_prev := gt_Mstruct.CV;
+Wish_main_loop_prev := Wish_main_loop;
+// Далее все ведомые получают задание на обороты, как функцию от текущих оборотов СТ от своих лидеров
+
+for i := 1 to 6 do
+	if not gpa[i].IsLeader and gpa[i].MyLeaderIs > 0 then
+		if(gpa[i].online  and gpa[i].run  and gpa[i].remote) then  //  
+			func_SP_Nst(true, gpa[gpa[i].MyLeaderIs].SP_Nst, funcsFolowers[i], gpa[i].SP_cv);
+			
+			if ((gpa[i].TransmitterHigh - gpa[i].TransmitterLow) <> 0.0) then
+  				if(gpa[i].cv > (gpa[i].SP_HighLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow)) then
+  					gpa[i].cv := (gpa[i].SP_HighLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow);
+  					clamp[i] := 1;
+  				end_if;
+  				if (gpa[i].cv < (gpa[i].SP_LowLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow)) then
+  					gpa[i].cv := (gpa[i].SP_LowLimit - gpa[i].TransmitterLow)/(gpa[i].TransmitterHigh - gpa[i].TransmitterLow); 
+  					clamp[i] := -1;
+ 				end_if;
+  			end_if;
+		end_if;
+	end_if;
+end_for;
+
+
+
+
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="48742EA54FF05A062D0BF48CB909061A" Name="out_funcCall_3">
+            <Variables>
+                <Variable UUID="E7330106420B43F3A20734B1FCADD912" Name="direct" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="1D0D24EE4C3989DC1D165D8AC8B5F0C9" Name="inp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="inout" />
+                <Variable UUID="3DFAA3E24467915A8B9D6CAFD27C3223" Name="fx" Type="outp_funct" TypeUUID="7F7AF02547F6E48AC0F7C2A681D04434" Usage="inout" />
+                <Variable UUID="664896BE467167487B019B97C8AE0B02" Name="y" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="19A2B6F647E06F1803DC3AA0BB5F8D01" Name="out_func_p_1" Type="out_func_p_2_2" TypeUUID="66B4D1D34AAD7B827751CEBD7E671A6C" Usage="internal" />
+                <Variable UUID="E38F82DC4033F785B24E6EBACF8E6DCC" Name="out_func_p_2" Type="out_func_p_2_2" TypeUUID="66B4D1D34AAD7B827751CEBD7E671A6C" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[IF direct THEN
+	out_func_p_1(pFx := fx.Fx, pArg := fx.x, n_el := fx.Nel, x:=inp);
+	//'fx.Fx := out_func_p_1.pFx;
+	//'fx.x := out_func_p_1.pArg;
+	y := out_func_p_1.y;
+ ELSE
+	out_func_p_2(pFx := fx.x, pArg := fx.Fx, n_el := fx.Nel, x:=inp);
+//	'fx.x := out_func_p_2.pFx;
+//	'fx.Fx := out_func_p_2.pArg;
+	y := out_func_p_2.y;
+END_IF;	 
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="66B4D1D34AAD7B827751CEBD7E671A6C" Name="out_func_p_2_2">
+            <Variables>
+                <Variable UUID="9792247142A36506384EB2841416028E" Name="pFx" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Size="22" Array="TRUE" Usage="inout" />
+                <Variable UUID="A0C46DE147BDCE7E3E9A4AA12119F36F" Name="pArg" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Size="22" Array="TRUE" Usage="inout" />
+                <Variable UUID="09CCDD0A4748C27E1C0BBCB323E06808" Name="n_el" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="inout" />
+                <Variable UUID="1687567544E9F7AC0559A896DAC20BAF" Name="x" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="inout" />
+                <Variable UUID="C326A9B14549DE6475131EA9FFCC714B" Name="y" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="24F34BCF49BADAD2F9D1FFB122016E86" Name="iLeft" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="71D4685D4302ACC080529FB7F0A50457" Name="iRight" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="DF2BBB824AF0237E2CDD4DB06A067D0B" Name="iStep" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="469B4FF644292614F8FA749DFED80133" Name="iIndex" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="996D70814BE2118CBFE09F9A154C9404" Name="dx" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="FF8CF99546837C7B2A61C3B9FAF426D0" Name="maxIterationNumber" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="01271F944F5BBF96FFD4E3AD39D67813" Name="tmp1" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="D76693CD4869C4FD18BD8588C504A009" Name="IterNum1" Type="IterNum_1" TypeUUID="C641661242A323E20B0BA3B84915788B" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[
+IF n_el = 0 THEN
+   y := 1.0;
+   RETURN;
+ END_IF;  
+  IF n_el =1 THEN
+   y := pFx[1];
+   RETURN;
+ END_IF;   
+ 
+(* ----------------------Verification ends of array ------------------------------*)
+ IF x <=  pArg[1] THEN y := pFx[1]; RETURN;
+   ELSIF x >= pArg[n_el] THEN y := pFx[n_el]; RETURN;
+   ELSE
+(* ----------------------End of verification -------------------------------------*)
+
+      iLeft := 1 ;
+      iRight := n_el ;
+      iStep := 1;
+
+    IF n_el > 2 THEN    
+     
+ (* --------------------- Binary search, if n_el >2 -----------------------------*) 
+
+		IterNum1(n_el := n_el);
+        maxIterationNumber :=  IterNum1.ItNum;
+        tmp1 := iLeft - iRight;
+   		tmp1 := abs(tmp1);
+         WHILE (tmp1 > 1) DO
+            iIndex := (iLeft + iRight) / 2 ;      
+                IF ( x <= pArg[iIndex]) THEN
+                  iRight := iIndex  ;
+                ELSE
+                  iLeft := iIndex  ;
+                END_IF;
+             iStep := iStep+1 ;
+           IF (iStep > maxIterationNumber ) THEN EXIT; END_IF; 
+           tmp1 := iLeft - iRight;
+   		   tmp1 := abs(tmp1);
+        
+         END_WHILE ;
+ (* ---------------------- End of binary search ---------------------------------- *)      
+    END_IF  ;  (* Jump if n_el = 2 *)
+    
+         dx := pArg[iRight] - pArg[iLeft] ;
+       IF (dx <> 0.0) THEN
+         y := pFx[iLeft] + (x - pArg[iLeft])* (pFx[iRight] - pFx[iLeft]) / dx ;
+       ELSE 
+         y := pFx[iLeft] ;
+       END_IF ;    
+         
+END_IF ;   
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="B8CF9A7A4B55AEB7D35F5FAD7D876D48" Name="perf_init_1">
+            <Variables>
+                <Variable UUID="1FBBF1A846E9DCAB714B9E9D65B4B1D6" Name="temp1" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[
+
+if temp1 = 0 then
+
+gpa[01].delta_S := 5.0;				// дельта для выравнивания по запасу по помпажу
+gpa[01].ls_DB := 0.0001;			// зона нечувтсвительности по выравниванию нагрузки
+gpa[01].ls_Kr := 5.0;				// коэффициент П-части по выравниванию нагрузки
+gpa[01].ls_KP := 5.0;				// коэффициент И-части по выравниванию нагрузки
+gpa[01].ls_KD := 0.0;				// коэффициент Д-части по выравниванию нагрузки
+gpa[01].SP_LowLimit := 7300.0;		// нижняя граница регулирования оборотов
+gpa[01].SP_HighLimit := 8400.0;		// верхняя граница регулирования оборотов
+gpa[01].cv_Ramp_rate := 1.0;		// максимальная скорость изменения уставки от САР в ГПА1
+gpa[01].Q_min := 0.0;				// минимальный расход ГПА1, соответствующий 0% расхода, используется для выравнивания нагрузки в процентах расхода 
+gpa[01].Q_max := 1000.0;			// максимальный расход ГПА1, соответствующий 100% расхода, используется для выравнивания нагрузки в процентах расхода
+gpa[01].Nst_min := 0.0;				// минимальные обороты СТ, соответствующий 0% оборотов, используется для выравнивания нагрузки в процентах оборотов СТ 
+gpa[01].Nst_max := 10000.0;			// максимальные обороты СТ, соответствующий 100% оборотов, используется для выравнивания нагрузки в процентах оборотов СТ
+gpa[01].Nvd_min := 0.0;				// минимальные обороты ВД прив, соответствующий 0% оборотов, используется для выравнивания нагрузки в процентах оборотов ВД прив
+gpa[01].Nvd_max := 10000.0;			// максимальные обороты ВД прив, соответствующий 100% оборотов, используется для выравнивания нагрузки в процентах оборотов ВД прив
+
+
+//-----------------конфигурация контуров регулирования
+
+// регулирование по частоте СТ
+gt_Mstruct.pid_struct[5].SP_LowClamp := 7300.0;		//  минимальное задание при регулировании цехом по оборотам СТ
+gt_Mstruct.pid_struct[5].SP_HighClamp := 8400.0;	//  максимальное задание при регулировании цехом по оборотам СТ
+
+// регулирование по расходу
+Q_conf.KP := 1.0;							// коэффициент П-части
+Q_conf.Kr := 10.0;							// коэффициент И-части
+Q_conf.SP_ramp_rate := 5.0;					// максимальная скорость изменения задания по расходу
+Q_conf.Tf := 0.5;							// постоянная времени фильтрации входа 
+Q_conf.SP_LowClamp := 200.0;				// минимальное задание по расходу
+Q_conf.SP_HighClamp := 1800.0;				// максимальное задание по расходу
+Q_conf.DB := 0.5;							// зона нечувствительности по расходу
+// регулирование по давлению на выходе
+Eout_conf.KP := 1.0;
+Eout_conf.Kr := 10.0;
+Eout_conf.SP_ramp_rate := 0.01;
+Eout_conf.Tf := 0.5;
+Eout_conf.SP_LowClamp := 1.43;
+Eout_conf.SP_HighClamp := 7.39;
+Eout_conf.DB := 0.002;
+// регулирование по степени сжатия
+EoutEin_conf.KP := 1.0;
+EoutEin_conf.Kr := 5.0;
+EoutEin_conf.SP_ramp_rate := 0.1;
+EoutEin_conf.Tf := 0.5;
+EoutEin_conf.SP_LowClamp := 1.01;
+EoutEin_conf.SP_HighClamp := 1.95;
+EoutEin_conf.DB := 0.002;
+
+// параметры ниже не требуют изменений
+
+gpa[01].TransmitterHigh := 10000.0;	
+gpa[01].TransmitterLow := 0.0;
+gpa[01].ls_Nvdr_gain := 10000.0;
+gpa[01].ls_Nst_gain := 10000.0;
+gpa[01].ls_Q_gain := 10000.0;
+gpa[01].ls_Eout_gain := 10000.0;
+gpa[01].ls_S_gain := 1000.0;
+
+gpa[02].TransmitterHigh := 10000.0;	
+gpa[02].TransmitterLow := 0.0;
+gpa[02].ls_Nvdr_gain := 10000.0;
+gpa[02].ls_Nst_gain := 10000.0;
+gpa[02].ls_Q_gain := 10000.0;
+gpa[02].ls_Eout_gain := 10000.0;
+gpa[02].ls_S_gain := 1000.0;
+
+gpa[03].TransmitterHigh := 10000.0;	
+gpa[03].TransmitterLow := 0.0;
+gpa[03].ls_Nvdr_gain := 10000.0;
+gpa[03].ls_Nst_gain := 10000.0;
+gpa[03].ls_Q_gain := 10000.0;
+gpa[03].ls_Eout_gain := 10000.0;
+gpa[03].ls_S_gain := 1000.0;
+
+gpa[04].TransmitterHigh := 10000.0;	
+gpa[04].TransmitterLow := 0.0;
+gpa[04].ls_Nvdr_gain := 10000.0;
+gpa[04].ls_Nst_gain := 10000.0;
+gpa[04].ls_Q_gain := 10000.0;
+gpa[04].ls_Eout_gain := 10000.0;
+gpa[04].ls_S_gain := 1000.0;
+
+gpa[05].TransmitterHigh := 10000.0;	
+gpa[05].TransmitterLow := 0.0;
+gpa[05].ls_Nvdr_gain := 10000.0;
+gpa[05].ls_Nst_gain := 10000.0;
+gpa[05].ls_Q_gain := 10000.0;
+gpa[05].ls_Eout_gain := 10000.0;
+gpa[05].ls_S_gain := 1000.0;
+
+gpa[06].TransmitterHigh := 10000.0;	
+gpa[06].TransmitterLow := 0.0;
+gpa[06].ls_Nvdr_gain := 10000.0;
+gpa[06].ls_Nst_gain := 10000.0;
+gpa[06].ls_Q_gain := 10000.0;
+gpa[06].ls_Eout_gain := 10000.0;
+gpa[06].ls_S_gain := 1000.0;
+
+gpa[07].TransmitterHigh := 10000.0;	
+gpa[07].TransmitterLow := 0.0;
+gpa[07].ls_Nvdr_gain := 10000.0;
+gpa[07].ls_Nst_gain := 10000.0;
+gpa[07].ls_Q_gain := 10000.0;
+gpa[07].ls_Eout_gain := 10000.0;
+gpa[07].ls_S_gain := 1000.0;
+
+gpa[08].TransmitterHigh := 10000.0;	
+gpa[08].TransmitterLow := 0.0;
+gpa[08].ls_Nvdr_gain := 10000.0;
+gpa[08].ls_Nst_gain := 10000.0;
+gpa[08].ls_Q_gain := 10000.0;
+gpa[08].ls_Eout_gain := 10000.0;
+gpa[08].ls_S_gain := 1000.0;
+
+
+Q_conf.loop_num := 1;
+Q_conf.loop_enable := TRUE;
+Q_conf.loop_direct := TRUE;
+Q_conf.loop_type := 1;
+Q_conf.fallback_SP := Q_conf.SP_HighClamp;
+Q_conf.TransmitterHigh := 10000.0;			
+Ein_conf.loop_num := 2;
+Ein_conf.loop_enable := FALSE;
+Eout_conf.loop_num := 3;
+Eout_conf.loop_enable := TRUE;
+Eout_conf.loop_direct := TRUE;
+Eout_conf.loop_type := 1;
+Eout_conf.fallback_SP := Eout_conf.SP_HighClamp;
+Eout_conf.TransmitterHigh := 100.0;
+EoutEin_conf.loop_num := 4;
+EoutEin_conf.loop_enable := TRUE;
+EoutEin_conf.loop_direct := TRUE;
+EoutEin_conf.loop_type := 1;
+EoutEin_conf.fallback_SP := EoutEin_conf.SP_HighClamp;
+EoutEin_conf.TransmitterHigh := 100.0;
+gt_Mstruct.pid_struct[5].PV_gain := 1.0;
+gt_Mstruct.pid_struct[5].loop_enable:=TRUE; 
+gt_Mstruct.pid_struct[5].loop_valid := TRUE; // добавлено
+
+shop.ls_type := 1;
+shop.ls_choice_type := 1;
+Wish_main_loop := 0;
+
+
+Q_gain := 100.0;
+Ein_gain := 10.0;
+Eout_gain := 1.0;
+EoutEin_gain := 1.0;
+gt_Mstruct.N_loops := 4;
+gt_Mstruct.main_loop := 1;
+gt_Mstruct.auto_man := TRUE;
+gt_Mstruct.high_clamp := 10.0 ;
+gt_Mstruct.low_clamp := -10.0;
+gt_Mstruct.vel_high_limit := 0.5;   // подобрать скорость изменения уставки максимальную вверх
+gt_Mstruct.vel_low_limit := -0.5;	// подобрать скорость изменения уставки максимальную вниз
+temp1 := 1;
+glob_conf_change := TRUE;
+
+
+
+// конфигурация ведомых от ведущих 
+funcsFolowers[1].Nel := 2;
+funcsFolowers[1].x[1] := 0.0;
+funcsFolowers[1].x[2] := 10000.0;
+funcsFolowers[1].Fx[1] := 0.0;
+funcsFolowers[1].Fx[2] := 11000.0;
+
+funcsFolowers[2].Nel := 2;
+funcsFolowers[2].x[1] := 0.0;
+funcsFolowers[2].x[2] := 10000.0;
+funcsFolowers[2].Fx[1] := 0.0;
+funcsFolowers[2].Fx[2] := 12000.0;
+
+funcsFolowers[3].Nel := 2;
+funcsFolowers[3].x[1] := 0.0;
+funcsFolowers[3].x[2] := 10000.0;
+funcsFolowers[3].Fx[1] := 0.0;
+funcsFolowers[3].Fx[2] := 13000.0;
+
+funcsFolowers[4].Nel := 2;
+funcsFolowers[4].x[1] := 0.0;
+funcsFolowers[4].x[2] := 10000.0;
+funcsFolowers[4].Fx[1] := 0.0;
+funcsFolowers[4].Fx[2] := 14000.0;
+
+funcsFolowers[5].Nel := 2;
+funcsFolowers[5].x[1] := 0.0;
+funcsFolowers[5].x[2] := 10000.0;
+funcsFolowers[5].Fx[1] := 0.0;
+funcsFolowers[5].Fx[2] := 15000.0;
+
+funcsFolowers[6].Nel := 2;
+funcsFolowers[6].x[1] := 0.0;
+funcsFolowers[6].x[2] := 10000.0;
+funcsFolowers[6].Fx[1] := 0.0;
+funcsFolowers[6].Fx[2] := 16000.0;
+
+end_if;]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="7544C3AA45585206BEDBBC88CFA03158" Name="perf_main">
+            <Variables>
+                <Variable UUID="CAD1D18B46A806EA9213DB9C65AF20B8" Name="perf_init" Type="perf_init_1" TypeUUID="B8CF9A7A4B55AEB7D35F5FAD7D876D48" Usage="internal" />
+                <Variable UUID="90F8AF4B49EB0A21ACDF6A8E1745437A" Name="ReadIO" Type="Read_IO_2" TypeUUID="BFBD19BB43E0E79D71ECE3B415C0CDC1" Usage="internal" />
+                <Variable UUID="BE427EE94ECAE678234C4885545053CF" Name="ReadCNF01" Type="Read_CNF_4" TypeUUID="E742805B4905C757907F82B9CCB450B8" Usage="internal" />
+                <Variable UUID="95A74FCF416132DEE6888D910CD3930A" Name="ReadCom01" Type="Read_Com_2" TypeUUID="0A74559A428AAFE9EDCCE08113B6DBA6" Usage="internal" />
+                <Variable UUID="26E73FF6499018FC3EF129B3A2407AAE" Name="SPtreat" Type="SP_treat_3" TypeUUID="3C608AE74495AB76CE7EB291F88AF7B6" Usage="internal" />
+                <Variable UUID="1321D0224712665C34DEDCB942A61BC3" Name="sig_sel01" Type="c_aSigSel_1_exe" TypeUUID="CA26F9964BAD98A9821011904E2FAAFB" Usage="internal" />
+                <Variable UUID="29C4B21141D3B962CF4D4EA115FF568E" Name="ls_and_SP01" Type="ls_and_SP" TypeUUID="70BBC1ED499066642C4017B64AECF520" Usage="internal" />
+                <Variable UUID="CD3EA7CA4AD6E865A64FC694CA5A4A94" Name="OutGen04" Type="OUTGT_4" TypeUUID="4AAD22214DECAA814A2916B80A80CE70" Usage="internal" />
+                <Variable UUID="FD8C684E4CA091C41E8C3BAAC932C262" Name="clamp" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="40950C984DAF837C120F11A811595C95" Name="tmp5" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="19D6B67F4C4F362BDDDCCA86B5BBA9ED" Name="data_from_GPAs" Type="data_from_gpa1" TypeUUID="3CE9BA7346F52BE3FD62109BADBA18F5" Usage="internal" />
+                <Variable UUID="FA13FE694EB26330463A468782E715D4" Name="data_to_GPAs" Type="data_to_GPAs_1" TypeUUID="D7B0A62441F676A7ED3D96BF3A719301" Usage="internal" />
+                <Variable UUID="39F6A4024F59E66CC04333822F87D362" Name="alarms1" Type="alarms" TypeUUID="F368D49445739836E86124A3E49698EA" Usage="internal" />
+                <Variable UUID="C5C2D1CA41C8ACAD2AB188B717E683E3" Name="to_Trend" Type="toTrend" TypeUUID="31D4638845800CAE4828F4999195AC64" Usage="internal" />
+                <Variable UUID="4E71DC664F0A19558F61BCB2867EF7B4" Name="GetGroup_" Type="GetGroup" TypeUUID="88FBCBA54BFC73E3C32A9D8FAB6731B8" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[
+
+// инициализация регулятора
+perf_init();
+
+
+// получение данных по MODBUS
+
+data_from_GPAs();
+
+GetGroup_();
+
+// расчет параметров регулирования
+ReadIO();
+
+//конфигурация контуров регулирования
+ReadCNF01(glob_conf_change := glob_conf_change,
+			test_array := test_array);
+  
+// чтение команд оператора по контурам регулирования
+ReadCom01(	(*Wish_main_loop := Wish_main_loop,
+			local_SP := local_SP,
+			del_T := del_T,
+ 			co_no_SP_ramp := co_no_SP_ramp*));
+
+// Расчет уставок для каждого контура регулирования
+SPtreat();
+
+// регулятор
+sig_sel01(gt_Mstruct, test_array);
+
+// формирование выходного воздействия по контурам регулирования
+OutGen04(d_out_max => gt_Mstruct.d_out_max, 
+		   d_out_min => gt_Mstruct.d_out_min, 
+		   clamp => clamp,
+		   d_out => tmp5 );
+
+//расчет воздействий по выравниванию нагрузки 
+ls_and_SP01();
+ 
+// отправка новых уставок в агрегаты:
+data_to_GPAs();
+
+
+alarms1();
+
+to_Trend();]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="34D4FBD544AA86869DDA068719DEB96A" Name="ramp_1">
+            <Variables>
+                <Variable UUID="DFB8903947388B6646E341A43FEF2B1F" Name="enable1" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="8B0654C9434DFF724932A786EC047582" Name="ramp_rate" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="A4FBBC4C4ECA550F0552F98F5047850D" Name="y_target" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="79F88FF94DB16E98DB987D95223455BB" Name="y_current" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="18B392B6473C8A8FC0B1ACA72C093896" Name="ramp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="A1F35AAB4DDBBF9C2A471188AEDE9ECC" Name="dd" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="BC312160490235569BB0CCA12175428F" Name="dy" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="CE4032C24B14FC4557FFEAB654FE6C69" Name="dd_1" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="04EBE0AF4E8E1DD30EA9018AAC212C5D" Name="ramp_rate_1" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[IF enable1 THEN
+	
+	
+
+	IF (ramp_rate = 0.0) THEN
+                      ramp := y_target;
+                      RETURN;
+ 	END_IF; 
+
+    dd := y_target - y_current ;
+    ramp_rate_1 := ABS(ramp_rate);
+    dy := ramp_rate_1 * del_T;       
+
+   	dd_1:= ABS(dd);
+      
+    IF  dd_1 <= dy THEN
+        ramp := y_target ;
+    	RETURN; 
+    END_IF;   
+        
+  (*--------------------------------------------------------*)  
+    IF dd > 0.0 THEN  ramp :=  y_current + dy ;		
+                  ELSE  ramp :=  y_current - dy ;
+	END_IF ;  
+  
+    
+ELSE      
+         ramp := y_current ;
+END_IF; 
+
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="E0A17D684158FAAC59FF7AA738C1913B" Name="rate_lim_2">
+            <Variables>
+                <Variable UUID="4CCB2A91483AB4E9C46614B917BC2AEC" Name="s_sel" Type="dSEL" TypeUUID="B28313A64FD9A74190156F8EE22B9C45" Usage="inout" />
+                <Variable UUID="DB6CC2CE4970007DA051CCA8908B4B15" Name="decouple" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="inout" />
+                <Variable UUID="2857EF934B2F8540716C0B9629DB8023" Name="switch" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="7D6F116E4D8C9A06B6B166AF537E8567" Name="open_seq" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="8078311549D622E47785C690119C6407" Name="d_out" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="C8E59682469FAE9D902257BCD266AC30" Name="d_out_woDecouple" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="2D5320FC4C5C6ABF3A561DA8DC33DE07" Name="R_TRIG1" Type="R_TRIG" TypeUUID="D90E3B974D4D8C72877123B1A897EB52" Usage="internal" />
+                <Variable UUID="DB449C2442D91BC39A3603892CDE610D" Name="loop_selected" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="60CE04234864767DA030218F07C34D6E" Name="dI" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="6FA1D319476A7734012FA592B19F824C" Name="in_lim" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="515D69BF476D05C090D446AC156ABA98" Name="r_rate_lim" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="D56649A44B189679720E57BE7A36A816" Name="P_current" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="898F9C264BD881BEEBA1B68AEA55419F" Name="PplusD_previos" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="25512D9A4A1DA3152DADBC9978087EA1" Name="d_PplusD" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="88907B934E919E2783C6FE811688319D" Name="loop_selected_previous" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="2C11B0A84103FB6BE71130B711768742" Name="tmp1" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="5DF3CFB642EF50BE043796B099C283CA" Name="sp_ramp1" Type="sp_ramp_1" TypeUUID="E075A02F4F6AC7C315C25590F7DD884E" Usage="internal" />
+                <Variable UUID="84838D304532DB99B8FA8E8F718D741E" Name="main_loop_prev" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+                <Variable UUID="01BD103A40690E669269E3A5F55BB6A9" Name="open_seq_previous" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[    if open_seq then
+    	PplusD_previos := 0.0;
+    end_if;
+ //   t_open_seq := open_seq;
+
+    dI := s_sel.dI_selected ;
+	 
+	  loop_selected := s_sel.loop_selected;
+	  IF loop_selected=0 THEN 
+	  	loop_selected := 1;
+	  END_IF;
+	R_TRIG1(CLK:=s_sel.LimitCondition);	
+
+		IF R_TRIG1.Q THEN
+			PplusD_previos := 0.0;
+		END_IF;	
+    IF loop_selected_previous=0 THEN loop_selected_previous:=loop_selected; END_IF;
+      IF (switch OR (s_sel.pid_struct[loop_selected_previous].loop_enable=FALSE)
+	  OR (s_sel.pid_struct[loop_selected_previous].limit_goal <> s_sel.pid_struct[loop_selected].limit_goal))
+	  OR (s_sel.pid_struct[loop_selected].SwitchFlag)
+	  OR  (main_loop_prev<>s_sel.main_loop)
+	  OR (open_seq <> open_seq_previous) THEN 
+	
+         PplusD_previos := s_sel.PplusD_selected; 
+  //       t_switch_seq := t_switch_seq + 1;
+      END_IF;  (* Killing proportional when switch from man to auto  OR Limit appears*) 
+	open_seq_previous := open_seq;
+(*------------- Auto or limit mode ----------------------------*)
+   in_lim := (dI + decouple); 
+
+(* Rate limiter - calculation of ramp rates :    *)
+
+//   tmp161 := in_lim;
+   IF (in_lim)> s_sel.vel_high_limit THEN
+      in_lim:=s_sel.vel_high_limit; (* Integral plus decoupling > velocity high lim *)
+      r_rate_lim := 0.000001;
+    ELSIF    (in_lim)< s_sel.vel_low_limit THEN  (* Integral plus decoupling < velocity low lim *)
+      in_lim:=s_sel.vel_low_limit;
+      r_rate_lim := 0.000001;
+      
+    ELSIF (s_sel.PplusD_selected - PplusD_previos > 0.0) THEN (* direction increasing dP-part *)
+   
+      
+      IF (s_sel.PplusD_selected - PplusD_previos) > tmp1 OR in_lim >=0.0 THEN
+          r_rate_lim := (s_sel.vel_high_limit - in_lim);
+       ELSE 
+ //         tmp1 := s_sel.vel_low_limit - in_lim;
+          tmp1 := abs(tmp1);
+          r_rate_lim := tmp1;
+      END_IF;    
+    ELSE                                  (* direction decreasing P-part *)
+ //        tmp160 := in_lim;
+         tmp1 := abs(in_lim);
+         IF (s_sel.PplusD_selected - PplusD_previos) < tmp1 OR in_lim <= 0.0 THEN
+             tmp1 := s_sel.vel_low_limit - in_lim;
+          	 tmp1 := abs(tmp1);
+          	 r_rate_lim := tmp1;
+          	// 'r_rate_lim := ABS(s_sel.vel_low_limit - in_lim);
+          ELSE 
+             r_rate_lim := (s_sel.vel_high_limit - in_lim);
+         END_IF;    
+    END_IF;  
+		
+    	
+          sp_ramp1(enable := TRUE, y_current := PplusD_previos, y_target := s_sel.PplusD_selected, ramp_rate := r_rate_lim);
+          P_current:= sp_ramp1.sp_ramp;
+  		
+  
+         d_PplusD := P_current - PplusD_previos;    
+        
+
+            PplusD_previos := P_current;
+			main_loop_prev := s_sel.main_loop;
+			loop_selected_previous := s_sel.loop_selected;
+         d_out := d_PplusD  + in_lim;    (* delta output signal *) 
+    
+         d_out_woDecouple := d_out - decouple; (* delta output signal without decouple *)
+      IF d_out>=s_sel.vel_high_limit  THEN
+         s_sel.vel_limit_ind := TRUE;
+         d_out := s_sel.vel_high_limit;
+      ELSIF d_out<=s_sel.vel_low_limit THEN
+         s_sel.vel_limit_ind := TRUE;
+         d_out := s_sel.vel_low_limit;
+        ELSE  
+         s_sel.vel_limit_ind := FALSE;
+      END_IF; 
+
+ 
+   
+(*-------------------------- END of Rate limiter calculation---------------------------*)      
+ (*__________________________________________________________________________*)
+ 	]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="E075A02F4F6AC7C315C25590F7DD884E" Name="sp_ramp_1">
+            <Variables>
+                <Variable UUID="AE01F92B4CE7B852EDCA7A895B417FB4" Name="enable" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="35BFE7294C5C5A08B3324BA9F4EDCBD5" Name="y_current" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="F97308BC4A90B2C1E0EB9CA4D4D6D59A" Name="y_target" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="F76425204660700CA49C329B59CDD852" Name="ramp_rate" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="F12F4C49473125559A7626868C0A5AF9" Name="sp_ramp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="E94C58364889E78D602E58B5C9BA07F7" Name="dy" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="AD9483D5491AB478713ED79BB401A977" Name="dd" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="A5EC672644F7A69AFA3A6490A5EE1B98" Name="tmp1" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[ IF enable THEN
+
+ IF (ramp_rate = 0.0) THEN
+                      sp_ramp := y_target;
+                      RETURN;
+ END_IF; 
+
+      dd := y_target - y_current ;
+ //     'dy := ABS(ramp_rate);   
+      dy := abs(ramp_rate);    
+
+	tmp1 := abs(dd);	
+      IF  tmp1 <= dy THEN
+         sp_ramp := y_target ;
+         RETURN; 
+      END_IF;   
+        
+  (*--------------------------------------------------------*)  
+      IF dd > 0.0 THEN  sp_ramp :=  y_current + dy ;
+                  ELSE  sp_ramp :=  y_current - dy ;
+      END_IF ;          
+    
+ ELSE      
+         sp_ramp := y_current ;
+ END_IF; 
+]]></ST>
+        </FunctionBlock>
+        <FunctionBlock UUID="31D4638845800CAE4828F4999195AC64" Name="toTrend">
+            <Variables />
+            <ST><![CDATA[(*
+GPA1_run := gpa[1].run;
+GPA1_remote := gpa[1].remote;
+GPA1_Q := gpa[1].Q;
+GPA1_Eout := gpa[1].Eout;
+GPA1_EoutEin := gpa[1].EoutEin;
+GPA1_S := gpa[1].S;
+GPA1_Nst := gpa[1].Nst;
+GPA1_SP_Nst := gpa[1].SP_Nst;
+GPA1_SP_cv := gpa[1].SP_cv;
+GPA1_Q_perc := gpa[1].Q_perc;
+GPA1_Nst_perc := gpa[1].Nst_perc;
+GPA1_Nvd_perc := gpa[1].Nvd_perc;
+
+
+GPA5_run := gpa[5].run;
+GPA5_remote := gpa[5].remote;
+GPA5_Q := gpa[5].Q;
+GPA5_Eout := gpa[5].Eout;
+GPA5_EoutEin := gpa[5].EoutEin;
+GPA5_S := gpa[5].S;
+GPA5_Nst := gpa[5].Nst;
+GPA5_SP_Nst := gpa[5].SP_Nst;
+GPA5_SP_cv := gpa[5].SP_cv;
+GPA5_Q_perc := gpa[5].Q_perc;
+GPA5_Nst_perc := gpa[5].Nst_perc;
+GPA5_Nvd_perc := gpa[5].Nvd_perc;
+
+
+GPA7_run := gpa[7].run;
+GPA7_remote := gpa[7].remote;
+GPA7_Q := gpa[7].Q;
+GPA7_Eout := gpa[7].Eout;
+GPA7_EoutEin := gpa[7].EoutEin;
+GPA7_S := gpa[7].S;
+GPA7_Nst := gpa[7].Nst;
+GPA7_SP_Nst := gpa[7].SP_Nst;
+GPA7_SP_cv := gpa[7].SP_cv;
+GPA7_Q_perc := gpa[7].Q_perc;
+GPA7_Nst_perc := gpa[7].Nst_perc;
+GPA7_Nvd_perc := gpa[7].Nvd_perc;
+
+GPA2_run := gpa[2].run;
+GPA2_remote := gpa[2].remote;
+GPA2_Q := gpa[2].Q;
+GPA2_Eout := gpa[2].Eout;
+GPA2_EoutEin := gpa[2].EoutEin;
+GPA2_S := gpa[2].S;
+GPA2_Nst := gpa[2].Nst;
+GPA2_SP_Nst := gpa[2].SP_Nst;
+GPA2_SP_cv := gpa[2].SP_cv;
+GPA2_Q_perc := gpa[2].Q_perc;
+GPA2_Nst_perc := gpa[2].Nst_perc;
+GPA2_Nvd_perc := gpa[2].Nvd_perc;
+
+GPA3_run := gpa[3].run;
+GPA3_remote := gpa[3].remote;
+GPA3_Q := gpa[3].Q;
+GPA3_Eout := gpa[3].Eout;
+GPA3_EoutEin := gpa[3].EoutEin;
+GPA3_S := gpa[3].S;
+GPA3_Nst := gpa[3].Nst;
+GPA3_SP_Nst := gpa[3].SP_Nst;
+GPA3_SP_cv := gpa[3].SP_cv;
+GPA3_Q_perc := gpa[3].Q_perc;
+GPA3_Nst_perc := gpa[3].Nst_perc;
+GPA3_Nvd_perc := gpa[3].Nvd_perc;
+
+GPA4_run := gpa[4].run;
+GPA4_remote := gpa[4].remote;
+GPA4_Q := gpa[4].Q;
+GPA4_Eout := gpa[4].Eout;
+GPA4_EoutEin := gpa[4].EoutEin;
+GPA4_S := gpa[4].S;
+GPA4_Nst := gpa[4].Nst;
+GPA4_SP_Nst := gpa[4].SP_Nst;
+GPA4_SP_cv := gpa[4].SP_cv;
+GPA4_Q_perc := gpa[4].Q_perc;
+GPA4_Nst_perc := gpa[4].Nst_perc;
+GPA4_Nvd_perc := gpa[4].Nvd_perc;
+
+GPA6_run := gpa[6].run;
+GPA6_remote := gpa[6].remote;
+GPA6_Q := gpa[6].Q;
+GPA6_Eout := gpa[6].Eout;
+GPA6_EoutEin := gpa[6].EoutEin;
+GPA6_S := gpa[6].S;
+GPA6_Nst := gpa[6].Nst;
+GPA6_SP_Nst := gpa[6].SP_Nst;
+GPA6_SP_cv := gpa[6].SP_cv;
+GPA6_Q_perc := gpa[6].Q_perc;
+GPA6_Nst_perc := gpa[6].Nst_perc;
+GPA6_Nvd_perc := gpa[6].Nvd_perc;*)]]></ST>
+        </FunctionBlock>
+    </FBLibrary>
+</Program>

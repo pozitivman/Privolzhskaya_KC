@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Node v. 1.3 >
+<Node Name="PLC_SHKU17_A2" Comment="ПЛК шкафа САУ КЦ-1-2 A2" Disabled="TRUE" Address="10.1.1.22" NetworkTimeout="2000" PingInterval="300" RetryTimeout="100" AggregationInterval="10" LocalTimeout="2000" LocalPingInterval="300" LocalRetryTimeout="50" LocalAggregationInterval="4" UseSharedMem="FALSE" EventQueue="2000" StoreEventQueue="FALSE" StartState="Default" UUID="25CDCB3746CC369F0663F484522667AC">
+    <InterfaceList>
+        <SubApp Name="DRV_PLC_SHKU_A2" Type="F219350047ECC8CE5BD6FC87154D39DA" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="B266C1524D150AE833B83FB7EF117C2C" />
+        <SubApp Name="DRV_PLC_SHKU_A3_A4_A5" Type="2E9DD52B405EB32F87BB5FB67192AE42" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="BB2D51AA499109DE302BB191AD328D81" />
+        <SubApp Name="DRV_PLC_SHKU_A6_A7" Type="6CE8489C473359F160A03096B45F8DB6" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="7C5F369647F03B22F858908E48936690" />
+        <SubApp Name="AppLink" Type="4D3A7DD748B424CEC2A9699A245156DC" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="9F345A3E463E4B0637243F8323092597" />
+        <SubApp Name="MAIN_KC" Type="A438E93A41A2D94715E22F89FE5E7FF9" Disabled="FALSE" Args="" ExecTimeout="100000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="64330FFE471C35BF36103799F9778721" />
+        <SubApp Name="AppAS36_2" Type="4C34DBE74E9D2AB11B6044AD497C6AD4" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="8D5F6A6D463A43D9D79A3187A1721BB3" />
+        <SubApp Name="AppMB_1" Type="6219496E43758F748F6ACBB1527BD05F" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C9B2446641F2127A595F66B881C4E360" />
+        <SubApp Name="AppMB_2" Type="141602AF4D1ECFB695A0BCB8C169286F" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C9B2446641F2127A595F66B881C4E360" />
+        <SubApp Name="AppMB_3" Type="7C2C4E124BEF8C6584DA5897C9519409" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C9B2446641F2127A595F66B881C4E360" />
+        <SubApp Name="AppMB_4" Type="35EBC54A4D45408A76EFE8B133288C8D" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="4B0B90A54E7D72FB0F66E28A7E8B27F0" />
+        <SubApp Name="AppMB_5" Type="45D1C9E749503B7E94DB698E10F6BFD5" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C9B2446641F2127A595F66B881C4E360" />
+        <SubApp Name="AppMB_6" Type="F0310AC94BC5E3F1D40D8AB16D4FF6ED" Disabled="FALSE" Args="" ExecTimeout="10000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="6E95BAE04706B2022CE12FB371655E15" />
+        <SubApp Name="AppDRV_PRU2" Type="F38C0E324318387F14750BBFA692F670" Disabled="TRUE" Args="" ExecTimeout="100000" ShutdownTimeout="1000" GoodResult="0" Comment="" UUID="C3BD0EB04CA4EF3E6E3F4CB00671A81B" />
+    </InterfaceList>
+</Node>

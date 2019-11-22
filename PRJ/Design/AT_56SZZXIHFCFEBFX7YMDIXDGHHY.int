@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="DRV_MBTCP_GPA5" Kind="DRIVER.MODBUS" Args="" Comment="" UUID="45D1C9E749503B7E94DB698E10F6BFD5">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="6DCD1F994C76D463EEEC5BBD1303317E" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="4C6028254BF92CE440F5B7AB59C76700" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="B02FAD2F491FE900F05707AF85970840" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="9D8D026045150412A7136780BFDF1702" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="9C810302423F8909612616917499C95F" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="E7328A414E94B875659FD0ABFEFB2926" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="429FDDA646D57D24B9AFB5BA2C395364" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="5B9BC8A9439C4C01EDE55895B81246DC" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="C6307C2746EC040460DF60B1F347C836" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="6C5251754EB28F3C928B67B8FA7489A7" Type="STRING" Usage="output" />
+        <Signal Name="GPA_5" UUID="71A382074B3AA165A08352B1A54D2B90" Type="C5BB28BB4049E3577709BD9B2AADBBE0" Global="TRUE" />
+        <Signal Name="MB_KR_STATE_GPA5_FOR_SHOP" UUID="79A94AA74E415C4BC1B9B09CE9C99BC9" Type="WORD" Global="TRUE" Comment="Состояния кранов 3 и 3бис для отображения в САУ цеха" />
+        <Signal Name="Status_GPA_5" UUID="73BBA8EE41E4E17B282737A69ACC5A91" Type="INT" Global="TRUE" />
+    </InterfaceList>
+</SubAppType>

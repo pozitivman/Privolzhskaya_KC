@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="TKran3_3bis" Kind="Struct" UUID="6237B5B945FA929F540FFDB0B719D5B6">
+    <Fields>
+        <Field Name="opened" Type="BOOL" UUID="B05C57E34375347C4EE4AABC95DBAA3C" Comment="Кран открыт" />
+        <Field Name="closed" Type="BOOL" UUID="05ADBCDF4A35BE0365FDAE8C310C71A0" Comment="Кран закрыт" />
+        <Field Name="open" Type="BOOL" UUID="2A57148F4D4DB9E015F4708F6DF3F21B" Comment="Кран открыть. Индикация" />
+        <Field Name="close" Type="BOOL" UUID="01F2971445F83001455760A979533F3A" Comment="Кран закрыть. Индикация" />
+        <Field Name="state" Type="WORD" UUID="A46162A54CFC2B1DE006FB969EC9C354" Comment="Состояние крана" />
+    </Fields>
+</Type>

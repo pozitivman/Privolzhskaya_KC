@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Type_GPA_AB" Kind="Struct" UUID="3BB634624B5777F8AB55A2B8E72A38DD">
+    <Fields>
+        <Field Name="val_6" Type="UINT" UUID="D405D5534FE6DFB02EB952B80A720EFC" />
+        <Field Name="remote" Type="BOOL" UUID="6B25D6614C813DAE1C3A60A190E45DD2" Comment="gt_ ГПА в дистанционном управлении 6 bit 0" />
+        <Field Name="run" Type="BOOL" UUID="5267950D4EECC0C9598559A9B493E73E" Comment="ГПА в МАГИСТРАЛИ 6 bit 1" />
+        <Field Name="HiLim" Type="BOOL" UUID="A636A7474F45E011753938A8CCF38B26" Comment="ГПА на верхнем ограничении 6 bit 2" />
+        <Field Name="LoLim" Type="BOOL" UUID="049151A24CE65FFD73F9178EC725023F" Comment="ГПА на нижнем ограничении 6 bit 3" />
+        <Field Name="Hiclamp" Type="BOOL" UUID="513BE3F84240DDD5C17366A8B4B46AEC" Comment="gt accel 6 bit 4" />
+        <Field Name="Loclamp" Type="BOOL" UUID="5B7324AE438B94784E32F2A2F3C75A26" Comment="gt decel 6 bit 5" />
+        <Field Name="ASnotREADY" Type="BOOL" UUID="12DDE232489DA06C199928BD0497EFEA" Comment="Условие неготовности AS 6 bit 6" />
+        <Field Name="CommFailEthernet" Type="BOOL" UUID="5CAF9AFD4C4991997CF3C5A32A99D7A4" Comment="Нет связи по Ethernet между контроллерами AB 6 bit 7" />
+        <Field Name="dev" Type="UINT" UUID="941265D94053E4D1B1ABC09F272D2E70" Comment="Запас по помпажу (до линии контроля)  int *1000" />
+        <Field Name="gt_FCV" Type="UINT" UUID="700F820041A2645C28F5A2AB5D790661" Comment="На топливный клапан. Вход РР    int*100" />
+        <Field Name="gt_FCV_accel" Type="UINT" UUID="3DF797AC4DC5768F7A89A9884DBFFF0D" Comment="ACCEL limit. Вход РР     int*100" />
+        <Field Name="gt_NPT_setpoint" Type="UINT" UUID="4F471B7249E42F6A9FDA21937C3BD476" Comment="задание NPT        int*1" />
+        <Field Name="gt_NPT" Type="UINT" UUID="C843CAF64F6357F4528E7893CB3B7C8D" Comment="NPT      int*1" />
+        <Field Name="SP_NPT" Type="UINT" UUID="FA749B5541853AA2CEB432B0D0889534" Comment="SP target    int*1" />
+        <Field Name="SPwrPerm" Type="UINT" UUID="8741C91D40DFEFD6FB233BA8596A5C0B" Comment="Разрешить запись SP в ГПА-31   (Не 0)" />
+        <Field Name="runner" Type="UINT" UUID="D283EEEE4FF6369C277F5CB2AB36F12B" Comment="Бегущий бит в AB" />
+    </Fields>
+</Type>

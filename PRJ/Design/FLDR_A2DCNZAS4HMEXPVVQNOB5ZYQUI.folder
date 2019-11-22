@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="Незапланированные задачи">
+    <Items>
+        <Item Name="AT_3CPLNSXQ4OHURNPQVZHCLLGB44.int" />
+        <Item Name="AT_5A5TTOZ6NBSELOBI7TN4TUB7QQ.int" />
+        <Item Name="AT_C23ZM4WDTSUETP3HMPASWE2364.int" />
+        <Item Name="AT_FM6ZADSQ2RZEZKJRGTCZBHB2QM.int" />
+        <Item Name="AT_FQGX7DE4KCUUDEB5Z5C2D2IIEU.int" />
+        <Item Name="AT_JVFNARM3ASUEBLW7VU5VWS2QXA.int" />
+        <Item Name="AT_KZPPU66JAZSULDNVSSWDAB6JQ4.int" />
+        <Item Name="AT_RRSKZWRKQAGUDBYFPAH2GT5PW4.int" />
+        <Item Name="AT_RYHGXMB3S2TEVE5W5O4S6JBFRY.int" />
+        <Item Name="AT_V6ICRP5B5SCUDDRQPJTEMLULNE.int" />
+        <Item Name="perf.int" />
+    </Items>
+</Folder>

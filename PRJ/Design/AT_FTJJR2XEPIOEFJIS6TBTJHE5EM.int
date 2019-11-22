@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Link_A2" Kind="APPLICATION.ST.CONSOLE" Args="" Comment="" UUID="4D3A7DD748B424CEC2A9699A245156DC">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="105ED6E2418AC296E8B2A89139AD3C22" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="AB248B0F4D0D3BC8679E29B5D28B71AE" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="321DBFCE43F7BDFD7190B4806CA365C2" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="5C20546E4CFB88D863BE9F92BBF12AE8" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="E4530A9C4594E8E5F734008913E2BB16" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="A2E3051944A62D3CC982D085D7683325" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="DBE5B3FF46FA7B5D3360E49659F43AB7" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="6E357361498C6305817B49B077692732" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="A4498FD84D2AFB08F5166B9C0217BF9C" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="90B7D3D44AA5C55D2B4DD2AA20049886" Type="STRING" Usage="output" />
+        <Signal Name="Test_connection_A2" UUID="3C288A2040FDEEA99AD5369721EA2509" Type="LREAL" Global="TRUE" Comment="Проверка связи АРМ с ПЛК А2" />
+    </InterfaceList>
+</SubAppType>

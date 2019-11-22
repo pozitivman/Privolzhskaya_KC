@@ -1,0 +1,417 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Program >
+<Program UUID="4C34DBE74E9D2AB11B6044AD497C6AD4" Name="AS36_2" Period="100">
+    <Variables>
+        <Variable UUID="542BE8CF47A7EB78375363BC854C9884" Name="i" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+        <Variable UUID="1C75AA3A48EEF1BFCC8A66A9F0985380" Name="AS_conf" Type="AS_conf_sel1" TypeUUID="6E2FF8DE43E4DEA64D39F5BB8DF2B1C1" Usage="internal" />
+        <Variable UUID="25FCBBFA496FA16585301C976D3AEA02" Name="sig_sel_21020" Type="c_aSigSel_1_exe" TypeUUID="CA26F9964BAD98A9821011904E2FAAFB" Usage="internal" />
+        <Variable UUID="F79D7C57482DC8C2D7E8B9B68E989C43" Name="as_test_reg" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Size="20" Array="TRUE" Usage="internal" />
+        <Variable UUID="5C7EE35843355EA0CFBD528801E6255D" Name="AS_manual_ramp" Type="ramp_1" TypeUUID="99210B724B0EF3BE91BD8B8D7747356C" Usage="internal" />
+        <Variable UUID="8D1D06D04D9AED7178AEB6AE85584802" Name="tmpREALtime" Type="LREAL" TypeUUID="65F1DDD44EDA9C0776BB16BBDFE36B1F" Usage="internal" />
+        <Variable UUID="CFE571EC4C35CCE73F117CBEEDC9833B" Name="tmpREALtime_prev" Type="LREAL" TypeUUID="65F1DDD44EDA9C0776BB16BBDFE36B1F" Usage="internal" />
+        <Variable UUID="B87024D54ADF866DA49114A7A849B255" Name="rtrig_force_DA_APK" Type="R_TRIG" TypeUUID="D90E3B974D4D8C72877123B1A897EB52" Usage="internal" />
+        <Variable UUID="6D21196045259BA7ABB9E6A404FE8FE3" Name="rtrig_unforce_DA_APK" Type="R_TRIG" TypeUUID="D90E3B974D4D8C72877123B1A897EB52" Usage="internal" />
+    </Variables>
+    <ST><![CDATA[// определение времени цикла
+tmpREALtime := CLOCK();
+TSCAN := LREAL_TO_REAL(tmpREALtime - tmpREALtime_prev);
+tmpREALtime_prev := tmpREALtime;
+
+// Значение S выбирается как максимальное от всех агрегатов
+AS36_2_str.Shop_YR3 := 0.0;
+AS36_2_str.Shop_Yr3_valid := true;
+Dev_shop_2 := 0.0;
+ 
+for i := 1 to 6 do
+	if ((gpa[i].S > 0.0 and gpa[i].run = true) and (temp_GPA[i] = 2 or temp_GPA[i] = 4) and (gpa[i].S > AS36_2_str.Shop_YR3)) then
+		AS36_2_str.Shop_YR3 := gpa[i].S;
+		Dev_shop_2 := gpa[i].dev; //Выводим значение минимальный запас по помпажу по цеху
+		rtrig_unforce_DA_APK(CLK:= (gpa[i].S >= AS36_2_str.SP_S or shop_2.Eout >= AS36_2_str.SP_Pout or shop_2.EoutEin >= AS36_2_str.SP_PoutPin));
+		if (rtrig_unforce_DA_APK.Q) then HMI_SHKU17_APK_2_DA := bool#0; end_if; //При равенстве или превышении порога уставок, переводим АПК в автомат однократно.
+		rtrig_force_DA_APK(CLK:= (gpa[i].S >= SP_RT_APK_2));//При превышении порога уставки RT открываем АПК на заданное значение; gpa[i].S >= SP_RT_APK_2
+		if (rtrig_force_DA_APK.Q) then
+			HMI_SHKU17_APK_2_DA := bool#1;
+			if ((AS36_2_str.CV_Manual + SP_Popen_APK_2) >= real#100.0) then 
+				AS36_2_str.CV_Manual := real#100.0;
+			else
+				AS36_2_str.CV_Manual := AS36_2_str.CV_Manual + SP_Popen_APK_2;
+			end_if;  
+		end_if; 
+	end_if;
+end_for;
+//Eout_valid := (shop_2.Eout > 0.0);
+//EoutEin_valid := (shop_2.EoutEin > 0.0);
+Eout_valid := true;
+EoutEin_valid := true;
+
+// конфигурация пид-контуров и селектор выхода
+AS_conf(
+	on_1 :=  AS36_2_str.Shop_Yr3_valid,
+	on_2 := Eout_valid,
+	on_3 := EoutEin_valid 
+	);
+	
+// расчет пид-контуров	
+//sig_sel_21020(as_MStruct, as_test_reg);
+if not HMI_SHKU17_APK_2_DA then	
+	sig_sel_21020(as_MStruct, as_test_reg);
+	AS_manual_ramp(enable1 := TRUE, ramp_rate := AS36_2_str.SP_manual_rate, y_target := as_MStruct.CV,  y_current := AS36_2_str.AS_CV_out);
+	AS36_2_str.AS_CV_out := AS_manual_ramp.ramp;
+	AS36_2_str.CV_Manual := AS_manual_ramp.ramp;
+ else
+	as_MStruct.PplusD_selected := real#0.0;
+	as_MStruct.dI_selected := real#0.0;
+	as_MStruct.CV := AS36_2_str.AS_CV_out;
+	AS_manual_ramp(enable1 := BOOL#1, ramp_rate := AS36_2_str.SP_manual_rate, y_target := AS36_2_str.CV_Manual,  y_current := AS36_2_str.AS_CV_out);
+	AS36_2_str.AS_CV_out := AS_manual_ramp.ramp;
+end_if;
+//Передаем сигнал от ПИДа регулятора в аналоговый выход контроллера
+SHKU17_AO_APK_KC2 := AS36_2_str.AS_CV_out;		
+
+
+//логика ручного или автоматического регулирования
+                                         
+//AS_manual_ramp(enable1 := TRUE, ramp_rate := AS36_2_str.SP_manual_rate, y_target := AS36_2_str.CV_Manual,  y_current := AS36_2_str.AS_CV_out);
+//AS36_2_str.AS_CV_out := AS_manual_ramp.ramp;
+(*
+if HMI_SHKU17_APK_2_DA 
+then
+	AS_manual_ramp(enable1 := BOOL#1, ramp_rate := AS36_2_str.SP_manual_rate, y_target := AS36_2_str.CV_Manual,  y_current := AS36_2_str.AS_CV_out);
+	AS36_2_str.AS_CV_out := AS_manual_ramp.ramp;
+else
+	AS36_2_str.CV_Manual := as_MStruct.CV;
+	AS36_2_str.AS_CV_out := as_MStruct.CV;
+end_if;
+//Передаем сигнал от ПИДа регулятора в аналоговый выход контроллера
+SHKU17_AO_APK_KC2 := AS36_2_str.AS_CV_out;
+*)
+(*
+if (AS36_2_str.AS_CV_out < as_MStruct.CV) then  // если расчетное открытие больше чем ручное, берем расчетное
+	AS36_2_str.AS_CV_out := as_MStruct.CV;
+	// сюда можно добавить ПС, что мы сидим на ограничении
+end_if;
+*)
+//                                      
+if (AS36_2_str.BTN_Unload) then
+	AS36_2_str.CV_Manual := 100.0;
+	AS36_2_str.BTN_Unload := FALSE;
+	AS36_2_str.BTN_Load := FALSE;
+elsif( AS36_2_str.BTN_Load) then
+	AS36_2_str.CV_Manual := 0.0;
+	AS36_2_str.BTN_Unload := FALSE;
+	AS36_2_str.BTN_Load := FALSE;
+end_if;
+
+// отработка дискретных датчиков ограничений
+if (AS36_2_str.Discr_PS) then   // эту переменную надо самостоятельно сформировать по всем ограничениям дискретным, когда требуется открыть кран АПК
+	AS36_2_str.CV_Manual := 100.0;
+end_if;
+
+
+AS36_2_str.BTN_Unload := false;
+AS36_2_str.BTN_Load := FALSE;
+AS36_2_str.Discr_PS := false;]]></ST>
+    <DataTypes />
+    <FBLibrary>
+        <FunctionBlock UUID="6E2FF8DE43E4DEA64D39F5BB8DF2B1C1" Name="AS_conf_sel1">
+            <Variables>
+                <Variable UUID="2ED1BB6941E8C80256AC868491C22539" Name="on_1" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="2A14FD334D21DE6D5BF99B96ABE06854" Name="on_2" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="0A6A9BD24F4D9D9609B959954E63F3EF" Name="on_3" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="1142218E4CA54FADF831448EBAD71621" Name="i" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[(*
+gpa[01].online := 		;	// связь с ГПА1 исправна
+gpa[01].run := 			; 	// режим ГПА1 магистраль
+gpa[01].remote :=  		; 	// ГПА1 переведен в режим управления от САР
+gpa[01].Q :=  			;	// приведенный расход переводим в реальный
+gpa[01].Ein := 			; 	// давление газа на входе ГПА1
+gpa[01].Eout := 		; 	// давление газа на выходе ГПА1
+gpa[01].EoutEin := 		;	// степень сжатия через ГПА1
+gpa[01].S := 			; 	// запас по помпажу ГПА1
+gpa[01].Nst := 			; 	// обороты СТ ГПА1
+gpa[01].Nvd_r := 		; 	// обороты приведенные ВД ГПА1
+gpa[01].SP_Nst := 		; 	// задание по оборотам СТ ГПА1
+*)
+
+//Fastwell
+gpa[1].online	:= not (Status_GPA_1 = 2) and not (Status_GPA_1_2 = 2);					// связь с ГПА1 исправна
+gpa[1].run		:= GPA_1.MDB_W_0_N_12_ALG_GTU_CR145_Z;									// режим ГПА1 магистраль
+gpa[1].remote	:= GPA_1.MDB_W_0_N_1_GT_R_Operator_Local_A_1_Status_Active_0;			// ГПА1 переведен в режим управления от САР
+gpa[1].Q		:= GPA_1.MDB_W_0_N_1_GT_W_Valves_CV_T;									// приведенный расход переводим в реальный
+gpa[1].Ein		:= GPA_1.MDB_W_0_N_1_PE_1_T_sg_Status_PV_user;							// давление газа на входе ГПА1
+gpa[1].Eout		:= GPA_1.MDB_W_0_N_1_PE_2_T_sg_Status_PV_user;							// давление газа на выходе ГПА1
+gpa[1].EoutEin	:= GPA_1.MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T;							// степень сжатия через ГПА1
+gpa[1].S		:= calc_s(GPA_1.MDB_W_0_N_1_AS1_W_Unit_SL_dev_T, real#0.2);				// запас по помпажу ГПА1
+gpa[1].Nst		:= GPA_1.MDB_W_0_N_1_FE_2_TM;											// обороты СТ ГПА1 (NPT) 
+gpa[1].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1  (NHPr) ТВД
+gpa[1].SP_Nst	:= GPA_1.MDB_W_0_N_1_GT_R_Operator_SP_target_T;							// задание по оборотам СТ ГПА1
+gpa[1].dev		:= GPA_1.MDB_W_0_N_1_AS1_W_Unit_SL_dev_T;								// Девиация
+
+gpa[2].online	:= not (Status_GPA_2 = 2) and not (Status_GPA_2_2 = 2);					// связь с ГПА1 исправна
+gpa[2].run		:= GPA_2.MDB_W_0_N_12_ALG_GTU_CR145_Z;									// режим ГПА1 магистраль
+gpa[2].remote	:= GPA_2.MDB_W_0_N_1_GT_R_Operator_Local_A_1_Status_Active_0;			// ГПА1 переведен в режим управления от САР
+gpa[2].Q		:= GPA_2.MDB_W_0_N_1_GT_W_Valves_CV_T;									// приведенный расход переводим в реальный
+gpa[2].Ein		:= GPA_2.MDB_W_0_N_1_PE_1_T_sg_Status_PV_user;							// давление газа на входе ГПА1
+gpa[2].Eout		:= GPA_2.MDB_W_0_N_1_PE_2_T_sg_Status_PV_user;							// давление газа на выходе ГПА1
+gpa[2].EoutEin	:= GPA_2.MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T;							// степень сжатия через ГПА1
+gpa[2].S		:= calc_s(GPA_2.MDB_W_0_N_1_AS1_W_Unit_SL_dev_T, real#0.2);				// запас по помпажу ГПА1
+gpa[2].Nst		:= GPA_2.MDB_W_0_N_1_FE_2_TM;											// обороты СТ ГПА1
+gpa[2].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[2].SP_Nst	:= GPA_2.MDB_W_0_N_1_GT_R_Operator_SP_target_T;							// задание по оборотам СТ ГПА1
+gpa[2].dev		:= GPA_2.MDB_W_0_N_1_AS1_W_Unit_SL_dev_T;								// Девиация
+
+//AB
+gpa[3].online	:= not (Status_GPA_3 = 2);												// связь с ГПА1 исправна
+gpa[3].run		:= GPA_3.run.3;															// режим ГПА1 магистраль
+gpa[3].remote	:= true;																// ГПА1 переведен в режим управления от САР
+gpa[3].Q		:= 0.0;																	// приведенный расход переводим в реальный
+gpa[3].Ein		:= GPA_3.AS1_InOut_Ps;													// давление газа на входе ГПА1
+gpa[3].Eout		:= GPA_3.AS1_InOut_Pd;													// давление газа на выходе ГПА1
+gpa[3].EoutEin	:= GPA_3.AS1_Unit_calc_vars_status_Rc;									// степень сжатия через ГПА1
+gpa[3].S		:= GPA_3.S / 100.0;														// запас по помпажу ГПА1
+gpa[3].Nst		:= GPA_3.GT_InOut_NPT_Status_PV_calc_eu;								// обороты СТ ГПА1
+gpa[3].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[3].SP_Nst	:= GPA_3.GT_NPT_SP_target;												// задание по оборотам СТ ГПА1
+gpa[3].dev		:= GPA_3.AS1_Unit_CL_status_dev;										// Девиация
+
+gpa[5].online	:= not (Status_GPA_5 = 2);												// связь с ГПА1 исправна
+gpa[5].run		:= GPA_5.run.3;															// режим ГПА1 магистраль
+gpa[5].remote	:= true;																// ГПА1 переведен в режим управления от САР
+gpa[5].Q		:= 0.0;																	// приведенный расход переводим в реальный
+gpa[5].Ein		:= GPA_5.AS1_InOut_Ps;													// давление газа на входе ГПА1
+gpa[5].Eout		:= GPA_5.AS1_InOut_Pd;													// давление газа на выходе ГПА1
+gpa[5].EoutEin	:= GPA_5.AS1_Unit_calc_vars_status_Rc;									// степень сжатия через ГПА1
+gpa[5].S		:= GPA_5.S / 100.0;														// запас по помпажу ГПА1
+gpa[5].Nst		:= GPA_5.GT_InOut_NPT_Status_PV_calc_eu;								// обороты СТ ГПА1
+gpa[5].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[5].SP_Nst	:= GPA_5.GT_NPT_SP_target;												// задание по оборотам СТ ГПА1
+gpa[5].dev		:= GPA_5.AS1_Unit_CL_status_dev;										// Девиация
+
+//Sonet
+gpa[4].online	:= not (Status_GPA_4 = 2);												// связь с ГПА1 исправна
+gpa[4].run		:= GTD_4.run;															// режим ГПА1 магистраль
+gpa[4].remote	:= GTD_4.local_remote; 													// ГПА1 переведен в режим управления от САР
+gpa[4].Q		:= GTD_4.Q;																// приведенный расход переводим в реальный
+gpa[4].Ein		:= GTD_4.Ps - 101.32;													// давление газа на входе ГПА1
+gpa[4].Eout		:= GTD_4.Pd - 101.32;													// давление газа на выходе ГПА1
+gpa[4].EoutEin	:= GTD_4.Rc;															// степень сжатия через ГПА1
+gpa[4].S		:= GTD_4.S;																// запас по помпажу ГПА1
+gpa[4].Nst		:= GTD_4.Nst;															// обороты СТ ГПА1
+gpa[4].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[4].SP_Nst	:= 0.0;																	// задание по оборотам СТ ГПА1
+gpa[4].dev		:= GTD_4.dev;															// Девиация
+
+gpa[6].online	:= not (Status_GPA_6 = 2);												// связь с ГПА1 исправна
+gpa[6].run		:= GTD_6.run;															// режим ГПА1 магистраль
+gpa[6].remote	:= GTD_6.local_remote; 													// ГПА1 переведен в режим управления от САР
+gpa[6].Q		:= GTD_6.Q;																// приведенный расход переводим в реальный
+gpa[6].Ein		:= GTD_6.Ps - 101.32;													// давление газа на входе ГПА1
+gpa[6].Eout		:= GTD_6.Pd - 101.32;													// давление газа на выходе ГПА1
+gpa[6].EoutEin	:= GTD_6.Rc;															// степень сжатия через ГПА1
+gpa[6].S		:= GTD_6.S;																// запас по помпажу ГПА1
+gpa[6].Nst		:= GTD_6.Nst;															// обороты СТ ГПА1
+gpa[6].Nvd_r	:= 0.0;																	// обороты приведенные ВД ГПА1
+gpa[6].SP_Nst	:= 0.0;																	// задание по оборотам СТ ГПА1
+gpa[6].dev		:= GTD_6.dev;															// Девиация
+
+shop_2.Q := 0.0;
+//shop_2.Ein := 0.0;
+//shop_2.Eout := 0.0;
+//shop_2.EoutEin := 0.0;
+
+
+FOR i := 1 TO 6 DO
+	if(gpa[i].online and gpa[i].run and temp_GPA[i] = 2 or temp_GPA[i] = 4) then
+		shop_2.Q := shop_2.Q + gpa[i].Q;
+(*	
+		if(gpa[i].EoutEin > shop.EoutEin)then
+			shop.EoutEin := gpa[i].EoutEin;
+		end_if;
+		if(gpa[i].Eout > shop.Eout)then
+			shop.Eout := gpa[i].Eout;
+		end_if;		
+		if ((shop.Ein = 0.0 OR gpa[i].Ein < shop.Ein) AND gpa[i].Ein > 0.0) then
+			shop.Ein := gpa[i].Ein;
+		end_if;	
+*)
+	end_if;
+	
+END_FOR;
+
+// 1 кгс/см2 = 101.325 кПа
+shop_2.Ein := SHKU17_AI_Pg1KC2;	// давление на входе цеха
+shop_2.Eout := SHKU17_AI_Pg2KC2;	// давление на выходе цеха
+
+if (shop_2.Ein <> - 0.101325) then 
+	shop_2.EoutEin := (shop_2.Eout + 0.101325) / (shop_2.Ein + 0.101325);
+end_if;
+
+
+
+(*
+   // Здесь при наличии цеховых датчиков давления на входе и выходе с исправными показаниями
+	 //	должнно быть присвоение от них
+		shop_2.Ein :=  	;		// давление на входе цеха
+		shop_2.Eout :=	;		// давление на выходе цеха
+		shop_2.EoutEin := ;		// степень сжатия через цех
+		shop_2.Q := 		;		// расход газа через цех
+ 
+		
+
+if shop_2.EoutEin < 1.0 then shop_2.EoutEin := 1.0; end_if;
+*)
+
+if (not AS_init) then
+//Контур ограничения по запасу по помпажу (dev) сейчас настроено как: 0 - 100% запаса по помпажу
+	AS_init := TRUE;
+	as_MStruct.pid_struct[1].loop_type := 0;
+	as_MStruct.pid_struct[1].loop_num := 1;
+	as_MStruct.pid_struct[1].loop_enable := true;
+	as_MStruct.pid_struct[1].auto_man := true;
+	as_MStruct.pid_struct[1].loop_direct := false;
+	as_MStruct.pid_struct[1].KP := 0.002;
+	as_MStruct.pid_struct[1].KI := 0.2;
+	as_MStruct.pid_struct[1].KD := 0.0;
+	as_MStruct.pid_struct[1].DB := 0.0;
+	
+	//'Контур ограничения давления газа на выходе нагнетателя (ограничение)
+	as_MStruct.pid_struct[2].loop_type := 1;
+	as_MStruct.pid_struct[2].loop_num := 2;
+	as_MStruct.pid_struct[2].loop_enable := true;
+	as_MStruct.pid_struct[2].auto_man := true;
+	as_MStruct.pid_struct[2].loop_direct := false;
+	as_MStruct.pid_struct[2].KP := 0.005;
+	as_MStruct.pid_struct[2].KI := 0.08;
+	as_MStruct.pid_struct[2].KD := 0.0;
+	as_MStruct.pid_struct[2].DB := 0.0;
+	
+	//'Контур ограничения степени сжатия нагнетателя (ограничение)
+	as_MStruct.pid_struct[3].loop_type := 1;
+	as_MStruct.pid_struct[3].loop_num := 3;
+	as_MStruct.pid_struct[3].loop_enable := true;
+	as_MStruct.pid_struct[3].auto_man := true;
+	as_MStruct.pid_struct[3].loop_direct := false;
+	as_MStruct.pid_struct[3].KP := 0.005;
+	as_MStruct.pid_struct[3].KI := 0.08;
+	as_MStruct.pid_struct[3].KD := 0.0;
+	as_MStruct.pid_struct[3].DB := 0.0;
+	
+	as_MStruct.main_loop := 1;
+	as_MStruct.auto_man := true;
+	as_MStruct.N_loops := 3;
+
+//	CONST_T := -0.3;  //                                     	
+	
+	AS36_2_str.SP_Pout := 5.0;			// дефолтная уставка по давлению на выходе цеха
+	AS36_2_str.SP_PoutPin := 1.4;		// коэфф-т сжатия через цех
+	AS36_2_str.SP_manual_rate := 1.0;	// скорость движения АПК
+	AS36_2_str.SP_S := 0.85;			// дефолтная уставка запаса по помпажу
+
+end_if;
+
+/////	ПРИВЯЗКИ РЕГУЛЯТОРА
+	as_MStruct.pid_struct[1].loop_valid := on_1;
+	as_MStruct.pid_struct[2].loop_valid := on_2;
+	as_MStruct.pid_struct[3].loop_valid := on_3; 
+// для каждого агрегата привязываем:
+//Для антипомпажного регулирования нужны только S и run
+
+//gpa[1].S	:= LINK_PERF_GPA1.S;	// запас по помпажу
+//gpa[1].run	:= LINK_PERF_GPA1.run;	//	агрегат в магистрали
+
+//gpa[2].S	:= LINK_PERF_GPA2.S;	// запас по помпажу
+//gpa[2].run	:= LINK_PERF_GPA2.run;	//	агрегат в магистрали
+
+//  -----//----
+
+// сюда привязываем давление на выходе цеха
+//shop.Eout := 
+// сюда привязваем степень сжатия через цех
+//shop.EoutEin := 
+
+as_MStruct.pid_struct[1].act_SP := AS36_2_str.SP_S;	// из скады
+as_MStruct.pid_struct[1].PV := AS36_2_str.Shop_YR3;
+as_MStruct.pid_struct[1].delt_t := TSCAN;
+
+as_MStruct.pid_struct[2].act_SP := AS36_2_str.SP_Pout;	// из скады
+as_MStruct.pid_struct[2].PV := shop_2.Eout;
+as_MStruct.pid_struct[2].delt_t := TSCAN;
+
+as_MStruct.pid_struct[3].act_SP := AS36_2_str.SP_PoutPin; // из скады
+as_MStruct.pid_struct[3].PV := shop_2.EoutEin;
+as_MStruct.pid_struct[3].delt_t := TSCAN;
+
+(*
+d_pd := as_MStruct.PplusD_selected - PD_prev;
+
+if as_MStruct.dI_selected < CONST_T *TSCAN then as_MStruct.dI_selected := CONST_T*TSCAN; end_if;
+if d_pd +  as_MStruct.dI_selected < CONST_T*TSCAN then  
+	d_pd := CONST_T*TSCAN - as_MStruct.dI_selected; 
+end_if;
+
+PD_prev := PD_prev + d_pd;
+
+as_MStruct.CV := as_MStruct.CV + d_pd + as_MStruct.dI_selected;
+
+if as_MStruct.CV < as_MStruct.low_clamp then as_MStruct.CV := as_MStruct.low_clamp; end_if;
+if as_MStruct.CV > 100.0 then as_MStruct.CV := 100.0; end_if;
+
+//CONST_T := -0.5;
+*)
+
+as_MStruct.CV := as_MStruct.CV + as_MStruct.PplusD_selected + as_MStruct.dI_selected;
+
+if as_MStruct.CV < as_MStruct.low_clamp then as_MStruct.CV := as_MStruct.low_clamp; end_if;
+if as_MStruct.CV > 100.0 then as_MStruct.CV := 100.0; end_if;]]></ST>
+        </FunctionBlock>
+        <Function UUID="65BA6AF148CE58DDA95D70AB940B8654" Name="calc_s" Comment="Расчет запаса по помпажу для контроллеров ГПА1,2" ResultTypeUUID="42E054C8453789BBDD3594B53BDC7DE5">
+            <Variables>
+                <Variable UUID="34A734DC451AC45BC54507814D54CC8D" Name="sl_dev" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="E66AAE0C45BAEC316F0A3F8EAEC36B81" Name="b" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+            </Variables>
+            <ST><![CDATA[//Вычисляем запас по помпажу по исходным данным
+calc_s := 1.0/(sl_dev + 1.0) + b/(1.0 + b);]]></ST>
+        </Function>
+        <FunctionBlock UUID="99210B724B0EF3BE91BD8B8D7747356C" Name="ramp_1">
+            <Variables>
+                <Variable UUID="AACDC3C64A478E14C8B5BBB34A316760" Name="enable1" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="input" />
+                <Variable UUID="3AC40E3B44BDEBEDAFC502A1F33D91F8" Name="ramp_rate" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="inout" />
+                <Variable UUID="14DBA6B74A9A6E356B95FAA4EAAF41F7" Name="y_target" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="inout" />
+                <Variable UUID="E9C9FB5540879451911F38B859AA83B3" Name="y_current" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="inout" />
+                <Variable UUID="47D106094AD59E7E19C08D9B86F1D31B" Name="ramp" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="output" />
+                <Variable UUID="AD8E2A764A870B6A9C3C47BF5DC3DE79" Name="dd" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="BD551FF148FBAA0420F3119E40A629F9" Name="dy" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="AEBE332B42F064BDDD0D2F9DFC678BE4" Name="dd_1" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+                <Variable UUID="D087801B4FCD68415D9799BB105DF264" Name="ramp_rate_1" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="internal" />
+            </Variables>
+            <ST><![CDATA[IF enable1 THEN
+
+ IF (ramp_rate = 0.0) THEN
+                      ramp := y_target;
+                      RETURN;
+ END_IF; 
+
+      dd := y_target - y_current ;
+      ramp_rate_1 := ABS(ramp_rate);
+      dy := ramp_rate_1 * TSCAN ;       
+
+      dd_1:= ABS(dd);
+      
+      IF  dd_1 <= dy THEN
+         ramp := y_target ;
+         RETURN; 
+      END_IF;   
+        
+  (*--------------------------------------------------------*)  
+      IF dd > 0.0 THEN  ramp :=  y_current + dy ;
+                  ELSE  ramp :=  y_current - dy ;
+      END_IF ;          
+    
+ ELSE      
+         ramp := y_current ;
+ END_IF; 
+]]></ST>
+        </FunctionBlock>
+    </FBLibrary>
+</Program>

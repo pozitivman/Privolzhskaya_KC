@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="DRV_PRU2" Kind="DRIVER.MODBUS" Args="" Comment="Драйвер обмена с ПРУ2" UUID="4F092D45477281DD58C1EEB4FD26441A">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="B44C66694EF1174BBC6F2B8B2E9396C2" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="6707FB7242C4112CBBA784A38DC287FB" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="9DCEB9B2478E9B65EC0A67A57D5C022C" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="25071ED54064301B409A4A80FE28A01F" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="099C76604FC55D30D76195B89B3C5766" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="855CE8C0466D9DBD63D56DB4CB7468B3" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="202E97D14168FBB054D4D69B4490528C" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="5AE7457A41C9CDF53A2A09955BB5B1C4" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="85C90E994720CFB8A8E7A1B40600204F" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="0B3D5D4E4A2560C0F80F38B5F5D29086" Type="STRING" Usage="output" />
+        <Signal Name="AI_PV" UUID="6CBEF2C34881448600FE9EADBD9D7858" Type="REAL" ArraySize="15" Global="TRUE" Comment="Обмен данными с ПРУ: массив значений аналоговых переменных" />
+        <Signal Name="AI_FLT" UUID="331C98F448C2118DD197348AA2FDAF52" Type="WORD" Global="TRUE" Comment="Обмен данными с ПРУ: массив неисправностей AI" />
+        <Signal Name="FLAGS_DI" UUID="5D06D58840B9AA287C0EFBB96E17EA5C" Type="WORD" ArraySize="4" Global="TRUE" Comment="Обмен данными с ПРУ: массив флагов кранов (неисправность, РУ)" />
+        <Signal Name="KR_STATE" UUID="3C2BF8454018DAD94F1B2BABE047527C" Type="WORD" ArraySize="30" Global="TRUE" Comment="Обмен данными с ПРУ: массив состояний кранов" />
+        <Signal Name="AI_PV_2" UUID="10DF60A442DB89CB9FC120B28AD60FE8" Type="REAL" ArraySize="69" Global="TRUE" Comment="Обмен данными с ПРУ2: массив значений аналоговых переменных" />
+        <Signal Name="AI_FLT_2" UUID="5E1177B24898A81515246480F2490B36" Type="WORD" ArraySize="6" Global="TRUE" Comment="Обмен данными с ПРУ2: массив неисправностей AI" />
+        <Signal Name="FLAGS_DI_2" UUID="B520601B48B3297341CC1DB6959E1EA8" Type="WORD" ArraySize="4" Global="TRUE" Comment="Обмен данными с ПРУ2: массив флагов кранов (неисправность, РУ)" />
+        <Signal Name="SHKU17_AO_APK_KC2" UUID="A9CA6BB642C1C9B7295158AFE6910B48" Type="REAL" Global="TRUE" Comment="Аналоговый выход (логика): Управление АПК КЦ-2" />
+        <Signal Name="SHKU17_AO_APK_KC1" UUID="1683AFBD4D05D3E6544B32959A9C9EB9" Type="REAL" Global="TRUE" Comment="Аналоговый выход (логика): Управление АПК КЦ-1" />
+        <Signal Name="KR_STATE_2" UUID="20D3DDC64D501811350092AA3572AF49" Type="WORD" ArraySize="45" Global="TRUE" Comment="Обмен данными с ПРУ2: массив состояний кранов" />
+    </InterfaceList>
+</SubAppType>

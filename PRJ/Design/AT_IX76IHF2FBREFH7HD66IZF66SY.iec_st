@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Program >
+<Program UUID="07EF9CFE49391EAD5DA9028A8E7E0EE5" Name="Main_ARM1" Period="100">
+    <Variables />
+    <ST><![CDATA[//Проверка связи с контроллером А1
+if Test_internal_A1 <> Test_connection_A1 then Test_internal_A1 := Test_connection_A1; end_if;
+
+//Проверка связи с контроллером А2
+if Test_internal_A2 <> Test_connection_A2 then Test_internal_A2 := Test_connection_A2; end_if;
+
+]]></ST>
+    <DataTypes />
+</Program>

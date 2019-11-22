@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="T_LINK_PERF_GPA" Kind="Struct" UUID="820A79904B8ACCC69AD3C4B451956A7F">
+    <Fields>
+        <Field Name="online" Type="BOOL" UUID="B71B980442120DEFD65A28B4C6DADBD8" Comment="связь с ГПА1 исправна" />
+        <Field Name="run" Type="BOOL" UUID="BCA5EE3347B72D529B299580551471F7" Comment="режим ГПА1 магистраль" />
+        <Field Name="remote" Type="BOOL" UUID="0F83122541CCD71E1C32108C38BDA5B8" Comment="ГПА1 переведен в режим управления от САР" />
+        <Field Name="Q" Type="REAL" UUID="E3DE2D93450ABC0EFF70338D4419E5CF" Comment="приведенный расход переводим в реальный" />
+        <Field Name="Ein" Type="REAL" UUID="150E813C4AD37232E7DA43ACDD7F1962" Comment="давление газа на входе ГПА1" />
+        <Field Name="Eout" Type="REAL" UUID="76457D57477A87155E114B8D631436BC" Comment="давление газа на выходе ГПА1" />
+        <Field Name="EoutEin" Type="REAL" UUID="BB18386C49AAF66CF5D18695D16ED19E" Comment="степень сжатия через ГПА1" />
+        <Field Name="S" Type="REAL" UUID="90C26B234E4DA0261EAB0DBC63B09090" Comment="апас по помпажу ГПА1" />
+        <Field Name="Nst" Type="REAL" UUID="B2649AC74FEA064D3F34F48CF5FAD7E2" Comment="обороты СТ ГПА1" />
+        <Field Name="Nvd_r" Type="REAL" UUID="59BC492F49604F88450E248EC36A0A2D" Comment="обороты приведенные ВД ГПА1" />
+        <Field Name="SP_Nst" Type="REAL" UUID="ACCC1C134B20EF9F30F42D975F450D1E" Comment="задание по оборотам СТ ГПА1" />
+        <Field Name="Nst_proc" Type="REAL" UUID="A06539CB44B393D93F25378AFF9AF40F" />
+        <Field Name="Q_proc" Type="REAL" UUID="CC85705D45531B4360217C9580B9E65F" />
+        <Field Name="OUT_SP_cv" Type="REAL" UUID="B98D6C9F42CA94CD98D5D99968411F8D" Comment="задание по оборотам СТ от САР в ГПА1" />
+        <Field Name="ask_remote" Type="BOOL" UUID="36E81A794CF86382EABC2D86A3BE3D15" Comment="Запрос в ГПА на перевод под управление КЦ" />
+    </Fields>
+</Type>

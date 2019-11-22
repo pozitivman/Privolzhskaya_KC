@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="TAllenBradley" Kind="Struct" UUID="C5BB28BB4049E3577709BD9B2AADBBE0">
+    <Fields>
+        <Field Name="AS1_InOut_Ps" Type="REAL" UUID="77C40F9C4A75BA86AF86E3A92EE58C0D" Comment="Ргаза на входе нагнетателя" />
+        <Field Name="AS1_InOut_Pd" Type="REAL" UUID="8113D91641B03E35331C42B00A429D7A" Comment="Ргаза за нагнетателем" />
+        <Field Name="AS1_InOut_Ts" Type="REAL" UUID="204310124A8AC52EC796F1B1C5104BFC" Comment="Температура газа на входе нагнетателя" />
+        <Field Name="AS1_InOut_Td" Type="REAL" UUID="E2C6C2AE4BEB88FDDDE34CA14102DF4D" Comment="Температура газа на выходе нагнетателя" />
+        <Field Name="AS1_InOut_dPo" Type="REAL" UUID="3F474A3D4C52EA339737DAA144320375" Comment="Перепад давления на конфузоре нагнетателя" />
+        <Field Name="AS1_Unit_calc_vars_status_Rc" Type="REAL" UUID="65BB20674FC6C1EFD21A4F8091A1994B" Comment="Степень повышения давления (сжатия)" />
+        <Field Name="AS1_Unit_CL_status_dev" Type="REAL" UUID="0BFDECB94FCC0E60AFA4F3976D3925FD" Comment="Отклонение расчетной рабочей точки от линии уставки" />
+        <Field Name="GT_InOut_NHP_Status_PV_calc_eu" Type="REAL" UUID="36F35B2543456DECD3CC54B3D1E9C224" Comment="Частота вращения ТВД расчетная" />
+        <Field Name="GT_InOut_NPT_Status_PV_calc_eu" Type="REAL" UUID="60C1055D40495B1A157221A13D73B5A1" Comment="Частота вращения ТНД расчетная" />
+        <Field Name="GT_NPT_SP_target" Type="REAL" UUID="8DB82B434BA61855FB2AFF97890DAB27" Comment="Целевая уставка" />
+        <Field Name="gtLocal_Remote_SP" Type="REAL" UUID="0FD101E440598547E15B2EB7A2A55949" Comment="Задание" />
+        <Field Name="run" Type="WORD" UUID="15FEBE1E4B13877E03CB929ADD42D59F" Comment="Бит 0 - Флаг режима &quot;Магистраль&quot;" />
+        <Field Name="S" Type="REAL" UUID="A5E073E741651F761D06CABFEBDA296D" Comment="Запас по помпажу" />
+    </Fields>
+</Type>

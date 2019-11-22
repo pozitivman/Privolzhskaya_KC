@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="T_LINK_GPA" Kind="Struct" UUID="0CF62F7A4E49483CA7229BA453322F94">
+    <Fields>
+        <Field Name="SEN_NLP" Type="REAL" UUID="673B054043AA4E36A79ACBB6E6F72B71" Comment="Обороты КНД, об/мин" />
+        <Field Name="SEN_NHP" Type="REAL" UUID="030305874CCE34DAA4B69E932803E28C" Comment="Обороты КВД, об/мин" />
+        <Field Name="SEN_NPT" Type="REAL" UUID="6839EBFC4AB2AA72D04FD4A27ADD3C92" Comment="Обороты ТН, об/мин" />
+        <Field Name="SEN_EGT" Type="REAL" UUID="7F4F37FF450E2A0E4C07F7844587CDCE" Comment="Т продуктов сгор (на вых ТВД),C" />
+        <Field Name="SEN_QN" Type="REAL" UUID="75CF3FBE4C6377821F3C538C51578752" Comment="Расход газа через нагнетатель (сут), тыс.м3/сут" />
+        <Field Name="SEN_QTG" Type="REAL" UUID="45501E614D13D56A0E6E9D817DE0A699" Comment="Расход топливного газа, тыс.м3/сут" />
+        <Field Name="SEN_DP" Type="REAL" UUID="14E8A3CB427B285FF24091BD0C4710F6" Comment="dP конфуз, кг/см2" />
+        <Field Name="SEN_P1" Type="REAL" UUID="83A0F2EB43A927FE31846595A10BB557" Comment="Р на вх. нагн, кг/см2" />
+        <Field Name="SEN_P2" Type="REAL" UUID="B5F2DABA483E7956F83EB0995A1AC3C8" Comment="Р на вых. Нагн, кг/см2" />
+        <Field Name="SEN_T1" Type="REAL" UUID="DFD835B1495C5EF04D61469A6A5DC5EB" Comment="Т на вх Н, C" />
+        <Field Name="SEN_T2" Type="REAL" UUID="640DED164E300484AA0CFEA6637AEF78" Comment="Т на вых Н, C" />
+        <Field Name="DI_V6O" Type="BOOL" UUID="D4BAEC8A458EC9DEC7D12C9F9199F9DD" Comment="6 кр ГПА откр" />
+        <Field Name="DI_V6C" Type="BOOL" UUID="11D5B41149D7599BC615B994C4ACB898" Comment="6 кр ГПА закр" />
+        <Field Name="DI_V2O" Type="BOOL" UUID="F57F1B81430261E9FB1A9BA79C08B9F8" Comment="2 кр ГПА откр" />
+        <Field Name="DI_V2C" Type="BOOL" UUID="DFA57D4344721693996A8A852B3ABDD1" Comment="2 кр ГПА закр" />
+        <Field Name="DI_V1O" Type="BOOL" UUID="161EB3054BF67731B8F9B4829AAD801B" Comment="1 кр ГПА откр" />
+        <Field Name="DI_V1C" Type="BOOL" UUID="4C2D46A64AAB811D652175A52177485F" Comment="1 кр ГПА закр" />
+        <Field Name="DI_V4O" Type="BOOL" UUID="9FFB4B754285261FB5C059A484E4D052" Comment="4 кр ГПА откр" />
+        <Field Name="DI_V4C" Type="BOOL" UUID="0BE48FD04F2BFAD92D834C926D7617CB" Comment="4 кр ГПА закр" />
+        <Field Name="DI_V5O" Type="BOOL" UUID="16979B00488AEB41C9B451921EF8A4BD" Comment="5 кр ГПА откр" />
+        <Field Name="DI_V5C" Type="BOOL" UUID="06E546B340A07AFF2357D48553F9C648" Comment="5 кр ГПА закр" />
+        <Field Name="DI_APKO" Type="BOOL" UUID="2973E2214C7A3CEDF578AB97C809F0F8" Comment="АПК ГПА откр" />
+        <Field Name="DI_APKC" Type="BOOL" UUID="57387202453B1609A3AE8F9729F33FEB" Comment="АПК ГПА закр" />
+        <Field Name="REGIM_AO" Type="BOOL" UUID="8957F3B340CFCAF86965A1B8865674C8" Comment="Авария ГПА" />
+        <Field Name="REGIM_NO" Type="BOOL" UUID="029B7D8A44CF523CD535DD819B428B99" Comment="НО ГПА" />
+        <Field Name="REGIM_WORK" Type="BOOL" UUID="698BB45A4D7ACA394FEEAC9A4F838E88" Comment="ГПА в работе" />
+        <Field Name="REGIM_REM" Type="BOOL" UUID="31585B7D4B7E531ECBC303ACEBB09F49" Comment="ГПА в ремонте" />
+        <Field Name="REGIM_RES" Type="BOOL" UUID="10D9B8CA41C95D58E7E7F2BCA6E14216" Comment="ГПА в резерве" />
+        <Field Name="GAZ_OD1" Type="BOOL" UUID="56E4734245CA82818A5063B0550B5578" Comment="Загазованность ОД &gt; 0.5%" />
+        <Field Name="GAZ_OD2" Type="BOOL" UUID="E87488D34D1E774A103CAA8BA44050BB" Comment="Загазованность ОД &gt; 1.0%" />
+        <Field Name="GAZ_ON1" Type="BOOL" UUID="F5940EDC48A4A30FA0BF7DBF9C45DE7B" Comment="Загазованность ОН &gt; 0.5%" />
+        <Field Name="GAZ_ON2" Type="BOOL" UUID="4A9DEABE4346828BA203EC9C510D81B6" Comment="Загазованность ОН &gt; 1.0%" />
+        <Field Name="FIRE" Type="BOOL" UUID="54F27D6C42BC91CF5454A58121832302" Comment="Пожар ГПА" />
+        <Field Name="READY" Type="BOOL" UUID="3B7326164E85D4608E089F9D7BB7ADF4" Comment="ГПА готов к пуску" />
+        <Field Name="CMD_AO" Type="BOOL" UUID="306029A94237E1573258A09E6BB08266" Comment="Команда АО ГПА от КЦ" />
+        <Field Name="CMD_NO" Type="BOOL" UUID="6043177F4743C9E944F871BDF2D4C760" Comment="Команда НО ГПА от КЦ" />
+    </Fields>
+</Type>

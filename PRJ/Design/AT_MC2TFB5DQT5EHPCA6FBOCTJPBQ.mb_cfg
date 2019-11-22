@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.MODBUS v. 1.3 >
+<Configuration Slave="TRUE" TCP="TRUE">
+    <Devices CommConfig="">
+        <Device Address="2" RetryCount="3" RetryDelay="5000" SymbolTimeout="10000" ResponseTimeout="1" InterpacketDelay="5000" MaxStatus="32" MaxRegs="32" DisconnectInReserve="FALSE">
+            <Group Name="AI" Function="READ_INPUT_REGISTERS" UpdatePeriod="0" />
+            <Group Name="AI_FLT" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
+            <Group Name="STATE_IM" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
+            <Group Name="FLT_IM" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
+            <Group Name="R_IM" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
+            <Group Name="other" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
+        </Device>
+    </Devices>
+    <Crossconnect>
+        <Connection ItemName="SHKU17_AO_APK_KC1" Device="2" Channel="0:FLOAT_BADC" Group="AI" UUID="1683AFBD4D05D3E6544B32959A9C9EB9" />
+        <Connection ItemName="SHKU17_AO_APK_KC2" Device="2" Channel="2:FLOAT_BADC" Group="AI" UUID="A9CA6BB642C1C9B7295158AFE6910B48" />
+        <Connection ItemName="SHKU17_AI_Pg1KC1" Device="2" Channel="4:FLOAT_BADC" Group="AI" UUID="49667A564DB689EB00B4759DBA95C282" />
+        <Connection ItemName="SHKU17_AI_Pg1KC2" Device="2" Channel="6:FLOAT_BADC" Group="AI" UUID="BF51FFA643BFA7537C692F9F636B3D65" />
+        <Connection ItemName="SHKU17_AI_Pg2KC1" Device="2" Channel="8:FLOAT_BADC" Group="AI" UUID="2B9763A74793A7BD788D36B28EE0FF87" />
+        <Connection ItemName="SHKU17_AI_Pg2KC2" Device="2" Channel="10:FLOAT_BADC" Group="AI" UUID="E844BF7D40BE4BB119F20CB2A2DCCBF2" />
+        <Connection ItemName="SHKU17_AI_Pg1SOK_3" Device="2" Channel="12:FLOAT_BADC" Group="AI" UUID="4CFB517C4FBCDF71F844B1A3C88F2421" />
+        <Connection ItemName="SHKU17_AI_Pg1C2_1K30" Device="2" Channel="14:FLOAT_BADC" Group="AI" UUID="A22E6DB34BAB71683BB623B393E9BF1B" />
+        <Connection ItemName="SHKU17_AI_Pg1SOK_1" Device="2" Channel="16:FLOAT_BADC" Group="AI" UUID="FE23209C49B8F1F8C5F5CB939A0C684A" />
+        <Connection ItemName="SHKU17_AI_Pg2KC2" Device="2" Channel="18:FLOAT_BADC" Group="AI" UUID="E844BF7D40BE4BB119F20CB2A2DCCBF2" />
+        <Connection ItemName="SHKU17_AI_Tg2C2" Device="2" Channel="20:FLOAT_BADC" Group="AI" UUID="A7325555427370AF78E6909ED9F06B2A" />
+        <Connection ItemName="SHKU17_AI_Pg2C2_2K30" Device="2" Channel="22:FLOAT_BADC" Group="AI" UUID="7FCE80484A188BE9902BD4819C8CBD79" />
+        <Connection ItemName="SHKU17_AI_Pg1C1_1K30" Device="2" Channel="24:FLOAT_BADC" Group="AI" UUID="16CBF4B44F8462CB88E88E99E6D13BEA" />
+        <Connection ItemName="SHKU17_AI_Pg2KC1" Device="2" Channel="26:FLOAT_BADC" Group="AI" UUID="2B9763A74793A7BD788D36B28EE0FF87" />
+        <Connection ItemName="SHKU17_AI_Pg2C1_2K30" Device="2" Channel="28:FLOAT_BADC" Group="AI" UUID="535E2F31422A464CC6A3C18503A8958B" />
+        <Connection ItemName="SHKU17_AI_P2KRP" Device="2" Channel="30:FLOAT_BADC" Group="AI" UUID="C1054F504FF509BF397A948D46524638" />
+        <Connection ItemName="SHKU17_AI_Tgr" Device="2" Channel="32:FLOAT_BADC" Group="AI" UUID="E28AE8944289B6FAD70F96AC3FFC7883" />
+        <Connection ItemName="SHKU17_AI_Tnv" Device="2" Channel="34:FLOAT_BADC" Group="AI" UUID="C5C0E2CF46503576B13A0C86E6D292EF" />
+        <Connection ItemName="SHKU17_AI_Patm" Device="2" Channel="36:FLOAT_BADC" Group="AI" UUID="1239AC1641CCBC3E6667C0BD31511B0F" />
+        <Connection ItemName="SHKU17_AI_Pig" Device="2" Channel="38:FLOAT_BADC" Group="AI" UUID="A5DD3ECC43FC89C027CF99A19ADCBB7D" />
+        <Connection ItemName="SHKU17_AI_Ptg" Device="2" Channel="40:FLOAT_BADC" Group="AI" UUID="3E9FC49B499C7F0B5334849F1639DE1F" />
+        <Connection ItemName="SHKU17_AI_Ttg" Device="2" Channel="42:FLOAT_BADC" Group="AI" UUID="C96E99AC46DA063647CEDA8F563381A9" />
+        <Connection ItemName="SHKU17_AI_Ppg" Device="2" Channel="44:FLOAT_BADC" Group="AI" UUID="1F371EEC4DDE4F3FB0EE3AB550C55E8B" />
+        <Connection ItemName="SHKU17_AI_Tpg" Device="2" Channel="46:FLOAT_BADC" Group="AI" UUID="9C8414C4460F00B3AB5A41A2ED0DF3C6" />
+        <Connection ItemName="SHKU17_AI_Tgr" Device="2" Channel="48:FLOAT_BADC" Group="AI" UUID="E28AE8944289B6FAD70F96AC3FFC7883" />
+        <Connection ItemName="SHKU17_AI_Tnv" Device="2" Channel="50:FLOAT_BADC" Group="AI" UUID="C5C0E2CF46503576B13A0C86E6D292EF" />
+        <Connection ItemName="SHKU17_AI_Patm" Device="2" Channel="52:FLOAT_BADC" Group="AI" UUID="1239AC1641CCBC3E6667C0BD31511B0F" />
+        <Connection ItemName="SHKU17_AI_UosnSHKU" Device="2" Channel="54:FLOAT_BADC" Group="AI" UUID="D906255846CA943094B6958C90A714F7" />
+        <Connection ItemName="SHKU17_AI_UrezSHKU" Device="2" Channel="56:FLOAT_BADC" Group="AI" UUID="C675A7AF4C09C857D2600F8AF604FCC3" />
+        <Connection ItemName="SHKU17_AI_T1AC804" Device="2" Channel="58:FLOAT_BADC" Group="AI" UUID="960BCADA426419BF4AAFB8834A45F0AF" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="60:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="62:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="64:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="66:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="68:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="70:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="72:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="74:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="76:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="REZ_AI" Device="2" Channel="78:FLOAT_BADC" Group="AI" InvalidValue="Резерв" UUID="78FBCA1D47E73B44A39B7084C1957BE8" />
+        <Connection ItemName="SHKU17_AI_Pg1KC1_flt" Device="2" Channel="80:BIT" Group="AI_FLT" InvalidValue="Давление газа на входе КЦ1" UUID="FC648595414ACC3D2BBFCE96D9F36E7E" />
+        <Connection ItemName="SHKU17_AI_Pg1KC2_flt" Device="2" Channel="80.1:BIT" Group="AI_FLT" InvalidValue="Давление газа на входе КЦ2" UUID="CD12B3004E15DA8C8A5E65B3350CBDFC" />
+        <Connection ItemName="SHKU17_AI_Pg2KC1_flt" Device="2" Channel="80.2:BIT" Group="AI_FLT" InvalidValue="Давление газа на выходе КЦ1" UUID="BD95B3E54CE6BEC5808E90BBA1AA0109" />
+        <Connection ItemName="SHKU17_AI_Pg2KC2_flt" Device="2" Channel="80.3:BIT" Group="AI_FLT" InvalidValue="Давление газа на выходе КЦ2" UUID="490F0BB3464650C1B6741EA07645CD63" />
+        <Connection ItemName="SHKU17_AI_Pg1SOK_3_flt" Device="2" Channel="80.4:BIT" Group="AI_FLT" InvalidValue="Давление газа перед СОК нитка №3" UUID="0CCAC914497D02BE4013B58613E37E81" />
+        <Connection ItemName="SHKU17_AI_Pg1C2_1K30_flt" Device="2" Channel="80.5:BIT" Group="AI_FLT" InvalidValue="P газа на вх. цеха №2 до Кр. 30 " UUID="E179DC8B4051FD96FC47EAACC64A54D6" />
+        <Connection ItemName="SHKU17_AI_Pg1SOK_1_flt" Device="2" Channel="80.6:BIT" Group="AI_FLT" InvalidValue="Давление газа перед СОК нитка №1" UUID="0BD8D4B844C0886790C4E49CF19EA4FF" />
+        <Connection ItemName="SHKU17_AI_Pg2KC2_flt" Device="2" Channel="80.7:BIT" Group="AI_FLT" InvalidValue="P газа на выходе цеха №2" UUID="490F0BB3464650C1B6741EA07645CD63" />
+        <Connection ItemName="SHKU17_AI_Tg2C2_flt" Device="2" Channel="80.8:BIT" Group="AI_FLT" InvalidValue="Т газа на вых. цеха №2" UUID="A861B157425D7D9C7EF726A95F0E09E0" />
+        <Connection ItemName="SHKU17_AI_Pg2C2_2K30_flt" Device="2" Channel="80.9:BIT" Group="AI_FLT" InvalidValue="P газа на вых. цеха №2 после Кр. 30" UUID="6EE637804F0F1EA64395DFA42B414356" />
+        <Connection ItemName="SHKU17_AI_Pg1C1_1K30_flt" Device="2" Channel="80.10:BIT" Group="AI_FLT" InvalidValue="P газа на вх. цеха №1 до Кр. 30" UUID="78E748F247E34A74060DE783D549A954" />
+        <Connection ItemName="SHKU17_AI_Pg2KC1_flt" Device="2" Channel="80.11:BIT" Group="AI_FLT" InvalidValue="P газа на выходе цеха №1" UUID="BD95B3E54CE6BEC5808E90BBA1AA0109" />
+        <Connection ItemName="SHKU17_AI_Pg2C1_2K30_flt" Device="2" Channel="80.12:BIT" Group="AI_FLT" InvalidValue="P газа на вых. цеха №1 после Кр. 30" UUID="1D281FE446EBAD09D8C8D89693897801" />
+        <Connection ItemName="SHKU17_AI_P2KRP_flt" Device="2" Channel="80.13:BIT" Group="AI_FLT" InvalidValue="Рг на выходе КРП" UUID="91684D69492DFCE98216DDAA97B18C59" />
+        <Connection ItemName="SHKU17_AI_Tgr_flt" Device="2" Channel="80.14:BIT" Group="AI_FLT" InvalidValue="Температура грунта" UUID="2AC46BD7459A7CFECF48A9B25D886E06" />
+        <Connection ItemName="SHKU17_AI_Tnv_flt" Device="2" Channel="80.15:BIT" Group="AI_FLT" InvalidValue="Т наружного воздуха" UUID="72DDF86C4F6A44AE7F45DBA2F6B8D0BA" />
+        <Connection ItemName="SHKU17_AI_Patm_flt" Device="2" Channel="81:BIT" Group="AI_FLT" InvalidValue="Давление атмосферного воздуха" UUID="615DFDEA4FA15B789A6095ACBAE7A2DE" />
+        <Connection ItemName="SHKU17_AI_Pig_flt" Device="2" Channel="81.1:BIT" Group="AI_FLT" InvalidValue="Давление импульсного газа" UUID="77A0909B46A85A674C04D59D84292162" />
+        <Connection ItemName="SHKU17_AI_Ptg_flt" Device="2" Channel="81.2:BIT" Group="AI_FLT" InvalidValue="Давление топливного газа" UUID="05EDEB8842DEBC9D36A078B350FB511F" />
+        <Connection ItemName="SHKU17_AI_Ttg_flt" Device="2" Channel="81.3:BIT" Group="AI_FLT" InvalidValue="Температура топливного газ" UUID="0DB433D3475E3AE878E7E9AA45A76534" />
+        <Connection ItemName="SHKU17_AI_Ppg_flt" Device="2" Channel="81.4:BIT" Group="AI_FLT" InvalidValue="Давление пускового газа" UUID="AE34CB7C46E691F70239E18D3BBE258C" />
+        <Connection ItemName="SHKU17_AI_Tpg_flt" Device="2" Channel="81.5:BIT" Group="AI_FLT" InvalidValue="Температура пускового газа" UUID="5291B4A949DC3FA8C8B5F9A93131FFE9" />
+        <Connection ItemName="SHKU17_AI_Tgr_flt" Device="2" Channel="81.6:BIT" Group="AI_FLT" InvalidValue="Температура грунта" UUID="2AC46BD7459A7CFECF48A9B25D886E06" />
+        <Connection ItemName="SHKU17_AI_Tnv_flt" Device="2" Channel="81.7:BIT" Group="AI_FLT" InvalidValue="Т наружного воздуха" UUID="72DDF86C4F6A44AE7F45DBA2F6B8D0BA" />
+        <Connection ItemName="SHKU17_AI_Patm_flt" Device="2" Channel="81.8:BIT" Group="AI_FLT" InvalidValue="Давление атмосферного воздуха" UUID="615DFDEA4FA15B789A6095ACBAE7A2DE" />
+        <Connection ItemName="SHKU17_AI_UosnSHKU_flt" Device="2" Channel="81.9:BIT" Group="AI_FLT" InvalidValue="Напряжение основного питания ШКУ" UUID="6BF32DDF48FD2FD658C2A3A9E02D702B" />
+        <Connection ItemName="SHKU17_AI_UrezSHKU_flt" Device="2" Channel="81.10:BIT" Group="AI_FLT" InvalidValue="Напряжение резервного питания ШКУ" UUID="782D858B45F408CCCE460A9CEBD242D6" />
+        <Connection ItemName="SHKU17_AI_T1AC804_flt" Device="2" Channel="81.11:BIT" Group="AI_FLT" InvalidValue="Т хлад." UUID="BEF30C6E44CCFBC427A93196BBD7C0D7" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="81.12:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="81.13:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="81.14:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="81.15:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.1:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.2:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.3:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.4:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.5:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.6:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.7:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.8:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.9:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.10:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.11:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.12:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.13:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.14:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="REZ_AI_FLT" Device="2" Channel="82.15:BIT" Group="AI_FLT" InvalidValue="Резерв" UUID="486A0FA94B097F7384A18CB09B79EDB1" />
+        <Connection ItemName="SHKU17_APK1_state" Device="2" Channel="83:USHORT_BA" Group="STATE_IM" UUID="07E931BA42CB6497D56D689C7DF281CE" />
+        <Connection ItemName="SHKU17_APK2_state" Device="2" Channel="84:USHORT_BA" Group="STATE_IM" UUID="0A5D91254CC33C51217FE48F0E5E03E2" />
+        <Connection ItemName="SHKU17_KR19_state" Device="2" Channel="85:USHORT_BA" Group="STATE_IM" UUID="2F29ADEE49B3C858607ACD9ADA722B48" />
+        <Connection ItemName="SHKU17_KR20_state" Device="2" Channel="86:USHORT_BA" Group="STATE_IM" UUID="48A382ED44EE83C57A2837A9B0C3CF4E" />
+        <Connection ItemName="SHKU17_KR21_state" Device="2" Channel="87:USHORT_BA" Group="STATE_IM" UUID="2FBBD4764699886F2A1EC48951D63B00" />
+        <Connection ItemName="SHKU17_KR22_state" Device="2" Channel="88:USHORT_BA" Group="STATE_IM" UUID="9D3181CF4A8CC8F0D8834D9C086A5A88" />
+        <Connection ItemName="SHKU17_KR23_state" Device="2" Channel="89:USHORT_BA" Group="STATE_IM" UUID="6ADB924F40565C80DCB215ABDD8995AA" />
+        <Connection ItemName="SHKU17_KR24_state" Device="2" Channel="90:USHORT_BA" Group="STATE_IM" UUID="5FCEC7DD40172442F97E87880D8039CE" />
+        <Connection ItemName="SHKU17_KR25_state" Device="2" Channel="91:USHORT_BA" Group="STATE_IM" UUID="902B2AE14EF9078093C85D9B776D35C2" />
+        <Connection ItemName="SHKU17_KR26_state" Device="2" Channel="92:USHORT_BA" Group="STATE_IM" UUID="8AFC7F754C6419F1BA5E7CBF676F8A5E" />
+        <Connection ItemName="SHKU17_KR27_state" Device="2" Channel="93:USHORT_BA" Group="STATE_IM" UUID="A50DDE31409A5F0ED33A4E9B42B615E3" />
+        <Connection ItemName="SHKU17_KR28_state" Device="2" Channel="94:USHORT_BA" Group="STATE_IM" UUID="6D150582453CE115A029EAB75F758AB2" />
+        <Connection ItemName="SHKU17_KR31_state" Device="2" Channel="95:USHORT_BA" Group="STATE_IM" UUID="976295FC4B49F603997911BE25796BB4" />
+        <Connection ItemName="SHKU17_KR32_state" Device="2" Channel="96:USHORT_BA" Group="STATE_IM" UUID="CBDDBD49423CCF133C181099B79E78A6" />
+        <Connection ItemName="SHKU17_KR33_state" Device="2" Channel="97:USHORT_BA" Group="STATE_IM" UUID="56395033494F8DBFD12FBF83AC1809A7" />
+        <Connection ItemName="SHKU17_KR34_state" Device="2" Channel="98:USHORT_BA" Group="STATE_IM" UUID="D7CAC0C841C5D0BF98A35080CE58B961" />
+        <Connection ItemName="SHKU17_KR35_state" Device="2" Channel="99:USHORT_BA" Group="STATE_IM" UUID="CCA66E4B4FF33BC41BD04B924791F330" />
+        <Connection ItemName="SHKU17_KR36_state" Device="2" Channel="100:USHORT_BA" Group="STATE_IM" UUID="80537412421D2602090C4DA2F32E99BC" />
+        <Connection ItemName="SHKU17_KR37_state" Device="2" Channel="101:USHORT_BA" Group="STATE_IM" UUID="8CA7299F4BD127D36981A7899107B56F" />
+        <Connection ItemName="SHKU17_KR38_state" Device="2" Channel="102:USHORT_BA" Group="STATE_IM" UUID="147E737241BFD2DD72B25CA18661AD84" />
+        <Connection ItemName="SHKU17_KR39_state" Device="2" Channel="103:USHORT_BA" Group="STATE_IM" UUID="BDCED6324E22935F04E1B3AE902CC338" />
+        <Connection ItemName="GPA1_KR3.state" Device="2" Channel="104:USHORT_BA" Group="STATE_IM" UUID="BF8201C240FA0C85D20A46BBA4844ADB.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA1_KR3bis.state" Device="2" Channel="105:USHORT_BA" Group="STATE_IM" UUID="A0A0919545D7084DE160B9B48113AFD0.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA2_KR3.state" Device="2" Channel="106:USHORT_BA" Group="STATE_IM" UUID="94EAC3614D72792D454E7E9D615A3AEB.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA2_KR3bis.state" Device="2" Channel="107:USHORT_BA" Group="STATE_IM" UUID="AC0906EE462D64DCAB09559BA56795BB.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA3_KR3.state" Device="2" Channel="108:USHORT_BA" Group="STATE_IM" UUID="D5F0CF834049AB7AE61C5281B5857750.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA3_KR3bis.state" Device="2" Channel="109:USHORT_BA" Group="STATE_IM" UUID="1BA4B6E64E47316043AF459962A6A5F1.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA4_KR3.state" Device="2" Channel="110:USHORT_BA" Group="STATE_IM" UUID="577C87C2439F65EAC25FCD9115B093F5.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA4_KR3bis.state" Device="2" Channel="111:USHORT_BA" Group="STATE_IM" UUID="D34572964FD2956C600B98AAD97087C0.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA5_KR3.state" Device="2" Channel="112:USHORT_BA" Group="STATE_IM" UUID="10297B794ABC200D35AE8B9761A4D17B.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA5_KR3bis.state" Device="2" Channel="113:USHORT_BA" Group="STATE_IM" UUID="5F3A7D254A10AD4B4CBEA39800481F7C.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA6_KR3.state" Device="2" Channel="114:USHORT_BA" Group="STATE_IM" UUID="542253D3492E56034AF3298384C0F9A9.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="GPA6_KR3bis.state" Device="2" Channel="115:USHORT_BA" Group="STATE_IM" UUID="DE7E6AA54890B394FD966BADCE9EA33A.A46162A54CFC2B1DE006FB969EC9C354" />
+        <Connection ItemName="SHKU17_KC1_KR1397_1_state" Device="2" Channel="116:USHORT_BA" Group="STATE_IM" UUID="74E33B0A4C994585D17CDAB06D6BEF0F" />
+        <Connection ItemName="SHKU17_KC1_KR1397_2_state" Device="2" Channel="117:USHORT_BA" Group="STATE_IM" UUID="9458DD5246021E306F8863ACF6A67DF9" />
+        <Connection ItemName="SHKU17_KC1_KR1397_3_state" Device="2" Channel="118:USHORT_BA" Group="STATE_IM" UUID="F66B7D044BA9E922E89EDAB059A12135" />
+        <Connection ItemName="SHKU17_KC1_KR1397_13_9_state" Device="2" Channel="119:USHORT_BA" Group="STATE_IM" UUID="3BC1D5434461F1C61505A794543B999E" />
+        <Connection ItemName="SHKU17_KC1_KR1397_23_9_state" Device="2" Channel="120:USHORT_BA" Group="STATE_IM" UUID="C144C35A48192089E5A8BE8765BEB511" />
+        <Connection ItemName="SHKU17_KC2_KR1398_13_0_state" Device="2" Channel="121:USHORT_BA" Group="STATE_IM" UUID="5CD8BEA141F53BE4EFA0919473592FD6" />
+        <Connection ItemName="SHKU17_KC2_KR1398_14_9_state" Device="2" Channel="122:USHORT_BA" Group="STATE_IM" UUID="16187055426E9AE9915D1EB7699C8A23" />
+        <Connection ItemName="SHKU17_KC2_KR1398_24_9_B2_state" Device="2" Channel="123:USHORT_BA" Group="STATE_IM" UUID="72F462CA4DD6896BD20EFBB5F0CD2FAB" />
+        <Connection ItemName="SHKU17_KC2_KR1399_1_state" Device="2" Channel="124:USHORT_BA" Group="STATE_IM" UUID="8C11A9A4452C425AB5ED3CB36C9E6523" />
+        <Connection ItemName="SHKU17_KC2_KR1399_3_state" Device="2" Channel="125:USHORT_BA" Group="STATE_IM" UUID="105E725E485F81A6830EA298BCA83B97" />
+        <Connection ItemName="SHKU17_KC1_KR6_state" Device="2" Channel="126:USHORT_BA" Group="STATE_IM" UUID="3DD56CDD43106A7CBA4B7AA2DD385647" />
+        <Connection ItemName="SHKU17_KC2_KR6_state" Device="2" Channel="127:USHORT_BA" Group="STATE_IM" UUID="F88AE787473ECD549F881CB2901C8684" />
+        <Connection ItemName="SHKU17_KC2_KR6R_state" Device="2" Channel="128:USHORT_BA" Group="STATE_IM" UUID="AE72242243EA70BD2F3BF6AEA4FE4CBD" />
+        <Connection ItemName="SHKU17_KC1_KR7_state" Device="2" Channel="129:USHORT_BA" Group="STATE_IM" UUID="789043C8413DF291F8F940B9B7465542" />
+        <Connection ItemName="SHKU17_KC2_KR7_state" Device="2" Channel="130:USHORT_BA" Group="STATE_IM" UUID="9D332A564826911C99C242A0472A8AED" />
+        <Connection ItemName="SHKU17_KC1_KR8_state" Device="2" Channel="131:USHORT_BA" Group="STATE_IM" UUID="8260E1A7480F305CC8E59B84CF7DBDD3" />
+        <Connection ItemName="SHKU17_KC2_KR8_state" Device="2" Channel="132:USHORT_BA" Group="STATE_IM" UUID="323C0870467D11056CB42DA774F4DA08" />
+        <Connection ItemName="SHKU17_KC1_KR8bis_state" Device="2" Channel="133:USHORT_BA" Group="STATE_IM" UUID="BF724B8849D5530D7EB9FEAF58BFFEA5" />
+        <Connection ItemName="SHKU17_KC2_KR8bis_state" Device="2" Channel="134:USHORT_BA" Group="STATE_IM" UUID="4F222F0943F7AC82FC40209CD1604E2C" />
+        <Connection ItemName="SHKU17_KC1_KR17_state" Device="2" Channel="135:USHORT_BA" Group="STATE_IM" UUID="6EE65AD04D0DB7160A510D8E84DA7527" />
+        <Connection ItemName="SHKU17_KC2_KR17_state" Device="2" Channel="136:USHORT_BA" Group="STATE_IM" UUID="70E6FEAC47757C9622982DB768FDB502" />
+        <Connection ItemName="SHKU17_KC1_KR18_state" Device="2" Channel="137:USHORT_BA" Group="STATE_IM" UUID="E071AD6B47B2EE641FDC3D8311FC6C94" />
+        <Connection ItemName="SHKU17_KC2_KR18_state" Device="2" Channel="138:USHORT_BA" Group="STATE_IM" UUID="26906A534B68A0A6A264E2858494DC89" />
+        <Connection ItemName="SHKU17_KC1_KR30bis_state" Device="2" Channel="139:USHORT_BA" Group="STATE_IM" UUID="0CD2965F49A733615CEC6CB8DC1CB829" />
+        <Connection ItemName="SHKU17_KC2_KR30bis_state" Device="2" Channel="140:USHORT_BA" Group="STATE_IM" UUID="65AEDFEB4D5588ECC464FFA4871E2FD3" />
+        <Connection ItemName="SHKU17_KC1_KR30_state" Device="2" Channel="141:USHORT_BA" Group="STATE_IM" UUID="AD26105540CFFD76D8915387E929F399" />
+        <Connection ItemName="SHKU17_KC2_KR30_state" Device="2" Channel="142:USHORT_BA" Group="STATE_IM" UUID="51E4D7AE4F0FE54EAA61E5B7340804DC" />
+        <Connection ItemName="SHKU17_KC2_KRP1_2_state" Device="2" Channel="143:USHORT_BA" Group="STATE_IM" UUID="141B32264829A210F5F1E592CEFBF0F4" />
+        <Connection ItemName="SHKU17_KR101_state" Device="2" Channel="144:USHORT_BA" Group="STATE_IM" UUID="BF055F754722DB3BF7820584D72C56EB" />
+        <Connection ItemName="SHKU17_KR102_state" Device="2" Channel="145:USHORT_BA" Group="STATE_IM" UUID="94CDC67C4FF2B1D55F9229932287CCB1" />
+        <Connection ItemName="SHKU17_KR103_state" Device="2" Channel="146:USHORT_BA" Group="STATE_IM" UUID="E52FD38F48505302052A968EEFDE569E" />
+        <Connection ItemName="SHKU17_KR104_state" Device="2" Channel="147:USHORT_BA" Group="STATE_IM" UUID="8E7EEFDA48A1191B88D214906C373A61" />
+        <Connection ItemName="SHKU17_KR117_state" Device="2" Channel="148:USHORT_BA" Group="STATE_IM" UUID="8E9A5B804C79EE62290442AA4B388598" />
+        <Connection ItemName="SHKU17_KR114_state" Device="2" Channel="149:USHORT_BA" Group="STATE_IM" UUID="885074DA4B0B4D2488AD9F88F4B1295C" />
+        <Connection ItemName="SHKU17_KR1_105_state" Device="2" Channel="150:USHORT_BA" Group="STATE_IM" UUID="912D16964A8573E22E0DB68390CA0129" />
+        <Connection ItemName="SHKU17_KR2_105_state" Device="2" Channel="151:USHORT_BA" Group="STATE_IM" UUID="146EB41043BAB12498B700ABB868C1EF" />
+        <Connection ItemName="SHKU17_KR1_106_state" Device="2" Channel="152:USHORT_BA" Group="STATE_IM" UUID="66CADA6945563DB7FD77F68DB10FB92E" />
+        <Connection ItemName="SHKU17_KR2_106_state" Device="2" Channel="153:USHORT_BA" Group="STATE_IM" UUID="AADB3FE6427FB15DA41DB999A2FA90B7" />
+        <Connection ItemName="SHKU17_ABB1_state" Device="2" Channel="154:USHORT_BA" Group="STATE_IM" UUID="DD74836C466BBE3F7CBF1F85D691DAEA" />
+        <Connection ItemName="SHKU17_NPM1_state" Device="2" Channel="155:USHORT_BA" Group="STATE_IM" UUID="A2EB205746D09F4CC8DD41973F3E3F38" />
+        <Connection ItemName="SHKU17_NPM2_state" Device="2" Channel="156:USHORT_BA" Group="STATE_IM" UUID="1501368E4DBD70582EC24F85EC2C200F" />
+        <Connection ItemName="SHKU17_XPN2_state" Device="2" Channel="157:USHORT_BA" Group="STATE_IM" UUID="D81EC53044DF1BFB9B8E4382AD835022" />
+        <Connection ItemName="SHKU17_XPN1_state" Device="2" Channel="158:USHORT_BA" Group="STATE_IM" UUID="D6A55B4D4F46029731D3189DD8F2AEA7" />
+        <Connection ItemName="SHKU17_PN2_state" Device="2" Channel="159:USHORT_BA" Group="STATE_IM" UUID="727AFB1B498E7FF863577AA57AAE4122" />
+        <Connection ItemName="SHKU17_PN1_state" Device="2" Channel="160:USHORT_BA" Group="STATE_IM" UUID="B499E5CB4D4A405FC6839F801EEBA30D" />
+        <Connection ItemName="SHKU17_N2P_state" Device="2" Channel="161:USHORT_BA" Group="STATE_IM" UUID="FAB9367747E66999C6798D900E106AF5" />
+        <Connection ItemName="SHKU17_PUMP_PN_state" Device="2" Channel="162:USHORT_BA" Group="STATE_IM" UUID="7F544934425D5A76ED044487F3E28C93" />
+        <Connection ItemName="SHKU17_VVOD_1_state" Device="2" Channel="163:USHORT_BA" Group="STATE_IM" UUID="88B2D53643BC3DE88AF288AC74433C65" />
+        <Connection ItemName="SHKU17_VVOD_2_state" Device="2" Channel="164:USHORT_BA" Group="STATE_IM" UUID="29B0550740BF666A40343F85ED103537" />
+        <Connection ItemName="SHKU17_PUMP_P_state" Device="2" Channel="165:USHORT_BA" Group="STATE_IM" UUID="C695D73747E8DA040D14599D47C2C930" />
+        <Connection ItemName="SHKU17_EN_VVOD_1_state" Device="2" Channel="166:USHORT_BA" Group="STATE_IM" UUID="13CB93A443AD166F2E395AB7804097E9" />
+        <Connection ItemName="SHKU17_EN_VVOD_2_state" Device="2" Channel="167:USHORT_BA" Group="STATE_IM" UUID="98715FDC49FEE094FA614EADA8FDD77F" />
+        <Connection ItemName="SHKU17_KC2_GN_VV1_state" Device="2" Channel="168:USHORT_BA" Group="STATE_IM" UUID="3F386B6744539F5E9870599E4A46FC1F" />
+        <Connection ItemName="SHKU17_KC2_GN_VV2_state" Device="2" Channel="169:USHORT_BA" Group="STATE_IM" UUID="41AA2408494C8CE60422D09C67F7E928" />
+        <Connection ItemName="SHKU17_KC2_GN_VV3_state" Device="2" Channel="170:USHORT_BA" Group="STATE_IM" UUID="0F9B008F4800199A858153A6BDAE8EA1" />
+        <Connection ItemName="SHKU17_KC2_GN_PVK2_state" Device="2" Channel="171:USHORT_BA" Group="STATE_IM" UUID="3E1A09EA4F6B06ED7E827B8FC4AF9EDA" />
+        <Connection ItemName="SHKU17_KC2_GN_PVK4_state" Device="2" Channel="172:USHORT_BA" Group="STATE_IM" UUID="F719ED8842F56CEF6ADA7B8B6D2BFDF4" />
+        <Connection ItemName="SHKU17_KC1_GN_VV1_state" Device="2" Channel="173:USHORT_BA" Group="STATE_IM" UUID="09952D724BBB50EE3C511AA72CB952DD" />
+        <Connection ItemName="SHKU17_KC1_GN_VV2_state" Device="2" Channel="174:USHORT_BA" Group="STATE_IM" UUID="7687B0DF4ADD634059E96DA5515A248D" />
+        <Connection ItemName="SHKU17_KC1_GN_VV3_state" Device="2" Channel="175:USHORT_BA" Group="STATE_IM" UUID="2F9091754781E54F70B4F69A5FB0CB62" />
+        <Connection ItemName="SHKU17_KC1_GN_VV4_state" Device="2" Channel="176:USHORT_BA" Group="STATE_IM" UUID="F107F87D4ACDBC5C744C599A2EDBDC5D" />
+        <Connection ItemName="SHKU17_KC1_GN_PVK1_state" Device="2" Channel="177:USHORT_BA" Group="STATE_IM" UUID="6DF22AC244067C363BF8CF8DC674E0D5" />
+        <Connection ItemName="SHKU17_KC1_GN_PVK2_state" Device="2" Channel="178:USHORT_BA" Group="STATE_IM" UUID="8D06E8F64C1F1799731EE0ABD28A69D8" />
+        <Connection ItemName="SHKU17_KC1_GN_PVK3_state" Device="2" Channel="179:USHORT_BA" Group="STATE_IM" UUID="28F1CEA64DCB56D5BA6C07881C51275B" />
+        <Connection ItemName="SHKU17_KC1_GN_PVK4_state" Device="2" Channel="180:USHORT_BA" Group="STATE_IM" UUID="32F4E01543744533A8269D97316E74E2" />
+        <Connection ItemName="SHKU17_KC1_MZ_VV1_state" Device="2" Channel="181:USHORT_BA" Group="STATE_IM" UUID="0A23A88F4C0BB3E4A2F5F388FFB12291" />
+        <Connection ItemName="SHKU17_KC1_MZ_VV2_state" Device="2" Channel="182:USHORT_BA" Group="STATE_IM" UUID="AE92423847B638ABF448D1B44FB22BF9" />
+        <Connection ItemName="SHKU17_KC1_MZ_VV3_state" Device="2" Channel="183:USHORT_BA" Group="STATE_IM" UUID="A8D1DE2346196B23F89B2B8D3FE7FDE7" />
+        <Connection ItemName="SHKU17_KC1_MZ_VV4_state" Device="2" Channel="184:USHORT_BA" Group="STATE_IM" UUID="99A96D8E425DA8D662A3FA87FF9AB37D" />
+        <Connection ItemName="SHKU17_KC1_MZ_VV5_state" Device="2" Channel="185:USHORT_BA" Group="STATE_IM" UUID="45A1AD7645F63E90D97D4B8C094A0CBC" />
+        <Connection ItemName="SHKU17_KC1_MZ_VV6_state" Device="2" Channel="186:USHORT_BA" Group="STATE_IM" UUID="6957E8694132288590AA8EB7DC43B049" />
+        <Connection ItemName="SHKU17_KC1_MZ_PVK1_state" Device="2" Channel="187:USHORT_BA" Group="STATE_IM" UUID="A7F72D61483CB076BDF54982299E7158" />
+        <Connection ItemName="SHKU17_KC1_MZ_PVK2_state" Device="2" Channel="188:USHORT_BA" Group="STATE_IM" UUID="F1DE07DA492ECCB689D350B0FA0F5F1C" />
+        <Connection ItemName="SHKU17_KC1_PV1_state" Device="2" Channel="189:USHORT_BA" Group="STATE_IM" UUID="7402137E4DF584FD7228E79CF9D7BE48" />
+        <Connection ItemName="SHKU17_KC1_PV2_state" Device="2" Channel="190:USHORT_BA" Group="STATE_IM" UUID="D1AC86704883D33B723C56992B549DBD" />
+        <Connection ItemName="SHKU17_KC1_PV3_state" Device="2" Channel="191:USHORT_BA" Group="STATE_IM" UUID="EB25F3A44EC42EA821A9288FF80220D2" />
+        <Connection ItemName="SHKU17_APK1_flt" Device="2" Channel="192:BIT" Group="FLT_IM" UUID="E05B51854E45AD75CFB3EF863F2FEA61" />
+        <Connection ItemName="SHKU17_APK2_flt" Device="2" Channel="192.1:BIT" Group="FLT_IM" UUID="D64260894941471C452369BF38924A86" />
+        <Connection ItemName="APS_SHKU17_KR19_gp_flt" Device="2" Channel="192.2:BIT" Group="FLT_IM" UUID="DB8BB73F4C6C5A1627542F99B1DDE1D5" />
+        <Connection ItemName="APS_SHKU17_KR20_gp_flt" Device="2" Channel="192.3:BIT" Group="FLT_IM" UUID="EEF6D46C4B89CDDC826E7CB4D12E0366" />
+        <Connection ItemName="APS_SHKU17_KR21_gp_flt" Device="2" Channel="192.4:BIT" Group="FLT_IM" UUID="F93FE6B342D2AE97FC451B97B48E6C9C" />
+        <Connection ItemName="APS_SHKU17_KR22_gp_flt" Device="2" Channel="192.5:BIT" Group="FLT_IM" UUID="550DBFD4454454E99C8163BF53D1746F" />
+        <Connection ItemName="APS_SHKU17_KR23_gp_flt" Device="2" Channel="192.6:BIT" Group="FLT_IM" UUID="C0F45E344E16F375679D9BA3AC46815B" />
+        <Connection ItemName="APS_SHKU17_KR24_gp_flt" Device="2" Channel="192.7:BIT" Group="FLT_IM" UUID="0E23AB4B4799B87274CE04827C4F3D8D" />
+        <Connection ItemName="APS_SHKU17_KR25_gp_flt" Device="2" Channel="192.8:BIT" Group="FLT_IM" UUID="519AC7DD496E08D3FA01478B9B6305D0" />
+        <Connection ItemName="APS_SHKU17_KR26_gp_flt" Device="2" Channel="192.9:BIT" Group="FLT_IM" UUID="9EB342ED4766CD35244F51A836890022" />
+        <Connection ItemName="APS_SHKU17_KR27_gp_flt" Device="2" Channel="192.10:BIT" Group="FLT_IM" UUID="F98373E0412095708D29BBB42A5C1107" />
+        <Connection ItemName="APS_SHKU17_KR28_gp_flt" Device="2" Channel="192.11:BIT" Group="FLT_IM" UUID="C800E58949A91D1C79D3F68E5D88669F" />
+        <Connection ItemName="APS_SHKU17_KR31_gp_flt" Device="2" Channel="192.12:BIT" Group="FLT_IM" UUID="2DC76E3448440F2E8D8BF48BE3A6AB8A" />
+        <Connection ItemName="APS_SHKU17_KR32_gp_flt" Device="2" Channel="192.13:BIT" Group="FLT_IM" UUID="662FD5E44CED02BC1F45CFAAEBCBF057" />
+        <Connection ItemName="APS_SHKU17_KR33_gp_flt" Device="2" Channel="192.14:BIT" Group="FLT_IM" UUID="BA6693DA45350A2500DC1E8EE49580B2" />
+        <Connection ItemName="APS_SHKU17_KR34_gp_flt" Device="2" Channel="192.15:BIT" Group="FLT_IM" UUID="770171FD4B2A639D775B9284FFA7EDB7" />
+        <Connection ItemName="APS_SHKU17_KR35_gp_flt" Device="2" Channel="193:BIT" Group="FLT_IM" UUID="EEE3726C477CC31E1CA23C8A60E959E4" />
+        <Connection ItemName="APS_SHKU17_KR36_gp_flt" Device="2" Channel="193.1:BIT" Group="FLT_IM" UUID="F19D25D64D085F09558E7CAD9E99E8F4" />
+        <Connection ItemName="APS_SHKU17_KR37_gp_flt" Device="2" Channel="193.2:BIT" Group="FLT_IM" UUID="A3A702E042664246A22886921B79A29D" />
+        <Connection ItemName="APS_SHKU17_KR38_gp_flt" Device="2" Channel="193.3:BIT" Group="FLT_IM" UUID="8D7E184E411D872E38F7A7ADA8B7FA1B" />
+        <Connection ItemName="APS_SHKU17_KR39_gp_flt" Device="2" Channel="193.4:BIT" Group="FLT_IM" UUID="B7C3EC3C4FA5C6CC0BF0668ECCF07A06" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.5:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.6:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.7:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.8:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.9:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.10:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.11:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.12:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.13:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.14:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="193.15:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="194:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="APS_SHKU17_KC1_KR1397_1_gp_flt" Device="2" Channel="194.1:BIT" Group="FLT_IM" UUID="429AD35A40B04A3BF21EBB9316470F3E" />
+        <Connection ItemName="APS_SHKU17_KC1_KR1397_2_gp_flt" Device="2" Channel="194.2:BIT" Group="FLT_IM" UUID="B3CDC18B4DAAB71656FAE6A39F1D6925" />
+        <Connection ItemName="APS_SHKU17_KC1_KR1397_3_gp_flt" Device="2" Channel="194.3:BIT" Group="FLT_IM" UUID="5AC79BFC456EB3F068B49E8AD8D4E8E2" />
+        <Connection ItemName="APS_SHKU17_KC1_KR1397_13_9_gp_flt" Device="2" Channel="194.4:BIT" Group="FLT_IM" UUID="0CC7B72342E938449EFA5A89C4AE2BF9" />
+        <Connection ItemName="APS_SHKU17_KC1_KR1397_23_9_gp_flt" Device="2" Channel="194.5:BIT" Group="FLT_IM" UUID="FAB64FD84BB20E6B2CD8E29662F237E7" />
+        <Connection ItemName="APS_SHKU17_KC2_KR1398_13_0_gp_flt" Device="2" Channel="194.6:BIT" Group="FLT_IM" UUID="871F878848B149B68DBE0E9696DDC0C3" />
+        <Connection ItemName="APS_SHKU17_KC2_KR1398_14_9_gp_flt" Device="2" Channel="194.7:BIT" Group="FLT_IM" UUID="AA9AFEEB46071E0D78E914B631055872" />
+        <Connection ItemName="APS_SHKU17_KC2_KR1398_24_9_B2_gp_flt" Device="2" Channel="194.8:BIT" Group="FLT_IM" UUID="8AAD9BF04F588D9CEE09B18407781B8F" />
+        <Connection ItemName="APS_SHKU17_KC2_KR1399_1_gp_flt" Device="2" Channel="194.9:BIT" Group="FLT_IM" UUID="FC6180114209A8F6EFE715B2C08B2074" />
+        <Connection ItemName="APS_SHKU17_KC2_KR1399_3_gp_flt" Device="2" Channel="194.10:BIT" Group="FLT_IM" UUID="379EF9D242CBF42A59627CBB27CED322" />
+        <Connection ItemName="APS_SHKU17_KC1_KR6_gp_flt" Device="2" Channel="194.11:BIT" Group="FLT_IM" UUID="A9B6EAF04F7829D03B6A07891EF4E107" />
+        <Connection ItemName="APS_SHKU17_KC2_KR6_gp_flt" Device="2" Channel="194.12:BIT" Group="FLT_IM" UUID="B23B9448424A3BB12A4528A8E4050141" />
+        <Connection ItemName="APS_SHKU17_KC2_KR6R_gp_flt" Device="2" Channel="194.13:BIT" Group="FLT_IM" UUID="0E48D3834021955B4D6B50A336ECE3C0" />
+        <Connection ItemName="APS_SHKU17_KC1_KR7_gp_flt" Device="2" Channel="194.14:BIT" Group="FLT_IM" UUID="BD8DD34442A713D15CC1F2B4C607FD44" />
+        <Connection ItemName="APS_SHKU17_KC2_KR7_gp_flt" Device="2" Channel="194.15:BIT" Group="FLT_IM" UUID="8BD14CFE4A4C7FE1C3B0DB92247FDF33" />
+        <Connection ItemName="APS_SHKU17_KC1_KR8_gp_flt" Device="2" Channel="195:BIT" Group="FLT_IM" UUID="BCC763D04CCD9808973C0E95B4D2F5AC" />
+        <Connection ItemName="APS_SHKU17_KC2_KR8_gp_flt" Device="2" Channel="195.1:BIT" Group="FLT_IM" UUID="B686E69643EB024A5560CA864EB153F6" />
+        <Connection ItemName="APS_SHKU17_KC2_KR8bis_gp_flt" Device="2" Channel="195.2:BIT" Group="FLT_IM" UUID="AD20574247E440DB30B3D891D51BB33E" />
+        <Connection ItemName="APS_SHKU17_KC1_KR8bis_gp_flt" Device="2" Channel="195.3:BIT" Group="FLT_IM" UUID="3426003C422E98DCA68A8087E230A7AA" />
+        <Connection ItemName="APS_SHKU17_KC1_KR17_gp_flt" Device="2" Channel="195.4:BIT" Group="FLT_IM" UUID="7489174D4C4FF3F35FD840B2553B2765" />
+        <Connection ItemName="APS_SHKU17_KC1_KR17_gp_flt" Device="2" Channel="195.5:BIT" Group="FLT_IM" UUID="7489174D4C4FF3F35FD840B2553B2765" />
+        <Connection ItemName="APS_SHKU17_KC1_KR18_gp_flt" Device="2" Channel="195.6:BIT" Group="FLT_IM" UUID="3AA29B7545FFA96653BE8D954629438A" />
+        <Connection ItemName="APS_SHKU17_KC2_KR18_gp_flt" Device="2" Channel="195.7:BIT" Group="FLT_IM" UUID="65B927AA4155ED9E65ADF3BF6C78A2AE" />
+        <Connection ItemName="APS_SHKU17_KC1_KR30bis_gp_flt" Device="2" Channel="195.8:BIT" Group="FLT_IM" UUID="A7237B1643712142D51E6D8BBE546F06" />
+        <Connection ItemName="APS_SHKU17_KC2_KR30bis_gp_flt" Device="2" Channel="195.9:BIT" Group="FLT_IM" UUID="063F5FDF4DE5F24C55463F9110081F2A" />
+        <Connection ItemName="APS_SHKU17_KC1_KR30_gp_flt" Device="2" Channel="195.10:BIT" Group="FLT_IM" UUID="B2FB85A84DD94B807FBD40A2A5BE8EAF" />
+        <Connection ItemName="APS_SHKU17_KC2_KR30_gp_flt" Device="2" Channel="195.11:BIT" Group="FLT_IM" UUID="305854604D814FEA7436E6BE1C5B7E4E" />
+        <Connection ItemName="APS_SHKU17_KC2_KRP1_2_gp_flt" Device="2" Channel="195.12:BIT" Group="FLT_IM" UUID="93410FD740D89D26492941B6ED43A272" />
+        <Connection ItemName="APS_SHKU17_KR101_gp_flt" Device="2" Channel="195.13:BIT" Group="FLT_IM" UUID="2E517A374FD82729F19AB9880A419B90" />
+        <Connection ItemName="APS_SHKU17_KR102_gp_flt" Device="2" Channel="195.14:BIT" Group="FLT_IM" UUID="AEC6EE214E122E9DFB1B4C9EA6A09370" />
+        <Connection ItemName="APS_SHKU17_KR103_flt" Device="2" Channel="195.15:BIT" Group="FLT_IM" UUID="F10CD2BA484A8BD48C3A5FBF2BE6B2C6" />
+        <Connection ItemName="APS_SHKU17_KR104_flt" Device="2" Channel="196:BIT" Group="FLT_IM" UUID="C09D50DE4FBEA828618BDEAF90CB399F" />
+        <Connection ItemName="APS_SHKU17_KC1_KR17_flt" Device="2" Channel="196.1:BIT" Group="FLT_IM" UUID="F80E487B4927768569984FA98B913EFC" />
+        <Connection ItemName="APS_SHKU17_KR114_flt" Device="2" Channel="196.2:BIT" Group="FLT_IM" UUID="0A54A3CB4E24ACCA3F2789B94C3D0E37" />
+        <Connection ItemName="APS_SHKU17_KR1_105_gp_flt" Device="2" Channel="196.3:BIT" Group="FLT_IM" UUID="DABADC8C466FE20442CD1EB1F5534235" />
+        <Connection ItemName="APS_SHKU17_KR2_105_flt" Device="2" Channel="196.4:BIT" Group="FLT_IM" UUID="2122EACD44931F4FB8B1E59E881C2133" />
+        <Connection ItemName="APS_SHKU17_KR1_106_gp_flt" Device="2" Channel="196.5:BIT" Group="FLT_IM" UUID="F4DA4891401E37561545B6A08C24CB51" />
+        <Connection ItemName="APS_SHKU17_KR2_106_gp_flt" Device="2" Channel="196.6:BIT" Group="FLT_IM" UUID="CD7BE44B4497BC7FB79642B865A333A4" />
+        <Connection ItemName="APS_SHKU17_ABB1_gp_flt" Device="2" Channel="196.7:BIT" Group="FLT_IM" UUID="0CF3311A4EF17527DFF47C9435AA49E0" />
+        <Connection ItemName="APS_SHKU17_PN1_gp_flt" Device="2" Channel="196.8:BIT" Group="FLT_IM" UUID="5C47DF4C4F4678E2A1C47F921CA9BFAF" />
+        <Connection ItemName="APS_SHKU17_NPM2_gp_flt" Device="2" Channel="196.9:BIT" Group="FLT_IM" UUID="569FE1264B2FAE35E5FD76B00BA5B992" />
+        <Connection ItemName="APS_SHKU17_XPN2_gp_flt" Device="2" Channel="196.10:BIT" Group="FLT_IM" UUID="6010F67340AF86895489E2B6A1EBC2A2" />
+        <Connection ItemName="APS_SHKU17_XPN1_gp_flt" Device="2" Channel="196.11:BIT" Group="FLT_IM" UUID="48F280364BE7697E06C12B9A28FCA919" />
+        <Connection ItemName="APS_SHKU17_PN2_gp_flt" Device="2" Channel="196.12:BIT" Group="FLT_IM" UUID="0C78EE054A1DDFB3C3B1B581449C2D39" />
+        <Connection ItemName="APS_SHKU17_PN1_gp_flt" Device="2" Channel="196.13:BIT" Group="FLT_IM" UUID="5C47DF4C4F4678E2A1C47F921CA9BFAF" />
+        <Connection ItemName="APS_SHKU17_N2P_gp_flt" Device="2" Channel="196.14:BIT" Group="FLT_IM" UUID="735783BD4AE40356F6C3ED8CF65A5321" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="196.15:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="APS_SHKU17_KC2_GN_VV1_gp_flt" Device="2" Channel="197:BIT" Group="FLT_IM" UUID="9CF7785E4D204579B87E02AB321AC955" />
+        <Connection ItemName="APS_SHKU17_KC2_GN_VV2_gp_flt" Device="2" Channel="197.1:BIT" Group="FLT_IM" UUID="4168321944F64E601116F39A664323D7" />
+        <Connection ItemName="APS_SHKU17_KC2_GN_VV3_gp_flt" Device="2" Channel="197.2:BIT" Group="FLT_IM" UUID="04CBB3E94D07D40E5BEB55A62FB9A6EF" />
+        <Connection ItemName="APS_SHKU17_KC2_GN_PVK2_gp_flt" Device="2" Channel="197.3:BIT" Group="FLT_IM" UUID="332A027E417FCCA7C8C850B2A5926371" />
+        <Connection ItemName="APS_SHKU17_KC2_GN_PVK4_gp_flt" Device="2" Channel="197.4:BIT" Group="FLT_IM" UUID="8C28B2194299E84ECC16579D7C192853" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_VV1_gp_flt" Device="2" Channel="197.5:BIT" Group="FLT_IM" UUID="5D5627A94F22637CCB896584209E1B24" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_VV2_gp_flt" Device="2" Channel="197.6:BIT" Group="FLT_IM" UUID="5DCA1E6C459CFAD4F8D215A53FAD5BC8" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_VV3_gp_flt" Device="2" Channel="197.7:BIT" Group="FLT_IM" UUID="FF1D363B4917EF7F32334F92D1D7296A" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_VV4_gp_flt" Device="2" Channel="197.8:BIT" Group="FLT_IM" UUID="6090271540D4AFF85ABF20901FDD220E" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_PVK1_gp_flt" Device="2" Channel="197.9:BIT" Group="FLT_IM" UUID="128DC26545E3076FB23298B36A94B91F" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_PVK2_gp_flt" Device="2" Channel="197.10:BIT" Group="FLT_IM" UUID="EE205F3148A3110AE87E8E83EFB613EB" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_PVK3_gp_flt" Device="2" Channel="197.11:BIT" Group="FLT_IM" UUID="C53D3B1D43667B248CA8E8B7D9859601" />
+        <Connection ItemName="APS_SHKU17_KC1_GN_PVK4_gp_flt" Device="2" Channel="197.12:BIT" Group="FLT_IM" UUID="028CA735498338AD249AE5B042B7F472" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_VV1_gp_flt" Device="2" Channel="197.13:BIT" Group="FLT_IM" UUID="989FBB974D1A2D0F7551EEAF64523A45" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_VV2_gp_flt" Device="2" Channel="197.14:BIT" Group="FLT_IM" UUID="197562AE4ADB40860102C6B1C78F8163" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_VV3_gp_flt" Device="2" Channel="197.15:BIT" Group="FLT_IM" UUID="128726574E3042E27351928E10A7CD04" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_VV4_gp_flt" Device="2" Channel="198:BIT" Group="FLT_IM" UUID="3D8C9DD1463BA8467068FF96046B7416" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_VV5_gp_flt" Device="2" Channel="198.1:BIT" Group="FLT_IM" UUID="35EECE6A48D1CD3BFEFCD4A2287A8715" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_VV6_gp_flt" Device="2" Channel="198.2:BIT" Group="FLT_IM" UUID="401D733B4310C043F18109A79A9CDF22" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_PVK1_gp_flt" Device="2" Channel="198.3:BIT" Group="FLT_IM" UUID="762F9FC34D713DE0D7F90C86AA05D751" />
+        <Connection ItemName="APS_SHKU17_KC1_MZ_PVK2_gp_flt" Device="2" Channel="198.4:BIT" Group="FLT_IM" UUID="506C5A1B4A99E9CDD49747AFA509E7B5" />
+        <Connection ItemName="APS_SHKU17_KC1_PV1_gp_flt" Device="2" Channel="198.5:BIT" Group="FLT_IM" UUID="977BF662487BAE3FAFACC1836B678A26" />
+        <Connection ItemName="APS_SHKU17_KC1_PV2_gp_flt" Device="2" Channel="198.6:BIT" Group="FLT_IM" UUID="E84E1B614D51D625C458E7B49AA54BA0" />
+        <Connection ItemName="APS_SHKU17_KC1_PV3_gp_flt" Device="2" Channel="198.7:BIT" Group="FLT_IM" UUID="13F8BCE24D4EBD160D749AA171CEAE25" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.8:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.9:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.10:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.11:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.12:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.13:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.14:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="198.15:BIT" Group="FLT_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="HMI_SHKU17_APK_1_DA" Device="2" Channel="199:BIT" Group="R_IM" UUID="87B6A764435477ECAF9C58BD9AFC0F3F" />
+        <Connection ItemName="HMI_SHKU17_APK_2_DA" Device="2" Channel="199.1:BIT" Group="R_IM" UUID="3262EF644601D37285656EABFB948D7A" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.2:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.3:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.4:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.5:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.6:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.7:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.8:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.9:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.10:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.11:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.12:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.13:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.14:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="199.15:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.1:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.2:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.3:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.4:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.5:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.6:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.7:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.8:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.9:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.10:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.11:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.12:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.13:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.14:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="200.15:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="201:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR1397_1_DA" Device="2" Channel="201.1:BIT" Group="R_IM" UUID="B719869C4C6338E289B34A8B7EDCCCCD" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR1397_2_DA" Device="2" Channel="201.2:BIT" Group="R_IM" UUID="2F3728834A10F3540AB456ACC6DCDE48" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR1397_3_DA" Device="2" Channel="201.3:BIT" Group="R_IM" UUID="3B3386F54C37497F2AE147AAC0F63C20" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR1397_13_9_DA" Device="2" Channel="201.4:BIT" Group="R_IM" UUID="9B95FA254285758BA1635CA0A446D354" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR1397_23_9_DA" Device="2" Channel="201.5:BIT" Group="R_IM" UUID="1DA209964DE6841362C9ECB7BEF75947" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR1398_13_0_DA" Device="2" Channel="201.6:BIT" Group="R_IM" UUID="6F95D346438B06F574F7539184165782" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR1398_14_9_DA" Device="2" Channel="201.7:BIT" Group="R_IM" UUID="D40AFF874BEE2EC657079192DE79C396" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR1398_24_9_DA" Device="2" Channel="201.8:BIT" Group="R_IM" UUID="13943459401376384E4313BA5266B36F" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR1399_1_DA" Device="2" Channel="201.9:BIT" Group="R_IM" UUID="1E4D948D49F8D2A04A32A9ACE0C1F13B" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR1399_3_DA" Device="2" Channel="201.10:BIT" Group="R_IM" UUID="4A15EEFA4D042F08743E62BCC1ABB34A" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR6_DA" Device="2" Channel="201.11:BIT" Group="R_IM" UUID="A66170D14C9FA28158DC4BB3A8B016F4" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR6_DA" Device="2" Channel="201.12:BIT" Group="R_IM" UUID="B681A95E4911D2A6955FA78F2B45D8E7" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR6R_DA" Device="2" Channel="201.13:BIT" Group="R_IM" UUID="153D1E944ACAF8365C9CA6BC76CB3FF8" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR7_DA" Device="2" Channel="201.14:BIT" Group="R_IM" UUID="8C89D987418980F4057164B654AE7711" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR7_DA" Device="2" Channel="201.15:BIT" Group="R_IM" UUID="9605ABB342432D117166B99841297C73" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR8_DA" Device="2" Channel="202:BIT" Group="R_IM" UUID="EA2FF95041218DC990AE228CBBAB6A0C" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR8_DA" Device="2" Channel="202.1:BIT" Group="R_IM" UUID="23BAA1F043F6ADC9C45A46B6FFACE26A" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR8bis_DA" Device="2" Channel="202.2:BIT" Group="R_IM" UUID="6335BCD2441FD032AF0675A30CE561C8" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR8bis_DA" Device="2" Channel="202.3:BIT" Group="R_IM" UUID="896C85BC4DF1A9E22F022AAAB774E8FE" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR17_DA" Device="2" Channel="202.4:BIT" Group="R_IM" UUID="DE0B1F74446A5208D805B2A21EA881EE" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR17_DA" Device="2" Channel="202.5:BIT" Group="R_IM" UUID="11DF4E2F4BBD552B0ED9869D4896BB4D" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR18_DA" Device="2" Channel="202.6:BIT" Group="R_IM" UUID="34F7AB9E4FB179D6EA5C1D9BE2DD2194" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR18_DA" Device="2" Channel="202.7:BIT" Group="R_IM" UUID="248C5B55423118AC5458B2841412B777" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR30bis_DA" Device="2" Channel="202.8:BIT" Group="R_IM" UUID="CA31979A41EF2D6096E010AD67556225" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR30bis_DA" Device="2" Channel="202.9:BIT" Group="R_IM" UUID="18848CAA4BA51889188AF1AC5DD8F7B8" />
+        <Connection ItemName="HMI_SHKU17_KC1_KR30_DA" Device="2" Channel="202.10:BIT" Group="R_IM" UUID="AEC564FC445E88B119F3CC8E16E8FC79" />
+        <Connection ItemName="HMI_SHKU17_KC2_KR30_DA" Device="2" Channel="202.11:BIT" Group="R_IM" UUID="589062F74A9A8C41DDD374AB8B9C56FF" />
+        <Connection ItemName="HMI_SHKU17_KC2_KRP1_2_DA" Device="2" Channel="202.12:BIT" Group="R_IM" UUID="7A3987614B98601EB546E9AA6F9B1C65" />
+        <Connection ItemName="HMI_SHKU17_KR101_DA" Device="2" Channel="202.13:BIT" Group="R_IM" UUID="51D7917F47A2D1B0C79DBE829130EC7F" />
+        <Connection ItemName="HMI_SHKU17_KR102_DA" Device="2" Channel="202.14:BIT" Group="R_IM" UUID="4C94715B43840ADBD4F558B6FEBF27EF" />
+        <Connection ItemName="HMI_SHKU17_KR103_DA" Device="2" Channel="202.15:BIT" Group="R_IM" UUID="7C3D54AB4DD080937CBC289649446173" />
+        <Connection ItemName="HMI_SHKU17_KR104_DA" Device="2" Channel="203:BIT" Group="R_IM" UUID="DC61E9B045F1091EFCEF118A40A9D111" />
+        <Connection ItemName="HMI_SHKU17_KR117_DA" Device="2" Channel="203.1:BIT" Group="R_IM" UUID="EC8070CF41B52F49EFA508B5D4097370" />
+        <Connection ItemName="HMI_SHKU17_KR114_DA" Device="2" Channel="203.2:BIT" Group="R_IM" UUID="B8AEB5374CD3231A55E86380793928A8" />
+        <Connection ItemName="HMI_SHKU17_KR1_105_DA" Device="2" Channel="203.3:BIT" Group="R_IM" UUID="2074FEF54D7228A98FA18CA6582F6414" />
+        <Connection ItemName="HMI_SHKU17_KR2_105_DA" Device="2" Channel="203.4:BIT" Group="R_IM" UUID="29FF2A7E47691896385516AD18D668B9" />
+        <Connection ItemName="HMI_SHKU17_KR1_106_DA" Device="2" Channel="203.5:BIT" Group="R_IM" UUID="99AE06C64B03F80FD220B09065A0CC16" />
+        <Connection ItemName="HMI_SHKU17_KR2_106_DA" Device="2" Channel="203.6:BIT" Group="R_IM" UUID="AB47DBA54BA089CCF59C2AAEE1A91325" />
+        <Connection ItemName="HMI_SHKU17_ABB1_DA" Device="2" Channel="203.7:BIT" Group="R_IM" UUID="5D35416F47A8DF156B7AF085BAFA7B12" />
+        <Connection ItemName="HMI_SHKU17_NPM1_DA" Device="2" Channel="203.8:BIT" Group="R_IM" UUID="0C4FDD4345E1DA178F4ECEA796C63C54" />
+        <Connection ItemName="HMI_SHKU17_NPM2_DA" Device="2" Channel="203.9:BIT" Group="R_IM" UUID="C1E9F5F1496E515107590E8FC3201F43" />
+        <Connection ItemName="HMI_SHKU17_XPN2_DA" Device="2" Channel="203.10:BIT" Group="R_IM" UUID="837DABE94402A5E9A82886958D17D8F7" />
+        <Connection ItemName="HMI_SHKU17_XPN1_DA" Device="2" Channel="203.11:BIT" Group="R_IM" UUID="05AA3F8E481721FDCBABB3AAB6D7CAE3" />
+        <Connection ItemName="HMI_SHKU17_PN2_DA" Device="2" Channel="203.12:BIT" Group="R_IM" UUID="8D0BB0124C561CA50DE290A556032DD2" />
+        <Connection ItemName="HMI_SHKU17_PN1_DA" Device="2" Channel="203.13:BIT" Group="R_IM" UUID="20EEA9C3424C89BAF51F5796518601B9" />
+        <Connection ItemName="HMI_SHKU17_N2P_DA" Device="2" Channel="203.14:BIT" Group="R_IM" UUID="DAB648024F8549F4C8E81C89C0852A40" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="203.15:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="HMI_SHKU17_KC2_GN_VV1_DA" Device="2" Channel="204:BIT" Group="R_IM" UUID="BFCD72AB4F96FB8ABEBF778670D39309" />
+        <Connection ItemName="HMI_SHKU17_KC2_GN_VV2_DA" Device="2" Channel="204.1:BIT" Group="R_IM" UUID="C472D22A412BCBF46725B488DBCCAEFB" />
+        <Connection ItemName="HMI_SHKU17_KC2_GN_VV3_DA" Device="2" Channel="204.2:BIT" Group="R_IM" UUID="6217041E4DEDBCD6C16B0A83FB67FBA0" />
+        <Connection ItemName="HMI_SHKU17_KC2_GN_PVK2_DA" Device="2" Channel="204.3:BIT" Group="R_IM" UUID="C9D098B34B6303858758E0BDD7610C7C" />
+        <Connection ItemName="HMI_SHKU17_KC2_GN_PVK4_DA" Device="2" Channel="204.4:BIT" Group="R_IM" UUID="55CF3C4747C99E265A53AFB658052F0C" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_VV1_DA" Device="2" Channel="204.5:BIT" Group="R_IM" UUID="9A6C8B81468E641558AEDDA740610279" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_VV2_DA" Device="2" Channel="204.6:BIT" Group="R_IM" UUID="0A5B551D443C77AADDA227BB1A896D0B" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_VV3_DA" Device="2" Channel="204.7:BIT" Group="R_IM" UUID="382446B9498883299F71C08E72E3AE4C" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_VV4_DA" Device="2" Channel="204.8:BIT" Group="R_IM" UUID="37C2AEC14B1C2608346C93B8A3599B9E" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_PVK1_DA" Device="2" Channel="204.9:BIT" Group="R_IM" UUID="BDFA83A7473C83297424B0B4EBA12D80" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_PVK2_DA" Device="2" Channel="204.10:BIT" Group="R_IM" UUID="D5722A0E49AD666D5B1F38A61DCD9CEE" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_PVK3_DA" Device="2" Channel="204.11:BIT" Group="R_IM" UUID="CA30A57F4FD0B8BD9B9E22B961BDC919" />
+        <Connection ItemName="HMI_SHKU17_KC1_GN_PVK4_DA" Device="2" Channel="204.12:BIT" Group="R_IM" UUID="571869514FA429CA31F37F8184A1FDAD" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_VV1_DA" Device="2" Channel="204.13:BIT" Group="R_IM" UUID="9AA2654544BB0FD15B62DB8FABCA2FDB" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_VV2_DA" Device="2" Channel="204.14:BIT" Group="R_IM" UUID="5CB6B390426A74A70F6F2B91C3024347" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_VV3_DA" Device="2" Channel="204.15:BIT" Group="R_IM" UUID="ECB4363347B3665FCB81D498E372F954" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_VV4_DA" Device="2" Channel="205:BIT" Group="R_IM" UUID="BDA5076A42F4129ECE850AB69D057F6D" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_VV5_DA" Device="2" Channel="205.1:BIT" Group="R_IM" UUID="320739F9462AA9B4A40BFE823B6E1104" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_VV6_DA" Device="2" Channel="205.2:BIT" Group="R_IM" UUID="7B587D374136B6F47F7B3FA6794D97DE" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_PVK1_DA" Device="2" Channel="205.3:BIT" Group="R_IM" UUID="89EDF51548357C87455DA0BD00195803" />
+        <Connection ItemName="HMI_SHKU17_KC1_MZ_PVK2_DA" Device="2" Channel="205.4:BIT" Group="R_IM" UUID="CF9D9BB6427E2B082096DA8238203783" />
+        <Connection ItemName="HMI_SHKU17_KC1_PV1_DA" Device="2" Channel="205.5:BIT" Group="R_IM" UUID="DE5ABDD04653FC3F098770934ECA47DC" />
+        <Connection ItemName="HMI_SHKU17_KC1_PV2_DA" Device="2" Channel="205.6:BIT" Group="R_IM" UUID="EA248FC9426AF3BCA81E2891ECF1B401" />
+        <Connection ItemName="HMI_SHKU17_KC1_PV3_DA" Device="2" Channel="205.7:BIT" Group="R_IM" UUID="A85C067B4AECFCB70D21D88A90E47D65" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.8:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.9:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.10:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.11:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.12:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.13:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.14:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="205.15:BIT" Group="R_IM" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="SHKU17_DI_K1K1_flt" Device="2" Channel="206:BIT" Group="other" UUID="6AEA9A3644F00041DE8D139C62804F9A" />
+        <Connection ItemName="SHKU17_DI_K1K1_work" Device="2" Channel="206.1:BIT" Group="other" UUID="82E52CAC48506C64A8793FBC43E7EFFA" />
+        <Connection ItemName="SHKU17_DI_K1K2_flt" Device="2" Channel="206.2:BIT" Group="other" UUID="98F6AA7044E22FA1E38919BBAAEB05ED" />
+        <Connection ItemName="SHKU17_DI_K1K2_work" Device="2" Channel="206.3:BIT" Group="other" UUID="563BB40A4F51908AAF80329EE235BBE1" />
+        <Connection ItemName="SHKU17_DI_K1K3_flt" Device="2" Channel="206.4:BIT" Group="other" UUID="EB9DBC1C46EFCCD3AF8DCA852B4253ED" />
+        <Connection ItemName="SHKU17_DI_K1K3_work" Device="2" Channel="206.5:BIT" Group="other" UUID="18BD5BCD4EDB63A28AFF279EADABFA96" />
+        <Connection ItemName="SHKU17_DI_K1K4_flt" Device="2" Channel="206.6:BIT" Group="other" UUID="02FE16AD40672758D9D4EFB2B286EF24" />
+        <Connection ItemName="SHKU17_DI_K1K4_work" Device="2" Channel="206.7:BIT" Group="other" UUID="57D590054E23D13EBD5F32878854783B" />
+        <Connection ItemName="SHKU17_DI_K2K5_flt" Device="2" Channel="206.8:BIT" Group="other" UUID="CB2198864904CB72B433CA82570E9876" />
+        <Connection ItemName="SHKU17_DI_K2K5_work" Device="2" Channel="206.9:BIT" Group="other" UUID="A41146B141BCD61A4F5BCD9F3A29EFED" />
+        <Connection ItemName="SHKU17_DI_K3K6_flt" Device="2" Channel="206.10:BIT" Group="other" UUID="D5E4A2584E8C1C84E293EEBD0937C466" />
+        <Connection ItemName="SHKU17_DI_K3K6_work" Device="2" Channel="206.11:BIT" Group="other" UUID="BDCB2E654364A46BA42B718CF2616795" />
+        <Connection ItemName="SHKU17_DI_DGU1_work" Device="2" Channel="206.12:BIT" Group="other" UUID="ADDFEFD244FA8C131844319F77D9409A" />
+        <Connection ItemName="SHKU17_DI_DGU1_flt" Device="2" Channel="206.13:BIT" Group="other" UUID="A885F55041D58477909617BAD3A88CEC" />
+        <Connection ItemName="SHKU17_DI_DGU2_work" Device="2" Channel="206.14:BIT" Group="other" UUID="291AABAE47397CBC3E9A3884245D31E8" />
+        <Connection ItemName="SHKU17_DI_DGU2_flt" Device="2" Channel="206.15:BIT" Group="other" UUID="FBA5BAFB4FCD56D3024E15815555F64F" />
+        <Connection ItemName="SHKU17_DI_AC805_work" Device="2" Channel="207:BIT" Group="other" UUID="2C9AE7BF40D5D08D02B7A8BD837A66C5" />
+        <Connection ItemName="SHKU17_DI_AC805_ala" Device="2" Channel="207.1:BIT" Group="other" UUID="30301963469B037155BFC29AF27DB16A" />
+        <Connection ItemName="SHKU17_DI_GPA1_ZagT_hi" Device="2" Channel="207.2:BIT" Group="other" UUID="F52725914BC9019F234E259AB9B5DF23" />
+        <Connection ItemName="SHKU17_DI_GPA1_ZagT_ala" Device="2" Channel="207.3:BIT" Group="other" UUID="07D8A6A94F94FDDED75F768957200ED3" />
+        <Connection ItemName="SHKU17_DI_GPA2_ZagT_hi" Device="2" Channel="207.4:BIT" Group="other" UUID="BBBC09FC421A923142BAB196EB2CFA6E" />
+        <Connection ItemName="SHKU17_DI_GPA2_ZagT_ala" Device="2" Channel="207.5:BIT" Group="other" UUID="CA48CC1B477972601388EA9F7CBC4FC3" />
+        <Connection ItemName="SHKU17_DI_GPA3_ZagT_hi" Device="2" Channel="207.6:BIT" Group="other" UUID="E5CEB03B4625B7683A25339EDB043C23" />
+        <Connection ItemName="SHKU17_DI_GPA3_ZagT_ala" Device="2" Channel="207.7:BIT" Group="other" UUID="DB0FCDE9414D5227008995ABA52FA9C3" />
+        <Connection ItemName="SHKU17_DI_GPA4_ZagT_hi" Device="2" Channel="207.8:BIT" Group="other" UUID="20971BCC47E1B79E7F0C8383584F5BB9" />
+        <Connection ItemName="SHKU17_DI_GPA4_ZagT_ala" Device="2" Channel="207.9:BIT" Group="other" UUID="D9B03BCD421B7A0821924993FB8F0445" />
+        <Connection ItemName="SHKU17_DI_GPA5_ZagT_hi" Device="2" Channel="207.10:BIT" Group="other" UUID="D7E08AEB436E39CDE14679A7F681C441" />
+        <Connection ItemName="SHKU17_DI_GPA5_ZagT_ala" Device="2" Channel="207.11:BIT" Group="other" UUID="F0E724A14AF29D00FC1A3A8BEF49E499" />
+        <Connection ItemName="SHKU17_DI_GPA6_ZagT_hi" Device="2" Channel="207.12:BIT" Group="other" UUID="8EAC926840846D541B4301A368BCC6EC" />
+        <Connection ItemName="SHKU17_DI_GPA6_ZagT_ala" Device="2" Channel="207.13:BIT" Group="other" UUID="1D8242FB4F574F59C422ECA725F5D1B6" />
+        <Connection ItemName="SHKU17_DI_GPA1_ZagN_hi" Device="2" Channel="207.14:BIT" Group="other" UUID="B896583045A35477BF91CCADF16ADDEF" />
+        <Connection ItemName="SHKU17_DI_GPA1_ZagN_ala" Device="2" Channel="207.15:BIT" Group="other" UUID="9882A76049BA6990F60A509F51A2C2BF" />
+        <Connection ItemName="SHKU17_DI_GPA2_ZagN_hi" Device="2" Channel="208:BIT" Group="other" UUID="9B6027764DEE3AA2D06146BC9BAAF780" />
+        <Connection ItemName="SHKU17_DI_GPA2_ZagN_ala" Device="2" Channel="208.1:BIT" Group="other" UUID="153D01504B250414CE05C4B52E924E5F" />
+        <Connection ItemName="SHKU17_DI_GPA3_ZagN_hi" Device="2" Channel="208.2:BIT" Group="other" UUID="A4727B7D430FD57B1F8C8FB567829AF7" />
+        <Connection ItemName="SHKU17_DI_GPA3_ZagN_ala" Device="2" Channel="208.3:BIT" Group="other" UUID="0303D2F84859E72C727131BA99B78A53" />
+        <Connection ItemName="SHKU17_DI_GPA4_ZagN_hi" Device="2" Channel="208.4:BIT" Group="other" UUID="B75677F0431388014B7E9B9B60161D4D" />
+        <Connection ItemName="SHKU17_DI_GPA4_ZagN_ala" Device="2" Channel="208.5:BIT" Group="other" UUID="09ACE0624C5DAB7653664C97C26E23F0" />
+        <Connection ItemName="SHKU17_DI_GPA5_ZagN_hi" Device="2" Channel="208.6:BIT" Group="other" UUID="3635E58B472209E0CAD1A89BD55797B9" />
+        <Connection ItemName="SHKU17_DI_GPA5_ZagN_ala" Device="2" Channel="208.7:BIT" Group="other" UUID="A2C9D66A4315C84658537899C690DD03" />
+        <Connection ItemName="SHKU17_DI_GPA6_ZagN_hi" Device="2" Channel="208.8:BIT" Group="other" UUID="A19CB3994498D91D5F164497109BFF10" />
+        <Connection ItemName="SHKU17_DI_GPA6_ZagN_ala" Device="2" Channel="208.9:BIT" Group="other" UUID="65C2D8B1465C1B13D5CF948EF759F266" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="208.10:BIT" Group="other" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="208.11:BIT" Group="other" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="208.12:BIT" Group="other" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="208.13:BIT" Group="other" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="208.14:BIT" Group="other" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+        <Connection ItemName="REZ_BOOL" Device="2" Channel="208.15:BIT" Group="other" UUID="CD1477DB407043CB9BADDDB3E3021FA9" />
+    </Crossconnect>
+</Configuration>

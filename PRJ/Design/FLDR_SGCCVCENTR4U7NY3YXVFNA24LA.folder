@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="Драйверы">
+    <Items>
+        <Item Name="AT_2NCPU4MPRTKE5HDG4YQNRZQPKA.int" />
+        <Item Name="AT_43WOQLAJ6ODUBM5HUCSOEJXLX4.int" />
+        <Item Name="AT_56SZZXIHFCFEBFX7YMDIXDGHHY.int" />
+        <Item Name="AT_5KDFHLBEYSEEHIFREZZRUZILUI.int" />
+        <Item Name="AT_6I5WH3CLUF5UDMPTMPJCCLCN3E.int" />
+        <Item Name="AT_A6YVZLFI2P7ULH6K5LOE2S6XFM.int" />
+        <Item Name="AT_A7KQNWQ3P3SE5EWHKI5FJFVMGI.int" />
+        <Item Name="AT_BFZSGFTX4TOUPKWZSX4DSVJEQE.int" />
+        <Item Name="AT_BRQBZWZAJETUPDAA6QNE7JSHBM.int" />
+        <Item Name="AT_CGD3COZQVGMEVAVXG5LWYVZO34.int" />
+        <Item Name="AT_G5XABYSPKZEURFLIH75ZROEV3M.int" />
+        <Item Name="AT_MC2TFB5DQT5EHPCA6FBOCTJPBQ.int" />
+        <Item Name="AT_S3XQKH3CBRPELHNJT6IGBWJ4SQ.int" />
+        <Item Name="AT_TMEWNTF4HS4UNFT5BSV5CZGPSA.int" />
+    </Items>
+</Folder>

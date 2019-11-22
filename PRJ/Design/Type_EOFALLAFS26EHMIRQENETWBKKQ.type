@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="TFastwell" Kind="Struct" UUID="F522963D4559AC1218449EBF7EEC5992">
+    <Fields>
+        <Field Name="MDB_W_0_N_12_T15_T" Type="BOOL" UUID="511EBB5F4548643269167AB6D1412FC9" Comment="Счетчик проверки связи САУ ГТД с HMI (АРМ пульта управления)" />
+        <Field Name="MDB_W_0_N_0_Change_T" Type="REAL" UUID="791B78EE46B748CF54B5A8AD09A99F45" Comment="Сигнал (REAL)" />
+        <Field Name="MDB_W_0_N_0_SQ_1_FLH_A8_A_Status_Active_0" Type="BOOL" UUID="C17E28B544612A7A22299897E729EC51" Comment="УПР: Магистраль" />
+        <Field Name="MDB_W_0_N_1_GT_R_Operator_Local_A_1_Status_Active_0" Type="BOOL" UUID="5EE4CFC6403C082266CF27BADB82756C" Comment="УПР: Режим регулирования местный (40161_2)" />
+        <Field Name="MDB_W_0_N_1_GT_W_Valves_CV_T" Type="REAL" UUID="E82DDC2F45BFFB8891E77A940F6D581B" Comment="Приведенный расход ТГ" />
+        <Field Name="MDB_W_0_N_1_PE_1_T_sg_Status_PV_user" Type="REAL" UUID="D7CD8333476FA9EA95AAC0B439F76038" Comment="Ргаза на входе нагнетателя" />
+        <Field Name="MDB_W_0_N_1_PE_2_T_sg_Status_PV_user" Type="REAL" UUID="867C596649E7C02327254A9D1011F854" Comment="Ргаза за нагнетателем" />
+        <Field Name="MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T" Type="REAL" UUID="D6EA2B1241CAC11550A4F7A5A8EDAB85" Comment="Степень повышения давления (сжатия) (30307)" />
+        <Field Name="MDB_W_0_N_1_AS1_W_Unit_CL_dev_T" Type="REAL" UUID="AC23FB3E4699271F6C947DA745CC5F6F" Comment="Отклонение расчетной рабочей точки от линии уставки" />
+        <Field Name="MDB_W_0_N_1_GT_W_Operator_SP_T" Type="REAL" UUID="65806F7D41465DBA34302C81AFB5D6FF" Comment="Текущая уставка (чтение)" />
+        <Field Name="MDB_W_0_N_1_GT_R_Operator_SP_target_T" Type="REAL" UUID="25D3F204474D9B0C562F119DF7684426" Comment="Целевая уставка (чтение)" />
+        <Field Name="MDB_W_0_N_1_GT_SP_Remote_sg_Status_PV_user" Type="REAL" UUID="1C52DDD8404C04021C1563861C8EDC7E" Comment="Уставка регулирования (чтение)" />
+        <Field Name="MDB_R_0_N_1_GT_R_Operator_SP_target_T" Type="REAL" UUID="E5175AF44F6A4D07532A77BBAB373D5D" Comment="Целевая уставка (запись) (40104)" />
+        <Field Name="MDB_W_0_N_1_TE_2_T_sg_Status_PV_user" Type="REAL" UUID="EB5F827D465D4A2551FF2BA791A658AD" Comment="Температура газа на входе нагнетателя" />
+        <Field Name="MDB_W_0_N_1_TE_3_T_sg_Status_PV_user" Type="REAL" UUID="EC9ECA0F4B35BE81A6BC31A9743CCF32" Comment="Температура газа на выходе нагнетателя" />
+        <Field Name="MDB_W_0_N_1_dP_1_T_sg_Status_PV_user" Type="REAL" UUID="2BF053DF489F06A809D55DB7A40061C6" Comment="Перепад давления на конфузоре нагнетателя" />
+        <Field Name="MDB_W_0_N_1_FE_1_TM" Type="REAL" UUID="8B96E84D462932410EB79CB916F25D06" Comment="Частота вращения ТВД расчетная" />
+        <Field Name="MDB_W_0_N_1_FE_2_TM" Type="REAL" UUID="5E3F1B694C18F3AFD69DB58BBFA42291" Comment="Частота вращения ТНД расчетная" />
+        <Field Name="MDB_W_0_N_1_AS1_W_Unit_SL_dev_T" Type="REAL" UUID="1F2A689F4B91CEC40A3A178732F856E0" Comment="Отклонение р.т. от линии помпажа" />
+        <Field Name="MDB_W_0_N_12_ALG_GTU_CR144_Z" Type="BOOL" UUID="E33B33BA4868EFD88DC5AABF948A5E5C" Comment="Холостой Ход : _0_12_SQ_6_MSG2_A28_A &amp; _0_2_3_V3_ZC=0 (30936.12)" />
+        <Field Name="MDB_W_0_N_12_ALG_GTU_CR145_Z" Type="BOOL" UUID="72F0283F46AC579D41AA0DBB5975F77A" Comment="Агрегат в работе : _0_12_SQ_6_MSG2_A28_A &amp; _0_2_3_V3_ZC=1 (30936.14)" />
+    </Fields>
+</Type>

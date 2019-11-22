@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Program >
+<Program UUID="A438E93A41A2D94715E22F89FE5E7FF9" Name="Main_PLC_2" Period="100">
+    <Variables>
+        <Variable UUID="6C7956B74EB5B4F2A5A5698DE138356B" Name="proc_exch_pru" Type="FB_EXCHG_PRU" TypeUUID="501F053C4CD68471F44A00B43EC236A7" Usage="internal" />
+    </Variables>
+    <ST><![CDATA[//Обмен данными с ПРУ-2
+//proc_exch_pru();]]></ST>
+    <DataTypes />
+    <FBLibrary>
+        <FunctionBlock UUID="501F053C4CD68471F44A00B43EC236A7" Name="FB_EXCHG_PRU">
+            <Variables />
+            <ST><![CDATA[if not DEBUG then
+
+//----------------------------  ПРУ-2 ---------------------------------------------------------------
+
+
+
+
+//Обмен данными с ПРУ2: массив неисправностей AI
+AI_FLT_2[0].0	:= SHKU17_AI_Pg1KC1_flt;		//Ошибка канала: Давление газа на входе КЦ1
+AI_FLT_2[0].1	:= SHKU17_AI_Pg2KC1_flt;		//Ошибка канала: Давление газа на выходе КЦ1
+AI_FLT_2[0].2	:= SHKU17_AI_Pg1KC2_flt;		//Ошибка канала: Давление газа на входе КЦ2
+AI_FLT_2[0].3	:= SHKU17_AI_Pg2KC2_flt;    	//Ошибка канала: Давление газа на выходе КЦ2
+
+
+
+
+
+
+// Эти значения вычитываются из другого контроллера. Статусы аналогов отсутствуют
+(*
+AI_FLT_2[0].4	:= SHKU17_AI_Pd_N1_flt;			//Ошибка канала: Давление на выходе нагнетателя N1
+AI_FLT_2[0].5	:= SHKU17_AI_Td_N1_flt;			//Ошибка канала: Температура на выходе нагнетателя N1
+AI_FLT_2[0].6	:= SHKU17_AI_Ps_N1_flt;			//Ошибка канала: Давление на входе нагнетателя N1
+AI_FLT_2[0].7	:= SHKU17_AI_Ts_N1_flt;			//Ошибка канала: Температура на входе нагнетателя N1
+AI_FLT_2[0].8	:= SHKU17_AI_dP_N1_flt;			//Ошибка канала: Перепад давления на конфузоре N1
+AI_FLT_2[0].9	:= SHKU17_AI_Rc_N1_flt;			//Ошибка канала: Степень сжатия N1
+AI_FLT_2[0].10	:= SHKU17_AI_Dev_N1_flt;		//Ошибка канала: Запас по помпажу N1
+AI_FLT_2[0].11	:= SHKU17_AI_Ntvd_N1_flt;		//Ошибка канала: Обороты ТВД N1 
+AI_FLT_2[0].12	:= SHKU17_AI_Ntnd_N1_flt;		//Ошибка канала: Обороты ТНД N1 
+AI_FLT_2[0].13	:= SHKU17_AI_Ntnd_SP_N1_flt;	//Ошибка канала: Уставка по оборотам ТНД N1
+AI_FLT_2[0].14	:= SHKU17_AI_Pd_N2_flt;			//Ошибка канала: Давление на выходе нагнетателя N2
+AI_FLT_2[0].15	:= SHKU17_AI_Td_N2_flt;			//Ошибка канала: Температура на выходе нагнетателя N2
+
+AI_FLT_2[1].0	:= SHKU17_AI_Ps_N2_flt;			//Ошибка канала: Давление на входе нагнетателя N2
+AI_FLT_2[1].1	:= SHKU17_AI_Ts_N2_flt;			//Ошибка канала: Температура на входе нагнетателя N2
+AI_FLT_2[1].2	:= SHKU17_AI_dP_N2_flt;			//Ошибка канала: Перепад давления на конфузоре N2
+AI_FLT_2[1].3	:= SHKU17_AI_Rc_N2_flt;			//Ошибка канала: Степень сжатия N2
+AI_FLT_2[1].4	:= SHKU17_AI_Dev_N2_flt;		//Ошибка канала: Запас по помпажу N2
+AI_FLT_2[1].5	:= SHKU17_AI_Ntvd_N2_flt;		//Ошибка канала: Обороты ТВД N2
+AI_FLT_2[1].6	:= SHKU17_AI_Ntnd_N2_flt;		//Ошибка канала: Обороты ТНД N2 
+AI_FLT_2[1].7	:= SHKU17_AI_Ntnd_SP_N2_flt;	//Ошибка канала: Уставка по оборотам ТНД N2
+AI_FLT_2[1].8	:= SHKU17_AI_Pd_N3_flt;			//Ошибка канала: Давление на выходе нагнетателя N3
+AI_FLT_2[1].9	:= SHKU17_AI_Td_N3_flt;			//Ошибка канала: Температура на выходе нагнетателя N3
+AI_FLT_2[1].10	:= SHKU17_AI_Ps_N3_flt;			//Ошибка канала: Давление на входе нагнетателя N3
+AI_FLT_2[1].11	:= SHKU17_AI_Ts_N3_flt;			//Ошибка канала: Температура на входе нагнетателя N3
+AI_FLT_2[1].12	:= SHKU17_AI_dP_N3_flt;			//Ошибка канала: Перепад давления на конфузоре N3
+AI_FLT_2[1].13	:= SHKU17_AI_Rc_N3_flt;			//Ошибка канала: Степень сжатия N3
+AI_FLT_2[1].14	:= SHKU17_AI_Dev_N3_flt;		//Ошибка канала: Запас по помпажу N3
+AI_FLT_2[1].15	:= SHKU17_AI_Ntvd_N3_flt;		//Ошибка канала: Обороты ТВД N3
+
+AI_FLT_2[2].0	:= SHKU17_AI_Ntnd_N3_flt;		//Ошибка канала: Обороты ТНД N3 
+AI_FLT_2[2].1	:= SHKU17_AI_Ntnd_SP_N3_flt;	//Ошибка канала: Уставка по оборотам ТНД N3
+AI_FLT_2[2].2	:= SHKU17_AI_Pd_N_flt;			//Ошибка канала: Давление на выходе нагнетателя N4
+AI_FLT_2[2].3	:= SHKU17_AI_Td_N4_flt;			//Ошибка канала: Температура на выходе нагнетателя N4
+AI_FLT_2[2].4	:= SHKU17_AI_Ps_N4_flt;			//Ошибка канала: Давление на входе нагнетателя N4
+AI_FLT_2[2].5	:= SHKU17_AI_Ts_N4_flt;			//Ошибка канала: Температура на входе нагнетателя N4
+AI_FLT_2[2].6	:= SHKU17_AI_dP_N4_flt;			//Ошибка канала: Перепад давления на конфузоре N4
+AI_FLT_2[2].7	:= SHKU17_AI_Rc_N4_flt;			//Ошибка канала: Степень сжатия N4
+AI_FLT_2[2].8	:= SHKU17_AI_Dev_N4_flt;		//Ошибка канала: Запас по помпажу N4
+AI_FLT_2[2].9	:= SHKU17_AI_Ntvd_N4_flt;		//Ошибка канала: Обороты ТВД N4
+AI_FLT_2[2].10	:= SHKU17_AI_Ntnd_N4_flt;		//Ошибка канала: Обороты ТНД N4 
+AI_FLT_2[2].11	:= SHKU17_AI_Ntnd_SP_N4_flt;	//Ошибка канала: Уставка по оборотам ТНД N4
+AI_FLT_2[2].12	:= SHKU17_AI_Pd_N5_flt;			//Ошибка канала: Давление на выходе нагнетателя N5
+AI_FLT_2[2].13	:= SHKU17_AI_Td_N5_flt;			//Ошибка канала: Температура на выходе нагнетателя N5
+AI_FLT_2[2].14	:= SHKU17_AI_Ps_N5_flt;			//Ошибка канала: Давление на входе нагнетателя N5
+AI_FLT_2[2].15	:= SHKU17_AI_Ts_N5_flt;			//Ошибка канала: Температура на входе нагнетателя N5
+
+AI_FLT_2[3].0	:= SHKU17_AI_dP_N5_flt;			//Ошибка канала: Перепад давления на конфузоре N5
+AI_FLT_2[3].1	:= SHKU17_AI_Rc_N5_flt;			//Ошибка канала: Степень сжатия N5
+AI_FLT_2[3].2	:= SHKU17_AI_Dev_N5_flt;			//Ошибка канала: Запас по помпажу N5
+AI_FLT_2[3].3	:= SHKU17_AI_Ntvd_N5_flt;			//Ошибка канала: Обороты ТВД N5
+AI_FLT_2[3].4	:= SHKU17_AI_Ntnd_N5_flt;			//Ошибка канала: Обороты ТНД N5 
+AI_FLT_2[3].5	:= SHKU17_AI_Ntnd_SP_N5_flt;		//Ошибка канала: Уставка по оборотам ТНД N5
+AI_FLT_2[3].6	:= SHKU17_AI_Pd_N6_flt;				//Ошибка канала: Давление на выходе нагнетателя N6
+AI_FLT_2[3].7	:= SHKU17_AI_Td_N6_flt;				//Ошибка канала: Температура на выходе нагнетателя N6
+AI_FLT_2[3].8	:= SHKU17_AI_Ps_N6_flt;				//Ошибка канала: Давление на входе нагнетателя N6
+AI_FLT_2[3].9	:= SHKU17_AI_Ts_N6_flt;				//Ошибка канала: Температура на входе нагнетателя N6
+AI_FLT_2[3].10	:= SHKU17_AI_dP_N6_flt;				//Ошибка канала: Перепад давления на конфузоре N6
+AI_FLT_2[3].11	:= SHKU17_AI_Rc_N6_flt;				//Ошибка канала: Степень сжатия N6
+AI_FLT_2[3].12	:= SHKU17_AI_Dev_N6_flt;			//Ошибка канала: Запас по помпажу N6
+AI_FLT_2[3].13	:= SHKU17_AI_Ntvd_N6_flt;			//Ошибка канала: Обороты ТВД N6
+AI_FLT_2[3].14	:= SHKU17_AI_Ntnd_N6_flt;			//Ошибка канала: Обороты ТНД N6 
+AI_FLT_2[3].15	:= SHKU17_AI_Ntnd_SP_N6_flt;		//Ошибка канала: Уставка по оборотам ТНД N6
+
+AI_FLT_2[4].0 := false;							//Резерв
+AI_FLT_2[4].1 := false;							//Резерв
+*)
+
+//Обмен данными с ПРУ2: массив флагов кранов (Дистанция/Автомат, Неисправность)
+ //Эти биты мы не вычитываем из САУ ГПА
+(*
+FLAGS_DI_2[0].0	:= HMI_SHKU17_KR21_DA;
+FLAGS_DI_2[0].1	:= HMI_SHKU17_KR21_flt;
+FLAGS_DI_2[0].2	:= HMI_SHKU17_KR23_DA;
+FLAGS_DI_2[0].3	:= HMI_SHKU17_KR23_flt;
+FLAGS_DI_2[0].4	:= HMI_SHKU17_KR24_DA;
+FLAGS_DI_2[0].5	:= HMI_SHKU17_KR24_flt;
+FLAGS_DI_2[0].6	:= HMI_SHKU17_KR26_DA;
+FLAGS_DI_2[0].7	:= HMI_SHKU17_KR26_flt;
+FLAGS_DI_2[0].8	:= HMI_SHKU17_KR32_DA;
+FLAGS_DI_2[0].9	:= HMI_SHKU17_KR32_flt;
+FLAGS_DI_2[0].10	:= HMI_SHKU17_KR28_DA;
+FLAGS_DI_2[0].11	:= HMI_SHKU17_KR28_flt;
+FLAGS_DI_2[0].12	:= HMI_SHKU17_KR34_DA;
+FLAGS_DI_2[0].13	:= HMI_SHKU17_KR34_flt;
+FLAGS_DI_2[0].14	:= HMI_SHKU17_KR36_DA;
+FLAGS_DI_2[0].15	:= HMI_SHKU17_KR36_flt;
+
+FLAGS_DI_2[1].0	:= HMI_SHKU17_KR37_DA;
+FLAGS_DI_2[1].1	:= HMI_SHKU17_KR37_flt;
+FLAGS_DI_2[1].2	:= HMI_SHKU17_KR39_DA;
+FLAGS_DI_2[1].3	:= HMI_SHKU17_KR39_flt;
+FLAGS_DI_2[1].4	:= HMI_SHKU17_KR19_DA;
+FLAGS_DI_2[1].5	:= HMI_SHKU17_KR19_flt;
+FLAGS_DI_2[1].6	:= HMI_SHKU17_KR20_DA;
+FLAGS_DI_2[1].7	:= HMI_SHKU17_KR20_flt;
+FLAGS_DI_2[1].8	:= HMI_SHKU17_KR22_DA;
+FLAGS_DI_2[1].9	:= HMI_SHKU17_KR22_flt;
+FLAGS_DI_2[1].10	:= HMI_SHKU17_KR25_DA;
+FLAGS_DI_2[1].11	:= HMI_SHKU17_KR25_flt;
+FLAGS_DI_2[1].12	:= HMI_SHKU17_KR27_DA;
+FLAGS_DI_2[1].13	:= HMI_SHKU17_KR27_flt;
+FLAGS_DI_2[1].14	:= HMI_SHKU17_KR31_DA;
+FLAGS_DI_2[1].15	:= HMI_SHKU17_KR31_flt;
+
+FLAGS_DI_2[2].0	:= HMI_SHKU17_KR33_DA;
+FLAGS_DI_2[2].1	:= HMI_SHKU17_KR33_flt;
+FLAGS_DI_2[2].2	:= HMI_SHKU17_KR35_DA;
+FLAGS_DI_2[2].3	:= HMI_SHKU17_KR35_flt;
+FLAGS_DI_2[2].4	:= HMI_SHKU17_KR38_DA;
+FLAGS_DI_2[2].5	:= HMI_SHKU17_KR38_flt;
+
+
+//FLAGS_DI_2[2].6	:= HMI_SHKU17_APK_1_DA;
+//FLAGS_DI_2[2].7	:= MB_KR_APK1_flt;
+//FLAGS_DI_2[2].8	:= HMI_SHKU17_APK_2_DA;
+//FLAGS_DI_2[2].9	:= MB_KR_APK2_flt;
+*)
+
+ //Эти биты мы не вычитываем из САУ ГПА
+(*
+FLAGS_DI_2[2].10	:= HMI_SHKU17_KR3_1_DA;
+FLAGS_DI_2[2].11	:= HMI_SHKU17_KR3_1_flt;
+FLAGS_DI_2[2].12	:= HMI_SHKU17_KR3_1_bis_DA;
+FLAGS_DI_2[2].13	:= HMI_SHKU17_KR3_1_bis_flt;
+
+FLAGS_DI_2[2].14	:= HMI_SHKU17_KR3_2_DA;
+FLAGS_DI_2[2].15	:= HMI_SHKU17_KR3_2_flt;
+FLAGS_DI_2[3].0	:= HMI_SHKU17_KR3_2_bis_DA;
+FLAGS_DI_2[3].1	:= HMI_SHKU17_KR3_2_bis_flt;
+
+FLAGS_DI_2[3].2	:= HMI_SHKU17_KR3_3_DA;
+FLAGS_DI_2[3].3	:= HMI_SHKU17_KR3_3_flt;
+FLAGS_DI_2[3].4	:= HMI_SHKU17_KR3_3_bis_DA;
+FLAGS_DI_2[3].5	:= HMI_SHKU17_KR3_3_bis_flt;
+
+FLAGS_DI_2[3].6	:= HMI_SHKU17_KR3_4_DA;
+FLAGS_DI_2[3].7	:= HMI_SHKU17_KR3_4_flt;
+FLAGS_DI_2[3].8	:= HMI_SHKU17_KR3_4_bis_DA;
+FLAGS_DI_2[3].9	:= HMI_SHKU17_KR3_4_bis_flt;
+
+FLAGS_DI_2[3].10	:= HMI_SHKU17_KR3_5_DA;
+FLAGS_DI_2[3].11	:= HMI_SHKU17_KR3_5_flt;
+FLAGS_DI_2[3].12	:= HMI_SHKU17_KR3_5_bis_DA;
+FLAGS_DI_2[3].13	:= HMI_SHKU17_KR3_5_bis_flt;
+
+FLAGS_DI_2[3].14	:= HMI_SHKU17_KR3_6_DA;
+FLAGS_DI_2[3].15	:= HMI_SHKU17_KR3_6_flt;
+FLAGS_DI_2[4].0	:= HMI_SHKU17_KR3_6_bis_DA;
+FLAGS_DI_2[4].1	:= HMI_SHKU17_KR3_6_bis_flt;
+*)
+
+//Обмен данными с ПРУ2: массив состояний кранов
+
+KR_STATE_2[0]	:= SHKU17_KR21_state;		//КР21
+KR_STATE_2[1]	:= SHKU17_KR23_state;		//КР23
+KR_STATE_2[2]	:= SHKU17_KR24_state;		//КР24
+KR_STATE_2[3]	:= SHKU17_KR26_state;		//КР26
+KR_STATE_2[4]	:= SHKU17_KR32_state;		//КР32
+KR_STATE_2[5]	:= SHKU17_KR28_state;		//КР28
+KR_STATE_2[6]	:= SHKU17_KR34_state;		//КР34
+KR_STATE_2[7]	:= SHKU17_KR36_state;		//КР36
+KR_STATE_2[8]	:= SHKU17_KR37_state;		//КР37
+KR_STATE_2[9]	:= SHKU17_KR39_state;		//КР39
+KR_STATE_2[10]	:= SHKU17_KR19_state;		//КР19
+KR_STATE_2[11]	:= SHKU17_KR20_state;		//КР20
+KR_STATE_2[12]	:= SHKU17_KR22_state;		//КР22
+KR_STATE_2[13]	:= SHKU17_KR25_state;		//КР25
+KR_STATE_2[14]	:= SHKU17_KR27_state;		//КР27
+KR_STATE_2[15]	:= SHKU17_KR31_state;		//КР31
+KR_STATE_2[16]	:= SHKU17_KR33_state;		//КР33
+KR_STATE_2[17]	:= SHKU17_KR35_state;		//КР35
+KR_STATE_2[18]	:= SHKU17_KR38_state;		//КР38
+
+KR_STATE_2[19]	:= SHKU17_APK1_state;		//SHKU17_KC2_DI_APK1_state;			//АПК1
+KR_STATE_2[20]	:= SHKU17_APK2_state;		//SHKU17_KC2_DI_APK2_state;			//АПК2
+
+KR_STATE_2[21]	:= GPA1_KR3.state;			//КР3_1
+KR_STATE_2[22]	:= GPA1_KR3bis.state;		//КР3_1bis
+
+KR_STATE_2[23]	:= GPA2_KR3.state;			//КР3_2
+KR_STATE_2[24]	:= GPA2_KR3bis.state;		//КР3_2bis
+
+KR_STATE_2[25]	:= GPA3_KR3.state;			//КР3_3
+KR_STATE_2[26]	:= GPA3_KR3bis.state;		//КР3_3bis
+
+KR_STATE_2[27]	:= GPA4_KR3.state;			//КР3_4
+KR_STATE_2[28]	:= GPA4_KR3bis.state;		//КР3_4bis
+
+KR_STATE_2[29]	:= GPA5_KR3.state;			//КР3_5
+KR_STATE_2[30]	:= GPA5_KR3bis.state;		//КР3_5bis
+
+KR_STATE_2[31]	:= GPA6_KR3.state;			//КР3_6
+KR_STATE_2[32]	:= GPA6_KR3bis.state;		//КР3_6bis
+
+
+//Обмен данными с ПРУ2: массив значений аналоговых переменных
+
+AI_PV_2[0]	:= SHKU17_AI_Pg1KC1;											//Давление газа на входе КЦ1
+AI_PV_2[1]	:= SHKU17_AI_Pg2KC1;											//Давление газа на выходе КЦ1
+AI_PV_2[2]	:= SHKU17_AI_Pg1KC2;											//Давление газа на входе КЦ2
+AI_PV_2[3]	:= SHKU17_AI_Pg2KC2;    										//Давление газа на выходе КЦ2
+
+AI_PV_2[4]	:= GPA_1.MDB_W_0_N_1_PE_2_T_sg_Status_PV_user;					//Давление на выходе нагнетателя N1
+AI_PV_2[5]	:= GPA_1.MDB_W_0_N_1_TE_3_T_sg_Status_PV_user;					//Температура на выходе нагнетателя N1
+AI_PV_2[6]	:= GPA_1.MDB_W_0_N_1_PE_1_T_sg_Status_PV_user;					//Давление на входе нагнетателя N1
+AI_PV_2[7]	:= GPA_1.MDB_W_0_N_1_TE_2_T_sg_Status_PV_user;					//Температура на входе нагнетателя N1
+AI_PV_2[8]	:= GPA_1.MDB_W_0_N_1_dP_1_T_sg_Status_PV_user;					//Перепад давления на конфузоре N1
+AI_PV_2[9]	:= GPA_1.MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T;					//Степень сжатия N1
+AI_PV_2[10]	:= calc_s(GPA_1.MDB_W_0_N_1_AS1_W_Unit_SL_dev_T, real#0.2);		//Запас по помпажу N1
+AI_PV_2[11]	:= GPA_1.MDB_W_0_N_1_FE_1_TM;									//Обороты ТВД N1 
+AI_PV_2[12]	:= GPA_1.MDB_W_0_N_1_FE_2_TM;									//Обороты ТНД N1 
+AI_PV_2[13]	:= 0.0;															//Уставка по оборотам ТНД N1
+
+AI_PV_2[14]	:= GPA_2.MDB_W_0_N_1_PE_2_T_sg_Status_PV_user;					//Давление на выходе нагнетателя N2
+AI_PV_2[15]	:= GPA_2.MDB_W_0_N_1_TE_3_T_sg_Status_PV_user;					//Температура на выходе нагнетателя N2
+AI_PV_2[16]	:= GPA_2.MDB_W_0_N_1_PE_1_T_sg_Status_PV_user;					//Давление на входе нагнетателя N2
+AI_PV_2[17]	:= GPA_2.MDB_W_0_N_1_TE_2_T_sg_Status_PV_user;					//Температура на входе нагнетателя N2
+AI_PV_2[18]	:= GPA_2.MDB_W_0_N_1_dP_1_T_sg_Status_PV_user;					//Перепад давления на конфузоре N2
+AI_PV_2[19]	:= GPA_2.MDB_W_0_N_1_AS1_W_Unit_calc_vars_Rc_T;					//Степень сжатия N2
+AI_PV_2[20]	:= calc_s(GPA_1.MDB_W_0_N_1_AS1_W_Unit_SL_dev_T, real#0.2);		//Запас по помпажу N2
+AI_PV_2[21]	:= GPA_2.MDB_W_0_N_1_FE_1_TM;									//Обороты ТВД N2
+AI_PV_2[22]	:= GPA_2.MDB_W_0_N_1_FE_2_TM;									//Обороты ТНД N2 
+AI_PV_2[23]	:= 0.0;															//Уставка по оборотам ТНД N2
+
+AI_PV_2[24]	:= GPA_3.AS1_InOut_Pd;											//Давление на выходе нагнетателя N3
+AI_PV_2[25]	:= GPA_3.AS1_InOut_Td/real#100.0;								//Температура на выходе нагнетателя N3
+AI_PV_2[26]	:= GPA_3.AS1_InOut_Ps;											//Давление на входе нагнетателя N3
+AI_PV_2[27]	:= GPA_3.AS1_InOut_Ts/real#100.0;								//Температура на входе нагнетателя N3
+AI_PV_2[28]	:= GPA_3.AS1_InOut_dPo/real#100.0;								//Перепад давления на конфузоре N3
+AI_PV_2[29]	:= GPA_3.AS1_Unit_calc_vars_status_Rc/real#100.0;				//Степень сжатия N3
+AI_PV_2[30]	:= GPA_3.AS1_Unit_CL_status_dev/real#100.0;						//Запас по помпажу N3
+AI_PV_2[31]	:= GPA_3.GT_InOut_NHP_Status_PV_calc_eu;						//Обороты ТВД N3
+AI_PV_2[32]	:= GPA_3.GT_InOut_NPT_Status_PV_calc_eu;						//Обороты ТНД N3 
+AI_PV_2[33]	:= 0.0;															//SHKU17_AI_Ntnd_SP_N3;	//Уставка по оборотам ТНД N3
+
+AI_PV_2[34]	:= GTD_4.Pd - 101.32;											//Давление на выходе нагнетателя N4
+AI_PV_2[35]	:= GTD_4.Td - 273.16;											//Температура на выходе нагнетателя N4
+AI_PV_2[36]	:= GTD_4.Ps;													//Давление на входе нагнетателя N4
+AI_PV_2[37]	:= GTD_4.Ts - 273.16;											//Температура на входе нагнетателя N4
+AI_PV_2[38]	:= GTD_4.dP;													//Перепад давления на конфузоре N4
+AI_PV_2[39]	:= GTD_4.Rc;													//Степень сжатия N4
+AI_PV_2[40]	:= GTD_4.dev;													//Запас по помпажу N4
+AI_PV_2[41]	:= GTD_4.Ntvd;													//SHKU17_AI_Ntvd_N4;		//Обороты ТВД N4
+AI_PV_2[42]	:= GTD_4.Nst;													//Обороты ТНД N4 
+AI_PV_2[43]	:= 0.0;															//SHKU17_AI_Ntnd_SP_N4;	//Уставка по оборотам ТНД N4
+
+AI_PV_2[44]	:= GPA_5.AS1_InOut_Pd;											//Давление на выходе нагнетателя N5
+AI_PV_2[45]	:= GPA_5.AS1_InOut_Td/real#100.0;								//Температура на выходе нагнетателя N5
+AI_PV_2[46]	:= GPA_5.AS1_InOut_Ps;											//Давление на входе нагнетателя N5
+AI_PV_2[47]	:= GPA_5.AS1_InOut_Ts/real#100.0;								//Температура на входе нагнетателя N5
+AI_PV_2[48]	:= GPA_5.AS1_InOut_dPo/real#100.0;								//Перепад давления на конфузоре N5
+AI_PV_2[49]	:= GPA_5.AS1_Unit_calc_vars_status_Rc/real#100.0;				//Степень сжатия N5
+AI_PV_2[50]	:= GPA_5.AS1_Unit_CL_status_dev/real#100.0;						//Запас по помпажу N5
+AI_PV_2[51]	:= GPA_5.GT_InOut_NHP_Status_PV_calc_eu;						//Обороты ТВД N5
+AI_PV_2[52]	:= GPA_5.GT_InOut_NPT_Status_PV_calc_eu;						//Обороты ТНД N5 
+AI_PV_2[53]	:= 0.0;															//SHKU17_AI_Ntnd_SP_N5;	//Уставка по оборотам ТНД N5
+
+AI_PV_2[54]	:= GTD_6.Pd - 101.32;											//Давление на выходе нагнетателя N6
+AI_PV_2[55]	:= GTD_6.Td - 273.16;											//Температура на выходе нагнетателя N6
+AI_PV_2[56]	:= GTD_6.Ps;													//Давление на входе нагнетателя N6
+AI_PV_2[57]	:= GTD_6.Ts - 273.16;											//Температура на входе нагнетателя N6
+AI_PV_2[58]	:= GTD_6.dP;													//Перепад давления на конфузоре N6
+AI_PV_2[59]	:= GTD_6.Rc;													//Степень сжатия N6
+AI_PV_2[60]	:= GTD_6.dev;													//Запас по помпажу N6
+AI_PV_2[61]	:= GTD_6.Ntvd;													//SHKU17_AI_Ntvd_N6;		//Обороты ТВД N6
+AI_PV_2[62]	:= GTD_6.Nst;													//Обороты ТНД N6 
+AI_PV_2[63]	:= 0.0;															//SHKU17_AI_Ntnd_SP_N6;	//Уставка по оборотам ТНД N6
+
+AI_PV_2[64]	:= SHKU17_AO_APK_KC1;	//АПК1
+AI_PV_2[65]	:= SHKU17_AO_APK_KC2;	//АПК2
+
+end_if;  ]]></ST>
+        </FunctionBlock>
+        <Function UUID="65BA6AF148CE58DDA95D70AB940B8654" Name="calc_s" Comment="Расчет запаса по помпажу для контроллеров ГПА1,2" ResultTypeUUID="42E054C8453789BBDD3594B53BDC7DE5">
+            <Variables>
+                <Variable UUID="34A734DC451AC45BC54507814D54CC8D" Name="sl_dev" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+                <Variable UUID="E66AAE0C45BAEC316F0A3F8EAEC36B81" Name="b" Type="REAL" TypeUUID="42E054C8453789BBDD3594B53BDC7DE5" Usage="input" />
+            </Variables>
+            <ST><![CDATA[//Вычисляем запас по помпажу по исходным данным
+calc_s := 1.0/(sl_dev + 1.0) + b/(1.0 + b);]]></ST>
+        </Function>
+    </FBLibrary>
+</Program>

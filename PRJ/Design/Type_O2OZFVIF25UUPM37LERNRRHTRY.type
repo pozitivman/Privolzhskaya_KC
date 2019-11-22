@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Type_GPA_EZAN" Kind="Struct" UUID="D15AFCED410916E77AC5AE9C9BEAA55C">
+    <Fields>
+        <Field Name="local_remote" Type="BOOL" UUID="6B25D6614C813DAE1C3A60A190E45DD2" Comment="ГПА в дистанционном управлении" />
+        <Field Name="run" Type="BOOL" UUID="5267950D4EECC0C9598559A9B493E73E" Comment="ГПА в МАГИСТРАЛИ" />
+        <Field Name="Nst" Type="REAL" UUID="C169E81E48529A3A8B16DDA2F716972B" Comment="обороты СТ" />
+        <Field Name="Td" Type="REAL" UUID="BF93D469408B2D3DF359BEBBD817C1BF" Comment="Т выхода" />
+        <Field Name="Pd" Type="REAL" UUID="632AF66E47816AC0303B7E9DBD721EF0" Comment="Р выхода" />
+        <Field Name="Ts" Type="REAL" UUID="AB892D704727F4C9A5D203A71F513CC7" Comment="Т входа" />
+        <Field Name="Ps" Type="REAL" UUID="C8D3280A4C755FCF72CD2EB9FF52087C" Comment="Р входа" />
+        <Field Name="dP" Type="REAL" UUID="8D0ED5D04B89684BE1207DA30C564EFA" Comment="перепад на конфузоре" />
+        <Field Name="Rc" Type="REAL" UUID="59C6881C430161A2AE96AC8B03082942" Comment="степень сжатия" />
+        <Field Name="dev" Type="REAL" UUID="941265D94053E4D1B1ABC09F272D2E70" Comment="Девиация" />
+        <Field Name="Q" Type="REAL" UUID="700F820041A2645C28F5A2AB5D790661" Comment="Расход" />
+        <Field Name="S" Type="REAL" UUID="BEDA0E0B435601DAEBF23982CDB2F9D6" Comment="Запас по помпажу" />
+        <Field Name="Ntvd" Type="REAL" UUID="605539204E4A50E8BC34868F880F7D1E" Comment="Обороты турбины высокого давления" />
+        <Field Name="Ntnd" Type="REAL" UUID="4D19477C4E6990B2F9B8F6801B15B2C4" Comment="Обороты турбины низкого давления" />
+        <Field Name="Ntd" Type="REAL" UUID="8C0D51844DB68F4F7B3242BB141D93F2" Comment="Обороты турбодетандера" />
+        <Field Name="dev_perc" Type="REAL" UUID="1DABACF94BC30981F739EA88DA7D5B55" Comment="Девиация в процентах 0 - 100%" />
+    </Fields>
+</Type>

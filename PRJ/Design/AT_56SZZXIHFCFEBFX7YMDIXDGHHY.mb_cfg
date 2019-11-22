@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.MODBUS v. 1.3 >
+<Configuration Slave="FALSE" TCP="TRUE">
+    <Devices CommConfig="">
+        <Device Address="10.1.1.155:502,1" RetryCount="3" RetryDelay="5000" SymbolTimeout="10000" ResponseTimeout="50000" InterpacketDelay="5000" MaxStatus="32" MaxRegs="32" DisconnectInReserve="FALSE">
+            <Group Name="Group_1" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
+        </Device>
+    </Devices>
+    <Crossconnect>
+        <Connection ItemName="Status_GPA_5" Device="10.1.1.155:502,1.status" Channel="" UUID="73BBA8EE41E4E17B282737A69ACC5A91" />
+        <Connection ItemName="GPA_5.AS1_InOut_Ps" Device="10.1.1.155:502,1" Channel="1:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.77C40F9C4A75BA86AF86E3A92EE58C0D" />
+        <Connection ItemName="GPA_5.AS1_InOut_Pd" Device="10.1.1.155:502,1" Channel="2:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.8113D91641B03E35331C42B00A429D7A" />
+        <Connection ItemName="GPA_5.AS1_InOut_Ts" Device="10.1.1.155:502,1" Channel="3:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.204310124A8AC52EC796F1B1C5104BFC" />
+        <Connection ItemName="GPA_5.AS1_InOut_Td" Device="10.1.1.155:502,1" Channel="4:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.E2C6C2AE4BEB88FDDDE34CA14102DF4D" />
+        <Connection ItemName="GPA_5.AS1_InOut_dPo" Device="10.1.1.155:502,1" Channel="5:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.3F474A3D4C52EA339737DAA144320375" />
+        <Connection ItemName="GPA_5.AS1_Unit_calc_vars_status_Rc" Device="10.1.1.155:502,1" Channel="6:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.65BB20674FC6C1EFD21A4F8091A1994B" />
+        <Connection ItemName="GPA_5.AS1_Unit_CL_status_dev" Device="10.1.1.155:502,1" Channel="7:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.0BFDECB94FCC0E60AFA4F3976D3925FD" />
+        <Connection ItemName="GPA_5.GT_InOut_NHP_Status_PV_calc_eu" Device="10.1.1.155:502,1" Channel="8:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.36F35B2543456DECD3CC54B3D1E9C224" />
+        <Connection ItemName="GPA_5.GT_InOut_NPT_Status_PV_calc_eu" Device="10.1.1.155:502,1" Channel="9:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.60C1055D40495B1A157221A13D73B5A1" />
+        <Connection ItemName="GPA_5.S" Device="10.1.1.155:502,1" Channel="10:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.A5E073E741651F761D06CABFEBDA296D" />
+        <Connection ItemName="MB_KR_STATE_GPA5_FOR_SHOP" Device="10.1.1.155:502,1" Channel="11:SHORT_BA" Group="Group_1" UUID="79A94AA74E415C4BC1B9B09CE9C99BC9" />
+        <Connection ItemName="GPA_5.run" Device="10.1.1.155:502,1" Channel="12:SHORT_BA" Group="Group_1" UUID="71A382074B3AA165A08352B1A54D2B90.15FEBE1E4B13877E03CB929ADD42D59F" />
+    </Crossconnect>
+</Configuration>

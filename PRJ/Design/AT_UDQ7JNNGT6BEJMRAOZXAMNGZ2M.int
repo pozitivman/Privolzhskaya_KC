@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="Main_PLC_2" Kind="APPLICATION.ST.CONSOLE" Args="" Comment="" UUID="A438E93A41A2D94715E22F89FE5E7FF9">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="DB65A6D0437C00D0222520933DD2319E" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="17E7FE844BFB4F403A300E8706052EBC" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="F07649574D17530DAE3C9F842124FE1D" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="5D2B87AB44039686766A29B722A46D51" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="87A71D4B4FB27A73D3951BAFA337556D" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="981AE36D4853D773B6D8318F546C5B0A" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="276446264EBFFE0F663D339AFFB3F233" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="102B810649FEE074B6DC0A9945B92748" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="CDE5C2514501A8052E7DA9AF41701589" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="B604D1A849DB8D37FAE43BA7D8A1D9E8" Type="STRING" Usage="output" />
+        <Signal Name="DEBUG" UUID="108E308C43B9B1CD8D4A6BA403400151" Type="BOOL" Global="TRUE" Comment="Флаг: Режим отладки" />
+        <Signal Name="SHKU17_AI_Pg1KC2" UUID="BF51FFA643BFA7537C692F9F636B3D65" Type="REAL" Global="TRUE" Comment="Обработанный сигнал: Давление газа на входе КЦ2" />
+        <Signal Name="SHKU17_AI_Pg2KC2" UUID="E844BF7D40BE4BB119F20CB2A2DCCBF2" Type="REAL" Global="TRUE" Comment="Обработанный сигнал: Давление газа на выходе КЦ2" />
+        <Signal Name="SHKU17_AI_Pg1KC1" UUID="49667A564DB689EB00B4759DBA95C282" Type="REAL" Global="TRUE" Comment="Обработанный сигнал: Давление газа на входе КЦ1" />
+        <Signal Name="SHKU17_AI_Pg2KC1" UUID="2B9763A74793A7BD788D36B28EE0FF87" Type="REAL" Global="TRUE" Comment="Обработанный сигнал: Давление газа на выходе КЦ1" />
+        <Signal Name="SHKU17_AI_Pg1KC2_flt" UUID="CD12B3004E15DA8C8A5E65B3350CBDFC" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на входе КЦ2" />
+        <Signal Name="SHKU17_AI_Pg2KC2_flt" UUID="490F0BB3464650C1B6741EA07645CD63" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на выходе КЦ2" />
+        <Signal Name="SHKU17_AI_Pg1KC1_flt" UUID="FC648595414ACC3D2BBFCE96D9F36E7E" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на входе КЦ1" />
+        <Signal Name="SHKU17_AI_Pg2KC1_flt" UUID="BD95B3E54CE6BEC5808E90BBA1AA0109" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на выходе КЦ1" />
+        <Signal Name="SHKU17_KR101_state" UUID="BF055F754722DB3BF7820584D72C56EB" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 101. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR102_state" UUID="94CDC67C4FF2B1D55F9229932287CCB1" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 102. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR114_state" UUID="885074DA4B0B4D2488AD9F88F4B1295C" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 114. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR103_state" UUID="E52FD38F48505302052A968EEFDE569E" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 103. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR104_state" UUID="8E7EEFDA48A1191B88D214906C373A61" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 104. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR117_state" UUID="8E9A5B804C79EE62290442AA4B388598" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 117. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR1_105_state" UUID="912D16964A8573E22E0DB68390CA0129" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 1-105. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR1_106_state" UUID="66CADA6945563DB7FD77F68DB10FB92E" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 1-106. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR2_105_state" UUID="146EB41043BAB12498B700ABB868C1EF" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 2-105. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR2_106_state" UUID="AADB3FE6427FB15DA41DB999A2FA90B7" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 2-106. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR28_state" UUID="6D150582453CE115A029EAB75F758AB2" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 28. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR31_state" UUID="976295FC4B49F603997911BE25796BB4" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 31. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR32_state" UUID="CBDDBD49423CCF133C181099B79E78A6" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 32. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR33_state" UUID="56395033494F8DBFD12FBF83AC1809A7" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 33. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR34_state" UUID="D7CAC0C841C5D0BF98A35080CE58B961" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 34. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR35_state" UUID="CCA66E4B4FF33BC41BD04B924791F330" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 35. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR36_state" UUID="80537412421D2602090C4DA2F32E99BC" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 36. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR37_state" UUID="8CA7299F4BD127D36981A7899107B56F" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 37. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR38_state" UUID="147E737241BFD2DD72B25CA18661AD84" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 38. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR39_state" UUID="BDCED6324E22935F04E1B3AE902CC338" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 39. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR19_state" UUID="2F29ADEE49B3C858607ACD9ADA722B48" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 19. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR20_state" UUID="48A382ED44EE83C57A2837A9B0C3CF4E" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 20. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR21_state" UUID="2FBBD4764699886F2A1EC48951D63B00" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 21. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR22_state" UUID="9D3181CF4A8CC8F0D8834D9C086A5A88" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 22. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR23_state" UUID="6ADB924F40565C80DCB215ABDD8995AA" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 23. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR24_state" UUID="5FCEC7DD40172442F97E87880D8039CE" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 24. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR25_state" UUID="902B2AE14EF9078093C85D9B776D35C2" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 25. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR26_state" UUID="8AFC7F754C6419F1BA5E7CBF676F8A5E" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 26. Состояние для SCADA" />
+        <Signal Name="SHKU17_KR27_state" UUID="A50DDE31409A5F0ED33A4E9B42B615E3" Type="WORD" Global="TRUE" Comment="ШКУ 17. Кран 27. Состояние для SCADA" />
+        <Signal Name="GPA1_KR3" UUID="BF8201C240FA0C85D20A46BBA4844ADB" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 1. Кран 3" />
+        <Signal Name="GPA1_KR3bis" UUID="A0A0919545D7084DE160B9B48113AFD0" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 1. Кран 3бис" />
+        <Signal Name="GPA2_KR3" UUID="94EAC3614D72792D454E7E9D615A3AEB" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 2. Кран 3" />
+        <Signal Name="GPA2_KR3bis" UUID="AC0906EE462D64DCAB09559BA56795BB" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 2. Кран 3бис" />
+        <Signal Name="GPA4_KR3" UUID="577C87C2439F65EAC25FCD9115B093F5" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 4. Кран 3" />
+        <Signal Name="GPA4_KR3bis" UUID="D34572964FD2956C600B98AAD97087C0" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 4. Кран 3бис" />
+        <Signal Name="GPA6_KR3" UUID="542253D3492E56034AF3298384C0F9A9" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 6. Кран 3" />
+        <Signal Name="GPA6_KR3bis" UUID="DE7E6AA54890B394FD966BADCE9EA33A" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 6. Кран 3бис" />
+        <Signal Name="GPA3_KR3" UUID="D5F0CF834049AB7AE61C5281B5857750" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 3. Кран 3" />
+        <Signal Name="GPA3_KR3bis" UUID="1BA4B6E64E47316043AF459962A6A5F1" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 3. Кран 3бис" />
+        <Signal Name="GPA5_KR3" UUID="10297B794ABC200D35AE8B9761A4D17B" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 5. Кран 3" />
+        <Signal Name="GPA5_KR3bis" UUID="5F3A7D254A10AD4B4CBEA39800481F7C" Type="6237B5B945FA929F540FFDB0B719D5B6" Global="TRUE" Comment="ГПА 5. Кран 3бис" />
+        <Signal Name="GPA_1" UUID="649B08B64246F8BB167DBD8654EB8E00" Type="F522963D4559AC1218449EBF7EEC5992" Global="TRUE" />
+        <Signal Name="GPA_2" UUID="CAA0F55B4144D0F1BE803BB9403E1498" Type="F522963D4559AC1218449EBF7EEC5992" Global="TRUE" />
+        <Signal Name="GPA_3" UUID="FB9E00F549363A2928AF10A977B133F5" Type="C5BB28BB4049E3577709BD9B2AADBBE0" Global="TRUE" />
+        <Signal Name="GPA_5" UUID="71A382074B3AA165A08352B1A54D2B90" Type="C5BB28BB4049E3577709BD9B2AADBBE0" Global="TRUE" />
+        <Signal Name="GTD_1" UUID="A68BD2BE41528F7F49857D8D084B3141" Type="5A39694E4893CF5CDE51BC80A1346A45" Global="TRUE" />
+        <Signal Name="GTD_2" UUID="038592894316AA70FFB17C9D0F13131D" Type="5A39694E4893CF5CDE51BC80A1346A45" Global="TRUE" />
+        <Signal Name="GTD_3" UUID="5BF378924A40389D51F931825685DDED" Type="3BB634624B5777F8AB55A2B8E72A38DD" Global="TRUE" />
+        <Signal Name="GTD_5" UUID="E3F46D4A48ADB3CB1CB5CF9D31E2F180" Type="3BB634624B5777F8AB55A2B8E72A38DD" Global="TRUE" />
+        <Signal Name="GTD_4" UUID="3ADF2F6F400CB35EF7059C83CA3A8ECC" Type="D15AFCED410916E77AC5AE9C9BEAA55C" Global="TRUE" />
+        <Signal Name="GTD_6" UUID="65DB84D342A50FDDB9D537A35E849CB0" Type="D15AFCED410916E77AC5AE9C9BEAA55C" Global="TRUE" />
+        <Signal Name="SHKU17_AO_APK_KC1" UUID="1683AFBD4D05D3E6544B32959A9C9EB9" Type="REAL" Global="TRUE" Comment="Аналоговый выход (логика): Управление АПК КЦ-1" />
+        <Signal Name="SHKU17_AO_APK_KC2" UUID="A9CA6BB642C1C9B7295158AFE6910B48" Type="REAL" Global="TRUE" Comment="Аналоговый выход (логика): Управление АПК КЦ-2" />
+        <Signal Name="AI_PV" UUID="6CBEF2C34881448600FE9EADBD9D7858" Type="REAL" ArraySize="15" Global="TRUE" Comment="Обмен данными с ПРУ: массив значений аналоговых переменных" />
+        <Signal Name="AI_PV_2" UUID="10DF60A442DB89CB9FC120B28AD60FE8" Type="REAL" ArraySize="69" Global="TRUE" Comment="Обмен данными с ПРУ2: массив значений аналоговых переменных" />
+        <Signal Name="AI_FLT" UUID="331C98F448C2118DD197348AA2FDAF52" Type="WORD" Global="TRUE" Comment="Обмен данными с ПРУ: массив неисправностей AI" />
+        <Signal Name="AI_FLT_2" UUID="5E1177B24898A81515246480F2490B36" Type="WORD" ArraySize="6" Global="TRUE" Comment="Обмен данными с ПРУ2: массив неисправностей AI" />
+        <Signal Name="KR_STATE" UUID="3C2BF8454018DAD94F1B2BABE047527C" Type="WORD" ArraySize="30" Global="TRUE" Comment="Обмен данными с ПРУ: массив состояний кранов" />
+        <Signal Name="KR_STATE_2" UUID="20D3DDC64D501811350092AA3572AF49" Type="WORD" ArraySize="45" Global="TRUE" Comment="Обмен данными с ПРУ2: массив состояний кранов" />
+        <Signal Name="FLAGS_DI" UUID="5D06D58840B9AA287C0EFBB96E17EA5C" Type="WORD" ArraySize="4" Global="TRUE" Comment="Обмен данными с ПРУ: массив флагов кранов (неисправность, РУ)" />
+        <Signal Name="FLAGS_DI_2" UUID="B520601B48B3297341CC1DB6959E1EA8" Type="WORD" ArraySize="4" Global="TRUE" Comment="Обмен данными с ПРУ2: массив флагов кранов (неисправность, РУ)" />
+        <Signal Name="SHKU17_APK2_state" UUID="0A5D91254CC33C51217FE48F0E5E03E2" Type="WORD" Global="TRUE" Comment="ШКУ 17. АПК-1. Состояние для SCADA" />
+        <Signal Name="SHKU17_APK1_state" UUID="07E931BA42CB6497D56D689C7DF281CE" Type="WORD" Global="TRUE" Comment="ШКУ 17. АПК-1. Состояние для SCADA" />
+    </InterfaceList>
+</SubAppType>

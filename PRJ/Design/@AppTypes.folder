@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Folder config v. 1.0 >
+<Folder Name="Типы приложений">
+    <Items>
+        <Item Name="AT_5UYDA24WH2ZUVDA6JIEFFTEVVE.int" />
+        <Item Name="AT_77EECS4OTI5EFCGCOJI4C2ISIY.int" />
+        <Item Name="AT_BD6BISXR4JDE5PHXLWHLSUTRTM.int" />
+        <Item Name="AT_IX76IHF2FBREFH7HD66IZF66SY.int" />
+        <Item Name="AT_RFBGECCJMTVELNHKA4P4LAQCGA.int" />
+        <Item Name="AT_UDQ7JNNGT6BEJMRAOZXAMNGZ2M.int" />
+        <Item Name="FLDR_A2DCNZAS4HMEXPVVQNOB5ZYQUI.folder" />
+        <Item Name="FLDR_SGCCVCENTR4U7NY3YXVFNA24LA.folder" />
+    </Items>
+</Folder>

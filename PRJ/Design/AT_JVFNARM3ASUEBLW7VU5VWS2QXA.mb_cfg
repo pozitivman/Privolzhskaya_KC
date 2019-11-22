@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.MODBUS v. 1.3 >
+<Configuration Slave="TRUE" TCP="TRUE">
+    <Devices CommConfig="">
+        <Device Address="1" RetryCount="3" RetryDelay="5000" SymbolTimeout="10000" ResponseTimeout="0" InterpacketDelay="5000" MaxStatus="32" MaxRegs="32" DisconnectInReserve="FALSE">
+            <Group Name="Group_1" Function="READ_INPUT_REGISTERS" UpdatePeriod="0" />
+            <Group Name="Group_2" Function="READ_HOLDING_REGISTERS" UpdatePeriod="0" />
+        </Device>
+    </Devices>
+    <Crossconnect>
+        <Connection ItemName="AI_PV_2[0]" Device="1" Channel="10:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[0]" />
+        <Connection ItemName="AI_PV_2[1]" Device="1" Channel="12:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[1]" />
+        <Connection ItemName="AI_PV_2[2]" Device="1" Channel="14:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[2]" />
+        <Connection ItemName="AI_PV_2[3]" Device="1" Channel="16:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[3]" />
+        <Connection ItemName="AI_PV_2[4]" Device="1" Channel="18:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[4]" />
+        <Connection ItemName="AI_PV_2[5]" Device="1" Channel="20:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[5]" />
+        <Connection ItemName="AI_PV_2[6]" Device="1" Channel="22:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[6]" />
+        <Connection ItemName="AI_PV_2[7]" Device="1" Channel="24:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[7]" />
+        <Connection ItemName="AI_PV_2[8]" Device="1" Channel="26:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[8]" />
+        <Connection ItemName="AI_PV_2[9]" Device="1" Channel="28:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[9]" />
+        <Connection ItemName="AI_PV_2[10]" Device="1" Channel="30:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[10]" />
+        <Connection ItemName="AI_PV_2[11]" Device="1" Channel="32:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[11]" />
+        <Connection ItemName="AI_PV_2[12]" Device="1" Channel="34:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[12]" />
+        <Connection ItemName="AI_PV_2[13]" Device="1" Channel="36:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[13]" />
+        <Connection ItemName="AI_PV_2[14]" Device="1" Channel="38:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[14]" />
+        <Connection ItemName="AI_PV_2[15]" Device="1" Channel="40:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[15]" />
+        <Connection ItemName="AI_PV_2[16]" Device="1" Channel="42:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[16]" />
+        <Connection ItemName="AI_PV_2[17]" Device="1" Channel="44:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[17]" />
+        <Connection ItemName="AI_PV_2[18]" Device="1" Channel="46:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[18]" />
+        <Connection ItemName="AI_PV_2[19]" Device="1" Channel="48:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[19]" />
+        <Connection ItemName="AI_PV_2[20]" Device="1" Channel="50:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[20]" />
+        <Connection ItemName="AI_PV_2[21]" Device="1" Channel="52:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[21]" />
+        <Connection ItemName="AI_PV_2[22]" Device="1" Channel="54:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[22]" />
+        <Connection ItemName="AI_PV_2[23]" Device="1" Channel="56:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[23]" />
+        <Connection ItemName="AI_PV_2[24]" Device="1" Channel="58:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[24]" />
+        <Connection ItemName="AI_PV_2[25]" Device="1" Channel="60:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[25]" />
+        <Connection ItemName="AI_PV_2[26]" Device="1" Channel="62:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[26]" />
+        <Connection ItemName="AI_PV_2[27]" Device="1" Channel="64:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[27]" />
+        <Connection ItemName="AI_PV_2[28]" Device="1" Channel="66:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[28]" />
+        <Connection ItemName="AI_PV_2[29]" Device="1" Channel="68:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[29]" />
+        <Connection ItemName="AI_PV_2[30]" Device="1" Channel="70:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[30]" />
+        <Connection ItemName="AI_PV_2[31]" Device="1" Channel="72:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[31]" />
+        <Connection ItemName="AI_PV_2[32]" Device="1" Channel="74:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[32]" />
+        <Connection ItemName="AI_PV_2[33]" Device="1" Channel="76:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[33]" />
+        <Connection ItemName="AI_PV_2[34]" Device="1" Channel="78:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[34]" />
+        <Connection ItemName="AI_PV_2[35]" Device="1" Channel="80:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[35]" />
+        <Connection ItemName="AI_PV_2[36]" Device="1" Channel="82:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[36]" />
+        <Connection ItemName="AI_PV_2[37]" Device="1" Channel="84:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[37]" />
+        <Connection ItemName="AI_PV_2[38]" Device="1" Channel="86:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[38]" />
+        <Connection ItemName="AI_PV_2[39]" Device="1" Channel="88:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[39]" />
+        <Connection ItemName="AI_PV_2[40]" Device="1" Channel="90:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[40]" />
+        <Connection ItemName="AI_PV_2[41]" Device="1" Channel="92:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[41]" />
+        <Connection ItemName="AI_PV_2[42]" Device="1" Channel="94:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[42]" />
+        <Connection ItemName="AI_PV_2[43]" Device="1" Channel="96:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[43]" />
+        <Connection ItemName="AI_PV_2[44]" Device="1" Channel="98:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[44]" />
+        <Connection ItemName="AI_PV_2[45]" Device="1" Channel="100:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[45]" />
+        <Connection ItemName="AI_PV_2[46]" Device="1" Channel="102:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[46]" />
+        <Connection ItemName="AI_PV_2[47]" Device="1" Channel="104:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[47]" />
+        <Connection ItemName="AI_PV_2[48]" Device="1" Channel="106:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[48]" />
+        <Connection ItemName="AI_PV_2[49]" Device="1" Channel="108:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[49]" />
+        <Connection ItemName="AI_PV_2[50]" Device="1" Channel="110:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[50]" />
+        <Connection ItemName="AI_PV_2[51]" Device="1" Channel="112:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[51]" />
+        <Connection ItemName="AI_PV_2[52]" Device="1" Channel="114:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[52]" />
+        <Connection ItemName="AI_PV_2[53]" Device="1" Channel="116:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[53]" />
+        <Connection ItemName="AI_PV_2[54]" Device="1" Channel="118:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[54]" />
+        <Connection ItemName="AI_PV_2[55]" Device="1" Channel="120:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[55]" />
+        <Connection ItemName="AI_PV_2[56]" Device="1" Channel="122:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[56]" />
+        <Connection ItemName="AI_PV_2[57]" Device="1" Channel="124:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[57]" />
+        <Connection ItemName="AI_PV_2[58]" Device="1" Channel="126:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[58]" />
+        <Connection ItemName="AI_PV_2[59]" Device="1" Channel="128:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[59]" />
+        <Connection ItemName="AI_PV_2[60]" Device="1" Channel="130:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[60]" />
+        <Connection ItemName="AI_PV_2[61]" Device="1" Channel="132:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[61]" />
+        <Connection ItemName="AI_PV_2[62]" Device="1" Channel="134:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[62]" />
+        <Connection ItemName="AI_PV_2[63]" Device="1" Channel="136:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[63]" />
+        <Connection ItemName="AI_PV_2[64]" Device="1" Channel="138:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[64]" />
+        <Connection ItemName="AI_PV_2[65]" Device="1" Channel="140:FLOAT_BADC" Group="Group_1" UUID="10DF60A442DB89CB9FC120B28AD60FE8[65]" />
+        <Connection ItemName="FLAGS_DI_2[0]" Device="1" Channel="0:USHORT_BA" Group="Group_2" UUID="B520601B48B3297341CC1DB6959E1EA8[0]" />
+        <Connection ItemName="FLAGS_DI_2[1]" Device="1" Channel="1:USHORT_BA" Group="Group_2" UUID="B520601B48B3297341CC1DB6959E1EA8[1]" />
+        <Connection ItemName="FLAGS_DI_2[2]" Device="1" Channel="2:USHORT_BA" Group="Group_2" UUID="B520601B48B3297341CC1DB6959E1EA8[2]" />
+        <Connection ItemName="FLAGS_DI_2[3]" Device="1" Channel="3:USHORT_BA" Group="Group_2" UUID="B520601B48B3297341CC1DB6959E1EA8[3]" />
+        <Connection ItemName="KR_STATE_2[0]" Device="1" Channel="5:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[0]" />
+        <Connection ItemName="KR_STATE_2[1]" Device="1" Channel="6:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[1]" />
+        <Connection ItemName="KR_STATE_2[2]" Device="1" Channel="7:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[2]" />
+        <Connection ItemName="KR_STATE_2[3]" Device="1" Channel="8:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[3]" />
+        <Connection ItemName="KR_STATE_2[4]" Device="1" Channel="9:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[4]" />
+        <Connection ItemName="KR_STATE_2[5]" Device="1" Channel="10:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[5]" />
+        <Connection ItemName="KR_STATE_2[6]" Device="1" Channel="11:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[6]" />
+        <Connection ItemName="KR_STATE_2[7]" Device="1" Channel="12:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[7]" />
+        <Connection ItemName="KR_STATE_2[8]" Device="1" Channel="13:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[8]" />
+        <Connection ItemName="KR_STATE_2[9]" Device="1" Channel="14:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[9]" />
+        <Connection ItemName="KR_STATE_2[10]" Device="1" Channel="15:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[10]" />
+        <Connection ItemName="KR_STATE_2[11]" Device="1" Channel="16:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[11]" />
+        <Connection ItemName="KR_STATE_2[12]" Device="1" Channel="17:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[12]" />
+        <Connection ItemName="KR_STATE_2[13]" Device="1" Channel="18:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[13]" />
+        <Connection ItemName="KR_STATE_2[14]" Device="1" Channel="19:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[14]" />
+        <Connection ItemName="KR_STATE_2[15]" Device="1" Channel="20:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[15]" />
+        <Connection ItemName="KR_STATE_2[16]" Device="1" Channel="21:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[16]" />
+        <Connection ItemName="KR_STATE_2[17]" Device="1" Channel="22:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[17]" />
+        <Connection ItemName="KR_STATE_2[18]" Device="1" Channel="23:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[18]" />
+        <Connection ItemName="KR_STATE_2[19]" Device="1" Channel="24:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[19]" />
+        <Connection ItemName="KR_STATE_2[20]" Device="1" Channel="25:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[20]" />
+        <Connection ItemName="KR_STATE_2[21]" Device="1" Channel="26:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[21]" />
+        <Connection ItemName="KR_STATE_2[22]" Device="1" Channel="27:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[22]" />
+        <Connection ItemName="KR_STATE_2[23]" Device="1" Channel="28:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[23]" />
+        <Connection ItemName="KR_STATE_2[24]" Device="1" Channel="29:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[24]" />
+        <Connection ItemName="KR_STATE_2[25]" Device="1" Channel="30:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[25]" />
+        <Connection ItemName="KR_STATE_2[26]" Device="1" Channel="31:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[26]" />
+        <Connection ItemName="KR_STATE_2[27]" Device="1" Channel="32:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[27]" />
+        <Connection ItemName="KR_STATE_2[28]" Device="1" Channel="33:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[28]" />
+        <Connection ItemName="KR_STATE_2[29]" Device="1" Channel="34:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[29]" />
+        <Connection ItemName="KR_STATE_2[30]" Device="1" Channel="35:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[30]" />
+        <Connection ItemName="KR_STATE_2[31]" Device="1" Channel="36:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[31]" />
+        <Connection ItemName="KR_STATE_2[32]" Device="1" Channel="37:USHORT_BA" Group="Group_2" UUID="20D3DDC64D501811350092AA3572AF49[32]" />
+        <Connection ItemName="AI_FLT_2[0]" Device="1" Channel="38:USHORT_BA" Group="Group_2" UUID="5E1177B24898A81515246480F2490B36[0]" />
+        <Connection ItemName="AI_FLT_2[1]" Device="1" Channel="39:USHORT_BA" Group="Group_2" UUID="5E1177B24898A81515246480F2490B36[1]" />
+        <Connection ItemName="AI_FLT_2[2]" Device="1" Channel="40:USHORT_BA" Group="Group_2" UUID="5E1177B24898A81515246480F2490B36[2]" />
+        <Connection ItemName="AI_FLT_2[3]" Device="1" Channel="41:USHORT_BA" Group="Group_2" UUID="5E1177B24898A81515246480F2490B36[3]" />
+        <Connection ItemName="AI_FLT_2[4]" Device="1" Channel="42:USHORT_BA" Group="Group_2" UUID="5E1177B24898A81515246480F2490B36[4]" />
+    </Crossconnect>
+</Configuration>

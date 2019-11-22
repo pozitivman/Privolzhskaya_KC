@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Program >
+<Program UUID="423236F74A1DDE414BEB00AB6F26B838" Name="Main_ARM2" Period="100">
+    <Variables />
+    <ST><![CDATA[//Проверка связи с контроллером А1
+if Test_internal_A1 <> Test_connection_A1 then Test_internal_A1 := Test_connection_A1; end_if;
+
+//Проверка связи с контроллером А2
+if Test_internal_A2 <> Test_connection_A2 then Test_internal_A2 := Test_connection_A2; end_if;
+
+//Тестовый код
+(*
+if not Global_1 then
+	if Test_connection_A1 < LREAL#100000 then Test_connection_A1 := Test_connection_A1 + LREAL#1.0; else Test_connection_A1 := LREAL#0; end_if;
+	if Test_connection_A2 < LREAL#100000 then Test_connection_A2 := Test_connection_A2 + LREAL#1.0; else Test_connection_A2 := LREAL#0; end_if;
+end_if;
+*)]]></ST>
+    <DataTypes />
+</Program>

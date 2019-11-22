@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="group_str" Kind="Struct" UUID="9CD1DB0E40A206216BEEFEB3AAEE88E9">
+    <Fields>
+        <Field Name="NumGPAs" Type="INT" UUID="D025B3FC4CD0344A16095B8E63E6C09F" />
+        <Field Name="Leader" Type="INT" UUID="007C1E09402385002EE994B9220E302C" />
+        <Field Name="Folower" Type="INT" UUID="F874492B4D9113D1839B0489DC4947F6" />
+    </Fields>
+</Type>

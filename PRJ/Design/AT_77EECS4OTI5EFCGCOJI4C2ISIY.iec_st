@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Program >
+<Program UUID="3FAB925547FCD9EA66FCE6800E617383" Name="Link_A1" Period="100">
+    <Variables />
+    <ST><![CDATA[//Индикатор наличия связи с контроллером
+if Test_connection_A1 < LREAL#100000 then Test_connection_A1 := Test_connection_A1 + LREAL#1.0; else Test_connection_A1 := LREAL#0; end_if;]]></ST>
+    <DataTypes />
+</Program>

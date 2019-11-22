@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Driver.Sonet.MODBUS v. 1.0 >
+<Configuration>
+    <Wire Port="/dev/ser2" ReservePort="" InverseRTS="TRUE" HardwareRTS="TRUE" RTSOffset="0" BaudRate="115200" CyclePeriod="100000" ConfigUpdatePeriod="2000000" FailoverTimeout="10000000" ResponseTimeout="10000" SymbolTimeout="5000" MinResponseTimeout="700" RetryDelay="30000" RetryCount="5">
+        <Device Address="1">
+            <Slot Address="1" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="2" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="3" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="4" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="5" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="6" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="7" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="8" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+        </Device>
+        <Device Address="2">
+            <Slot Address="1" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="2" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="3" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="4" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="5" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="6" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+            <Slot Address="7" ModuleType="21" ChannelCount="16" Min="0" Max="1" Units="" IsAnalog="FALSE" IsInput="FALSE" />
+        </Device>
+    </Wire>
+    <Crossconnect>
+        <Connection ItemName="SHKU17_DO_A6_3_1" Device="1" Slot="1" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="0E83B5EC4CE21C3F00464FA1BA2B2DC2" />
+        <Connection ItemName="SHKU17_DO_A6_3_2" Device="1" Slot="1" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="94412F474BA25267AB2344A70AEA2FDB" />
+        <Connection ItemName="SHKU17_DO_A6_3_3" Device="1" Slot="1" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="00317ED04093B538692973B8C16BAACB" />
+        <Connection ItemName="SHKU17_DO_A6_3_4" Device="1" Slot="1" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="9AA0F42A4AF481AC75F61FB512379698" />
+        <Connection ItemName="SHKU17_DO_A6_3_5" Device="1" Slot="1" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="FEB11F704C7ABD53C16678BCA1F00E6D" />
+        <Connection ItemName="SHKU17_DO_A6_3_6" Device="1" Slot="1" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="6F7939864C5DA96A3586EA98B0ABFB99" />
+        <Connection ItemName="SHKU17_DO_A6_3_7" Device="1" Slot="1" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="D6206F724A1D3C0B45B88881A73CBE59" />
+        <Connection ItemName="SHKU17_DO_A6_3_8" Device="1" Slot="1" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="68853B45437AA0B8EE9308A1BEAA201E" />
+        <Connection ItemName="SHKU17_DO_A6_3_9" Device="1" Slot="1" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="F83CA4654B8EB37CD20CA1A42B534A16" />
+        <Connection ItemName="SHKU17_DO_A6_3_10" Device="1" Slot="1" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="3712C2EE4AA47E6BB517DCB5E7E6B432" />
+        <Connection ItemName="SHKU17_DO_A6_3_11" Device="1" Slot="1" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="6FB6A3C644813FE35427DB800E1C9B43" />
+        <Connection ItemName="SHKU17_DO_A6_3_12" Device="1" Slot="1" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="E7D7DB724F0C6B8817D0388136F2828E" />
+        <Connection ItemName="SHKU17_DO_A6_3_13" Device="1" Slot="1" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="04538372489456CAE04AAF875ECBB637" />
+        <Connection ItemName="SHKU17_DO_A6_3_14" Device="1" Slot="1" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="869EF5F24E92FEFF786BB180EDB39097" />
+        <Connection ItemName="SHKU17_DO_A6_3_15" Device="1" Slot="1" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="487A56B544F59F43C9266A83C69F1119" />
+        <Connection ItemName="SHKU17_DO_A6_3_16" Device="1" Slot="1" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="5F0827FB4237186E876F73ACB5D41293" />
+        <Connection ItemName="SHKU17_DO_A6_4_1" Device="1" Slot="2" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="14903C5C414ABC9B8C6A608C18EF6715" />
+        <Connection ItemName="SHKU17_DO_A6_4_2" Device="1" Slot="2" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="25261D4D4FF1F5EF78EFAB80F9922C78" />
+        <Connection ItemName="SHKU17_DO_A6_4_3" Device="1" Slot="2" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="7EB0645F444B3975F81ABB9AA6E9BCBC" />
+        <Connection ItemName="SHKU17_DO_A6_4_4" Device="1" Slot="2" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="C13329414A8A5F382A9C428079F9B036" />
+        <Connection ItemName="SHKU17_DO_A6_4_5" Device="1" Slot="2" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="C6D9566D437486333C1D22AEC1F2D275" />
+        <Connection ItemName="SHKU17_DO_A6_4_6" Device="1" Slot="2" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="C82CF58C4222CCCBF9208CBCA7D6E0EB" />
+        <Connection ItemName="SHKU17_DO_A6_4_7" Device="1" Slot="2" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="7920084A4DD4FF5170881E8BA52CB880" />
+        <Connection ItemName="SHKU17_DO_A6_4_8" Device="1" Slot="2" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="7321010845BA1900F90CBAB01F7B8355" />
+        <Connection ItemName="SHKU17_DO_A6_4_9" Device="1" Slot="2" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="282265AC47B8609792339BBF63009E24" />
+        <Connection ItemName="SHKU17_DO_A6_4_10" Device="1" Slot="2" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="CCBF56FA4A9296FB6A5F7990F79C21CD" />
+        <Connection ItemName="SHKU17_DO_A6_4_11" Device="1" Slot="2" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="73F0FE32472A19AC5B0543AB3B444D33" />
+        <Connection ItemName="SHKU17_DO_A6_4_12" Device="1" Slot="2" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="326ECFC345099AD0CC83F1BFE0515A89" />
+        <Connection ItemName="SHKU17_DO_A6_4_13" Device="1" Slot="2" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="25456E534BB0CEA5622D33BB6B1CD59E" />
+        <Connection ItemName="SHKU17_DO_A6_4_14" Device="1" Slot="2" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="7DA3429844F0EF623F6914850B5C3539" />
+        <Connection ItemName="SHKU17_DO_A6_4_15" Device="1" Slot="2" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="84624CE24EF08C9FC506F1943EFE12F4" />
+        <Connection ItemName="SHKU17_DO_A6_4_16" Device="1" Slot="2" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="2F468EE847DFA358B4B7F28380BE6CBD" />
+        <Connection ItemName="SHKU17_DO_A6_5_1" Device="1" Slot="3" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="6C9A024445F5E08C93AC86946665E796" />
+        <Connection ItemName="SHKU17_DO_A6_5_2" Device="1" Slot="3" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="C3366DBC4D9444D224FA1693BE8E47CB" />
+        <Connection ItemName="SHKU17_DO_A6_5_3" Device="1" Slot="3" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="D1EA306E4B2D6E87ECA555AD7A2692A6" />
+        <Connection ItemName="SHKU17_DO_A6_5_4" Device="1" Slot="3" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="DAEFFE884FA1B03A903D469712D2F0EB" />
+        <Connection ItemName="SHKU17_DO_A6_5_5" Device="1" Slot="3" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="F1DACD44459E02A902E631A455B86FCA" />
+        <Connection ItemName="SHKU17_DO_A6_5_6" Device="1" Slot="3" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="294902C4455A056DA6FBDF89AEEDE152" />
+        <Connection ItemName="SHKU17_DO_A6_5_7" Device="1" Slot="3" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="0EB594FE4949A1B18893DF8A00D33748" />
+        <Connection ItemName="SHKU17_DO_A6_5_8" Device="1" Slot="3" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="47AF49184073FE96D35DD6AEE8B5469F" />
+        <Connection ItemName="SHKU17_DO_A6_5_9" Device="1" Slot="3" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="F86B5D7540BED90C0831AF873E20CA83" />
+        <Connection ItemName="SHKU17_DO_A6_5_10" Device="1" Slot="3" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="450C3B2841C22BB8A83DCAB96413FBAD" />
+        <Connection ItemName="SHKU17_DO_A6_5_11" Device="1" Slot="3" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="D1A4AEB5401331E0653EAAAA672BED71" />
+        <Connection ItemName="SHKU17_DO_A6_5_12" Device="1" Slot="3" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="E8E6DBC2432254152FAE85B32BC06961" />
+        <Connection ItemName="SHKU17_DO_A6_5_13" Device="1" Slot="3" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="487395E44A0E7CBD5A122BA7DF2B6ADA" />
+        <Connection ItemName="SHKU17_DO_A6_5_14" Device="1" Slot="3" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="2EC51045455FCE6EEF1AAB8BA6893478" />
+        <Connection ItemName="SHKU17_DO_A6_5_15" Device="1" Slot="3" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="4416BC94419449DDC07B3AA1009F3686" />
+        <Connection ItemName="SHKU17_DO_A6_5_16" Device="1" Slot="3" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="D8658D1D4A8C292ABD837D98987350C9" />
+        <Connection ItemName="SHKU17_DO_A6_6_1" Device="1" Slot="4" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="89F7EB8348EE59672F7CE78BD048488E" />
+        <Connection ItemName="SHKU17_DO_A6_6_2" Device="1" Slot="4" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="CF3D7FFA4CC8690D9937EDA531BB39AF" />
+        <Connection ItemName="SHKU17_DO_A6_6_3" Device="1" Slot="4" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="F0D654C24F2A155ED04D38A9EB42A6B5" />
+        <Connection ItemName="SHKU17_DO_A6_6_4" Device="1" Slot="4" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="9DD6CCA541BF336F36AEB48BEE19FF89" />
+        <Connection ItemName="SHKU17_DO_A6_6_5" Device="1" Slot="4" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="60A4F0604C542ABF39A24B8D7664C090" />
+        <Connection ItemName="SHKU17_DO_A6_6_6" Device="1" Slot="4" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="FAEADA164CDFF0EFAE96B18E6135B550" />
+        <Connection ItemName="SHKU17_DO_A6_6_7" Device="1" Slot="4" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="826CFEE84EC49A345C73B8AE5A178D66" />
+        <Connection ItemName="SHKU17_DO_A6_6_8" Device="1" Slot="4" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="B3F07E7648F3C3E1F36BFD997622C25D" />
+        <Connection ItemName="SHKU17_DO_A6_6_9" Device="1" Slot="4" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="9CF3E5A644185E73E751508255FCD4F9" />
+        <Connection ItemName="SHKU17_DO_A6_6_10" Device="1" Slot="4" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="043099554EC80718D28381BAD1EF6A47" />
+        <Connection ItemName="SHKU17_DO_A6_6_11" Device="1" Slot="4" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="0240A04E49FD0684F4376C9509F77C0A" />
+        <Connection ItemName="SHKU17_DO_A6_6_12" Device="1" Slot="4" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="8E9D2A5A40F2739D693808817A363323" />
+        <Connection ItemName="SHKU17_DO_A6_6_13" Device="1" Slot="4" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="1CD93F6E4D1BA8564642AB8CAB8213F9" />
+        <Connection ItemName="SHKU17_DO_A6_6_14" Device="1" Slot="4" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="D20DE141452B5FCC64ABAF963885FD4C" />
+        <Connection ItemName="SHKU17_DO_A6_6_15" Device="1" Slot="4" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="8D8930514C1E0F5CFD2546968560D48E" />
+        <Connection ItemName="SHKU17_DO_A6_6_16" Device="1" Slot="4" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="1499D65B4752EE11119FAB955FD1D7D6" />
+        <Connection ItemName="SHKU17_DO_A6_7_1" Device="1" Slot="5" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="E5BD9682481714E6A6ADC9BA935B1398" />
+        <Connection ItemName="SHKU17_DO_A6_7_2" Device="1" Slot="5" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="AD9E266440CCD812522A07A90985B7F4" />
+        <Connection ItemName="SHKU17_DO_A6_7_3" Device="1" Slot="5" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="339486B24763368D00AE0E8C7499121D" />
+        <Connection ItemName="SHKU17_DO_A6_7_4" Device="1" Slot="5" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="F0422E704D950E78569063A53D3DA2C8" />
+        <Connection ItemName="SHKU17_DO_A6_7_5" Device="1" Slot="5" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="BB2E97914DA7934551D69DB9EA091FD1" />
+        <Connection ItemName="SHKU17_DO_A6_7_6" Device="1" Slot="5" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="03E4A66E4E2C62243224419060914BD7" />
+        <Connection ItemName="SHKU17_DO_A6_7_7" Device="1" Slot="5" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="7278D18D4D05D226652F3DAF4E4448DB" />
+        <Connection ItemName="SHKU17_DO_A6_7_8" Device="1" Slot="5" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="BE0DC75F468BAA2B1A11B18F77A5E2F8" />
+        <Connection ItemName="SHKU17_DO_A6_7_9" Device="1" Slot="5" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="D70BB8074C2827B2AC097090DE2C7C85" />
+        <Connection ItemName="SHKU17_DO_A6_7_10" Device="1" Slot="5" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="9249B8174091008219F1F0B9B40F72CE" />
+        <Connection ItemName="SHKU17_DO_A6_7_11" Device="1" Slot="5" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="1A6AA59D432B05C6B272D8AE3200778E" />
+        <Connection ItemName="SHKU17_DO_A6_7_12" Device="1" Slot="5" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="C2D19B0A48BFD1684EB2BF88C9A063FC" />
+        <Connection ItemName="SHKU17_DO_A6_7_13" Device="1" Slot="5" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="901FE4B944FC652D180E3A810A50BF4C" />
+        <Connection ItemName="SHKU17_DO_A6_7_14" Device="1" Slot="5" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="57AE54764DD257819E4BC7997366FB07" />
+        <Connection ItemName="SHKU17_DO_A6_7_15" Device="1" Slot="5" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="4C3B1EAA4593BD191140BEB0997FA23F" />
+        <Connection ItemName="SHKU17_DO_A6_7_16" Device="1" Slot="5" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="AF51CEDB4E02686FD1A1BEA17056CFE8" />
+        <Connection ItemName="SHKU17_DO_A6_8_1" Device="1" Slot="6" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="6CF8212543273A2380996AB22962E341" />
+        <Connection ItemName="SHKU17_DO_A6_8_2" Device="1" Slot="6" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="48E5A8DD4D02088C25068E9192F51C93" />
+        <Connection ItemName="SHKU17_DO_A6_9_1" Device="1" Slot="7" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="F7B761F2453E3ED9D802A998220586FB" />
+        <Connection ItemName="SHKU17_DO_A6_9_2" Device="1" Slot="7" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="691EB4DB4F0B4BC1B4C2A0A71A4B0642" />
+        <Connection ItemName="SHKU17_DO_A6_9_3" Device="1" Slot="7" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="7F5A49964E73D75F7396AA92A42424DB" />
+        <Connection ItemName="SHKU17_DO_A6_9_4" Device="1" Slot="7" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="C9DC38BF40AEF91E1CC600967CB00B3A" />
+        <Connection ItemName="SHKU17_DO_A6_9_5" Device="1" Slot="7" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="E9FCED2E430BEA3D53CA89805894F06F" />
+        <Connection ItemName="SHKU17_DO_A6_9_6" Device="1" Slot="7" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="D83CA57B4BC4B7A71432F88AC9E1C0E1" />
+        <Connection ItemName="SHKU17_DO_A6_9_7" Device="1" Slot="7" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="FE59256E4AB07C245918CD9A51D6B196" />
+        <Connection ItemName="SHKU17_DO_A6_9_8" Device="1" Slot="7" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="9608A718481D9EAA1781DEB3733C4A5C" />
+        <Connection ItemName="SHKU17_DO_A6_9_9" Device="1" Slot="7" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="6EA4CE86436B53C17B8C3E987F07AECD" />
+        <Connection ItemName="SHKU17_DO_A6_9_10" Device="1" Slot="7" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="BD09FA5B485739434881C59AB1DB647A" />
+        <Connection ItemName="SHKU17_DO_A6_9_11" Device="1" Slot="7" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="1B00FBE94E9733F3CBA012B9D626FE38" />
+        <Connection ItemName="SHKU17_DO_A6_9_12" Device="1" Slot="7" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="1498109849435E9E63FA04B109905319" />
+        <Connection ItemName="SHKU17_DO_A6_9_13" Device="1" Slot="7" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="53017DDC4253CAF5880FEE8FE323C95D" />
+        <Connection ItemName="SHKU17_DO_A6_9_14" Device="1" Slot="7" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="7F07AD76455E4915A1B022927A64B80B" />
+        <Connection ItemName="SHKU17_DO_A6_9_15" Device="1" Slot="7" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="881E1E6F4AFF8B4C33E5609AD0B39FC7" />
+        <Connection ItemName="SHKU17_DO_A6_9_16" Device="1" Slot="7" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="6A0FC63849DCA62F05F56F966ED0D728" />
+        <Connection ItemName="SHKU17_DO_A6_10_1" Device="1" Slot="8" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="0BC2EEBD45F586E7332A9B8BB7E3AE77" />
+        <Connection ItemName="SHKU17_DO_A6_10_2" Device="1" Slot="8" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="A3ECD7CB4361A2623C2CE4AC41C8C71B" />
+        <Connection ItemName="SHKU17_DO_A6_10_3" Device="1" Slot="8" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="AECE5E774F14E84464F4A98B33BD2C63" />
+        <Connection ItemName="SHKU17_DO_A6_10_4" Device="1" Slot="8" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="6EED2C5B47E87155FB5F59B27C8786F9" />
+        <Connection ItemName="SHKU17_DO_A6_10_5" Device="1" Slot="8" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="57AEBCC84BF7127846B2CB96FA1568D3" />
+        <Connection ItemName="SHKU17_DO_A6_10_6" Device="1" Slot="8" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="1A40050A49A6A467F0EBCBA29D6838C9" />
+        <Connection ItemName="SHKU17_DO_A6_10_7" Device="1" Slot="8" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="DF0C058B4E399ED8DA8D0996A7305769" />
+        <Connection ItemName="SHKU17_DO_A6_10_8" Device="1" Slot="8" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="825CC82C4F194BC3DA0A5689F5989B2E" />
+        <Connection ItemName="SHKU17_DO_A6_10_9" Device="1" Slot="8" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="E95BE6B04274B6A1E9744DA388A170B2" />
+        <Connection ItemName="SHKU17_DO_A6_10_10" Device="1" Slot="8" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="CD8C83CD4B07FC3048C158999B11DF3D" />
+        <Connection ItemName="SHKU17_DO_A6_10_11" Device="1" Slot="8" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="F9488F8D46C35FE7D890F4A5F269C8AE" />
+        <Connection ItemName="SHKU17_DO_A6_10_12" Device="1" Slot="8" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="5B30E3EC41514D0F12E9E183A3EA6DD6" />
+        <Connection ItemName="SHKU17_DO_A6_10_13" Device="1" Slot="8" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="6BA1E8B2428481F5341E4B842160A227" />
+        <Connection ItemName="SHKU17_DO_A6_10_14" Device="1" Slot="8" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="1E34F1C2446CEF6CD0DCB3A6CE19CC76" />
+        <Connection ItemName="SHKU17_DO_A6_10_15" Device="1" Slot="8" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="BD80546C43C4E886AAEB58BA5B0A14F5" />
+        <Connection ItemName="SHKU17_DO_A6_10_16" Device="1" Slot="8" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="AE45638745FCA9F470AE74981FE8DC11" />
+        <Connection ItemName="SHKU17_DO_A7_3_1" Device="2" Slot="1" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="BE8BEE88468D751E38CF6B95844A5CCD" />
+        <Connection ItemName="SHKU17_DO_A7_3_2" Device="2" Slot="1" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="3C6E975F431B2DEB917514B496A1AA36" />
+        <Connection ItemName="SHKU17_DO_A7_3_3" Device="2" Slot="1" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="75B4645F449A6D5180FE878DE00A3824" />
+        <Connection ItemName="SHKU17_DO_A7_3_4" Device="2" Slot="1" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="7733C8584DB8833A52C21E83BF1D8E34" />
+        <Connection ItemName="SHKU17_DO_A7_3_5" Device="2" Slot="1" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="75FEA94D40F4344C6116B9872B79F896" />
+        <Connection ItemName="SHKU17_DO_A7_3_6" Device="2" Slot="1" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="B8063656494ECEB483691E8BDAAF21A5" />
+        <Connection ItemName="SHKU17_DO_A7_3_7" Device="2" Slot="1" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="0B335328425F75B4C8617A84EC854E0F" />
+        <Connection ItemName="SHKU17_DO_A7_3_8" Device="2" Slot="1" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="0ED2AF1342502F2AE81D7586BC6F5CC6" />
+        <Connection ItemName="SHKU17_DO_A7_3_9" Device="2" Slot="1" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="77BF86D94C420DCF45BFFD83688D8C0A" />
+        <Connection ItemName="SHKU17_DO_A7_3_10" Device="2" Slot="1" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="D80278A346EAF09C4B7583807D242F53" />
+        <Connection ItemName="SHKU17_DO_A7_3_11" Device="2" Slot="1" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="FFF1A5AF478D243732053A9896EA18BD" />
+        <Connection ItemName="SHKU17_DO_A7_3_12" Device="2" Slot="1" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="FE6363604D162215E9BF779871849875" />
+        <Connection ItemName="SHKU17_DO_A7_3_13" Device="2" Slot="1" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="CE2A36D24E45262EAB58D3BEE294F956" />
+        <Connection ItemName="SHKU17_DO_A7_3_14" Device="2" Slot="1" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="2A579A1D49A5495A0E83DFBC494E3365" />
+        <Connection ItemName="SHKU17_DO_A7_3_15" Device="2" Slot="1" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="9F96340C47C26223993473A61525B25E" />
+        <Connection ItemName="SHKU17_DO_A7_3_16" Device="2" Slot="1" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="87C7ED414E644574DFFEFF94E7E4B248" />
+        <Connection ItemName="SHKU17_DO_A7_4_1" Device="2" Slot="2" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="EFDE3E234D96A81B9507C181EE46B2AC" />
+        <Connection ItemName="SHKU17_DO_A7_4_2" Device="2" Slot="2" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="C4FA9ED84C8980623E8993B2DB960C8A" />
+        <Connection ItemName="SHKU17_DO_A7_4_3" Device="2" Slot="2" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="A0B51F80414923619AF1D6886ECDDABD" />
+        <Connection ItemName="SHKU17_DO_A7_4_4" Device="2" Slot="2" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="7B59111D4B8E4D395CBB13ACE1363CBD" />
+        <Connection ItemName="SHKU17_DO_A7_4_5" Device="2" Slot="2" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="88771B444D31A608D589C0B856EC1937" />
+        <Connection ItemName="SHKU17_DO_A7_4_6" Device="2" Slot="2" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="5EE39B90455918395E34999B229CC4B0" />
+        <Connection ItemName="SHKU17_DO_A7_4_7" Device="2" Slot="2" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="4EEB77CB4C132B064DE367936CD652F0" />
+        <Connection ItemName="SHKU17_DO_A7_4_8" Device="2" Slot="2" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="FA275098462EE9CC96B77180CEE71C4D" />
+        <Connection ItemName="SHKU17_DO_A7_4_9" Device="2" Slot="2" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="FEF61ABF4E65E89D9CDB769680A3B1A6" />
+        <Connection ItemName="SHKU17_DO_A7_4_10" Device="2" Slot="2" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="5AB721C24C789BA7A05E47AB12F048B4" />
+        <Connection ItemName="SHKU17_DO_A7_4_11" Device="2" Slot="2" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="A9F43E634BF3015A5BDCD4A38C962048" />
+        <Connection ItemName="SHKU17_DO_A7_4_12" Device="2" Slot="2" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="0A85B9B94E8D5257ECE7CFB5673C45EE" />
+        <Connection ItemName="SHKU17_DO_A7_4_13" Device="2" Slot="2" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="31B33A304513DC5889FFDC8C66D55D0C" />
+        <Connection ItemName="SHKU17_DO_A7_4_14" Device="2" Slot="2" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="A91ABEF943DCD770F36EFAAE5CCC074E" />
+        <Connection ItemName="SHKU17_DO_A7_4_15" Device="2" Slot="2" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="3C73E89F45B671F8D23192B475ACEC16" />
+        <Connection ItemName="SHKU17_DO_A7_4_16" Device="2" Slot="2" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="50E20AB043344AAE7BF0928FB6D4DB6D" />
+        <Connection ItemName="SHKU17_DO_A7_5_1" Device="2" Slot="3" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="57E6491D4082BACB68F0D39E8DAAE557" />
+        <Connection ItemName="SHKU17_DO_A7_5_2" Device="2" Slot="3" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="04DE52574F345939E15547A0844B82F4" />
+        <Connection ItemName="SHKU17_DO_A7_5_3" Device="2" Slot="3" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="CD7CEC1641C7FE9C8334EC8062FC27C8" />
+        <Connection ItemName="SHKU17_DO_A7_5_4" Device="2" Slot="3" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="70C7AE7C4F1C494021E242AC6419884E" />
+        <Connection ItemName="SHKU17_DO_A7_5_5" Device="2" Slot="3" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="3BBAFF3F4E5F7C13D678718C4399321F" />
+        <Connection ItemName="SHKU17_DO_A7_5_6" Device="2" Slot="3" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="3A64D0764E5F4CE017C225A81C216AED" />
+        <Connection ItemName="SHKU17_DO_A7_5_7" Device="2" Slot="3" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="D307D4C64E9CD09FBC4422BC84318F1D" />
+        <Connection ItemName="SHKU17_DO_A7_5_8" Device="2" Slot="3" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="B824127540C68E971A5708A70231C5E5" />
+        <Connection ItemName="SHKU17_DO_A7_5_9" Device="2" Slot="3" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="2B5077BE4E0A8446F6761EACBBC41FC8" />
+        <Connection ItemName="SHKU17_DO_A7_5_10" Device="2" Slot="3" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="4DE4A3E54BD6F117E04C25AC287A580C" />
+        <Connection ItemName="SHKU17_DO_A7_5_11" Device="2" Slot="3" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="4BA2B1F94EFF8B6573834E808294DBA2" />
+        <Connection ItemName="SHKU17_DO_A7_5_12" Device="2" Slot="3" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="1B26AB7B40B8E089C94C0594C7D65BED" />
+        <Connection ItemName="SHKU17_DO_A7_5_13" Device="2" Slot="3" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="79F6898446AEC03F3F07C3AD4BB4DC00" />
+        <Connection ItemName="SHKU17_DO_A7_5_14" Device="2" Slot="3" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="BC65BE8C45D6688EA5A2E496D35D3D7A" />
+        <Connection ItemName="SHKU17_DO_A7_5_15" Device="2" Slot="3" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="9E9F102A4131F1ED04BF4C9A9CF73A69" />
+        <Connection ItemName="SHKU17_DO_A7_5_16" Device="2" Slot="3" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="0ADDD8E741F7F810BE2AF999F22A6A5D" />
+        <Connection ItemName="SHKU17_DO_A7_6_1" Device="2" Slot="4" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="2FB8B31F4459F5D9A40C94976D862E61" />
+        <Connection ItemName="SHKU17_DO_A7_6_2" Device="2" Slot="4" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="9F951CC542DF22668F7E6A976F65F012" />
+        <Connection ItemName="SHKU17_DO_A7_6_3" Device="2" Slot="4" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="A62E46FD4CCBEE9CB20587B04C6535C6" />
+        <Connection ItemName="SHKU17_DO_A7_6_4" Device="2" Slot="4" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="60BD258744DF43DBF0CE618CBAD4AC30" />
+        <Connection ItemName="SHKU17_DO_A7_6_5" Device="2" Slot="4" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="75E336CD4C6B7E7835E5358B54CEE7A0" />
+        <Connection ItemName="SHKU17_DO_A7_6_6" Device="2" Slot="4" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="C014DA3140AF853EB8629DAF3F5DF2E2" />
+        <Connection ItemName="SHKU17_DO_A7_6_7" Device="2" Slot="4" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="A5F327614A7E0C9730F9728E0B882F1A" />
+        <Connection ItemName="SHKU17_DO_A7_6_8" Device="2" Slot="4" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="4F7B8D544E2D6CCE14BCADAD2713AC0D" />
+        <Connection ItemName="SHKU17_DO_A7_6_9" Device="2" Slot="4" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="160C4F4245767BB8D073F9B5A50DBB47" />
+        <Connection ItemName="SHKU17_DO_A7_6_10" Device="2" Slot="4" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="A0CD3D1D4D787A556D744487072679D6" />
+        <Connection ItemName="SHKU17_DO_A7_6_11" Device="2" Slot="4" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="4F45EF794DE87A61ACB0918BC0D28B82" />
+        <Connection ItemName="SHKU17_DO_A7_6_12" Device="2" Slot="4" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="F889A5344801A6F269924EA0FC5097DF" />
+        <Connection ItemName="SHKU17_DO_A7_6_13" Device="2" Slot="4" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="116C88F349E36435FB6B8EA5618FEE4F" />
+        <Connection ItemName="SHKU17_DO_A7_6_14" Device="2" Slot="4" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="116E569B45DB9AF3CF92019AA83D8923" />
+        <Connection ItemName="SHKU17_DO_A7_6_15" Device="2" Slot="4" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="7D75D7D242364360DEC07A9E044FC2B1" />
+        <Connection ItemName="SHKU17_DO_A7_6_16" Device="2" Slot="4" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="210F05644D4C3D8F4D7C19929546BC7C" />
+        <Connection ItemName="SHKU17_DO_A7_7_1" Device="2" Slot="5" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="41B137A5473B1F56699733944A18D5C1" />
+        <Connection ItemName="SHKU17_DO_A7_7_2" Device="2" Slot="5" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="26C368A14E1FB85B9504DFAF3C90786C" />
+        <Connection ItemName="SHKU17_DO_A7_7_3" Device="2" Slot="5" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="57F66D524571288A85B6E0922C4AAF50" />
+        <Connection ItemName="SHKU17_DO_A7_7_4" Device="2" Slot="5" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="A3C33CB94C09CDAE9EECB9A10B7C6DAD" />
+        <Connection ItemName="SHKU17_DO_A7_7_5" Device="2" Slot="5" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="734935C3401801F8B3481A86E539F97A" />
+        <Connection ItemName="SHKU17_DO_A7_7_6" Device="2" Slot="5" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="F3432C914552FC43FA97099FBB82E3C0" />
+        <Connection ItemName="SHKU17_DO_A7_7_7" Device="2" Slot="5" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="C133FF4F4FA337A54D5A1C8A06AE7806" />
+        <Connection ItemName="SHKU17_DO_A7_7_8" Device="2" Slot="5" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="426DDA964A5078FF5C68DDB1A81A4D4F" />
+        <Connection ItemName="SHKU17_DO_A7_7_9" Device="2" Slot="5" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="D78D2690425ADF5BD6467FAF4C282095" />
+        <Connection ItemName="SHKU17_DO_A7_7_10" Device="2" Slot="5" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="B60D534C4CA40AD3CA5599A4383131C4" />
+        <Connection ItemName="SHKU17_DO_A7_7_11" Device="2" Slot="5" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="3FC375FE406C3A70B851F388E3330BF6" />
+        <Connection ItemName="SHKU17_DO_A7_7_12" Device="2" Slot="5" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="BE284CD3478B1356E73E7B88A0C94889" />
+        <Connection ItemName="SHKU17_DO_A7_7_13" Device="2" Slot="5" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="82080E0D45C2B363206DEBAA60B89461" />
+        <Connection ItemName="SHKU17_DO_A7_7_14" Device="2" Slot="5" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="8A12D3F8485ECB5846402CABBEF72B62" />
+        <Connection ItemName="SHKU17_DO_A7_7_15" Device="2" Slot="5" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="68464AE046319EA3D625D29508FDCBAC" />
+        <Connection ItemName="SHKU17_DO_A7_7_16" Device="2" Slot="5" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="A0FFFB62449DBC7DA4D8F0BC02A067AD" />
+        <Connection ItemName="SHKU17_DO_A7_8_1" Device="2" Slot="6" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="E33E855141973A5D44AAF99328AAFA76" />
+        <Connection ItemName="SHKU17_DO_A7_8_2" Device="2" Slot="6" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="96B88B55445E736354BFCFA93C351CF6" />
+        <Connection ItemName="SHKU17_DO_A7_8_3" Device="2" Slot="6" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="B041B00A4BCC940EB152C9AC51C23827" />
+        <Connection ItemName="SHKU17_DO_A7_8_4" Device="2" Slot="6" Channel="4" Comment="16-ch digital output 0  ..  1 " UUID="581E4B074D73D45CB0420FAFC0C94E5F" />
+        <Connection ItemName="SHKU17_DO_A7_8_5" Device="2" Slot="6" Channel="5" Comment="16-ch digital output 0  ..  1 " UUID="49A16CC945C37D2A14F13CB8739E908C" />
+        <Connection ItemName="SHKU17_DO_A7_8_6" Device="2" Slot="6" Channel="6" Comment="16-ch digital output 0  ..  1 " UUID="59F8921D4B5F67C00875D19ABA968984" />
+        <Connection ItemName="SHKU17_DO_A7_8_7" Device="2" Slot="6" Channel="7" Comment="16-ch digital output 0  ..  1 " UUID="359D1936413DAB60DE87E090FFB496F9" />
+        <Connection ItemName="SHKU17_DO_A7_8_8" Device="2" Slot="6" Channel="8" Comment="16-ch digital output 0  ..  1 " UUID="5EBF8EE3481C5C981BB72D87562E99F6" />
+        <Connection ItemName="SHKU17_DO_A7_8_9" Device="2" Slot="6" Channel="9" Comment="16-ch digital output 0  ..  1 " UUID="0ACA759144DBB01000A6908D0431A2DD" />
+        <Connection ItemName="SHKU17_DO_A7_8_10" Device="2" Slot="6" Channel="10" Comment="16-ch digital output 0  ..  1 " UUID="5F40612E40CDDAC297B652AC170597C3" />
+        <Connection ItemName="SHKU17_DO_A7_8_11" Device="2" Slot="6" Channel="11" Comment="16-ch digital output 0  ..  1 " UUID="3442EB9A406040C7ADE8F2B5109F7B5E" />
+        <Connection ItemName="SHKU17_DO_A7_8_12" Device="2" Slot="6" Channel="12" Comment="16-ch digital output 0  ..  1 " UUID="797D8B3447B1FF0DE98C58B3233CB086" />
+        <Connection ItemName="SHKU17_DO_A7_8_13" Device="2" Slot="6" Channel="13" Comment="16-ch digital output 0  ..  1 " UUID="E51888014C0F387EA9C639824C10B06E" />
+        <Connection ItemName="SHKU17_DO_A7_8_14" Device="2" Slot="6" Channel="14" Comment="16-ch digital output 0  ..  1 " UUID="7BC515AD440439EB7DA8AFBB302B9B73" />
+        <Connection ItemName="SHKU17_DO_A7_8_15" Device="2" Slot="6" Channel="15" Comment="16-ch digital output 0  ..  1 " UUID="EC6BC59C4BE56F6C0C0DB795C6E75BA7" />
+        <Connection ItemName="SHKU17_DO_A7_8_16" Device="2" Slot="6" Channel="16" Comment="16-ch digital output 0  ..  1 " UUID="3028094D44EB4A63CB089A8CAF8BD29F" />
+        <Connection ItemName="SHKU17_DO_A7_9_1" Device="2" Slot="7" Channel="1" Comment="16-ch digital output 0  ..  1 " UUID="F0A1CD3345613C51CD4D63925407ED94" />
+        <Connection ItemName="SHKU17_DO_A7_9_2" Device="2" Slot="7" Channel="2" Comment="16-ch digital output 0  ..  1 " UUID="F14EE7D74CCBF3189735018F80048234" />
+        <Connection ItemName="SHKU17_DO_A7_9_3" Device="2" Slot="7" Channel="3" Comment="16-ch digital output 0  ..  1 " UUID="17119F5E41B969EA3F5740B2FDB7B970" />
+        <Connection ItemName="SHKU17_A6_3_flt" Device="1" Slot="1" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="116C521443A1E72B1DB09ABDEDB2CE8E" />
+        <Connection ItemName="SHKU17_A6_4_flt" Device="1" Slot="2" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="C7635C134190DA2D8DBD219006026164" />
+        <Connection ItemName="SHKU17_A6_5_flt" Device="1" Slot="3" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="4354D6E948A95E048C419C806132E792" />
+        <Connection ItemName="SHKU17_A6_6_flt" Device="1" Slot="4" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="26DA688242F1015796066098E65EE84C" />
+        <Connection ItemName="SHKU17_A6_7_flt" Device="1" Slot="5" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="681153F14026E043423D448B37C3F01F" />
+        <Connection ItemName="SHKU17_A6_8_flt" Device="1" Slot="6" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="039536AC4193F47E0EC4E3BDE7C4F4F9" />
+        <Connection ItemName="SHKU17_A6_9_flt" Device="1" Slot="7" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="C32C1F1F4849F995CA23518E9E20E076" />
+        <Connection ItemName="SHKU17_A6_10_flt" Device="1" Slot="8" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="9EBF18AC45E436D12B44DE82FEB3D174" />
+        <Connection ItemName="SHKU17_A7_3_flt" Device="2" Slot="1" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="9A9F5775460B0CB35C4215B3B411CDF3" />
+        <Connection ItemName="SHKU17_A7_4_flt" Device="2" Slot="2" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="89336D184C6C25E4DF55BDBA2EC0E865" />
+        <Connection ItemName="SHKU17_A7_5_flt" Device="2" Slot="3" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="2F975E7146E346B0148F79B69C6826BA" />
+        <Connection ItemName="SHKU17_A7_6_flt" Device="2" Slot="4" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="2A401F164770C3339AA096A9262EF7EB" />
+        <Connection ItemName="SHKU17_A7_7_flt" Device="2" Slot="5" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="4CC71AE54DE0490E462B75A297B4B5B1" />
+        <Connection ItemName="SHKU17_A7_8_flt" Device="2" Slot="6" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="BB5F4D4F4C11922897C1E681705B868F" />
+        <Connection ItemName="SHKU17_A7_9_flt" Device="2" Slot="7" Channel="status" Comment="16-ch digital output 0  ..  1 " UUID="21503FF740FF14F2A2BC1696B6505352" />
+    </Crossconnect>
+</Configuration>

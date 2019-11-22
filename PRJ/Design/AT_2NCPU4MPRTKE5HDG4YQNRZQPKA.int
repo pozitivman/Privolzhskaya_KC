@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="DRV_PLC_SHKU17_A1" Kind="DRIVER.SONET.LOCALBUS" Args="" Comment="" UUID="312DD74F4CDB2370194A77A4C41CCB40">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="DB65A6D0437C00D0222520933DD2319E" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="17E7FE844BFB4F403A300E8706052EBC" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="F07649574D17530DAE3C9F842124FE1D" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="5D2B87AB44039686766A29B722A46D51" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="87A71D4B4FB27A73D3951BAFA337556D" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="981AE36D4853D773B6D8318F546C5B0A" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="276446264EBFFE0F663D339AFFB3F233" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="102B810649FEE074B6DC0A9945B92748" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="CDE5C2514501A8052E7DA9AF41701589" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="B604D1A849DB8D37FAE43BA7D8A1D9E8" Type="STRING" Usage="output" />
+        <Signal Name="SHKU17_AI_A1_3_1" UUID="648953B140F1E3D56245FF829FBA3BB1" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на входе КЦ2" />
+        <Signal Name="SHKU17_AI_A1_3_2" UUID="7E3B6B704F88A64D768297AFCA7EFB3B" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на выходе КЦ2" />
+        <Signal Name="SHKU17_AI_A1_3_3" UUID="CA9F26894B5AD94F064A8BB6DD37DB1E" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на вх. цеха №1 до Кр. 30" />
+        <Signal Name="SHKU17_AI_A1_3_4" UUID="4D38FFA141E7B6A9C6E12298E1DCF053" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на вх. цеха №2 до Кр. 30" />
+        <Signal Name="SHKU17_AI_A1_4_1" UUID="5861295D48EC3A6DF02890A98F20C569" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на вых. цеха №1 после Кр. 30" />
+        <Signal Name="SHKU17_AI_A1_4_2" UUID="384099EA4D25DBA8EF658087C8879565" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на вых. цеха №2 после Кр. 30" />
+        <Signal Name="SHKU17_AI_A1_4_3" UUID="1C54BB42489242CE0F4D12A62EB39802" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа в линии № 1 перед СОК" />
+        <Signal Name="SHKU17_AI_A1_4_4" UUID="D33C148C4F123B9A074027A0CCCC7219" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа в линии № 2 перед СОК" />
+        <Signal Name="SHKU17_AI_A1_5_1" UUID="ACF4943C446A180A4B5BBE8F1DCE2F51" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа в линии № 3 перед СОК" />
+        <Signal Name="SHKU17_AI_A1_5_2" UUID="27C2547C452FB4D91B7B1BB19BC42E44" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа общей рабочей линии" />
+        <Signal Name="SHKU17_AI_A1_5_3" UUID="D9F3E5BD4AAA793DF5DCD3BCE83045E1" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа общей резервной линии" />
+        <Signal Name="SHKU17_AI_A1_5_4" UUID="5DB187404F3A8F4504BC8099217A9536" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа в линии от узла подключения " />
+        <Signal Name="SHKU17_AI_A1_6_1" UUID="F3BAF3ED4A6D4D843CE9CF8E03A45647" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление импульсного газа " />
+        <Signal Name="SHKU17_AI_A1_6_2" UUID="9CA569084D0E8D7AC2A46C803D746974" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление на выходе КРП " />
+        <Signal Name="SHKU17_AI_A1_6_3" UUID="3683764F46EC40A640E3A5AB4216D76A" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление топливного газа" />
+        <Signal Name="SHKU17_AI_A1_6_4" UUID="0BB03C084906C1D711FBD9B18C6E04CC" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление пускового газа " />
+        <Signal Name="SHKU17_AI_A1_7_1" UUID="F313D789417A71F65B6FD8BCDFF2524D" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Перепад давлений газа на диафрагме общий рабочей линии" />
+        <Signal Name="SHKU17_AI_A1_7_2" UUID="DE3FF0694DCE1F96A7DE8FB8D38BA409" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Перепад давлений газа на диафрагме общий резервной линии " />
+        <Signal Name="SHKU17_AI_A1_7_3" UUID="FF9D5C61440C0A68066CB9886824AF18" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Перепад давлений газа на диафрагме топливного газа" />
+        <Signal Name="SHKU17_AI_A1_7_4" UUID="BA6DC76545DC5CBC76ACA08CCE843381" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на входе КЦ1" />
+        <Signal Name="SHKU17_AI_A1_8_1" UUID="AB67FE3A40A44D6648055A9AC5AA82BD" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на выходе КЦ1" />
+        <Signal Name="SHKU17_AI_A1_8_2" UUID="064D4D5A4FAE1CEBD4E05FA9BCDD2849" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление атмосферного воздуха" />
+        <Signal Name="SHKU17_AI_A1_8_3" UUID="096586F6492BC0A3F4E9EF84B2A99A10" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Давление газа на входе в БРТПГ" />
+        <Signal Name="SHKU17_AI_A1_8_4" UUID="C546E4414C4BB11E5C226EAF4FA31094" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Перепад давлений газа на диафрагме на входе в БРТПГ" />
+        <Signal Name="SHKU17_AI_A1_9_1" UUID="9FDC28FE4E934D1157EADEADEADEF265" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Резерв" />
+        <Signal Name="SHKU17_AI_A1_9_2" UUID="F6EEEA5149CE3E6B7A16B18994526594" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Резерв" />
+        <Signal Name="SHKU17_AI_A1_9_3" UUID="FB413B1A451830C710328E99EBBF1117" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Резерв" />
+        <Signal Name="SHKU17_AI_A1_9_4" UUID="CA555A9D4BFE7D74159D48A064C38C34" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Резерв" />
+        <Signal Name="SHKU17_AI_A1_10_1" UUID="69F540794D6E3E5D02BD6A8624991650" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Резерв" />
+        <Signal Name="SHKU17_AI_A1_10_2" UUID="6BD8544A43DC42423D526598B309F4AA" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Резерв" />
+        <Signal Name="SHKU17_AI_A1_10_3" UUID="D973D59B4D6D4B22B54BF9AD1C0D4570" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Напряжение основного питания ШКУ" />
+        <Signal Name="SHKU17_AI_A1_10_4" UUID="9EAEFB9645830BE70114EDB0633C84D0" Type="DINT" Global="TRUE" Comment="Необработанный сигнал: Напряжение резервного питания ШКУ" />
+        <Signal Name="SHKU17_AI_Pg1KC2_flt" UUID="CD12B3004E15DA8C8A5E65B3350CBDFC" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на входе КЦ2" />
+        <Signal Name="SHKU17_AI_Pg2KC2_flt" UUID="490F0BB3464650C1B6741EA07645CD63" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на выходе КЦ2" />
+        <Signal Name="SHKU17_AI_Pg1C1_1K30_flt" UUID="78E748F247E34A74060DE783D549A954" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на вх. цеха №1 до Кр. 30" />
+        <Signal Name="SHKU17_AI_Pg1C2_1K30_flt" UUID="E179DC8B4051FD96FC47EAACC64A54D6" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на вх. цеха №2 до Кр. 30" />
+        <Signal Name="SHKU17_AI_Pg2C1_2K30_flt" UUID="1D281FE446EBAD09D8C8D89693897801" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на вых. цеха №1 после Кр. 30" />
+        <Signal Name="SHKU17_AI_Pg2C2_2K30_flt" UUID="6EE637804F0F1EA64395DFA42B414356" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на вых. цеха №2 после Кр. 30" />
+        <Signal Name="SHKU17_AI_Pg1SOK_1_flt" UUID="0BD8D4B844C0886790C4E49CF19EA4FF" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа в линии № 1 перед СОК" />
+        <Signal Name="SHKU17_AI_Pg1SOK_2_flt" UUID="15037DCC4EEDF27D99E84698B93424CB" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа в линии № 2 перед СОК" />
+        <Signal Name="SHKU17_AI_Pg1SOK_3_flt" UUID="0CCAC914497D02BE4013B58613E37E81" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа в линии № 3 перед СОК" />
+        <Signal Name="SHKU17_AI_PgORbN_flt" UUID="A79CC44C4E9E7EF9D91AD4BA1E44A3C3" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа общей рабочей линии" />
+        <Signal Name="SHKU17_AI_PgORzN_flt" UUID="B5E5928840135004512EA0AB1381EE17" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа общей резервной линии" />
+        <Signal Name="SHKU17_AI_Pg1UP_flt" UUID="322FC4624FCFE28311448C85C7D1E68B" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа в линии от узла подключения " />
+        <Signal Name="SHKU17_AI_Pig_flt" UUID="77A0909B46A85A674C04D59D84292162" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление импульсного газа " />
+        <Signal Name="SHKU17_AI_P2KRP_flt" UUID="91684D69492DFCE98216DDAA97B18C59" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление на выходе КРП " />
+        <Signal Name="SHKU17_AI_Ptg_flt" UUID="05EDEB8842DEBC9D36A078B350FB511F" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление топливного газа" />
+        <Signal Name="SHKU17_AI_Ppg_flt" UUID="AE34CB7C46E691F70239E18D3BBE258C" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление пускового газа " />
+        <Signal Name="SHKU17_AI_dPgORbN_flt" UUID="6691C48B4FC3CC333D577B9FDDBA0D23" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Перепад давлений газа на диафрагме общий рабочей линии" />
+        <Signal Name="SHKU17_AI_dPgORzN_flt" UUID="9D9A11A24A82248DD18C63BDF6704A29" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Перепад давлений газа на диафрагме общий резервной линии " />
+        <Signal Name="SHKU17_AI_dPtg_flt" UUID="874292C74F0C7066370EEDB4B73ED00F" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Перепад давлений газа на диафрагме топливного газа" />
+        <Signal Name="SHKU17_AI_Pg1KC1_flt" UUID="FC648595414ACC3D2BBFCE96D9F36E7E" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на входе КЦ1" />
+        <Signal Name="SHKU17_AI_Pg2KC1_flt" UUID="BD95B3E54CE6BEC5808E90BBA1AA0109" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на выходе КЦ1" />
+        <Signal Name="SHKU17_AI_Patm_flt" UUID="615DFDEA4FA15B789A6095ACBAE7A2DE" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление атмосферного воздуха" />
+        <Signal Name="SHKU17_AI_Pg2BRTPG_flt" UUID="82E87E0A4708344A132721BF94C5E531" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Давление газа на входе в БРТПГ" />
+        <Signal Name="SHKU17_AI_dPg2BRTPG_flt" UUID="B1EC2D6D4AF7761D30B69EB526600181" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Перепад давлений газа на диафрагме на входе в БРТПГ" />
+        <Signal Name="SHKU17_AI_Rez_1_flt" UUID="91C70EEC41F9F059CF8168BFCEB3085B" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Резерв" />
+        <Signal Name="SHKU17_AI_Rez_2_flt" UUID="D79F3C584C781DB9C0CF1EB932EBEF51" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Резерв" />
+        <Signal Name="SHKU17_AI_Rez_3_flt" UUID="733059DE48F6B6CE6F198FAAA5BB0CDB" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Резерв" />
+        <Signal Name="SHKU17_AI_Rez_4_flt" UUID="F44BB2494521BA8CDED20889C6D0AB1E" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Резерв" />
+        <Signal Name="SHKU17_AI_Rez_5_flt" UUID="60B914C14A1B033603F1AE95057B7D96" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Резерв" />
+        <Signal Name="SHKU17_AI_Rez_6_flt" UUID="CAC9FDD3421B06439343F2BE05F738C9" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Резерв" />
+        <Signal Name="SHKU17_AI_UosnSHKU_flt" UUID="6BF32DDF48FD2FD658C2A3A9E02D702B" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Напряжение основного питания ШКУ" />
+        <Signal Name="SHKU17_AI_UrezSHKU_flt" UUID="782D858B45F408CCCE460A9CEBD242D6" Type="BOOL" Global="TRUE" Comment="Ошибка канала: Напряжение резервного питания ШКУ" />
+        <Signal Name="SHKU17_A1_3_flt" UUID="C7712F5347E35C99B5F3E2A28ADD43B0" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.3" />
+        <Signal Name="SHKU17_A1_4_flt" UUID="13454E1B42AF20BF3819B5AF4BB29A75" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.4" />
+        <Signal Name="SHKU17_A1_5_flt" UUID="3E08B8944637336A8C5D67A38F2426E4" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.5" />
+        <Signal Name="SHKU17_A1_6_flt" UUID="6FAB496147837B0ABDC5D9833B7B6255" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.6" />
+        <Signal Name="SHKU17_A1_7_flt" UUID="6428039341B1D34E4F3A5AA006AFFC16" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.7" />
+        <Signal Name="SHKU17_A1_8_flt" UUID="E26842D649799693CFCD93BB501A31B1" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.8" />
+        <Signal Name="SHKU17_A1_9_flt" UUID="77A1F53E4FC1B023DB156AB4A31B57AD" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.9" />
+        <Signal Name="SHKU17_A1_10_flt" UUID="61FA0E034B39F0B5D7DCFDA7C60A7623" Type="BOOL" Global="TRUE" Comment="Ошибка модуля Сонет: A1.10" />
+    </InterfaceList>
+</SubAppType>

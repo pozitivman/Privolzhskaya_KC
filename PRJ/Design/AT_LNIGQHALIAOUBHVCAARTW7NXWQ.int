@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE SubAppType v. 1.3 >
+<SubAppType Name="PPZ" Kind="REPORT ENGINE" Args="" Comment="" UUID="806F59174FFF1A4E7B0F02BB026D8985">
+    <InterfaceList>
+        <Signal Name="@PID" UUID="1D0CFE3E4230DE9EDE8266A941A8990F" Type="STRING" Usage="output" />
+        <Signal Name="@STATE" UUID="C7E47D814E6227103CD5AE8BECBB3754" Type="STRING" Usage="output" />
+        <Signal Name="@COMMAND" UUID="73602963430FDAE76655F69E074CE2DE" Type="STRING" />
+        <Signal Name="@COMMAND_VALUE" UUID="DDE1D9274DD5CF37BD3254B4E8C5C456" Type="STRING" />
+        <Signal Name="@MESSAGE" UUID="9EE308BF447F6BFA360DE187558A145D" Type="STRING" Usage="output" />
+        <Signal Name="@MESSAGE_FRAMEWORK" UUID="2516541A456744CF35C1C3A869010952" Type="STRING" Usage="output" />
+        <Signal Name="@EVENT" UUID="13AFE1A1402140964AA48CB5CEE75AFF" Type="STRING" />
+        <Signal Name="@RESERVED" UUID="94D93D244A0CFA508ABFC9833E151993" Type="BOOL" />
+        <Signal Name="@RESERVE" UUID="EF36AC714EC7C5BE2D2337AC647C436F" Type="BOOL" />
+        <Signal Name="@LICENSE" UUID="07AFF87C4BEDE03E6F5469B617A4BB35" Type="STRING" Usage="output" />
+        <Signal Name="@WINDOW" UUID="652FF3C9466BCD70A44F36A1B06A251C" Type="TWINDOW" ArraySize="32" InitialValue="[(B42191CC4597AC3EB8EAFB92D723118C:=640,0D676125474662A65EF6399D51C17141:=480)]" />
+        <Signal Name="@DT" UUID="E55361E2455FAFC98D8A2188159208F6" Type="DT" ArraySize="32" />
+        <Signal Name="rezultPPZ" UUID="E4D90DA2485BBE2A2D93F6A1064F6038" Type="STRING" ArraySize="32" Global="TRUE" />
+        <Signal Name="valuePPZ" UUID="7B4D3B994FFE4313E1E0478CA4F17C59" Type="LREAL" ArraySize="32" Global="TRUE" />
+        <Signal Name="valuePPZ_DI" UUID="335BFF4D4A4FF04A735798A6E37F84C0" Type="BOOL" ArraySize="32" Global="TRUE" />
+        <Signal Name="dtPPZ" UUID="C76CE83148160526A05A4A83B005C111" Type="STRING" ArraySize="32" Global="TRUE" />
+        <Signal Name="BTN" UUID="2E89BEAA4E15C9B9A3E15490A3ACE741" Type="898B53BB408FF1D592497BBF3522B225" Global="TRUE" />
+        <Signal Name="TRUE" UUID="9423A61C470093F3461332B3CBECFAFD" Type="BOOL" InitialValue="TRUE" />
+        <Signal Name="SHKU17_AI_Ptg" UUID="3E9FC49B499C7F0B5334849F1639DE1F" Type="REAL" Global="TRUE" Comment="Обработанный сигнал: Давление топливного газа" />
+        <Signal Name="SHKU17_AI_Pg2KC1" UUID="2B9763A74793A7BD788D36B28EE0FF87" Type="REAL" Global="TRUE" Comment="Обработанный сигнал: Давление газа на выходе КЦ1" />
+        <Signal Name="SHKU17_AI_Pg2KC2" UUID="E844BF7D40BE4BB119F20CB2A2DCCBF2" Type="REAL" Global="TRUE" Comment="Обработанный сигнал: Давление газа на выходе КЦ2" />
+        <Signal Name="SHKU17_DI_btnKAOS" UUID="D361E17A4F85805047CE309CCD88DB61" Type="BOOL" Global="TRUE" Comment="Обработанный сигнал: Кнопка КАОC" />
+        <Signal Name="btn_AOB_1" UUID="0E41B92948EE7712F4B52F962EDA3066" Type="BOOL" Global="TRUE" Comment="Команда оператора: АОбс" />
+        <Signal Name="btn_AOB_2" UUID="C0A695AB46C3B887CFCE88A15CBACB76" Type="BOOL" Global="TRUE" Comment="Команда оператора: АОбс" />
+        <Signal Name="btn_AOS_1" UUID="E88727E94556386C9CB2968BF6A37F30" Type="BOOL" Global="TRUE" Comment="Команда оператора: АО КЦ1 СС" />
+        <Signal Name="btn_AOS_2" UUID="6AF9AE874825F0FEC53FC689851E3225" Type="BOOL" Global="TRUE" Comment="Команда оператора: АО КЦ2 СС" />
+        <Signal Name="AI_PL_015" UUID="6267F4C242D37450E4637585DAC0A7BB" Type="LREAL" InitialValue="1.2" Global="TRUE" Storage="persistent" Comment="Нижняя предупредительная уставка" />
+        <Signal Name="SP_P2C1_KR6_ON" UUID="910081434D5E19267866E8A72A3BF17D" Type="REAL" InitialValue="5.65000009536743" Global="TRUE" Storage="persistent" Comment="Уставка по давлению на вых. цеха 1 для откр. Кр6" />
+        <Signal Name="SP_P2C2_KR6_ON" UUID="A0DD1456458F1E6F8A3A31AA3D9B2E2A" Type="REAL" InitialValue="5.65000009536743" Global="TRUE" Storage="persistent" Comment="Уставка по давлению на вых. цеха 2 для откр. Кр6" />
+        <Signal Name="SHKU17_DI_KC1_Fire" UUID="2A5317AF491C7AD7CD9745AD8C843381" Type="BOOL" Global="TRUE" Comment="Обработанный сигнал: Цех №1 &quot;Пожар&quot;" />
+        <Signal Name="SHKU17_DI_KC2_Fire" UUID="0C7FA93A42A59760BF7FADB29E8B05A8" Type="BOOL" Global="TRUE" Comment="Обработанный сигнал: Цех №2 &quot;Пожар&quot;" />
+        <Signal Name="SHKU17_DI_AO_KC1_1PU" UUID="A95597764F91CE63DD9ECBBCE6205C45" Type="BOOL" Global="TRUE" Comment="Обработанный сигнал: АО КЦ-1 с ПУ" />
+        <Signal Name="SHKU17_DI_AO_KC2_1PU" UUID="06A522B14B8DED4DF6BED69E98987B23" Type="BOOL" Global="TRUE" Comment="Обработанный сигнал: АО КЦ-2 с ПУ" />
+    </InterfaceList>
+</SubAppType>

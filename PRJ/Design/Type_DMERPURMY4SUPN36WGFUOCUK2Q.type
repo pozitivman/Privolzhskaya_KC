@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Type v. 1.0 >
+<Type Name="Type_GPA_fastwell" Kind="Struct" UUID="5A39694E4893CF5CDE51BC80A1346A45">
+    <Fields>
+        <Field Name="GTD_Eth1_R_0_N_1_GT_R_Operator_SP_target_T" Type="REAL" UUID="ABF73BE547B88FF95F85BD812F2CFF1C" Comment="задание по оборотам СТ от РР в ГПА" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Accel_T" Type="REAL" UUID="4CA367BC4DFE9B8589189DA6AE9FB576" Comment="верхнее ограничение открытия ТРК" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Decel_T" Type="REAL" UUID="224956084D2B50215536AC8E9F487291" Comment="нижнее ограничение открытия ТРК" />
+        <Field Name="val_848" Type="WORD" UUID="13046A8D41B0C9D45F7603B3275E43F6" />
+        <Field Name="val_875" Type="WORD" UUID="5619283B44093DE831618B9F7EF3F12D" />
+        <Field Name="val_876" Type="WORD" UUID="893A70D845CDC79FDF6F80B2468DF547" />
+        <Field Name="GTD_Eth1_W_0_N_0_SQ_1_FLH_A8_A_Status_Active_0" Type="BOOL" UUID="F9B8A526406F828A722D138098989B1B" Comment="ГПА в магистрали848  bit 9" />
+        <Field Name="GTD_0_N_1_AS1_W_Unit_CL_dev_T" Type="REAL" UUID="75D2B33C482629336BC3188AAF6E5D3D" Comment="Девиация в формате СИС_КОМ относительно линии контроля помпажа" />
+        <Field Name="GTD_0_N_1_AS1_W_Unit_SL_dev_T" Type="REAL" UUID="5522C6824EE6F97B27B0EDB0C9A1BB18" Comment="Девиация в формате СИС_КОМ относительно линии границы помпажа" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Speed_high_limit_A_1_Status_Active_0_1" Type="BOOL" UUID="985AC0D446BBCC6F173FEFAF4D8918F7" Comment="ГПА на верхнем ограничении 875 bit 12" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Speed_high_clamp_A_1_Status_Active_0_1" Type="BOOL" UUID="2DF2B4624F0751E9917706A56BAEE1AE" Comment="верхнее ограничение открытия 875 ТРК bit 14" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Speed_low_limit_A_1_Status_Active_0_1" Type="BOOL" UUID="7419E0A14BC0D9D73AD5C98AE1DE5951" Comment="ГПА на нижнем ограничении 876 bit 0" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Speed_low_clamp_A_1_Status_Active_0_1" Type="BOOL" UUID="FC2D391249CB37D9C626799D8E08B21B" Comment="нижнее ограничение открытия 876 ТРК  bit 2" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_R_Operator_Remote_A_1_Status_Active_0_1" Type="BOOL" UUID="6ECF6A5C4B2C8613C07866B4AA99F0FE" Comment="Управление ГПА в ДУ876  bit 8" />
+        <Field Name="GTD_Eth1_W_0_N_2_1_FREQ_AS1_O_act_Status_CodeAE_1" Type="DWORD" UUID="BE70281B4317DA5966E5A7BE60E02F06" Comment="код ошибки GT" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Valves_Gt_T_1" Type="REAL" UUID="D3678157465EED059736B78926F07C15" Comment="выходной сигнал на ТРК" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_NHP_SP_Hi_T_1" Type="REAL" UUID="D29FE8F84C0454CF24E6C2BAB5C34B93" Comment="верхнее ограничение оборотов ТВД" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_NHP_SP_Low_T_1" Type="REAL" UUID="3392345242FEFB8762003694E3A0A85F" Comment="нижнее ограничение оборотов ТВД" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_NPT_SP_Hi_T_1" Type="REAL" UUID="C0128D024FBB8B0C1F6DBBB831AA1ED7" Comment="верхнее ограничение оборотов СТ" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_CDP_SP_Hi_T_1" Type="REAL" UUID="F643FC974CE82FB217251387199EDB99" Comment="верхняя уставка ограничения давления за ОК" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_EGT_SP_Hi_T_1" Type="REAL" UUID="03BB220B44CA6CBD37A3BDBB695C7415" Comment="верхняя уставка ограничения продуктов сгорания" />
+        <Field Name="GTD_Eth1_W_0_N_1_GT_W_Valves_CV_T_1" Type="REAL" UUID="7099AE324B036CBB7F108984911E4F98" Comment="выходной сигнал на ТРК" />
+        <Field Name="GTD_0_N_1_AS1_W_operator_Mode_Z" Type="INT" UUID="2EA2C8BF4FD8A7BD4502F8AC148FF228" Comment="статус AS регулятора (4-работа)" />
+        <Field Name="GTD_Eth1_W_0_N_1_FE_1_TM_1" Type="REAL" UUID="4BA6042E4A0F4FC79D1900AD3FDBB67D" Comment="Частота вращения ТВД" />
+        <Field Name="GTD_Eth1_W_0_N_1_FE_2_TM_1" Type="REAL" UUID="36CECBB248819C50F62AFEB751357147" Comment="Частота вращения ТНД" />
+        <Field Name="GTD_Eth1_W_0_N_1_TE_1_TM_1" Type="REAL" UUID="C2A1A22444CDDF3ABD45A5AF0DE8054B" Comment="Температура газов за ТНД" />
+        <Field Name="Rezerv_0" Type="REAL" UUID="03E389AA4AB38FCBFAFCD3B148134A02" Comment="Резерв" />
+        <Field Name="Rezerv_1" Type="REAL" UUID="D4951A8E490C3ED453A9F4A90BFF98D4" Comment="Резерв" />
+        <Field Name="Rezerv_2" Type="REAL" UUID="B43B280A45C3BD10D5D6F2BFF0404609" Comment="Резерв" />
+        <Field Name="Rezerv_3" Type="REAL" UUID="DF5868A947DCF5914F85D5B00763849D" Comment="Резерв" />
+    </Fields>
+</Type>
