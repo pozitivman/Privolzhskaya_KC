@@ -3204,36 +3204,32 @@ end_if;]]></ST>
                     <Variable UUID="00F743A5446A249CB69A2BAC7DC07589" Name="Error_string_tmp" Type="STRING" TypeUUID="38FDDE3B442D86554C56C884065F87B7" InitialValue="&apos;FALSE&apos;" Usage="internal" />
                     <Variable UUID="EF2A2AA34F81FD9884F6909C63266C20" Name="j" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
                     <Variable UUID="214743D54612A05B06773DBB48C339A7" Name="k" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
-                    <Variable UUID="05D69ACB4A5C9D1EFF720B98DB62764A" Name="m" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
-                    <Variable UUID="E0F0876F47601BEDBCB556A4FDA58A65" Name="n" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
-                    <Variable UUID="98F5377A40C0F57CB6D0F28F1A383207" Name="restrict_num" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
-                    <Variable UUID="32D253AB4E9BB27171704797C1447A03" Name="flag_stop" Type="BOOL" TypeUUID="EC797BDD4541F500AD80A78F1F991834" Usage="internal" />
-                    <Variable UUID="8723F7B744F884F698188D8BB059DBA8" Name="cross_chk_right" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
-                    <Variable UUID="0A52C6ED4898FA626287F2BC86251FCC" Name="cross_chk_left" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
-                    <Variable UUID="11AAAADD402955254333179B05A02D3C" Name="cross_chk_inside" Type="INT" TypeUUID="47B58C4E4726C8B230965EBE77F1169E" Usage="internal" />
                 </Variables>
                 <ST><![CDATA[if Aply_config and Aktiv_Group > 0 then
 	gr1 := 0;
 	gr2 := 0;
 	for i := 1 to 6 do
 		// Конфигурирование чужой группы
-		if (Sel_Group_GPA[i] > 0 and Sel_Group_GPA[i] < 5 and Sel_Group_GPA[i] <> Aktiv_Group) or (Sel_Group_GPA[i] = 6 and Group_GPA[i] <> Aktiv_Group and Group_GPA[i] <> 0) then gr1 := gr1 + 1; end_if;
+		if (Sel_Group_GPA[i] > 0 and Sel_Group_GPA[i] < 7 and Sel_Group_GPA[i] <> Aktiv_Group) or (Sel_Group_GPA[i] = 7 and Group_GPA[i] <> Aktiv_Group and Group_GPA[i] <> 0) then gr1 := gr1 + 1; end_if;
 
 		// ГПА находится в группе
-		if (Sel_Group_GPA[i] > 0 and Sel_Group_GPA[i] < 5) and (Sel_Group_GPA[i] <> Group_GPA[i] and Group_GPA[i] > 0) then gr2 := gr2 + 1; end_if;
+		if (Sel_Group_GPA[i] > 0 and Sel_Group_GPA[i] < 7) and (Sel_Group_GPA[i] <> Group_GPA[i] and Group_GPA[i] > 0) then gr2 := gr2 + 1; end_if;
 	end_for;
 	if gr1 > 0 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'Конфигурирование чужой группы$n'; end_if;
 	if gr2 > 0 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'ГПА уже находится в группе$n'; end_if;
 
+	//Проверка пересечений групп
+
+
 	// Результирующая конфигурация
-	for i := 1 to 7 do
+	for i := 1 to 6 do
 		temp_GPA[i] := Group_GPA[i];
 		if Sel_Group_GPA[i] = 7 then temp_GPA[i] := 0; end_if;
 		if Sel_Group_GPA[i] > 0 and Sel_Group_GPA[i] < 7 then temp_GPA[i] := Sel_Group_GPA[i]; end_if;
 	end_for;
 
 	// Анализ допустимых конфигураций
-	// больше двух ГПА в группе. Внесение изменений от 29.10.2019: Ограничить количество ГПА в группе тремя агрегатами.
+	// Внесение изменений от 29.10.2019: Ограничить количество ГПА в группе тремя агрегатами.
 	temp := 0;
 	for i := 1 to 6 do
 		if temp_GPA[i] = 1 then	temp := temp + 1; end_if;
@@ -3254,126 +3250,22 @@ end_if;]]></ST>
 		if temp_GPA[i] = 4 then	temp := temp + 1; end_if;
 	end_for;
 	if temp > 3 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'Больше трех ГПА в группе 4$n'; end_if;
-
-	// Больше шести групп
-	temp := 0;
-	gr1 := 0;
-	for i := 1 to 6 do
-		if temp_GPA[i] = 1 then	temp := temp + 1; end_if;
-	end_for;
-	if temp > 0 then gr1 := gr1 + 1; end_if;
-	temp := 0;
-	for i := 1 to 6 do
-		if temp_GPA[i] = 2 then	temp := temp + 1; end_if;
-	end_for;
-	if temp > 0 then gr1 := gr1 + 1; end_if;
-	temp := 0;
-	for i := 1 to 6 do
-		if temp_GPA[i] = 3 then	temp := temp + 1; end_if;                 
-	end_for;
-	if temp > 0 then gr1 := gr1 + 1; end_if;
-	temp := 0;
-	for i := 1 to 6 do
-		if temp_GPA[i] = 4 then	temp := temp + 1; end_if;
-	end_for;
-	if temp > 0 then gr1 := gr1 + 1; end_if;
 	temp := 0;
 	for i := 1 to 6 do
 		if temp_GPA[i] = 5 then	temp := temp + 1; end_if;
 	end_for;
-	if temp > 0 then gr1 := gr1 + 1; end_if;
+	if temp > 3 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'Больше трех ГПА в группе 5$n'; end_if;
 	temp := 0;
 	for i := 1 to 6 do
 		if temp_GPA[i] = 6 then	temp := temp + 1; end_if;
 	end_for;
-	if temp > 0 then gr1 := gr1 + 1; end_if;
+	if temp > 3 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'Больше трех ГПА в группе 6$n'; end_if;
 
-	if gr1 > 6 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'Больше шести групп$n';  end_if;
 
-	// ГПА1 и ГПА6 не могут быть во всех группах
-	if temp_GPA[1] = 2 or temp_GPA[1] = 4 or temp_GPA[1] = 6 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'ГПА1 - неверный выбор группы$n'; end_if;
-	if temp_GPA[6] = 1 or temp_GPA[6] = 3 or temp_GPA[6] = 5 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'ГПА6 - неверный выбор группы$n'; end_if;
+	// ГПА1 и ГПА6 не могут быть в группе 6 и 1 соответственно
+	if temp_GPA[1] = 6 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'ГПА1 - неверный выбор группы$n'; end_if;
+	if temp_GPA[6] = 1 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'ГПА6 - неверный выбор группы$n'; end_if;
 
-	// группы 1-3 и 4-6
-	// по требованиям от 29.10.2019 снимаем ограничение на пересечение по секциям
-	//Проверка на пересечение группы 1,3 группой 2,4 справа
-	if (Aktiv_Group = 2 or Aktiv_Group = 4) then
-		i:= 0; j := 0; flag_stop := false;
-		for i:= 1 to 6 do
-			if (Group_GPA[i] = 1 or Group_GPA[i] = 3) and flag_stop = false then
-				flag_stop := true;
-				restrict_num := i;
-			end_if;
-		end_for;
-
-		if flag_stop then
-			for j := 1 to restrict_num do
-				if (Sel_Group_GPA[j] = 2 or Sel_Group_GPA[j] = 4) then cross_chk_right := cross_chk_right + 1; end_if;
-			end_for;
-		end_if;
-	end_if;
-	if cross_chk_right > 0 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'Пересечение группы 1 или 3 справа$n'; end_if;
-
-	//Проверка на пересечение группы 2,4 группой 1,3 слева
-	if (Aktiv_Group = 1 or Aktiv_Group = 3) then
-		i:= 0; j := 0; flag_stop := false;
-		for i:= 6 to 1 by -1 do
-			if (Group_GPA[i] = 2 or Group_GPA[i] = 4) and flag_stop = false then
-				flag_stop := true;
-				restrict_num := i;
-			end_if;
-		end_for;
-
-		if flag_stop then
-			for j := 6 to restrict_num by -1 do
-				if (Sel_Group_GPA[j] = 1 or Sel_Group_GPA[j] = 3) then cross_chk_left := cross_chk_left + 1; end_if;
-			end_for;
-		end_if;
-	end_if;
-	if cross_chk_left > 0 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'пересечение группы 2 или 4 слева$n'; end_if;
- 
-(*
-	gr1 := 0;
-	gr2 := 0;
-	for i := 1 to 3 do
-		if temp_GPA[i] > 0 then
-			for t := 4 to 6 do
-				if temp_GPA[t] > 0 and temp_GPA[t] = temp_GPA[i] then gr1 := temp_GPA[i]; end_if;
-			end_for;
-		end_if;
-	end_for;
-	if gr1 > 0 then
-		for i := 1 to 6 do
-			if temp_GPA[i] > 0 and temp_GPA[i] <> gr1 then gr2 := temp_GPA[i]; end_if;
-		end_for;
-	end_if;
-	if gr2 > 0 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'пересечение групп по секциям$n'; end_if;
-*)
-	// более одной группы в секции
-(*
-	gr1 := 0;
-	for i := 1 to 3 do
-		if temp_GPA[i] > 0 then
-			for t := 1 to 3 do
-				if temp_GPA[t] > 0 and temp_GPA[t] <> temp_GPA[i] then gr1 := temp_GPA[i]; end_if;
-			end_for;
-		end_if;
-	end_for;
-	if gr1 > 0 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'более одной группы в секции 1$n'; end_if;
-	gr1 := 0;
-	for i := 4 to 6 do
-		if temp_GPA[i] > 0 then
-			for t := 4 to 6 do
-				if temp_GPA[t] > 0 and temp_GPA[t] <> temp_GPA[i] then gr1 := temp_GPA[i]; end_if;
-			end_for;
-		end_if;
-	end_for;
-	if gr1 > 0 then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'более одной группы в секции 2$n'; end_if;
-*)
-
-// три ГПА в секции
-//по новым требованиям от 29.10.2019 снимаем ограничение на количество ГПА в одной секции
-//	if (temp_GPA[1] > 0 and temp_GPA[2] > 0 and temp_GPA[3] > 0) or (temp_GPA[4] > 0 and temp_GPA[5] > 0 and temp_GPA[6] > 0) then Error_config_tmp := true; Error_string_tmp := Error_string_tmp + 'три ГПА в секции$n'; end_if;
 
 	Error_config := Error_config_tmp;
 	Error_string := Error_string_tmp;
@@ -3389,34 +3281,50 @@ end_if;]]></ST>
 		GROUPE_2 := uint#0;
 		GROUPE_3 := uint#0;
 		GROUPE_4 := uint#0;
+		GROUPE_5 := uint#0;
+		GROUPE_6 := uint#0;
 		if temp_GPA[1] = 1 then GROUPE_1 := GROUPE_1 + uint#1; end_if;
 		if temp_GPA[1] = 2 then GROUPE_2 := GROUPE_2 + uint#1; end_if;
 		if temp_GPA[1] = 3 then GROUPE_3 := GROUPE_3 + uint#1; end_if;
 		if temp_GPA[1] = 4 then GROUPE_4 := GROUPE_4 + uint#1; end_if;
+		if temp_GPA[1] = 5 then GROUPE_5 := GROUPE_5 + uint#1; end_if;
+		if temp_GPA[1] = 6 then GROUPE_6 := GROUPE_6 + uint#1; end_if;
 		if temp_GPA[2] = 1 then GROUPE_1 := GROUPE_1 + uint#2; end_if;
 		if temp_GPA[2] = 2 then GROUPE_2 := GROUPE_2 + uint#2; end_if;
 		if temp_GPA[2] = 3 then GROUPE_3 := GROUPE_3 + uint#2; end_if;
 		if temp_GPA[2] = 4 then GROUPE_4 := GROUPE_4 + uint#2; end_if;
+		if temp_GPA[2] = 5 then GROUPE_5 := GROUPE_5 + uint#2; end_if;
+		if temp_GPA[2] = 6 then GROUPE_6 := GROUPE_6 + uint#2; end_if;
 		if temp_GPA[3] = 1 then GROUPE_1 := GROUPE_1 + uint#4; end_if;
 		if temp_GPA[3] = 2 then GROUPE_2 := GROUPE_2 + uint#4; end_if;
 		if temp_GPA[3] = 3 then GROUPE_3 := GROUPE_3 + uint#4; end_if;
 		if temp_GPA[3] = 4 then GROUPE_4 := GROUPE_4 + uint#4; end_if;
+		if temp_GPA[3] = 5 then GROUPE_5 := GROUPE_5 + uint#4; end_if;
+		if temp_GPA[3] = 6 then GROUPE_6 := GROUPE_6 + uint#4; end_if;
 		if temp_GPA[4] = 1 then GROUPE_1 := GROUPE_1 + uint#8; end_if;
 		if temp_GPA[4] = 2 then GROUPE_2 := GROUPE_2 + uint#8; end_if;
 		if temp_GPA[4] = 3 then GROUPE_3 := GROUPE_3 + uint#8; end_if;
 		if temp_GPA[4] = 4 then GROUPE_4 := GROUPE_4 + uint#8; end_if;
+		if temp_GPA[4] = 5 then GROUPE_5 := GROUPE_5 + uint#8; end_if;
+		if temp_GPA[4] = 6 then GROUPE_6 := GROUPE_6 + uint#8; end_if;
 		if temp_GPA[5] = 1 then GROUPE_1 := GROUPE_1 + uint#16; end_if;
 		if temp_GPA[5] = 2 then GROUPE_2 := GROUPE_2 + uint#16; end_if;
 		if temp_GPA[5] = 3 then GROUPE_3 := GROUPE_3 + uint#16; end_if;
 		if temp_GPA[5] = 4 then GROUPE_4 := GROUPE_4 + uint#16; end_if;
+		if temp_GPA[5] = 5 then GROUPE_5 := GROUPE_5 + uint#16; end_if;
+		if temp_GPA[5] = 6 then GROUPE_6 := GROUPE_6 + uint#16; end_if;
 		if temp_GPA[6] = 1 then GROUPE_1 := GROUPE_1 + uint#32; end_if;
 		if temp_GPA[6] = 2 then GROUPE_2 := GROUPE_2 + uint#32; end_if;
 		if temp_GPA[6] = 3 then GROUPE_3 := GROUPE_3 + uint#32; end_if;
 		if temp_GPA[6] = 4 then GROUPE_4 := GROUPE_4 + uint#32; end_if;
+		if temp_GPA[6] = 5 then GROUPE_5 := GROUPE_5 + uint#32; end_if;
+		if temp_GPA[6] = 6 then GROUPE_6 := GROUPE_6 + uint#32; end_if;
 		for i := 1 to 6 do
 			Sel_Group_GPA[i] := 0;
+			temp_GPA[i] := 0;
 		end_for;
 		Aktiv_Group := 0;
+		Aply_config := false;
 	end_if;
 end_if;
 
@@ -3424,15 +3332,13 @@ end_if;
 if Cancel_config then
 	for i := 1 to 6 do
 		Sel_Group_GPA[i] := 0;
+		temp_GPA[i] := 0;
 	end_for;
 	Aktiv_Group := 0;
 	Error_config_tmp	:= false;
 	Error_string_tmp	:= '';
 	Error_config		:= false;
 	Error_string		:= '';
-	restrict_num 		:= 0; 
-	cross_chk_right 	:= 0;
-	cross_chk_left	 	:= 0;
 end_if;
 
 ////////////////////////////////////////////////////////////////
@@ -3442,21 +3348,21 @@ end_if;
 //ГПА-1
 rtrig_GPA1_AO(CLK:= SHKU17_DI_GPA1_AO);
 if rtrig_GPA1_AO.Q then
-	groupNum := temp_GPA[1];
+	groupNum := Group_GPA[1];
 	for numGPA := 1 to 6 do
-		if  temp_GPA[numGPA] = groupNum and temp_GPA[numGPA] <> 0 and numGPA <> int#1 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
+		if  Group_GPA[numGPA] = groupNum and Group_GPA[numGPA] <> 0 and numGPA <> int#1 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
 			sendAO_GPA[numGPA] := int#1;
 		end_if;    
 	end_for;
 
-	usl_tp_gr13 := (groupNum = 1 or groupNum = 3) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0); //Цех№1
+	usl_tp_gr13 := (groupNum = 1 or groupNum = 3 or groupNum = 5) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0 or GROUPE_5 <> uint#0); //Цех№1
 	if usl_tp_gr13 and not bloc_gpa1 then
 		send_KR6_1_ON := bool#1;
 		send_APK1_ON  := bool#1;
 		bloc_gpa1 := bool#1; 
 	end_if;
 
-	usl_tp_gr24 := (groupNum = 2 or groupNum = 4) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0); //Цех№2 
+	usl_tp_gr24 := (groupNum = 2 or groupNum = 4 or groupNum = 6) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0 or GROUPE_6 <> uint#0); //Цех№2 
 	if usl_tp_gr24 and not bloc_gpa1 then 
 		send_KR6_2_ON := bool#1;
 		send_APK2_ON  := bool#1;
@@ -3467,21 +3373,21 @@ end_if;
 //ГПА-2
 rtrig_GPA2_AO(CLK:= SHKU17_DI_GPA2_AO);
 if rtrig_GPA2_AO.Q then
-	groupNum := temp_GPA[2];
+	groupNum := Group_GPA[2];
 	for numGPA := 1 to 6 do
-		if temp_GPA[numGPA] = groupNum and temp_GPA[numGPA] <> 0 and numGPA <> int#2 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
+		if Group_GPA[numGPA] = groupNum and Group_GPA[numGPA] <> 0 and numGPA <> int#2 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
 			sendAO_GPA[numGPA] := int#1;
 		end_if;    
 	end_for;
 
-	usl_tp_gr13 := (groupNum = 1 or groupNum = 3) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0); //Цех№1
+	usl_tp_gr13 := (groupNum = 1 or groupNum = 3 or groupNum = 5) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0 or GROUPE_5 <> uint#0); //Цех№1
 	if usl_tp_gr13 and not bloc_gpa2 then
 		send_KR6_1_ON := bool#1;
 		send_APK1_ON  := bool#1;
 		bloc_gpa2 := bool#1; 
 	end_if;
 
-	usl_tp_gr24 := (groupNum = 2 or groupNum = 4) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0); //Цех№2 
+	usl_tp_gr24 := (groupNum = 2 or groupNum = 4 or groupNum = 6) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0 or GROUPE_6 <> uint#0); //Цех№2 
 	if usl_tp_gr24 and not bloc_gpa2 then 
 		send_KR6_2_ON := bool#1;
 		send_APK2_ON  := bool#1;
@@ -3492,21 +3398,21 @@ end_if;
 //ГПА-3
 rtrig_GPA3_AO(CLK:= SHKU17_DI_GPA3_AO);
 if rtrig_GPA3_AO.Q then
-	groupNum := temp_GPA[3];
+	groupNum := Group_GPA[3];
 	for numGPA := 1 to 6 do
-		if temp_GPA[numGPA] = groupNum and temp_GPA[numGPA] <> 0 and numGPA <> int#3 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
+		if Group_GPA[numGPA] = groupNum and Group_GPA[numGPA] <> 0 and numGPA <> int#3 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
 			sendAO_GPA[numGPA] := int#1;
 		end_if;    
 	end_for;
 
-	usl_tp_gr13 := (groupNum = 1 or groupNum = 3) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0); //Цех№1
+	usl_tp_gr13 := (groupNum = 1 or groupNum = 3 or groupNum = 5) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0 or GROUPE_5 <> uint#0); //Цех№1
 	if usl_tp_gr13 and not bloc_gpa3 then
 		send_KR6_1_ON := bool#1;
 		send_APK1_ON  := bool#1;
 		bloc_gpa3 := bool#1; 
 	end_if;
 
-	usl_tp_gr24 := (groupNum = 2 or groupNum = 4) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0); //Цех№2 
+	usl_tp_gr24 := (groupNum = 2 or groupNum = 4 or groupNum = 6) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0 or GROUPE_6 <> uint#0); //Цех№2 
 	if usl_tp_gr24 and not bloc_gpa3 then 
 		send_KR6_2_ON := bool#1;
 		send_APK2_ON  := bool#1;
@@ -3517,21 +3423,21 @@ end_if;
 //ГПА-4
 rtrig_GPA4_AO(CLK:= SHKU17_DI_GPA4_AO);
 if rtrig_GPA4_AO.Q then
-	groupNum := temp_GPA[4];
+	groupNum := Group_GPA[4];
 	for numGPA := 1 to 6 do
-		if temp_GPA[numGPA] = groupNum and temp_GPA[numGPA] <> 0 and numGPA <> int#4 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
+		if Group_GPA[numGPA] = groupNum and Group_GPA[numGPA] <> 0 and numGPA <> int#4 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
 			sendAO_GPA[numGPA] := int#1;
 		end_if;    
 	end_for;
 
-	usl_tp_gr13 := (groupNum = 1 or groupNum = 3) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0); //Цех№1
+	usl_tp_gr13 := (groupNum = 1 or groupNum = 3 or groupNum = 5) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0 or GROUPE_5 <> uint#0); //Цех№1
 	if usl_tp_gr13 and not bloc_gpa4 then
 		send_KR6_1_ON := bool#1;
 		send_APK1_ON  := bool#1;
 		bloc_gpa4 := bool#1; 
 	end_if;
 
-	usl_tp_gr24 := (groupNum = 2 or groupNum = 4) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0); //Цех№2 
+	usl_tp_gr24 := (groupNum = 2 or groupNum = 4 or groupNum = 6) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0 or GROUPE_6 <> uint#0); //Цех№2 
 	if usl_tp_gr24 and not bloc_gpa4 then 
 		send_KR6_2_ON := bool#1;
 		send_APK2_ON  := bool#1;
@@ -3542,20 +3448,21 @@ end_if;
 //ГПА-5
 rtrig_GPA5_AO(CLK:= SHKU17_DI_GPA5_AO);
 if rtrig_GPA5_AO.Q then
-	groupNum := temp_GPA[5];
+	groupNum := Group_GPA[5];
 	for numGPA := 1 to 6 do
-		if temp_GPA[numGPA] = groupNum and temp_GPA[numGPA] <> 0 and numGPA <> int#5 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
+		if Group_GPA[numGPA] = groupNum and Group_GPA[numGPA] <> 0 and numGPA <> int#5 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
 			sendAO_GPA[numGPA] := int#1;
 		end_if;    
 	end_for;
-	usl_tp_gr13 := (groupNum = 1 or groupNum = 3) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0); //Цех№1
+
+	usl_tp_gr13 := (groupNum = 1 or groupNum = 3 or groupNum = 5) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0 or GROUPE_5 <> uint#0); //Цех№1
 	if usl_tp_gr13 and not bloc_gpa5 then
 		send_KR6_1_ON := bool#1;
 		send_APK1_ON  := bool#1;
 		bloc_gpa5 := bool#1; 
 	end_if;
 
-	usl_tp_gr24 := (groupNum = 2 or groupNum = 4) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0); //Цех№2 
+	usl_tp_gr24 := (groupNum = 2 or groupNum = 4 or groupNum = 6) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0 or GROUPE_6 <> uint#0); //Цех№2 
 	if usl_tp_gr24 and not bloc_gpa5 then 
 		send_KR6_2_ON := bool#1;
 		send_APK2_ON  := bool#1;
@@ -3566,20 +3473,21 @@ end_if;
 //ГПА-6
 rtrig_GPA6_AO(CLK:= SHKU17_DI_GPA6_AO);
 if rtrig_GPA6_AO.Q then
-	groupNum := temp_GPA[6];
+	groupNum := Group_GPA[6];
 	for numGPA := 1 to 6 do
-		if temp_GPA[numGPA] = groupNum and temp_GPA[numGPA] <> 0 and numGPA <> int#6 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
+		if Group_GPA[numGPA] = groupNum and Group_GPA[numGPA] <> 0 and numGPA <> int#6 then // Проверка компаньона в группе и пропуск агрегата, у которого АО
 			sendAO_GPA[numGPA] := int#1;
 		end_if;    
 	end_for;
-	usl_tp_gr13 := (groupNum = 1 or groupNum = 3) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0); //Цех№1
+
+	usl_tp_gr13 := (groupNum = 1 or groupNum = 3 or groupNum = 5) and (GROUPE_1 <> uint#0 or GROUPE_3 <> uint#0 or GROUPE_5 <> uint#0); //Цех№1
 	if usl_tp_gr13 and not bloc_gpa6 then
 		send_KR6_1_ON := bool#1;
 		send_APK1_ON  := bool#1;
 		bloc_gpa6 := bool#1; 
 	end_if;
 
-	usl_tp_gr24 := (groupNum = 2 or groupNum = 4) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0); //Цех№2 
+	usl_tp_gr24 := (groupNum = 2 or groupNum = 4 or groupNum = 6) and (GROUPE_2 <> uint#0 or GROUPE_4 <> uint#0 or GROUPE_6 <> uint#0); //Цех№2 
 	if usl_tp_gr24 and not bloc_gpa6 then 
 		send_KR6_2_ON := bool#1;
 		send_APK2_ON  := bool#1;

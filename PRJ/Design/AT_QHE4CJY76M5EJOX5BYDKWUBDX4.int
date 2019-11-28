@@ -13,10 +13,15 @@
         <Signal Name="@RESERVE" UUID="CDE5C2514501A8052E7DA9AF41701589" Type="BOOL" />
         <Signal Name="@LICENSE" UUID="B604D1A849DB8D37FAE43BA7D8A1D9E8" Type="STRING" Usage="output" />
         <Signal Name="Regul_Group_GPA" UUID="D55FD17A4177F2E86C353DADAB11930E" Type="INT" ArraySize="7" Global="TRUE" Comment="Группы от регулятора" />
+        <Signal Name="etl" UUID="34480876474929B985E75C9EAD11531A" Type="INT" Usage="" />
+        <Signal Name="eth" UUID="1535446847D5D143C6096795244B3F94" Type="INT" Usage="" />
+        <Signal Name="num_gpa_in_gr" UUID="5551FDB346E0B13E12386DB9750A0A66" Type="INT" ArraySize="7" Usage="" />
         <Signal Name="GROUPE_1" UUID="CA304A9B4C7D71155823C993EB0B1164" Type="UINT" Global="TRUE" />
         <Signal Name="GROUPE_2" UUID="CC1CA15545385E90D3A34BA4B07491EF" Type="UINT" Global="TRUE" />
         <Signal Name="GROUPE_3" UUID="402653E347C926656883BE9BEC253EBC" Type="UINT" Global="TRUE" />
         <Signal Name="GROUPE_4" UUID="95D368FF4757ECDCB39450AD17A181DC" Type="UINT" Global="TRUE" />
+        <Signal Name="GROUPE_5" UUID="453EF1F54DE2128A856DFAB8B1B7EB30" Type="UINT" Usage="" Global="TRUE" />
+        <Signal Name="GROUPE_6" UUID="6641FB29461D9B1C7AE2E4B05AA4E5E5" Type="UINT" Usage="" Global="TRUE" />
         <Signal Name="temp_GPA" UUID="580550DE423E197CD2F0439017FAAAE3" Type="INT" ArraySize="8" Global="TRUE" />
         <Signal Name="Finish_rec" UUID="0CD283A14CEF7F6A8C20059EB77499F1" Type="BOOL" Global="TRUE" Comment="Завершение записи" />
         <Signal Name="Error_string" UUID="06E5BFC443FDFC787F5303854DB3259C" Type="STRING" Global="TRUE" />

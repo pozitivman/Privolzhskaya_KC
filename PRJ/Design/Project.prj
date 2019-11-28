@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE Project v. 1.0 >
-<Project Name="KC_Privolzhskaya" Comment="" Port="10000" EndPort="30000" UUID="1BE319434C3E042695052DA9815AFB92" SignProject="FALSE" UsersUpdateMode="REPLACE">
+<Project Name="KC_Privolzhskaya" Comment="" Port="10000" EndPort="30000" UUID="CC4F3ACF4490BAA7B25F5A990E149EA3" SignProject="FALSE" UsersUpdateMode="REPLACE">
     <Globals>
         <Signal Name="temp_GPA" UUID="580550DE423E197CD2F0439017FAAAE3" Type="INT" ArraySize="8" Global="TRUE" />
         <Signal Name="Status_GPA_1" UUID="276FD23442437C558ACCAD9A3337D36B" Type="INT" Global="TRUE" />
@@ -48,6 +48,8 @@
         <Signal Name="GROUPE_2" UUID="CC1CA15545385E90D3A34BA4B07491EF" Type="UINT" Global="TRUE" />
         <Signal Name="GROUPE_3" UUID="402653E347C926656883BE9BEC253EBC" Type="UINT" Global="TRUE" />
         <Signal Name="GROUPE_4" UUID="95D368FF4757ECDCB39450AD17A181DC" Type="UINT" Global="TRUE" />
+        <Signal Name="GROUPE_5" UUID="453EF1F54DE2128A856DFAB8B1B7EB30" Type="UINT" Global="TRUE" />
+        <Signal Name="GROUPE_6" UUID="6641FB29461D9B1C7AE2E4B05AA4E5E5" Type="UINT" Global="TRUE" />
         <Signal Name="Error_string" UUID="06E5BFC443FDFC787F5303854DB3259C" Type="STRING" Global="TRUE" />
         <Signal Name="Finish_rec" UUID="0CD283A14CEF7F6A8C20059EB77499F1" Type="BOOL" Global="TRUE" Comment="Завершение записи" />
         <Signal Name="Error_config" UUID="796F2EED48F408682AFE2BB030EE4C0A" Type="BOOL" Global="TRUE" Comment="Ошибка конфигурации" />
